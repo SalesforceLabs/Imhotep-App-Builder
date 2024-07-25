@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <isExposed>true</isExposed>
+    <description>Displays Metadata Types as a column list of action buttons on a Flow screen.</description>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property   label="Project Id"
+                        name="projectId"
+                        type="String"
+                        role="inputOnly"
+                        description="Record Id for the related project. Used to filter Metadata Components." />
+            <property   label="Output: Button Clicked?"
+                        name="outputButtonClicked"
+                        type="Boolean"
+                        role="outputOnly" />
+            <property   label="Output: Selected Change Type"
+                        name="outputSelectedChangeType"
+                        type="String"
+                        role="outputOnly" />
+            <property   label="Output: Selected Component"
+                        name="outputSelectedComponent"
+                        type="String"
+                        role="outputOnly" />
+            <property   label="Output: Selected Metadata Type"
+                        name="outputSelectedMetadataType"
+                        type="String"
+                        role="outputOnly" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,125 @@
+<aura:component controller="ImhotepAppBuilderCtrl" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="ProjectMemberRecords" type="Project_Member__c" />
+    
+    <aura:attribute name="ImhotepActiveMetadata" type="iab__Imhotep_Config__mdt" />
+
+    <!-- deprecated attributes -->
+    <aura:attribute name="AddFlowAPIName" type="String" access="global" />
+    <aura:attribute name="ModifyFlowAPIName" type="String" access="global" />
+    <aura:attribute name="RemoveFlowAPIName" type="String" access="global" />
+    
+    <!-- reloads the component if the record is edited -->
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    
+    <!-- for flow launcher -->
+    <aura:attribute name="showModal" type="Boolean" default="false" />
+    <aura:attribute name="flow" type="Object" />
+    
+    
+    
+    <!-- Only display if modal button for flow has been clicked -->
+    <div class="{!v.showModal ? 'slds-show' : 'slds-hide'}">
+        <section class="slds-modal slds-fade-in-open slds-modal_medium">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header slds-modal__header_empty">
+                    <lightning:buttonIcon   size="large"
+                                            iconName="utility:close"
+                                            variant="bare-inverse"
+                                            onclick="{!c.closeModal}"
+                                            ariaLabel="{!$Label.c.GeneralModalCloseLabel}"
+                                            alternativeText="{!$Label.c.GeneralModalCloseAltText}"
+                                            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" />
+                </header>
+                <div class="slds-modal__content slds-var-p-around_medium">{!v.body}</div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    
+    
+    
+    <article class="slds-card" style="margin-bottom:10px;">
+        <div class="slds-card__header slds-grid related-list-for-card">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon-custom-custom15" title="{!$Label.c.HeadingProjectMembers}">
+                        <lightning:icon iconName="custom:custom15" title="{!$Label.c.HeadingProjectMembers}" size="small" />
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <lightning:formattedUrl value="{!'/lightning/r/iab__Project__c/' + v.recordId + '/related/iab__Project_Members__r/view'}" label="{!$Label.c.HeadingProjectMembers}" class="slds-card__header-link slds-truncate" />
+                    </h2>
+                </div>
+                <div class="slds-no-flex">
+                    <lightning:button label="{!$Label.c.ActionNewProjectMemberLabel}"
+                                      iconName="utility:add"
+                                      iconPosition="left"
+                                      onclick="{!c.runFlowToAdd}" />
+                </div>
+            </header>
+        </div>
+        
+        <table class="slds-table slds-table_bordered" aria-label="{!$Label.c.HeadingProjectMembers}">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th scope="col"><div class="slds-truncate" title="{!$Label.c.ProjectMemberFieldNameLabel}">{!$Label.c.ProjectMemberFieldNameLabel}</div></th>
+                    <th scope="col"><div class="slds-truncate" title="{!$Label.c.ProjectMemberFieldRoleLabel}">{!$Label.c.ProjectMemberFieldRoleLabel}</div></th>
+                    <th scope="col"><div class="slds-truncate" title="{!$Label.c.ProjectMemberFieldNotesLabel}">{!$Label.c.ProjectMemberFieldNotesLabel}</div></th>
+                    <th scope="col" class="slds-cell_action-mode" style="width:3.25rem"><div class="slds-truncate" title="{!$Label.c.ActionTableColActionsLabel}">{!$Label.c.ActionTableColActionsLabel}</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <aura:renderIf isTrue="{!v.ProjectMemberRecords.length > 0}">
+                    <aura:iteration items="{!v.ProjectMemberRecords}" var="pm" indexVar="index">
+                        <tr class="slds-hint-parent">
+                            <td data-label="{!$Label.c.ProjectMemberFieldNameLabel}"><div class="slds-truncate" title="{!pm.User__r.FirstName + ' ' + pm.iab__User__r.LastName}"><strong><lightning:formattedUrl value="{! '/lightning/r/' + pm.Id + '/view'}" label="{!pm.iab__User__r.FirstName + ' ' + pm.iab__User__r.LastName}" /></strong></div></td>
+                            <td data-label="{!$Label.c.ProjectMemberFieldRoleLabel}"><div class="slds-truncate" title="{!pm.iab__Role__c}">{!pm.iab__Role__c}</div></td>
+                            <td data-label="{!$Label.c.ProjectMemberFieldNotesLabel}"><div class="slds-truncate slds-cell-wrap" title="{!pm.iab__Notes__c}">{!pm.iab__Notes__c}</div></td>
+                            <td data-label="{!$Label.c.ActionTableColActionsLabel}">
+                                <aura:renderIf isTrue="{!pm.iab__Role__c == 'Owner/Lead'}">
+                                    <lightning:button label="{!$Label.c.ActionModifyProjectMemberLabel}"
+                                                      iconName="utility:edit"
+                                                      iconPosition="left"
+                                                      name="{!pm.Id}"
+                                                      onclick="{!c.runFlowToModify}" />
+                                    <lightning:button label="{!$Label.c.ActionRemoveProjectMemberLabel}"
+                                                      iconName="utility:close"
+                                                      iconPosition="left"
+                                                      disabled="true" />
+                                    
+                                    <aura:set attribute="else">
+                                        
+                                        <lightning:button label="{!$Label.c.ActionModifyProjectMemberLabel}"
+                                                          iconName="utility:edit"
+                                                          iconPosition="left"
+                                                          name="{!pm.Id}"
+                                                          onclick="{!c.runFlowToModify}" />
+                                        <lightning:button label="{!$Label.c.ActionRemoveProjectMemberLabel}"
+                                                          iconName="utility:close"
+                                                          iconPosition="left"
+                                                          name="{!pm.Id}"
+                                                          onclick="{!c.runFlowToRemove}" />
+                                        
+                                    </aura:set>
+                                </aura:renderIf>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                    
+                    <aura:set attribute="else">
+                        <tr class="slds-hint-parent"><th colspan="3">{!$Label.c.ProjectMemberEmptyText}</th></tr>
+                    </aura:set>
+                </aura:renderIf>
+                
+            </tbody>
+        </table>
+        
+    </article>
+    
+    
+</aura:component>

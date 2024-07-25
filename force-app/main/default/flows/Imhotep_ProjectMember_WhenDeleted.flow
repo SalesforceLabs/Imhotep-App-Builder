@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <assignments>
+        <name>setPriorAccessLevelAll</name>
+        <label>Set Prior Access Level (All)</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <assignmentItems>
+            <assignToReference>varPriorAccessLevel</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>All</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>setPriorAccessLevelEdit</name>
+        <label>Set Prior Access Level (Edit)</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <assignmentItems>
+            <assignToReference>varPriorAccessLevel</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Edit</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>getSearchForPriorShare</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>setPriorAccessLevelRead</name>
+        <label>Set Prior Access Level (Read)</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <assignmentItems>
+            <assignToReference>varPriorAccessLevel</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Read</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>getSearchForPriorShare</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>If there was a prior share found, delete it.</description>
+        <name>decDeletePriorShare</name>
+        <label>Delete the Prior Share?</label>
+        <locationX>446</locationX>
+        <locationY>887</locationY>
+        <defaultConnectorLabel>Nothing to Delete</defaultConnectorLabel>
+        <rules>
+            <name>outDeletePriorShareYES</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>getSearchForPriorShare.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>deletePriorShare</targetReference>
+            </connector>
+            <label>Delete</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>What was the user&apos;s prior access level, based on their role, before the deletion?</description>
+        <name>decPriorAccessLevel</name>
+        <label>Prior Access Level</label>
+        <locationX>446</locationX>
+        <locationY>311</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>outPriorAccessLevelEdit</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.iab__Role__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Builder</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>setPriorAccessLevelEdit</targetReference>
+            </connector>
+            <label>Edit</label>
+        </rules>
+        <rules>
+            <name>outPriorAccessLevelRead</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.iab__Role__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Viewer</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>setPriorAccessLevelRead</targetReference>
+            </connector>
+            <label>Read</label>
+        </rules>
+        <rules>
+            <name>outPriorAccessLevelAll</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.iab__Role__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Owner/Lead</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>setPriorAccessLevelAll</targetReference>
+            </connector>
+            <label>All</label>
+        </rules>
+    </decisions>
+    <description>Record-triggered flow runs when a Project Member&apos;s Role__c has been deleted.
+
+05/26/2024 - S000522 - Migrated from the legacy org.
+
+03/02/2023 - S-000186 - Made flow a template so admins can modify.
+
+02/28/2023 - S-000178 - Modified to skip deleting shares when the Prior Access Level is &quot;All&quot; (the record owner), as this gives errors when deleting a project.  The owner&apos;s share is deleted when the project record is deleted.
+
+02/22/2023 - Updated to use namespace &quot;imhotep&quot;.</description>
+    <environments>Default</environments>
+    <interviewLabel>Imhotep - Project Member - When Role is Updated {!$Flow.CurrentDateTime}</interviewLabel>
+    <isTemplate>true</isTemplate>
+    <label>Imhotep - Project Member - When Deleted</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordDeletes>
+        <name>deletePriorShare</name>
+        <label>Delete Prior Share</label>
+        <locationX>314</locationX>
+        <locationY>1007</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>getSearchForPriorShare.Id</elementReference>
+            </value>
+        </filters>
+        <object>Project__Share</object>
+    </recordDeletes>
+    <recordLookups>
+        <description>See if there&apos;s an existing share for the prior access level.  If found, we&apos;ll delete this and replace it with a share for their new access level.</description>
+        <name>getSearchForPriorShare</name>
+        <label>Search for Prior Share</label>
+        <locationX>446</locationX>
+        <locationY>767</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>decDeletePriorShare</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ParentId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Project__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>UserOrGroupId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.User__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>AccessLevel</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varPriorAccessLevel</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Project__Share</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>320</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>decPriorAccessLevel</targetReference>
+        </connector>
+        <object>Project_Member__c</object>
+        <recordTriggerType>Delete</recordTriggerType>
+        <triggerType>RecordBeforeDelete</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varAccessLevel</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varPriorAccessLevel</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varRecDraftProjectShare</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Project__Share</objectType>
+    </variables>
+</Flow>

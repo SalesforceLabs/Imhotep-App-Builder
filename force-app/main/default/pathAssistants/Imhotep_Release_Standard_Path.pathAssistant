@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Release__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>Imhotep Release (Standard) Path</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;The work produced has been reviewed and accepted, with all its components meeting defined expectations.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Accepted</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Work is in progress, including testing and successful deployment.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Active</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Stories are being defined, moved from the backlog, and prioritized for your upcoming build.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Planning</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Standard</recordTypeName>
+</PathAssistant>

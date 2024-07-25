@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Cambio de componente de metadatos</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Cambios de componentes de metadatos</value>
+    </caseValues>
+    <fields>
+        <label>Notas de cambio</label>
+        <name>Change_Notes__c</name>
+    </fields>
+    <fields>
+        <label>Tipo de cambio</label>
+        <name>Change_Type__c</name>
+        <picklistValues>
+            <masterLabel>Deleted</masterLabel>
+            <translation>Eliminado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Modified</masterLabel>
+            <translation>Modificado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation>Nuevo</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Componente de metadatos</label>
+        <name>Metadata_Component__c</name>
+        <relationshipLabel>Cambios de componentes de metadatos</relationshipLabel>
+    </fields>
+    <fields>
+        <help>Tipo de metadatos de Salesforce del componente.</help>
+        <label>Tipo de metadatos</label>
+        <name>Metadata_Type__c</name>
+    </fields>
+    <fields>
+        <label>Componente de metadatos principal</label>
+        <name>Parent_Metadata_Component__c</name>
+    </fields>
+    <fields>
+        <label>Lanzamiento</label>
+        <name>Release__c</name>
+        <relationshipLabel>Cambios de componentes de metadatos</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Estado de la historia</label>
+        <name>Story_Status__c</name>
+    </fields>
+    <fields>
+        <label>Historia</label>
+        <name>Story__c</name>
+        <relationshipLabel>Cambios de componentes de metadatos</relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Metadata Component Change Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Cambio</nameFieldLabel>
+</CustomObjectTranslation>

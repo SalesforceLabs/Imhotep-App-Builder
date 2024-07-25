@@ -1,0 +1,12 @@
+<template>
+    <div class="slds-p-bottom_x-small">
+        <lightning-input-rich-text
+                label={labelText}
+                label-visible
+                field-level-help={tooltipText}
+                formats="font,size,bold,italic,underline,strike,list,indent,align,link,image,clean,table,header,color,code,code-block,script,blockquote"
+                value={defaultValue}
+                onchange={handleChange}>
+        </lightning-input-rich-text>
+    </div>
+</template>

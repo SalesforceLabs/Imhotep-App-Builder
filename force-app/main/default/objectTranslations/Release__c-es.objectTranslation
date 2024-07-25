@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Lanzamiento</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Lanzamientos</value>
+    </caseValues>
+    <fields>
+        <help>Si está marcado, la liberación fue creada a partir de una plantilla.</help>
+        <label>¿Creado a partir de una plantilla?</label>
+        <name>Created_from_Template__c</name>
+    </fields>
+    <fields>
+        <help>Si está marcado, esta liberación se está utilizando como un backlog y no para el desarrollo real.</help>
+        <label>¿Es backlog?</label>
+        <name>Is_Backlog__c</name>
+    </fields>
+    <fields>
+        <label>Notas</label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <help>Puntos restantes/libres en el Objetivo de Puntos (Objetivo de Puntos - Puntos Totales).</help>
+        <label>Puntos disponibles</label>
+        <name>Points_Available__c</name>
+    </fields>
+    <fields>
+        <help>Número máximo de puntos planificados para la liberación.</help>
+        <label>Objetivo de puntos</label>
+        <name>Points_Goal__c</name>
+    </fields>
+    <fields>
+        <help>Puntos totales NO Listos o Desplegados (incluye historias en estados Blocked, Defined, Building, y Testing).</help>
+        <label>Puntos restantes para completar</label>
+        <name>Points_Left_to_Complete__c</name>
+    </fields>
+    <fields>
+        <label>Proyecto</label>
+        <name>Project__c</name>
+        <relationshipLabel>Lanzamientos</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Fecha de lanzamiento</label>
+        <name>Release_Date__c</name>
+    </fields>
+    <fields>
+        <help>Configuración que controla las características y el diseño habilitado para este lanzamiento y sus historias relacionadas. El predeterminado es Estándar (todas las funciones de Imhotep habilitadas). Los lanzamientos e historias individuales pueden anular esta selección. Cambiar este campo o el tipo de registro convertirá este lanzamiento y sus historias relacionadas (los datos de campo no se perderán, pero pueden estar ocultos en la página).</help>
+        <label>Modo de lanzamiento</label>
+        <name>Release_Mode__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de inicio</label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label>Estado</label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Accepted</masterLabel>
+            <translation>Aceptado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation>Activo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation>Planificación</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Puntos totales</label>
+        <name>Total_Points__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Release (Simple) Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Release (Standard) Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Lanzamiento</nameFieldLabel>
+    <quickActions>
+        <label><!-- New Release --></label>
+        <name>Imhotep_Release_NewRelease_Action</name>
+    </quickActions>
+    <recordTypes>
+        <description>Úselo para proyectos que no utilizan funciones avanzadas (p. ej., puntos, escenarios de prueba, seguimiento de cambios en los metadatos).</description>
+        <label>Lanzamiento simple</label>
+        <name>Simple</name>
+    </recordTypes>
+    <recordTypes>
+        <description>Úselo para proyectos que necesitan acceso a todas las funciones de Imhotep. Tipo de registro predeterminado.</description>
+        <label>Lanzamiento estándar</label>
+        <name>Standard</name>
+    </recordTypes>
+</CustomObjectTranslation>

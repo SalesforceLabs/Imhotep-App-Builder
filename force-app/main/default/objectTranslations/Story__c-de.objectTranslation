@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Story</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Stories</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>false</plural>
+        <value>Story</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>true</plural>
+        <value>Stories</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>false</plural>
+        <value>Story</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>true</plural>
+        <value>Stories</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>false</plural>
+        <value>Story</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>true</plural>
+        <value>Stories</value>
+    </caseValues>
+    <fields>
+        <help>Akzeptanzkriterien und jegliche grundlegende Testanweisungen. Was ist die &quot;Definition von fertig&quot; und wie würde jemand testen, um zu wissen, dass es wie entworfen funktioniert. Betrachten Sie Ihren Happy Path und alle Randfälle. Für detailliertere Tests nutzen Sie den Test-Tab der Story.</help>
+        <label>Akzeptanzkriterien/Tests</label>
+        <name>Acceptance_Criteria_Tests__c</name>
+    </fields>
+    <fields>
+        <help>Tatsächlicher Aufwand zur Implementierung der Story.</help>
+        <label>Tatsächliche Punkte</label>
+        <name>Actual_Points__c</name>
+    </fields>
+    <fields>
+        <help>Verkettete Vor- und Nachnamen des zugewiesenen Projektmitglieds. Wird nur in LWCs (imhotepStoryList) verwendet.</help>
+        <label>Zugewiesener Name</label>
+        <name>Assigned_Name__c</name>
+    </fields>
+    <fields>
+        <help>Projektmitglied, dem die Fertigstellung der Story zugewiesen ist.</help>
+        <label>Zugewiesen</label>
+        <lookupFilter>
+            <errorMessage>Der zugewiesene Benutzer muss Mitglied dieses Projekts sein.</errorMessage>
+        </lookupFilter>
+        <name>Assigned__c</name>
+        <relationshipLabel>Zugewiesene Stories</relationshipLabel>
+    </fields>
+    <fields>
+        <help>Wird markiert, wenn die Story dem aktuellen Benutzer zugewiesen ist. Wird als Filter für einige Listenansichten verwendet.</help>
+        <label>Dem aktuellen Benutzer zugewiesen?</label>
+        <name>Assigned_to_Current_User__c</name>
+    </fields>
+    <fields>
+        <help>Wenn markiert, wurde die Story aus einer Vorlage erstellt.</help>
+        <label>Aus Vorlage erstellt?</label>
+        <name>Created_from_Template__c</name>
+    </fields>
+    <fields>
+        <help>Aktionen, die zur vollständigen Bereitstellung der Änderungen erforderlich sind (einen Flow aktivieren, einem Permset zuweisen usw.).</help>
+        <label>Einsatz-Checkliste</label>
+        <name>Deployment_Checklist__c</name>
+    </fields>
+    <fields>
+        <help>Geschätzter Aufwand zur Implementierung der Story.</help>
+        <label>Geschätzte Punkte</label>
+        <name>Estimated_Points__c</name>
+    </fields>
+    <fields>
+        <help>Wenn markiert, wurde eine beschleunigte Bearbeitung angefordert.</help>
+        <label>Beschleunigen</label>
+        <name>Expedite__c</name>
+    </fields>
+    <fields>
+        <help>Anzahl der Metadatenänderungen, die mit dieser Story verbunden sind.</help>
+        <label>Metadatenkomponentenänderungen</label>
+        <name>Metadata_Component_Changes__c</name>
+    </fields>
+    <fields>
+        <label>Übergeordnete Story</label>
+        <lookupFilter>
+            <errorMessage>Sie müssen eine Story innerhalb desselben Projekts auswählen.</errorMessage>
+        </lookupFilter>
+        <name>Parent_Story__c</name>
+        <relationshipLabel>Untergeordnete Stories</relationshipLabel>
+    </fields>
+    <fields>
+        <help>Verwendet geschätzte Punkte für blockierte, definierte, im Bau befindliche und getestete Stories; sonst werden tatsächliche Punkte verwendet.</help>
+        <label>Punkte</label>
+        <name>Points__c</name>
+    </fields>
+    <fields>
+        <help>Priorität dieser Story innerhalb des Releases (sollte kontinuierlich neu bewertet werden). Stories im Story-List-Tab des Releases neu ordnen.</help>
+        <label>Priorität/Reihenfolge</label>
+        <name>Priority_Order__c</name>
+    </fields>
+    <fields>
+        <label>Projekt</label>
+        <name>Project__c</name>
+        <relationshipLabel>Stories</relationshipLabel>
+    </fields>
+    <fields>
+        <help>Wenn angekreuzt, wird diese Story nicht von Änderungen an der Release-Modus-Einstellung des zugehörigen Releases beeinflusst. Dies ermöglicht es Ihnen, Funktionen für diese einzelne Story festzulegen oder einzuschränken. Es wird automatisch angekreuzt, wenn Sie den Datensatztyp der Story ändern, aber Sie können es manuell ankreuzen oder abwählen, um die Überschreibung zu steuern.</help>
+        <label>Release-Modus-Überschreibung</label>
+        <name>Release_Mode_Override__c</name>
+    </fields>
+    <fields>
+        <label>Release</label>
+        <lookupFilter>
+            <errorMessage>Sie müssen ein Release innerhalb desselben Projekts auswählen.</errorMessage>
+        </lookupFilter>
+        <name>Release__c</name>
+        <relationshipLabel>Stories</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Angefordertes Release</label>
+        <lookupFilter>
+            <errorMessage>Sie müssen ein Release innerhalb desselben Projekts auswählen.</errorMessage>
+        </lookupFilter>
+        <name>Requested_Release__c</name>
+        <relationshipLabel>Stories (Angeforderter Release)</relationshipLabel>
+    </fields>
+    <fields>
+        <help>Arbeitsnotizen, die vom Builder/Entwickler darüber geführt werden, wie sie die Story implementieren.</help>
+        <label>Lösungs-/Build-Notizen</label>
+        <name>Solution_Build_Notes__c</name>
+    </fields>
+    <fields>
+        <label>Status</label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Blocked</masterLabel>
+            <translation>Blockiert</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Building</masterLabel>
+            <translation>Im Bau</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defined</masterLabel>
+            <translation>Definiert</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deployed</masterLabel>
+            <translation>Bereitgestellt</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready</masterLabel>
+            <translation>Bereit</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Testing</masterLabel>
+            <translation>Testen</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Benutzergeschichte / Beschreibung der Anforderung auf hoher Ebene.</help>
+        <label>Story/Beschreibung</label>
+        <name>Story_Description__c</name>
+    </fields>
+    <fields>
+        <label>Story-Nummer</label>
+        <name>Story_Number__c</name>
+    </fields>
+    <fields>
+        <label>Story-Typ</label>
+        <name>Story_Type__c</name>
+        <picklistValues>
+            <masterLabel>Change</masterLabel>
+            <translation>Änderung</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defect</masterLabel>
+            <translation>Fehler</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation>Neu</translation>
+        </picklistValues>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Story (Simple) Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Story-Details</label>
+            <section>Story Details</section>
+        </sections>
+        <sections>
+            <label>Story-Übersicht</label>
+            <section>Story Overview</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Story (Standard) Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Aufwand</label>
+            <section>Level of Effort</section>
+        </sections>
+        <sections>
+            <label>Story-Details</label>
+            <section>Story Details</section>
+        </sections>
+        <sections>
+            <label>Story-Übersicht</label>
+            <section>Story Overview</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Titel</nameFieldLabel>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Klonen</label>
+        <name>Story_Clone_Action</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Löschen</label>
+        <name>Story_Delete_Action</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Metadatenänderung protokollieren</label>
+        <name>Story_Log_Change_Action</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>In anderes Release übertragen</label>
+        <name>Story_Transfer_Action</name>
+    </quickActions>
+    <recordTypes>
+        <description>Verwenden Sie dies für Projekte, die keine erweiterten Funktionen nutzen (z.B. Punkte, Testszenarien, Verfolgung von Metadatenänderungen).</description>
+        <label>Einfache Story</label>
+        <name>Simple</name>
+    </recordTypes>
+    <recordTypes>
+        <description>Verwenden Sie dies für Projekte, die Zugriff auf alle Imhotep-Funktionen benötigen. Standard-Datensatztyp.</description>
+        <label>Standard-Story</label>
+        <name>Standard</name>
+    </recordTypes>
+</CustomObjectTranslation>

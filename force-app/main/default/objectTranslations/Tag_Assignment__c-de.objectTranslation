@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Tag-Zuweisung</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Tag-Zuweisungen</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>false</plural>
+        <value>Tag-Zuweisung</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>true</plural>
+        <value>Tag-Zuweisungen</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>false</plural>
+        <value>Tag-Zuweisung</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>true</plural>
+        <value>Tag-Zuweisungen</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>false</plural>
+        <value>Tag-Zuweisung</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>true</plural>
+        <value>Tag-Zuweisungen</value>
+    </caseValues>
+    <fields>
+        <help>Kategorisierung, die für das Filtern der Komponente devTagStories verwendet wird.</help>
+        <label>Veröffentlichungskategorie</label>
+        <name>Release_Category__c</name>
+    </fields>
+    <fields>
+        <label>Geschichte</label>
+        <name>Story__c</name>
+        <relationshipLabel>Tag-Zuweisungen</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Schlagwort</label>
+        <name>Tag__c</name>
+        <relationshipLabel>Tag-Zuweisungen</relationshipLabel>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Tag Assignment Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Zuweisung</nameFieldLabel>
+</CustomObjectTranslation>

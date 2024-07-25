@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Scenario di test</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Scenari di test</value>
+    </caseValues>
+    <fields>
+        <help>Quale scenario viene testato?</help>
+        <label>Descrizione</label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help>Nel migliore dei casi, cosa dovrebbe sperimentare il tester?</help>
+        <label>Risultati attesi</label>
+        <name>Expected_Result__c</name>
+    </fields>
+    <fields>
+        <help>Quali passaggi deve seguire un tester per testare le nuove/modificate funzionalità?</help>
+        <label>Istruzioni</label>
+        <name>Instructions__c</name>
+    </fields>
+    <fields>
+        <label>Stato</label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Not Ready to Test</masterLabel>
+            <translation>Non pronto per il test</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready to Test</masterLabel>
+            <translation>Pronto per il test</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test Completed</masterLabel>
+            <translation>Test completato</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Storia</label>
+        <name>Story__c</name>
+        <relationshipLabel>Scenari di test</relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Test Scenario Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Scenario di test</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

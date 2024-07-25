@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Release</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Releases</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>false</plural>
+        <value>Release</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>true</plural>
+        <value>Releases</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>false</plural>
+        <value>Release</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>true</plural>
+        <value>Releases</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>false</plural>
+        <value>Release</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>true</plural>
+        <value>Releases</value>
+    </caseValues>
+    <fields>
+        <help>Wenn angekreuzt, wurde die Veröffentlichung aus einer Vorlage erstellt.</help>
+        <label>Aus Vorlage erstellt?</label>
+        <name>Created_from_Template__c</name>
+    </fields>
+    <fields>
+        <help>Wenn angekreuzt, wird diese Veröffentlichung als Backlog verwendet und nicht für die eigentliche Entwicklung.</help>
+        <label>Ist Backlog?</label>
+        <name>Is_Backlog__c</name>
+    </fields>
+    <fields>
+        <label>Anmerkungen</label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <help>Verbleibende/freie Punkte im Punkteziel (Punkteziel - Gesamtpunkte).</help>
+        <label>Verfügbare Punkte</label>
+        <name>Points_Available__c</name>
+    </fields>
+    <fields>
+        <help>Maximale Anzahl an Punkten, die für die Veröffentlichung geplant sind.</help>
+        <label>Punkteziel</label>
+        <name>Points_Goal__c</name>
+    </fields>
+    <fields>
+        <help>Gesamtpunkte NICHT Bereit oder Bereitgestellt (beinhaltet Geschichten in den Status Blocked, Defined, Building und Testing).</help>
+        <label>Noch zu vervollständigende Punkte</label>
+        <name>Points_Left_to_Complete__c</name>
+    </fields>
+    <fields>
+        <label>Projekt</label>
+        <name>Project__c</name>
+        <relationshipLabel>Releases</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Veröffentlichungsdatum</label>
+        <name>Release_Date__c</name>
+    </fields>
+    <fields>
+        <help>Einstellung zur Steuerung der aktivierten Funktionen und des Layouts für diesen Release und seine zugehörigen Stories. Standard ist Standard (alle Imhotep-Funktionen aktiviert). Einzelne Releases und Stories können diese Auswahl überschreiben. Wenn dieses Feld oder der Datensatztyp geändert wird, wird dieser Release und seine zugehörigen Stories konvertiert (Felddaten gehen nicht verloren, können jedoch auf der Seite ausgeblendet werden).</help>
+        <label>Release-Modus</label>
+        <name>Release_Mode__c</name>
+    </fields>
+    <fields>
+        <label>Startdatum</label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label>Status</label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Accepted</masterLabel>
+            <translation>Akzeptiert</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation>Aktiv</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation>Planung</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Gesamtpunkte</label>
+        <name>Total_Points__c</name>
+    </fields>
+    <gender>Neuter</gender>
+    <layouts>
+        <layout>Release (Simple) Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Release (Standard) Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Release --></nameFieldLabel>
+    <quickActions>
+        <label><!-- New Release --></label>
+        <name>Imhotep_Release_NewRelease_Action</name>
+    </quickActions>
+    <recordTypes>
+        <description>Verwenden Sie dies für Projekte, die keine erweiterten Funktionen nutzen (z.B. Punkte, Testszenarien, Verfolgung von Metadatenänderungen).</description>
+        <label>Einfaches Release</label>
+        <name>Simple</name>
+    </recordTypes>
+    <recordTypes>
+        <description>Verwenden Sie dies für Projekte, die Zugriff auf alle Imhotep-Funktionen benötigen. Standard-Datensatztyp.</description>
+        <label>Standard-Release</label>
+        <name>Standard</name>
+    </recordTypes>
+</CustomObjectTranslation>

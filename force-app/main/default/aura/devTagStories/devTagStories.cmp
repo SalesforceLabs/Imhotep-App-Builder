@@ -1,0 +1,230 @@
+<aura:component controller="ImhotepAppBuilderCtrl" implements="flexipage:availableForRecordHome,force:hasRecordId,flexipage:availableForAllPageTypes" access="global">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="ActiveReleaseRecords" type="Tag_Assignment__c" />
+    <aura:attribute name="PlanningReleaseRecords" type="Tag_Assignment__c" />
+    <aura:attribute name="BacklogReleaseRecords" type="Tag_Assignment__c" />
+    <aura:attribute name="AcceptedReleaseRecords" type="Tag_Assignment__c" />
+    <aura:attribute name="AllReleaseRecords" type="Tag_Assignment__c" />
+    
+    <!-- reloads the component if the record is edited -->
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    
+    <!-- for flow launcher -->
+    <aura:attribute name="showModal" type="Boolean" default="false" />
+    <aura:attribute name="flow" type="Object" />
+    
+    
+    
+    <!-- Only display if modal button for flow has been clicked -->
+    <div class="{! v.showModal ? 'slds-show' : 'slds-hide' }">
+        <section class="slds-modal slds-fade-in-open slds-modal_medium">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header slds-modal__header_empty">
+                    <lightning:buttonIcon   size="large"
+                                            iconName="utility:close"
+                                            variant="bare-inverse"
+                                            onclick="{!c.closeModal}"
+                                            ariaLabel="{!$Label.c.GeneralModalCloseLabel}"
+                                            alternativeText="{!$Label.c.GeneralModalCloseAltText}"
+                                            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" />
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    {!v.body}
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    
+    
+    <div class="card-container-outer" style="background:#FFFFFF;border-radius:4px;box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.1);border:1px solid #dddbda;padding-bottom:5px;">
+        <div class="card-container-inner" style="background:#0b5cab;color:#ffffff;margin-bottom:5px;"><p class="slds-text-heading_medium">{!$Label.c.HeadingTagStories}</p></div>
+        
+        
+        <lightning:tabset selectedTabId="one">
+            
+            
+            <!-- ### ACTIVE RELEASE STORIES ### -->
+            <lightning:tab label="{!$Label.c.StoriesHeadingActiveReleaseLabel}" id="one">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-label="{!$Label.c.StoriesHeadingActiveReleaseLabel}">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldTitleLabel}">{!$Label.c.StoryFieldTitleLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldStoryNumberLabel}">{!$Label.c.StoryFieldStoryNumberLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldStatusLabel}">{!$Label.c.StoryFieldStatusLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldAssignedLabel}">{!$Label.c.StoryFieldAssignedLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldReleaseLabel}">{!$Label.c.StoryFieldReleaseLabel}</div></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <aura:renderIf isTrue="{!v.ActiveReleaseRecords.length > 0}">
+                            <aura:iteration items="{!v.ActiveReleaseRecords}" var="actrel" indexVar="index">
+                                <tr class="slds-hint-parent">
+                                    <td data-label="{!$Label.c.StoryFieldTitleLabel}"><div class="slds-truncate" title="{!actrel.iab__Story__r.Name}"><lightning:formattedUrl value="{! '/lightning/r/' + actrel.iab__Story__c + '/view' }" label="{!actrel.iab__Story__r.Name}" /></div></td>
+                                    <td data-label="{!$Label.c.StoryFieldStoryNumberLabel}"><div class="slds-truncate" title="{!actrel.iab__Story__r.iab__Story_Number__c}">{!actrel.iab__Story__r.iab__Story_Number__c}</div></td>
+                                    <td data-label="{!$Label.c.StoryFieldStatusLabel}"><div class="slds-truncate" title="{!actrel.iab__Story__r.iab__Status__c}">{!actrel.iab__Story__r.iab__Status__c}</div></td>
+                                    <td data-label="{!$Label.c.StoryFieldAssignedLabel}"><div class="slds-truncate" title="{!actrel.iab__Story__r.iab__Assigned__r.iab__User__r.FirstName + ' ' + actrel.iab__Story__r.iab__Assigned__r.iab__User__r.LastName}"><lightning:formattedUrl value="{! '/lightning/r/' + actrel.iab__Story__r.iab__Assigned__c + '/view' }" label="{!actrel.iab__Story__r.iab__Assigned__r.iab__User__r.FirstName + ' ' + actrel.iab__Story__r.iab__Assigned__r.iab__User__r.LastName}" /></div></td>
+                                    <td data-label="{!$Label.c.StoryFieldReleaseLabel}"><div class="slds-truncate" title="{!actrel.iab__Story__r.iab__Release__r.Name}"><lightning:formattedUrl value="{! '/lightning/r/' + actrel.iab__Story__r.iab__Release__c + '/view' }" label="{!actrel.iab__Story__r.iab__Release__r.Name}" /></div></td>
+                                </tr>
+                            </aura:iteration>
+                            
+                            <aura:set attribute="else">
+                                <tr class="slds-hint-parent"><th colspan="5">{!$Label.c.StoryEmptyTextByCategory}</th></tr>
+                            </aura:set>
+                        </aura:renderIf>
+                        
+                    </tbody>
+                </table>
+            </lightning:tab>
+            
+            
+            <!-- ### PLANNING RELEASE STORIES ### -->
+            <lightning:tab label="{!$Label.c.StoriesHeadingPlanningReleaseLabel}" id="two">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-label="{!$Label.c.StoriesHeadingPlanningReleaseLabel}">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldTitleLabel}">{!$Label.c.StoryFieldTitleLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldStoryNumberLabel}">{!$Label.c.StoryFieldStoryNumberLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldStatusLabel}">{!$Label.c.StoryFieldStatusLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldAssignedLabel}">{!$Label.c.StoryFieldAssignedLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldReleaseLabel}">{!$Label.c.StoryFieldReleaseLabel}</div></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <aura:renderIf isTrue="{!v.PlanningReleaseRecords.length > 0}">
+                            <aura:iteration items="{!v.PlanningReleaseRecords}" var="plnrel" indexVar="index">
+                                <tr class="slds-hint-parent">
+                                    <td data-label="{!$Label.c.StoryFieldTitleLabel}"><div class="slds-truncate" title="{!plnrel.iab__Story__r.Name}"><lightning:formattedUrl value="{! '/lightning/r/' + plnrel.iab__Story__c + '/view' }" label="{!plnrel.iab__Story__r.Name}" /></div></td>
+                                    <td data-label="{!$Label.c.StoryFieldStoryNumberLabel}"><div class="slds-truncate" title="{!plnrel.iab__Story__r.iab__Story_Number__c}">{!plnrel.iab__Story__r.iab__Story_Number__c}</div></td>
+                                    <td data-label="{!$Label.c.StoryFieldStatusLabel}"><div class="slds-truncate" title="{!plnrel.iab__Story__r.iab__Status__c}">{!plnrel.iab__Story__r.iab__Status__c}</div></td>
+                                    <td data-label="{!$Label.c.StoryFieldAssignedLabel}"><div class="slds-truncate" title="{!plnrel.iab__Story__r.iab__Assigned__r.iab__User__r.FirstName + ' ' + plnrel.iab__Story__r.iab__Assigned__r.iab__User__r.LastName}"><lightning:formattedUrl value="{! '/lightning/r/' + plnrel.iab__Story__r.iab__Assigned__c + '/view' }" label="{!plnrel.iab__Story__r.iab__Assigned__r.iab__User__r.FirstName + ' ' + plnrel.iab__Story__r.iab__Assigned__r.iab__User__r.LastName}" /></div></td>
+                                    <td data-label="{!$Label.c.StoryFieldReleaseLabel}"><div class="slds-truncate" title="{!plnrel.iab__Story__r.iab__Release__r.Name}"><lightning:formattedUrl value="{! '/lightning/r/' + plnrel.iab__Story__r.iab__Release__c + '/view' }" label="{!plnrel.iab__Story__r.iab__Release__r.Name}" /></div></td>
+                                </tr>
+                            </aura:iteration>
+                            
+                            <aura:set attribute="else">
+                                <tr class="slds-hint-parent"><th colspan="5">{!$Label.c.StoryEmptyTextByCategory}</th></tr>
+                            </aura:set>
+                        </aura:renderIf>
+                        
+                    </tbody>
+                </table>
+            </lightning:tab>
+            
+            
+            <!-- ### BACKLOG STORIES ### -->
+            <lightning:tab label="{!$Label.c.StoriesHeadingBacklogLabel}" id="three">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-label="{!$Label.c.StoriesHeadingBacklogLabel}">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldTitleLabel}">{!$Label.c.StoryFieldTitleLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldStoryNumberLabel}">{!$Label.c.StoryFieldStoryNumberLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldStatusLabel}">{!$Label.c.StoryFieldStatusLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldAssignedLabel}">{!$Label.c.StoryFieldAssignedLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldReleaseLabel}">{!$Label.c.StoryFieldReleaseLabel}</div></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <aura:renderIf isTrue="{!v.BacklogReleaseRecords.length > 0}">
+                            <aura:iteration items="{!v.BacklogReleaseRecords}" var="bklrel" indexVar="index">
+                                <tr class="slds-hint-parent">
+                                    <td data-label="{!$Label.c.StoryFieldTitleLabel}"><div class="slds-truncate" title="{!bklrel.iab__Story__r.Name}"><lightning:formattedUrl value="{! '/lightning/r/' + bklrel.iab__Story__c + '/view' }" label="{!bklrel.iab__Story__r.Name}" /></div></td>
+                                    <td data-label="{!$Label.c.StoryFieldStoryNumberLabel}"><div class="slds-truncate" title="{!bklrel.iab__Story__r.iab__Story_Number__c}">{!bklrel.iab__Story__r.iab__Story_Number__c}</div></td>
+                                    <td data-label="{!$Label.c.StoryFieldStatusLabel}"><div class="slds-truncate" title="{!bklrel.iab__Story__r.iab__Status__c}">{!bklrel.iab__Story__r.iab__Status__c}</div></td>
+                                    <td data-label="{!$Label.c.StoryFieldAssignedLabel}"><div class="slds-truncate" title="{!bklrel.iab__Story__r.iab__Assigned__r.iab__User__r.FirstName + ' ' + bklrel.iab__Story__r.iab__Assigned__r.iab__User__r.LastName}"><lightning:formattedUrl value="{! '/lightning/r/' + bklrel.iab__Story__r.iab__Assigned__c + '/view' }" label="{!bklrel.iab__Story__r.iab__Assigned__r.iab__User__r.FirstName + ' ' + bklrel.iab__Story__r.iab__Assigned__r.iab__User__r.LastName}" /></div></td>
+                                    <td data-label="{!$Label.c.StoryFieldReleaseLabel}"><div class="slds-truncate" title="{!bklrel.iab__Story__r.iab__Release__r.Name}"><lightning:formattedUrl value="{! '/lightning/r/' + bklrel.iab__Story__r.iab__Release__c + '/view' }" label="{!bklrel.iab__Story__r.iab__Release__r.Name}" /></div></td>
+                                </tr>
+                            </aura:iteration>
+                            
+                            <aura:set attribute="else">
+                                <tr class="slds-hint-parent"><th colspan="5">{!$Label.c.StoryEmptyTextByCategory}</th></tr>
+                            </aura:set>
+                        </aura:renderIf>
+                        
+                    </tbody>
+                </table>
+            </lightning:tab>
+            
+            
+            <!-- ### ACCEPTED RELEASE STORIES ### -->
+            <lightning:tab label="{!$Label.c.StoriesHeadingAcceptedReleaseLabel}" id="four">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-label="{!$Label.c.StoriesHeadingAcceptedReleaseLabel}">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldTitleLabel}">{!$Label.c.StoryFieldTitleLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldStoryNumberLabel}">{!$Label.c.StoryFieldStoryNumberLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldStatusLabel}">{!$Label.c.StoryFieldStatusLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldAssignedLabel}">{!$Label.c.StoryFieldAssignedLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldReleaseLabel}">{!$Label.c.StoryFieldReleaseLabel}</div></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <aura:renderIf isTrue="{!v.AcceptedReleaseRecords.length > 0}">
+                            <aura:iteration items="{!v.AcceptedReleaseRecords}" var="accrel" indexVar="index">
+                                <tr class="slds-hint-parent">
+                                    <td data-label="{!$Label.c.StoryFieldTitleLabel}"><div class="slds-truncate" title="{!accrel.iab__Story__r.Name}"><lightning:formattedUrl value="{! '/lightning/r/' + accrel.iab__Story__c + '/view' }" label="{!accrel.iab__Story__r.Name}" /></div></td>
+                                    <td data-label="{!$Label.c.StoryFieldStoryNumberLabel}"><div class="slds-truncate" title="{!accrel.iab__Story__r.iab__Story_Number__c}">{!accrel.iab__Story__r.iab__Story_Number__c}</div></td>
+                                    <td data-label="{!$Label.c.StoryFieldStatusLabel}"><div class="slds-truncate" title="{!accrel.iab__Story__r.iab__Status__c}">{!accrel.iab__Story__r.iab__Status__c}</div></td>
+                                    <td data-label="{!$Label.c.StoryFieldAssignedLabel}"><div class="slds-truncate" title="{!accrel.iab__Story__r.iab__Assigned__r.iab__User__r.FirstName + ' ' + accrel.iab__Story__r.iab__Assigned__r.iab__User__r.LastName}"><lightning:formattedUrl value="{! '/lightning/r/' + accrel.iab__Story__r.iab__Assigned__c + '/view' }" label="{!accrel.iab__Story__r.iab__Assigned__r.iab__User__r.FirstName + ' ' + accrel.iab__Story__r.iab__Assigned__r.iab__User__r.LastName}" /></div></td>
+                                    <td data-label="{!$Label.c.StoryFieldReleaseLabel}"><div class="slds-truncate" title="{!accrel.iab__Story__r.iab__Release__r.Name}"><lightning:formattedUrl value="{! '/lightning/r/' + accrel.iab__Story__r.iab__Release__c + '/view' }" label="{!accrel.iab__Story__r.iab__Release__r.Name}" /></div></td>
+                                </tr>
+                            </aura:iteration>
+                            
+                            <aura:set attribute="else">
+                                <tr class="slds-hint-parent"><th colspan="5">{!$Label.c.StoryEmptyTextByCategory}</th></tr>
+                            </aura:set>
+                        </aura:renderIf>
+                        
+                    </tbody>
+                </table>
+            </lightning:tab>
+            
+            
+            <!-- ### ALL STORIES ### -->
+            <lightning:tab label="{!$Label.c.StoriesHeadingAllStoriesLabel}" id="five">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-label="{!$Label.c.StoriesHeadingAllStoriesLabel}">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldTitleLabel}">{!$Label.c.StoryFieldTitleLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldStoryNumberLabel}">{!$Label.c.StoryFieldStoryNumberLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldStatusLabel}">{!$Label.c.StoryFieldStatusLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldAssignedLabel}">{!$Label.c.StoryFieldAssignedLabel}</div></th>
+                            <th class="" scope="col"><div class="slds-truncate" title="{!$Label.c.StoryFieldReleaseLabel}">{!$Label.c.StoryFieldReleaseLabel}</div></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <aura:renderIf isTrue="{!v.AllReleaseRecords.length > 0}">
+                            <aura:iteration items="{!v.AllReleaseRecords}" var="allrel" indexVar="index">
+                                <tr class="slds-hint-parent">
+                                    <td data-label="{!$Label.c.StoryFieldTitleLabel}"><div class="slds-truncate" title="{!allrel.iab__Story__r.Name}"><lightning:formattedUrl value="{! '/lightning/r/' + allrel.iab__Story__c + '/view' }" label="{!allrel.iab__Story__r.Name}" /></div></td>
+                                    <td data-label="{!$Label.c.StoryFieldStoryNumberLabel}"><div class="slds-truncate" title="{!allrel.iab__Story__r.iab__Story_Number__c}">{!allrel.iab__Story__r.iab__Story_Number__c}</div></td>
+                                    <td data-label="{!$Label.c.StoryFieldStatusLabel}"><div class="slds-truncate" title="{!allrel.iab__Story__r.iab__Status__c}">{!allrel.iab__Story__r.iab__Status__c}</div></td>
+                                    <td data-label="{!$Label.c.StoryFieldAssignedLabel}"><div class="slds-truncate" title="{!allrel.iab__Story__r.iab__Assigned__r.iab__User__r.FirstName + ' ' + allrel.iab__Story__r.iab__Assigned__r.iab__User__r.LastName}"><lightning:formattedUrl value="{! '/lightning/r/' + allrel.iab__Story__r.iab__Assigned__c + '/view' }" label="{!allrel.iab__Story__r.iab__Assigned__r.iab__User__r.FirstName + ' ' + allrel.iab__Story__r.iab__Assigned__r.iab__User__r.LastName}" /></div></td>
+                                    <td data-label="{!$Label.c.StoryFieldReleaseLabel}"><div class="slds-truncate" title="{!allrel.iab__Story__r.iab__Release__r.Name}"><lightning:formattedUrl value="{! '/lightning/r/' + allrel.iab__Story__r.iab__Release__c + '/view' }" label="{!allrel.iab__Story__r.iab__Release__r.Name}" /></div></td>
+                                </tr>
+                            </aura:iteration>
+                            
+                            <aura:set attribute="else">
+                                <tr class="slds-hint-parent"><th colspan="5">{!$Label.c.StoryEmptyTextByCategory}</th></tr>
+                            </aura:set>
+                        </aura:renderIf>
+                        
+                    </tbody>
+                </table>
+            </lightning:tab>
+            
+            
+        </lightning:tabset>
+        
+        
+    </div>
+    
+    
+</aura:component>

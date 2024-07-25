@@ -1,0 +1,25 @@
+.THIS .layout-padding {
+    padding:0px 5px 0px 5px;
+}
+
+.THIS .layoutitem-padding {
+    padding:5px;
+}
+
+.THIS .badge-margin-left {
+    margin-left:5px;
+}
+
+.THIS .button-padding {
+    margin-left:5px;
+}
+
+.THIS .empty-state {
+    padding:5px 5px 5px 5px;
+    text-align:left;
+    font-style:italic;
+}
+
+.THIS .project-title {
+    padding-top:3px;
+}

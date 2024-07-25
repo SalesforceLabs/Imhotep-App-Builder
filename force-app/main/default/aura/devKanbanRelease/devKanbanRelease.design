@@ -1,0 +1,5 @@
+<design:component>
+    
+    <design:attribute name="KanbanHeight" label="Kanban Height (px)" description="Height of the Kanban board in pixels (no px). Overflow is handled as scrolling." default="455" />
+	
+</design:component>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Elemento del template</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Elementi del modello</value>
+    </caseValues>
+    <fields>
+        <help>Criteri di accettazione e qualsiasi istruzione di base per i test. Qual è la &quot;definizione di completato&quot; e come farebbe qualcuno a testarlo per sapere che funziona come progettato. Considerare il percorso ottimale e qualsiasi caso limite. Per test più dettagliati, utilizzare la scheda di Test della storia.</help>
+        <label>Criteri di accettazione/test</label>
+        <name>Acceptance_Criteria_Tests__c</name>
+    </fields>
+    <fields>
+        <help>Se selezionato, questo elemento del modello è stato creato da un altro modello.</help>
+        <label>Creato da un modello?</label>
+        <name>Created_from_Template__c</name>
+    </fields>
+    <fields>
+        <help>Azioni da intraprendere per implementare completamente i cambiamenti (attivare un Flusso, assegnare un set di permessi, ecc.).</help>
+        <label>Checklist di distribuzione</label>
+        <name>Deployment_Checklist__c</name>
+    </fields>
+    <fields>
+        <help>Livello stimato di sforzo per implementare la storia per qualcuno che è nuovo o non familiare con questo compito.</help>
+        <label>Punti stimati (principiante)</label>
+        <name>Estimated_Points_Beginner__c</name>
+    </fields>
+    <fields>
+        <help>Livello stimato di sforzo per implementare la storia per qualcuno che ha esperienza avanzata con questo compito.</help>
+        <label>Punti stimati (esperto)</label>
+        <name>Estimated_Points_Expert__c</name>
+    </fields>
+    <fields>
+        <help>Livello stimato di sforzo per implementare la storia per qualcuno che è abbastanza familiare con questo compito.</help>
+        <label>Punti stimati (intermedio)</label>
+        <name>Estimated_Points_Intermediate__c</name>
+    </fields>
+    <fields>
+        <help>Priorità di questa storia all&apos;interno del rilascio (dovrebbe essere continuamente rivalutata).</help>
+        <label>Priorità/ordine</label>
+        <name>Priority_Order__c</name>
+    </fields>
+    <fields>
+        <help>Note di lavoro tenute dal costruttore/sviluppatore su come stanno implementando la storia.</help>
+        <label>Note di soluzione/costruzione</label>
+        <name>Solution_Build_Notes__c</name>
+    </fields>
+    <fields>
+        <help>Storia dell&apos;utente / descrizione del requisito ad alto livello.</help>
+        <label>Storia/descrizione</label>
+        <name>Story_Description__c</name>
+    </fields>
+    <fields>
+        <label>Tipo di storia</label>
+        <name>Story_Type__c</name>
+        <picklistValues>
+            <masterLabel>Change</masterLabel>
+            <translation>Modifica</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defect</masterLabel>
+            <translation>Difetto</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation>Nuovo</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Modello</label>
+        <name>Template__c</name>
+        <relationshipLabel>Elementi del modello</relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Template Item Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Punti stimati</label>
+            <section>Estimated Points</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Titolo</nameFieldLabel>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

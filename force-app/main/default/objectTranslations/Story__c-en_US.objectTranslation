@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Story</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Stories</value>
+    </caseValues>
+    <fields>
+        <help><!-- Acceptance criteria and any basic testing instructions. What is the &quot;definition of done&quot; and how would someone test it to know it&apos;s working as designed. Consider your happy path and any edge cases. For more detailed testing, use the story&apos;s Testing tab. --></help>
+        <label><!-- Acceptance Criteria/Tests --></label>
+        <name>Acceptance_Criteria_Tests__c</name>
+    </fields>
+    <fields>
+        <help><!-- Actual level of effort to implement the story. --></help>
+        <label><!-- Actual Points --></label>
+        <name>Actual_Points__c</name>
+    </fields>
+    <fields>
+        <help><!-- Assigned Project Member&apos;s concatenated First and Last Names. Used only in LWCs (imhotepStoryList). --></help>
+        <label><!-- Assigned Name --></label>
+        <name>Assigned_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Project member currently assigned to work on this story. --></help>
+        <label><!-- Assigned --></label>
+        <lookupFilter>
+            <errorMessage><!-- Assigned user must be a member of this project. --></errorMessage>
+        </lookupFilter>
+        <name>Assigned__c</name>
+        <relationshipLabel><!-- Assigned Stories --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Checked when the story is assigned to the current user.  Used as a filter for some list views. --></help>
+        <label><!-- Assigned to Current User? --></label>
+        <name>Assigned_to_Current_User__c</name>
+    </fields>
+    <fields>
+        <help><!-- If checked, the story was created from a template. --></help>
+        <label><!-- Created from Template? --></label>
+        <name>Created_from_Template__c</name>
+    </fields>
+    <fields>
+        <help><!-- Manual actions that must be taken to fully deploy changes (activate a flow, assign a permset, etc.). --></help>
+        <label><!-- Deployment Checklist --></label>
+        <name>Deployment_Checklist__c</name>
+    </fields>
+    <fields>
+        <help><!-- Estimated level of effort to implement the story. --></help>
+        <label><!-- Estimated Points --></label>
+        <name>Estimated_Points__c</name>
+    </fields>
+    <fields>
+        <help><!-- If checked, expedited handling has been requested. --></help>
+        <label><!-- Expedite --></label>
+        <name>Expedite__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of Metadata Changes related to this Story. --></help>
+        <label><!-- # Metadata Component Changes --></label>
+        <name>Metadata_Component_Changes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Story --></label>
+        <lookupFilter>
+            <errorMessage><!-- You must select a story within the same project. --></errorMessage>
+        </lookupFilter>
+        <name>Parent_Story__c</name>
+        <relationshipLabel><!-- Child Stories --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Uses Estimated Points for Blocked, Defined, Building, and Testing stories; else uses Actual Points. --></help>
+        <label><!-- Points --></label>
+        <name>Points__c</name>
+    </fields>
+    <fields>
+        <help><!-- Priority of this story within the release (should be continuously reassessed). Reorder stories from the release&apos;s Story List tab. --></help>
+        <label><!-- Priority/Order --></label>
+        <name>Priority_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- Stories --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- If checked, this story will be unaffected by changes to the Release Mode setting on the related Release.  This allows you to set or restrict features for this individual story.  It is checked automatically when you change the story&apos;s record type, but you can check or uncheck it manually to control the override. --></help>
+        <label><!-- Release Mode Override --></label>
+        <name>Release_Mode_Override__c</name>
+    </fields>
+    <fields>
+        <label><!-- Release --></label>
+        <lookupFilter>
+            <errorMessage><!-- You must select a release within the same project. --></errorMessage>
+        </lookupFilter>
+        <name>Release__c</name>
+        <relationshipLabel><!-- Stories --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Requested Release --></label>
+        <lookupFilter>
+            <errorMessage><!-- You must select a release within the same project. --></errorMessage>
+        </lookupFilter>
+        <name>Requested_Release__c</name>
+        <relationshipLabel><!-- Stories (Requested Release) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Working notes kept by the builder/developer on how they are implementing the story. --></help>
+        <label><!-- Solution/Build Notes --></label>
+        <name>Solution_Build_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Blocked</masterLabel>
+            <translation><!-- Blocked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Building</masterLabel>
+            <translation><!-- Building --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defined</masterLabel>
+            <translation><!-- Defined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deployed</masterLabel>
+            <translation><!-- Deployed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready</masterLabel>
+            <translation><!-- Ready --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Testing</masterLabel>
+            <translation><!-- Testing --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- User story/high-level requirement description. --></help>
+        <label><!-- Story/Description --></label>
+        <name>Story_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Story Number --></label>
+        <name>Story_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Story Type --></label>
+        <name>Story_Type__c</name>
+        <picklistValues>
+            <masterLabel>Change</masterLabel>
+            <translation><!-- Change --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defect</masterLabel>
+            <translation><!-- Defect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Story (Simple) Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Story Details --></label>
+            <section>Story Details</section>
+        </sections>
+        <sections>
+            <label><!-- Story Overview --></label>
+            <section>Story Overview</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Story (Standard) Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Level of Effort --></label>
+            <section>Level of Effort</section>
+        </sections>
+        <sections>
+            <label><!-- Story Details --></label>
+            <section>Story Details</section>
+        </sections>
+        <sections>
+            <label><!-- Story Overview --></label>
+            <section>Story Overview</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Clone --></label>
+        <name>Story_Clone_Action</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Delete --></label>
+        <name>Story_Delete_Action</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Log a Metadata Change --></label>
+        <name>Story_Log_Change_Action</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Transfer to Another Release --></label>
+        <name>Story_Transfer_Action</name>
+    </quickActions>
+    <recordTypes>
+        <description><!-- Use for projects that don&apos;t use advanced features (e.g. points, test scenarios, tracking metadata changes). --></description>
+        <label><!-- Simple Story --></label>
+        <name>Simple</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Use for projects that need access to all Imhotep features.  Default record type. --></description>
+        <label><!-- Standard Story --></label>
+        <name>Standard</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

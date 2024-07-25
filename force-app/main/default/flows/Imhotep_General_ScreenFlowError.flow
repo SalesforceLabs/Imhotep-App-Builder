@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <decisions>
+        <name>decShowErrorScreenToUser</name>
+        <label>Show Error Screen to User?</label>
+        <locationX>182</locationX>
+        <locationY>134</locationY>
+        <defaultConnectorLabel>Don&apos;t Show</defaultConnectorLabel>
+        <rules>
+            <name>outShowErrorScreenYES</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>inputShowErrorScreen</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>s01</targetReference>
+            </connector>
+            <label>Show</label>
+        </rules>
+    </decisions>
+    <description>Handles user-facing errors more gently.  Input variables:  inputAdditionalMessageToDisplay (string), inputFaultMessage (string), inputShowErrorScreen (boolean).</description>
+    <environments>Default</environments>
+    <interviewLabel>General - Screen Flow Error {!$Flow.CurrentDateTime}</interviewLabel>
+    <isAdditionalPermissionRequiredToRun>true</isAdditionalPermissionRequiredToRun>
+    <isTemplate>true</isTemplate>
+    <label>Imhotep - General - Screen Flow Error</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <runInMode>DefaultMode</runInMode>
+    <screens>
+        <name>s01</name>
+        <label>Error</label>
+        <locationX>50</locationX>
+        <locationY>242</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <backButtonLabel>&lt; Previous</backButtonLabel>
+        <fields>
+            <name>text01a</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;An Error Has Occurred&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;There was a problem encountered while processing your last request&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;. &lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>s01_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>s01_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>text01b</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;{!inputAdditionalMessageToDisplay}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>inputAdditionalMessageToDisplay</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>text01c</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Your Salesforce System Administrator has been sent a copy of the error.  You may try your request again. If you continue to experience this problem, you may want to reach out to your Salesforce System Administrator for assistance.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(153, 153, 153);&quot;&gt;Error Details:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(153, 153, 153);&quot;&gt;{!inputFaultMessage}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <nextOrFinishButtonLabel>Close</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>decShowErrorScreenToUser</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>inputAdditionalMessageToDisplay</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue></stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>inputFaultMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>This error does not have a specific error message.</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <description>If true, the flow will display a soft error screen to the user.</description>
+        <name>inputShowErrorScreen</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+</Flow>

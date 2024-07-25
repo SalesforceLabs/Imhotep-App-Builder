@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Test Scenario</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Test Scenarios</value>
+    </caseValues>
+    <fields>
+        <help><!-- What scenario is being tested? --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Best case, what should the tester experience? --></help>
+        <label><!-- Expected Result --></label>
+        <name>Expected_Result__c</name>
+    </fields>
+    <fields>
+        <help><!-- What steps does a tester need to follow in order to test new/changed functionality? --></help>
+        <label><!-- Instructions --></label>
+        <name>Instructions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Not Ready to Test</masterLabel>
+            <translation><!-- Not Ready to Test --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready to Test</masterLabel>
+            <translation><!-- Ready to Test --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test Completed</masterLabel>
+            <translation><!-- Test Completed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Story --></label>
+        <name>Story__c</name>
+        <relationshipLabel><!-- Test Scenarios --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Test Scenario Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

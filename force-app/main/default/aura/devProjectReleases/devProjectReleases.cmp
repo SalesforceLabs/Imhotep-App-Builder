@@ -1,0 +1,143 @@
+<aura:component controller="ImhotepAppBuilderCtrl" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="ImhotepActiveMetadata" type="iab__Imhotep_Config__mdt" />
+
+    <!-- deprecated attributes -->
+    <aura:attribute name="AddFlowAPIName" type="String" access="global" />
+    
+    <aura:attribute name="ReleaseRecordCount" type="Integer" />
+    <aura:attribute name="ActiveReleaseRecords" type="Release__c" />
+    <aura:attribute name="PlanningReleaseRecords" type="Release__c" />
+    <aura:attribute name="AcceptedReleaseRecords" type="Release__c" />
+    <aura:attribute name="BacklogReleaseRecords" type="Release__c" />
+    
+    <!-- reloads the component if the record is edited -->
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    
+    <!-- for flow launcher -->
+    <aura:attribute name="showModal" type="Boolean" default="false" />
+    <aura:attribute name="flow" type="Object" />
+    
+    
+    
+    <!-- Only display if modal button for flow has been clicked -->
+    <div class="{!v.showModal ? 'slds-show' : 'slds-hide'}">
+        <section class="slds-modal slds-fade-in-open slds-modal_medium">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header slds-modal__header_empty">
+                    <lightning:buttonIcon   size="large"
+                                            iconName="utility:close"
+                                            variant="bare-inverse"
+                                            onclick="{!c.closeModal}"
+                                            ariaLabel="{!$Label.c.GeneralModalCloseLabel}"
+                                            alternativeText="{!$Label.c.GeneralModalCloseAltText}"
+                                            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" />
+                </header>
+                <div class="slds-modal__content slds-var-p-around_medium">{!v.body}</div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    
+    
+    
+    <article class="slds-card" style="margin-bottom:10px;">
+        <div class="slds-card__header slds-grid related-list-for-card">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon-standard-kanban" title="{!$Label.c.HeadingProjectReleases}">
+                        <lightning:icon iconName="standard:kanban" title="{!$Label.c.HeadingProjectReleases}" size="small" />
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <lightning:formattedUrl value="{!'/lightning/r/iab__Project__c/' + v.recordId + '/related/iab__Releases__r/view'}" label="{!$Label.c.HeadingProjectReleases}" class="slds-card__header-link slds-truncate" />
+                    </h2>
+                </div>
+                <div class="slds-no-flex">
+                    <lightning:button   label="{!$Label.c.ActionNewReleaseLabel}"
+                                        iconName="utility:add"
+                                        iconPosition="left"
+                                        onclick="{!c.runFlowToAdd}" />
+                    <lightning:button   label="{!$Label.c.ActionNewReleaseFromTemplateLabel}"
+                                        iconName="utility:insert_template"
+                                        iconPosition="left"
+                                        onclick="{!c.runFlowToAddFromTemplate}" />
+                </div>
+            </header>
+        </div>
+        
+        
+        
+        <div class="slds-card__body slds-card__body_inner">
+            <lightning:layout multipleRows="true" verticalAlign="stretch" class="layout-padding" pullToBoundary="small">
+                
+                <aura:renderIf isTrue="{!v.ReleaseRecordCount > 0}">
+
+                    <!-- ### ACTIVE ### -->
+                    <aura:iteration items="{!v.ActiveReleaseRecords}" var="rel1">
+                        <lightning:layoutItem flexibility="auto" class="layoutitem-padding slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                            <c:devReleaseTile ReleaseRecord="{!rel1}" />
+                        </lightning:layoutItem>
+                    </aura:iteration>
+                    
+                    
+                    <!-- ### PLANNING ### -->
+                    <aura:iteration items="{!v.PlanningReleaseRecords}" var="rel2">
+                        <lightning:layoutItem flexibility="auto" class="layoutitem-padding slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                            <c:devReleaseTile ReleaseRecord="{!rel2}" />
+                        </lightning:layoutItem>
+                    </aura:iteration>
+                    
+                    
+                    <!-- ### BACKLOG ### -->
+                    <aura:iteration items="{!v.BacklogReleaseRecords}" var="rel3">
+                        <lightning:layoutItem flexibility="auto" class="layoutitem-padding slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                            <c:devReleaseTile ReleaseRecord="{!rel3}" />
+                        </lightning:layoutItem>
+                    </aura:iteration>
+                    
+                    
+                    <!-- ### ACCEPTED ### -->
+                    <aura:iteration items="{!v.AcceptedReleaseRecords}" var="rel4">
+                        <lightning:layoutItem flexibility="auto" class="layoutitem-padding slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                            <c:devReleaseTile ReleaseRecord="{!rel4}" />
+                        </lightning:layoutItem>
+                    </aura:iteration>
+
+                    <aura:set attribute="else">
+                        
+                        <lightning:layoutItem flexibility="auto" size="12" class="layoutitem-padding">
+                            <div class="slds-illustration slds-illustration_small">
+                                <img src="{!$Resource.ImhotepIllustrationEmptyState01}" class="slds-illustration__svg"/>
+                                
+                                <div class="slds-text-longform">
+                                    <h3 class="slds-text-heading_medium">{!$Label.c.ReleaseEmptyHeading}</h3>
+                                    <p class="slds-text-body_regular">{!$Label.c.ReleaseEmptyText}</p>
+                                </div>
+                                <footer class="slds-card__footer">
+                                    <lightning:button   label="{!$Label.c.ActionNewReleaseLabel}"
+                                                        variant="brand"
+                                                        iconName="utility:add"
+                                                        iconPosition="left"
+                                                        onclick="{!c.runFlowToAdd}" />
+                                </footer>
+                            </div>
+                        </lightning:layoutItem>
+
+                    </aura:set>
+
+                </aura:renderIf>
+                
+            </lightning:layout>
+        </div>
+        
+        
+        
+    </article>
+    
+    
+    
+</aura:component>

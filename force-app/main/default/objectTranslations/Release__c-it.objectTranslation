@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Rilascio</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Rilasci</value>
+    </caseValues>
+    <fields>
+        <help>Se selezionato, il rilascio è stato creato da un modello.</help>
+        <label>Creato da un modello?</label>
+        <name>Created_from_Template__c</name>
+    </fields>
+    <fields>
+        <help>Se selezionato, questo rilascio viene utilizzato come un backlog e non per lo sviluppo effettivo.</help>
+        <label>È backlog?</label>
+        <name>Is_Backlog__c</name>
+    </fields>
+    <fields>
+        <label>Note</label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <help>Punti rimanenti/liberi nell&apos;Obiettivo Punti (Obiettivo Punti - Punti Totali).</help>
+        <label>Punti disponibili</label>
+        <name>Points_Available__c</name>
+    </fields>
+    <fields>
+        <help>Numero massimo di punti pianificati per il rilascio.</help>
+        <label>Obiettivo punti</label>
+        <name>Points_Goal__c</name>
+    </fields>
+    <fields>
+        <help>Punti totali NON Pronti o Distribuiti (include storie in stati Blocked, Defined, Building, e Testing).</help>
+        <label>Punti rimasti da completare</label>
+        <name>Points_Left_to_Complete__c</name>
+    </fields>
+    <fields>
+        <label>Progetto</label>
+        <name>Project__c</name>
+        <relationshipLabel>Rilasci</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Data di rilascio</label>
+        <name>Release_Date__c</name>
+    </fields>
+    <fields>
+        <help>Impostazione che controlla le funzionalità e il layout abilitati per questo rilascio e le sue storie correlate. L&apos;impostazione predefinita è Standard (tutte le funzionalità di Imhotep abilitate). I singoli rilasci e storie possono ignorare questa selezione. La modifica di questo campo o del tipo di record convertirà questo rilascio e le sue storie correlate (i dati del campo non andranno persi ma potrebbero essere nascosti sulla pagina).</help>
+        <label>Modalità di rilascio</label>
+        <name>Release_Mode__c</name>
+    </fields>
+    <fields>
+        <label>Data di inizio</label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label>Stato</label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Accepted</masterLabel>
+            <translation>Accettato</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation>Attivo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation>Pianificazione</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Punti totali</label>
+        <name>Total_Points__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Release (Simple) Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Release (Standard) Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Rilascio</nameFieldLabel>
+    <quickActions>
+        <label><!-- New Release --></label>
+        <name>Imhotep_Release_NewRelease_Action</name>
+    </quickActions>
+    <recordTypes>
+        <description>Usalo per progetti che non utilizzano funzionalità avanzate (ad es. punti, scenari di test, tracciamento delle modifiche ai metadati).</description>
+        <label>Rilascio semplice</label>
+        <name>Simple</name>
+    </recordTypes>
+    <recordTypes>
+        <description>Usalo per progetti che necessitano di accesso a tutte le funzionalità di Imhotep. Tipo di record predefinito.</description>
+        <label>Rilascio standard</label>
+        <name>Standard</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

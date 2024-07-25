@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Metadata Component Change</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Metadata Component Changes</value>
+    </caseValues>
+    <fields>
+        <label><!-- Change Notes --></label>
+        <name>Change_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Change Type --></label>
+        <name>Change_Type__c</name>
+        <picklistValues>
+            <masterLabel>Deleted</masterLabel>
+            <translation><!-- Deleted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Modified</masterLabel>
+            <translation><!-- Modified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Metadata Component --></label>
+        <name>Metadata_Component__c</name>
+        <relationshipLabel><!-- Metadata Component Changes --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Component&apos;s Salesforce metadata type. --></help>
+        <label><!-- Metadata Type --></label>
+        <name>Metadata_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Metadata Component --></label>
+        <name>Parent_Metadata_Component__c</name>
+    </fields>
+    <fields>
+        <label><!-- Release --></label>
+        <name>Release__c</name>
+        <relationshipLabel><!-- Metadata Component Changes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Story Status --></label>
+        <name>Story_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Story --></label>
+        <name>Story__c</name>
+        <relationshipLabel><!-- Metadata Component Changes --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Metadata Component Change Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

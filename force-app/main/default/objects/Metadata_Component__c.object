@@ -1,0 +1,1096 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>Metadata_Component_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Metadata_Component_Layout</fullName>
+        <fields>Name</fields>
+        <fields>API_Name__c</fields>
+        <fields>Metadata_Type__c</fields>
+        <fields>Category__c</fields>
+        <fields>Parent_Metadata_Component__c</fields>
+        <label>Metadata Component Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Salesforce metadata components created in your org and managed for your project.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>API_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>API Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Kind of metadata (e.g. custom object, standard object, managed package object).</description>
+        <inlineHelpText>Kind of metadata (e.g. custom object, standard object, managed package object).</inlineHelpText>
+        <label>Category</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Custom</fullName>
+                    <default>false</default>
+                    <label>Custom</label>
+                </value>
+                <value>
+                    <fullName>Standard</fullName>
+                    <default>false</default>
+                    <label>Standard</label>
+                </value>
+                <value>
+                    <fullName>Managed</fullName>
+                    <default>false</default>
+                    <label>Managed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Is_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If checked, this metadata component has been deleted in the org and won&apos;t show up in various lists of components the user still needs to actively work with.</description>
+        <inlineHelpText>If checked, this metadata component has been deleted in the org and won&apos;t show up in various lists of components the user still needs to actively work with.</inlineHelpText>
+        <label>Is Deleted?</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Metadata_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Component&apos;s Salesforce metadata type.</description>
+        <inlineHelpText>Component&apos;s Salesforce metadata type.</inlineHelpText>
+        <label>Metadata Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>OTHER</fullName>
+                    <default>false</default>
+                    <label>OTHER</label>
+                </value>
+                <value>
+                    <fullName>AI Application</fullName>
+                    <default>false</default>
+                    <label>AI Application</label>
+                </value>
+                <value>
+                    <fullName>AI Application config</fullName>
+                    <default>false</default>
+                    <label>AI Application config</label>
+                </value>
+                <value>
+                    <fullName>Action</fullName>
+                    <default>false</default>
+                    <label>Action</label>
+                </value>
+                <value>
+                    <fullName>Action Link Group Template</fullName>
+                    <default>false</default>
+                    <label>Action Link Group Template</label>
+                </value>
+                <value>
+                    <fullName>Allow URL for Redirects</fullName>
+                    <default>false</default>
+                    <label>Allow URL for Redirects</label>
+                </value>
+                <value>
+                    <fullName>Apex Class</fullName>
+                    <default>false</default>
+                    <label>Apex Class</label>
+                </value>
+                <value>
+                    <fullName>Apex Sharing Reason</fullName>
+                    <default>false</default>
+                    <label>Apex Sharing Reason</label>
+                </value>
+                <value>
+                    <fullName>Apex Trigger</fullName>
+                    <default>false</default>
+                    <label>Apex Trigger</label>
+                </value>
+                <value>
+                    <fullName>App</fullName>
+                    <default>false</default>
+                    <label>App</label>
+                </value>
+                <value>
+                    <fullName>Approval Process</fullName>
+                    <default>false</default>
+                    <label>Approval Process</label>
+                </value>
+                <value>
+                    <fullName>Asset File</fullName>
+                    <default>false</default>
+                    <label>Asset File</label>
+                </value>
+                <value>
+                    <fullName>Assignment Rule</fullName>
+                    <default>false</default>
+                    <label>Assignment Rule</label>
+                </value>
+                <value>
+                    <fullName>Assistant Recommendation Type</fullName>
+                    <default>false</default>
+                    <label>Assistant Recommendation Type</label>
+                </value>
+                <value>
+                    <fullName>Aura Component Bundle</fullName>
+                    <default>false</default>
+                    <label>Aura Component Bundle</label>
+                </value>
+                <value>
+                    <fullName>Auth. Provider</fullName>
+                    <default>false</default>
+                    <label>Auth. Provider</label>
+                </value>
+                <value>
+                    <fullName>Auto-Response Rule</fullName>
+                    <default>false</default>
+                    <label>Auto-Response Rule</label>
+                </value>
+                <value>
+                    <fullName>Briefcase Definition</fullName>
+                    <default>false</default>
+                    <label>Briefcase Definition</label>
+                </value>
+                <value>
+                    <fullName>Bucket [pmdm]</fullName>
+                    <default>false</default>
+                    <label>Bucket [pmdm]</label>
+                </value>
+                <value>
+                    <fullName>Bucketed Field [pmdm]</fullName>
+                    <default>false</default>
+                    <label>Bucketed Field [pmdm]</label>
+                </value>
+                <value>
+                    <fullName>Bucketed Value [pmdm]</fullName>
+                    <default>false</default>
+                    <label>Bucketed Value [pmdm]</label>
+                </value>
+                <value>
+                    <fullName>Button or Link</fullName>
+                    <default>false</default>
+                    <label>Button or Link</label>
+                </value>
+                <value>
+                    <fullName>CORS Allowed Origin List</fullName>
+                    <default>false</default>
+                    <label>CORS Allowed Origin List</label>
+                </value>
+                <value>
+                    <fullName>Call Center</fullName>
+                    <default>false</default>
+                    <label>Call Center</label>
+                </value>
+                <value>
+                    <fullName>Channel Menu Deployment</fullName>
+                    <default>false</default>
+                    <label>Channel Menu Deployment</label>
+                </value>
+                <value>
+                    <fullName>Classic Letterhead</fullName>
+                    <default>false</default>
+                    <label>Classic Letterhead</label>
+                </value>
+                <value>
+                    <fullName>Communication Channel Layout</fullName>
+                    <default>false</default>
+                    <label>Communication Channel Layout</label>
+                </value>
+                <value>
+                    <fullName>Compact Layout</fullName>
+                    <default>false</default>
+                    <label>Compact Layout</label>
+                </value>
+                <value>
+                    <fullName>Content Security Policy Trusted Site</fullName>
+                    <default>false</default>
+                    <label>Content Security Policy Trusted Site</label>
+                </value>
+                <value>
+                    <fullName>Custom Console Component</fullName>
+                    <default>false</default>
+                    <label>Custom Console Component</label>
+                </value>
+                <value>
+                    <fullName>Custom Field</fullName>
+                    <default>false</default>
+                    <label>Custom Field</label>
+                </value>
+                <value>
+                    <fullName>Custom Help Menu Section</fullName>
+                    <default>false</default>
+                    <label>Custom Help Menu Section</label>
+                </value>
+                <value>
+                    <fullName>Custom Index</fullName>
+                    <default>false</default>
+                    <label>Custom Index</label>
+                </value>
+                <value>
+                    <fullName>Custom Label</fullName>
+                    <default>false</default>
+                    <label>Custom Label</label>
+                </value>
+                <value>
+                    <fullName>Custom Metadata Type</fullName>
+                    <default>false</default>
+                    <label>Custom Metadata Type</label>
+                </value>
+                <value>
+                    <fullName>Custom Notification Type</fullName>
+                    <default>false</default>
+                    <label>Custom Notification Type</label>
+                </value>
+                <value>
+                    <fullName>Custom Object</fullName>
+                    <default>false</default>
+                    <label>Custom Object</label>
+                </value>
+                <value>
+                    <fullName>Custom Permission</fullName>
+                    <default>false</default>
+                    <label>Custom Permission</label>
+                </value>
+                <value>
+                    <fullName>Custom Report Type</fullName>
+                    <default>false</default>
+                    <label>Custom Report Type</label>
+                </value>
+                <value>
+                    <fullName>Custom Setting</fullName>
+                    <default>false</default>
+                    <label>Custom Setting</label>
+                </value>
+                <value>
+                    <fullName>Dashboard</fullName>
+                    <default>false</default>
+                    <label>Dashboard</label>
+                </value>
+                <value>
+                    <fullName>Data Import Field Mapping Set [npsp]</fullName>
+                    <default>false</default>
+                    <label>Data Import Field Mapping Set [npsp]</label>
+                </value>
+                <value>
+                    <fullName>Data Import Field Mapping [npsp]</fullName>
+                    <default>false</default>
+                    <label>Data Import Field Mapping [npsp]</label>
+                </value>
+                <value>
+                    <fullName>Data Import Object Mapping Set [npsp]</fullName>
+                    <default>false</default>
+                    <label>Data Import Object Mapping Set [npsp]</label>
+                </value>
+                <value>
+                    <fullName>Data Import Object Mapping [npsp]</fullName>
+                    <default>false</default>
+                    <label>Data Import Object Mapping [npsp]</label>
+                </value>
+                <value>
+                    <fullName>Data Service</fullName>
+                    <default>false</default>
+                    <label>Data Service</label>
+                </value>
+                <value>
+                    <fullName>Document</fullName>
+                    <default>false</default>
+                    <label>Document</label>
+                </value>
+                <value>
+                    <fullName>Duplicate Rule</fullName>
+                    <default>false</default>
+                    <label>Duplicate Rule</label>
+                </value>
+                <value>
+                    <fullName>EclairNG Map GeoJson</fullName>
+                    <default>false</default>
+                    <label>EclairNG Map GeoJson</label>
+                </value>
+                <value>
+                    <fullName>Email Service</fullName>
+                    <default>false</default>
+                    <label>Email Service</label>
+                </value>
+                <value>
+                    <fullName>Email Template</fullName>
+                    <default>false</default>
+                    <label>Email Template</label>
+                </value>
+                <value>
+                    <fullName>Embedded Service Deployment</fullName>
+                    <default>false</default>
+                    <label>Embedded Service Deployment</label>
+                </value>
+                <value>
+                    <fullName>Entity Implements</fullName>
+                    <default>false</default>
+                    <label>Entity Implements</label>
+                </value>
+                <value>
+                    <fullName>Escalation Rule</fullName>
+                    <default>false</default>
+                    <label>Escalation Rule</label>
+                </value>
+                <value>
+                    <fullName>Event Subscription</fullName>
+                    <default>false</default>
+                    <label>Event Subscription</label>
+                </value>
+                <value>
+                    <fullName>Extension</fullName>
+                    <default>false</default>
+                    <label>Extension</label>
+                </value>
+                <value>
+                    <fullName>External Data Source</fullName>
+                    <default>false</default>
+                    <label>External Data Source</label>
+                </value>
+                <value>
+                    <fullName>External Service Registration</fullName>
+                    <default>false</default>
+                    <label>External Service Registration</label>
+                </value>
+                <value>
+                    <fullName>Feature Gate [pmdm]</fullName>
+                    <default>false</default>
+                    <label>Feature Gate [pmdm]</label>
+                </value>
+                <value>
+                    <fullName>Feed Filter</fullName>
+                    <default>false</default>
+                    <label>Feed Filter</label>
+                </value>
+                <value>
+                    <fullName>Field Mapping</fullName>
+                    <default>false</default>
+                    <label>Field Mapping</label>
+                </value>
+                <value>
+                    <fullName>Field Restriction Rule</fullName>
+                    <default>false</default>
+                    <label>Field Restriction Rule</label>
+                </value>
+                <value>
+                    <fullName>Field Set</fullName>
+                    <default>false</default>
+                    <label>Field Set</label>
+                </value>
+                <value>
+                    <fullName>Filter Group [npsp]</fullName>
+                    <default>false</default>
+                    <label>Filter Group [npsp]</label>
+                </value>
+                <value>
+                    <fullName>Filter Rule [npsp]</fullName>
+                    <default>false</default>
+                    <label>Filter Rule [npsp]</label>
+                </value>
+                <value>
+                    <fullName>Flow</fullName>
+                    <default>false</default>
+                    <label>Flow</label>
+                </value>
+                <value>
+                    <fullName>Flow Definition</fullName>
+                    <default>false</default>
+                    <label>Flow Definition</label>
+                </value>
+                <value>
+                    <fullName>Folder</fullName>
+                    <default>false</default>
+                    <label>Folder</label>
+                </value>
+                <value>
+                    <fullName>Global Value Set</fullName>
+                    <default>false</default>
+                    <label>Global Value Set</label>
+                </value>
+                <value>
+                    <fullName>Group</fullName>
+                    <default>false</default>
+                    <label>Group</label>
+                </value>
+                <value>
+                    <fullName>Home Page Component</fullName>
+                    <default>false</default>
+                    <label>Home Page Component</label>
+                </value>
+                <value>
+                    <fullName>Home Page Layout</fullName>
+                    <default>false</default>
+                    <label>Home Page Layout</label>
+                </value>
+                <value>
+                    <fullName>Inbound Network Connection</fullName>
+                    <default>false</default>
+                    <label>Inbound Network Connection</label>
+                </value>
+                <value>
+                    <fullName>Language Translation</fullName>
+                    <default>false</default>
+                    <label>Language Translation</label>
+                </value>
+                <value>
+                    <fullName>Lightning Bolt</fullName>
+                    <default>false</default>
+                    <label>Lightning Bolt</label>
+                </value>
+                <value>
+                    <fullName>Lightning Community Template</fullName>
+                    <default>false</default>
+                    <label>Lightning Community Template</label>
+                </value>
+                <value>
+                    <fullName>Lightning Community Theme</fullName>
+                    <default>false</default>
+                    <label>Lightning Community Theme</label>
+                </value>
+                <value>
+                    <fullName>Lightning Experience Theme</fullName>
+                    <default>false</default>
+                    <label>Lightning Experience Theme</label>
+                </value>
+                <value>
+                    <fullName>Lightning Message Channel</fullName>
+                    <default>false</default>
+                    <label>Lightning Message Channel</label>
+                </value>
+                <value>
+                    <fullName>Lightning Page</fullName>
+                    <default>false</default>
+                    <label>Lightning Page</label>
+                </value>
+                <value>
+                    <fullName>Lightning Web Component Bundle</fullName>
+                    <default>false</default>
+                    <label>Lightning Web Component Bundle</label>
+                </value>
+                <value>
+                    <fullName>List View</fullName>
+                    <default>false</default>
+                    <label>List View</label>
+                </value>
+                <value>
+                    <fullName>ML Data Definition</fullName>
+                    <default>false</default>
+                    <label>ML Data Definition</label>
+                </value>
+                <value>
+                    <fullName>ML Prediction Definition</fullName>
+                    <default>false</default>
+                    <label>ML Prediction Definition</label>
+                </value>
+                <value>
+                    <fullName>ML Recommendation Definition</fullName>
+                    <default>false</default>
+                    <label>ML Recommendation Definition</label>
+                </value>
+                <value>
+                    <fullName>Managed Content Type</fullName>
+                    <default>false</default>
+                    <label>Managed Content Type</label>
+                </value>
+                <value>
+                    <fullName>Matching Rule</fullName>
+                    <default>false</default>
+                    <label>Matching Rule</label>
+                </value>
+                <value>
+                    <fullName>Microsoft® Outlook® Web App Domain</fullName>
+                    <default>false</default>
+                    <label>Microsoft® Outlook® Web App Domain</label>
+                </value>
+                <value>
+                    <fullName>NPSP Get Started Checklist Item [npsp]</fullName>
+                    <default>false</default>
+                    <label>NPSP Get Started Checklist Item [npsp]</label>
+                </value>
+                <value>
+                    <fullName>NPSP Get Started Checklist Section [npsp]</fullName>
+                    <default>false</default>
+                    <label>NPSP Get Started Checklist Section [npsp]</label>
+                </value>
+                <value>
+                    <fullName>Named Credential</fullName>
+                    <default>false</default>
+                    <label>Named Credential</label>
+                </value>
+                <value>
+                    <fullName>Network</fullName>
+                    <default>false</default>
+                    <label>Network</label>
+                </value>
+                <value>
+                    <fullName>Opportunity Stage To State Mapping [npsp]</fullName>
+                    <default>false</default>
+                    <label>Opportunity Stage To State Mapping [npsp]</label>
+                </value>
+                <value>
+                    <fullName>Outbound Network Connection</fullName>
+                    <default>false</default>
+                    <label>Outbound Network Connection</label>
+                </value>
+                <value>
+                    <fullName>Page Layout</fullName>
+                    <default>false</default>
+                    <label>Page Layout</label>
+                </value>
+                <value>
+                    <fullName>Path Assistant</fullName>
+                    <default>false</default>
+                    <label>Path Assistant</label>
+                </value>
+                <value>
+                    <fullName>Permission Set</fullName>
+                    <default>false</default>
+                    <label>Permission Set</label>
+                </value>
+                <value>
+                    <fullName>Permission Set Group</fullName>
+                    <default>false</default>
+                    <label>Permission Set Group</label>
+                </value>
+                <value>
+                    <fullName>Platform Cache Partition</fullName>
+                    <default>false</default>
+                    <label>Platform Cache Partition</label>
+                </value>
+                <value>
+                    <fullName>Platform Event Channel</fullName>
+                    <default>false</default>
+                    <label>Platform Event Channel</label>
+                </value>
+                <value>
+                    <fullName>Platform Event Channel Member</fullName>
+                    <default>false</default>
+                    <label>Platform Event Channel Member</label>
+                </value>
+                <value>
+                    <fullName>Platform Event Subscriber Configuration</fullName>
+                    <default>false</default>
+                    <label>Platform Event Subscriber Configuration</label>
+                </value>
+                <value>
+                    <fullName>Post Template</fullName>
+                    <default>false</default>
+                    <label>Post Template</label>
+                </value>
+                <value>
+                    <fullName>Profile</fullName>
+                    <default>false</default>
+                    <label>Profile</label>
+                </value>
+                <value>
+                    <fullName>Prompt</fullName>
+                    <default>false</default>
+                    <label>Prompt</label>
+                </value>
+                <value>
+                    <fullName>Queue</fullName>
+                    <default>false</default>
+                    <label>Queue</label>
+                </value>
+                <value>
+                    <fullName>Recommendation Strategy</fullName>
+                    <default>false</default>
+                    <label>Recommendation Strategy</label>
+                </value>
+                <value>
+                    <fullName>Record Type</fullName>
+                    <default>false</default>
+                    <label>Record Type</label>
+                </value>
+                <value>
+                    <fullName>RecordAction Deployment</fullName>
+                    <default>false</default>
+                    <label>RecordAction Deployment</label>
+                </value>
+                <value>
+                    <fullName>Recurring Donation Status Mapping [npsp]</fullName>
+                    <default>false</default>
+                    <label>Recurring Donation Status Mapping [npsp]</label>
+                </value>
+                <value>
+                    <fullName>Remote Site</fullName>
+                    <default>false</default>
+                    <label>Remote Site</label>
+                </value>
+                <value>
+                    <fullName>Report</fullName>
+                    <default>false</default>
+                    <label>Report</label>
+                </value>
+                <value>
+                    <fullName>Reporting Snapshot</fullName>
+                    <default>false</default>
+                    <label>Reporting Snapshot</label>
+                </value>
+                <value>
+                    <fullName>Restriction Rule</fullName>
+                    <default>false</default>
+                    <label>Restriction Rule</label>
+                </value>
+                <value>
+                    <fullName>Role</fullName>
+                    <default>false</default>
+                    <label>Role</label>
+                </value>
+                <value>
+                    <fullName>Rollup [npsp]</fullName>
+                    <default>false</default>
+                    <label>Rollup [npsp]</label>
+                </value>
+                <value>
+                    <fullName>S-Control</fullName>
+                    <default>false</default>
+                    <label>S-Control</label>
+                </value>
+                <value>
+                    <fullName>Search Layout</fullName>
+                    <default>false</default>
+                    <label>Search Layout</label>
+                </value>
+                <value>
+                    <fullName>Security Custom Baseline</fullName>
+                    <default>false</default>
+                    <label>Security Custom Baseline</label>
+                </value>
+                <value>
+                    <fullName>Send Action</fullName>
+                    <default>false</default>
+                    <label>Send Action</label>
+                </value>
+                <value>
+                    <fullName>Sharing Criteria Rule</fullName>
+                    <default>false</default>
+                    <label>Sharing Criteria Rule</label>
+                </value>
+                <value>
+                    <fullName>Sharing Guest Rule</fullName>
+                    <default>false</default>
+                    <label>Sharing Guest Rule</label>
+                </value>
+                <value>
+                    <fullName>Sharing Owner Rule</fullName>
+                    <default>false</default>
+                    <label>Sharing Owner Rule</label>
+                </value>
+                <value>
+                    <fullName>Sharing Set</fullName>
+                    <default>false</default>
+                    <label>Sharing Set</label>
+                </value>
+                <value>
+                    <fullName>Site.com</fullName>
+                    <default>false</default>
+                    <label>Site.com</label>
+                </value>
+                <value>
+                    <fullName>Standard Object</fullName>
+                    <default>false</default>
+                    <label>Standard Object</label>
+                </value>
+                <value>
+                    <fullName>Static Resource</fullName>
+                    <default>false</default>
+                    <label>Static Resource</label>
+                </value>
+                <value>
+                    <fullName>Tab</fullName>
+                    <default>false</default>
+                    <label>Tab</label>
+                </value>
+                <value>
+                    <fullName>User Provisioning Config</fullName>
+                    <default>false</default>
+                    <label>User Provisioning Config</label>
+                </value>
+                <value>
+                    <fullName>Validation Rule</fullName>
+                    <default>false</default>
+                    <label>Validation Rule</label>
+                </value>
+                <value>
+                    <fullName>Visualforce Component</fullName>
+                    <default>false</default>
+                    <label>Visualforce Component</label>
+                </value>
+                <value>
+                    <fullName>Visualforce Page</fullName>
+                    <default>false</default>
+                    <label>Visualforce Page</label>
+                </value>
+                <value>
+                    <fullName>Workflow Email Alert</fullName>
+                    <default>false</default>
+                    <label>Workflow Email Alert</label>
+                </value>
+                <value>
+                    <fullName>Workflow Field Update</fullName>
+                    <default>false</default>
+                    <label>Workflow Field Update</label>
+                </value>
+                <value>
+                    <fullName>Workflow Outbound Message</fullName>
+                    <default>false</default>
+                    <label>Workflow Outbound Message</label>
+                </value>
+                <value>
+                    <fullName>Workflow Rule</fullName>
+                    <default>false</default>
+                    <label>Workflow Rule</label>
+                </value>
+                <value>
+                    <fullName>Workflow Task</fullName>
+                    <default>false</default>
+                    <label>Workflow Task</label>
+                </value>
+                <value>
+                    <fullName>Zone</fullName>
+                    <default>false</default>
+                    <label>Zone</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <deprecated>false</deprecated>
+        <label>Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Parent_Metadata_Component__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <label>Parent Metadata Component</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Value does not exist or is not a metadata component available in this project.</errorMessage>
+            <filterItems>
+                <field>$Source.Project__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Project__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Metadata_Component__c</referenceTo>
+        <relationshipLabel>Child Metadata Components</relationshipLabel>
+        <relationshipName>Child_Metadata_Components</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project__c</fullName>
+        <deprecated>false</deprecated>
+        <label>Project</label>
+        <referenceTo>Project__c</referenceTo>
+        <relationshipLabel>Metadata Components</relationshipLabel>
+        <relationshipName>Metadata_Components</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Metadata Component</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Project__c</columns>
+        <columns>API_Name__c</columns>
+        <columns>Metadata_Type__c</columns>
+        <columns>Category__c</columns>
+        <columns>Parent_Metadata_Component__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Deleted</fullName>
+        <columns>NAME</columns>
+        <columns>Project__c</columns>
+        <columns>API_Name__c</columns>
+        <columns>Metadata_Type__c</columns>
+        <columns>Category__c</columns>
+        <columns>Parent_Metadata_Component__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Is_Deleted__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>All Deleted</label>
+    </listViews>
+    <listViews>
+        <fullName>Metadata_Type_Component</fullName>
+        <columns>NAME</columns>
+        <columns>Project__c</columns>
+        <columns>API_Name__c</columns>
+        <columns>Metadata_Type__c</columns>
+        <columns>Category__c</columns>
+        <columns>Parent_Metadata_Component__c</columns>
+        <columns>Is_Deleted__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Metadata_Type__c</field>
+            <operation>equals</operation>
+            <value>Aura Component Bundle,Lightning Web Component Bundle</value>
+        </filters>
+        <label>Metadata Type = Component</label>
+    </listViews>
+    <listViews>
+        <fullName>Metadata_Type_Custom_Field</fullName>
+        <columns>NAME</columns>
+        <columns>Project__c</columns>
+        <columns>API_Name__c</columns>
+        <columns>Metadata_Type__c</columns>
+        <columns>Category__c</columns>
+        <columns>Parent_Metadata_Component__c</columns>
+        <columns>Is_Deleted__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Metadata_Type__c</field>
+            <operation>equals</operation>
+            <value>Custom Field</value>
+        </filters>
+        <label>Metadata Type = Custom Field</label>
+    </listViews>
+    <listViews>
+        <fullName>Metadata_Type_Custom_Object</fullName>
+        <columns>NAME</columns>
+        <columns>Project__c</columns>
+        <columns>API_Name__c</columns>
+        <columns>Metadata_Type__c</columns>
+        <columns>Category__c</columns>
+        <columns>Parent_Metadata_Component__c</columns>
+        <columns>Is_Deleted__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Metadata_Type__c</field>
+            <operation>equals</operation>
+            <value>Custom Object</value>
+        </filters>
+        <label>Metadata Type = Custom Object</label>
+    </listViews>
+    <listViews>
+        <fullName>Metadata_Type_Flow</fullName>
+        <columns>NAME</columns>
+        <columns>Project__c</columns>
+        <columns>API_Name__c</columns>
+        <columns>Metadata_Type__c</columns>
+        <columns>Category__c</columns>
+        <columns>Parent_Metadata_Component__c</columns>
+        <columns>Is_Deleted__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Metadata_Type__c</field>
+            <operation>equals</operation>
+            <value>Flow,Flow Definition</value>
+        </filters>
+        <label>Metadata Type = Flow</label>
+    </listViews>
+    <nameField>
+        <label>Metadata Component</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Metadata Components</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>API_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Metadata_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Category__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Parent_Metadata_Component__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Is_Deleted__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Notes__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

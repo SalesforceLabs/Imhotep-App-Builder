@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Version</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Versions</value>
+    </caseValues>
+    <fields>
+        <help>Si coché, la version a été créée à partir d&apos;un modèle.</help>
+        <label>Créé à partir d&apos;un modèle?</label>
+        <name>Created_from_Template__c</name>
+    </fields>
+    <fields>
+        <help>Si coché, cette version est utilisée comme un backlog et non pour le développement réel.</help>
+        <label>Est-ce un backlog?</label>
+        <name>Is_Backlog__c</name>
+    </fields>
+    <fields>
+        <label>Notes</label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <help>Points restants/libres dans l&apos;Objectif de Points (Objectif de Points - Points Totals).</help>
+        <label>Points disponibles</label>
+        <name>Points_Available__c</name>
+    </fields>
+    <fields>
+        <help>Nombre maximal de points prévus pour la version.</help>
+        <label>Objectif de points</label>
+        <name>Points_Goal__c</name>
+    </fields>
+    <fields>
+        <help>Total de points PAS Prêts ou Déployés (inclut les histoires dans les statuts Blocked, Defined, Building, et Testing).</help>
+        <label>Points restants à compléter</label>
+        <name>Points_Left_to_Complete__c</name>
+    </fields>
+    <fields>
+        <label>Projet</label>
+        <name>Project__c</name>
+        <relationshipLabel>Versions</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Date de sortie</label>
+        <name>Release_Date__c</name>
+    </fields>
+    <fields>
+        <help>Paramètre qui contrôle les fonctionnalités et la disposition activées pour cette publication et ses histoires liées. Le paramètre par défaut est Standard (toutes les fonctionnalités d&apos;Imhotep activées). Les publications et histoires individuelles peuvent remplacer cette sélection. La modification de ce champ ou du type d&apos;enregistrement convertira cette publication et ses histoires liées (les données de champ ne seront pas perdues mais peuvent être masquées sur la page).</help>
+        <label>Mode de publication</label>
+        <name>Release_Mode__c</name>
+    </fields>
+    <fields>
+        <label>Date de début</label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label>Statut</label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Accepted</masterLabel>
+            <translation>Accepté</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation>Actif</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation>Planification</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Points totals</label>
+        <name>Total_Points__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Release (Simple) Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Release (Standard) Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Version</nameFieldLabel>
+    <quickActions>
+        <label><!-- New Release --></label>
+        <name>Imhotep_Release_NewRelease_Action</name>
+    </quickActions>
+    <recordTypes>
+        <description>Utilisez-le pour les projets qui n&apos;utilisent pas de fonctionnalités avancées (par exemple, points, scénarios de test, suivi des modifications de métadonnées).</description>
+        <label>Version simple</label>
+        <name>Simple</name>
+    </recordTypes>
+    <recordTypes>
+        <description>Utilisez-le pour les projets qui ont besoin d&apos;accéder à toutes les fonctionnalités d&apos;Imhotep. Type d&apos;enregistrement par défaut.</description>
+        <label>Version standard</label>
+        <name>Standard</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

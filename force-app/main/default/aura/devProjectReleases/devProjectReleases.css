@@ -1,0 +1,38 @@
+.THIS .related-list-for-card {
+    padding-bottom:10px;
+    background:#f3f3f3;
+    border-bottom:1px solid #C9C9C9;
+    border-radius:5px 5px 0 0;
+}
+
+.THIS .card-container-outer {
+    width:100%;
+}
+
+.THIS .card-container-inner {
+    border-radius:4px 4px 0 0;
+    padding:16px;
+    text-align:left;
+}
+
+.THIS .layout-padding {
+    padding:0px 5px 0px 5px;
+}
+
+.THIS .layoutitem-padding {
+    padding:5px;
+}
+
+.THIS .badge-margin-left {
+    margin-left:5px;
+}
+
+.THIS .button-padding {
+    margin-left:5px;
+}
+
+.THIS .empty-state {
+    padding:5px 5px 5px 5px;
+    text-align:left;
+    font-style:italic;
+}

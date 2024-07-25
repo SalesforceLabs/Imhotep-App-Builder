@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Add a user as a project member. Used by Imhotep App Builder.</description>
+    <flowDefinition>Imhotep_Project_NewProjectMember</flowDefinition>
+    <label>New Project Member</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>Flow</type>
+</QuickAction>

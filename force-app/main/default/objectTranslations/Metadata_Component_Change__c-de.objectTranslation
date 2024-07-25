@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Änderung der Metadatenkomponente</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Änderungen der Metadatenkomponenten</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>false</plural>
+        <value>Änderung der Metadatenkomponente</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>true</plural>
+        <value>Änderungen der Metadatenkomponenten</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>false</plural>
+        <value>Änderung der Metadatenkomponente</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>true</plural>
+        <value>Änderungen der Metadatenkomponenten</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>false</plural>
+        <value>Änderung der Metadatenkomponente</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>true</plural>
+        <value>Änderungen der Metadatenkomponenten</value>
+    </caseValues>
+    <fields>
+        <label>Änderungsnotizen</label>
+        <name>Change_Notes__c</name>
+    </fields>
+    <fields>
+        <label>Änderungstyp</label>
+        <name>Change_Type__c</name>
+        <picklistValues>
+            <masterLabel>Deleted</masterLabel>
+            <translation>Gelöscht</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Modified</masterLabel>
+            <translation>Modifiziert</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation>Neu</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Metadatenkomponente</label>
+        <name>Metadata_Component__c</name>
+        <relationshipLabel>Änderungen der Metadatenkomponenten</relationshipLabel>
+    </fields>
+    <fields>
+        <help>Salesforce-Metadatentyp der Komponente.</help>
+        <label>Metadatentyp</label>
+        <name>Metadata_Type__c</name>
+    </fields>
+    <fields>
+        <label>Übergeordnete Metadatenkomponente</label>
+        <name>Parent_Metadata_Component__c</name>
+    </fields>
+    <fields>
+        <label>Veröffentlichung</label>
+        <name>Release__c</name>
+        <relationshipLabel>Änderungen der Metadatenkomponenten</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Status der Geschichte</label>
+        <name>Story_Status__c</name>
+    </fields>
+    <fields>
+        <label>Geschichte</label>
+        <name>Story__c</name>
+        <relationshipLabel>Änderungen der Metadatenkomponenten</relationshipLabel>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Metadata Component Change Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Änderung</nameFieldLabel>
+</CustomObjectTranslation>

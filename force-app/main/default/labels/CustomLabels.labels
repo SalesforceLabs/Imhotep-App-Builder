@@ -1,0 +1,1557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>ActionAddTemplateStoriesLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionAddTemplateStoriesLabel</shortDescription>
+        <value>Add Template Stories</value>
+    </labels>
+    <labels>
+        <fullName>ActionCloneStoryAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionCloneStoryAlt</shortDescription>
+        <value>Click to clone the story in a modal window</value>
+    </labels>
+    <labels>
+        <fullName>ActionCloneStoryLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionCloneStoryLabel</shortDescription>
+        <value>Clone the Story</value>
+    </labels>
+    <labels>
+        <fullName>ActionCloneTestScenarioLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionCloneTestScenarioLabel</shortDescription>
+        <value>Clone</value>
+    </labels>
+    <labels>
+        <fullName>ActionCreateTemplateLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionCreateTemplateLabel</shortDescription>
+        <value>Create Template</value>
+    </labels>
+    <labels>
+        <fullName>ActionDeleteMetadataChangeLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionDeleteMetadataChangeLabel</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>ActionDeleteResourceLinkLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionDeleteResourceLinkLabel</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>ActionDeleteStoryAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionDeleteStoryAlt</shortDescription>
+        <value>Click to delete the story in a modal window</value>
+    </labels>
+    <labels>
+        <fullName>ActionDeleteStoryLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionDeleteStoryLabel</shortDescription>
+        <value>Delete the Story</value>
+    </labels>
+    <labels>
+        <fullName>ActionDeleteTagAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionDeleteTagAlt</shortDescription>
+        <value>Click to delete this tag from the project</value>
+    </labels>
+    <labels>
+        <fullName>ActionDeleteTagLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionDeleteTagLabel</shortDescription>
+        <value>Delete Tag</value>
+    </labels>
+    <labels>
+        <fullName>ActionDeleteTestResultsAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionDeleteTestResultsAlt</shortDescription>
+        <value>Click to delete these test results in a modal window</value>
+    </labels>
+    <labels>
+        <fullName>ActionDeleteTestResultsLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionDeleteTestResultsLabel</shortDescription>
+        <value>Delete Test Results</value>
+    </labels>
+    <labels>
+        <fullName>ActionDeleteTestScenarioLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionDeleteTestScenarioLabel</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>ActionDragAndDropIconLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionDragAndDropIconLabel</shortDescription>
+        <value>Drag and drop icon</value>
+    </labels>
+    <labels>
+        <fullName>ActionDragAndDropIconTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionDragAndDropIconTitle</shortDescription>
+        <value>Click and drag to reorder/repriortize the story</value>
+    </labels>
+    <labels>
+        <fullName>ActionEditMetadataChangeLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionEditMetadataChangeLabel</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>ActionEditResourceLinkLabel1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionEditResourceLinkLabel1</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>ActionEditResourceLinkLabel2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionEditResourceLinkLabel2</shortDescription>
+        <value>Edit the Resource Link</value>
+    </labels>
+    <labels>
+        <fullName>ActionEditStoryAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionEditStoryAlt</shortDescription>
+        <value>Click to edit the story in a modal window</value>
+    </labels>
+    <labels>
+        <fullName>ActionEditStoryLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionEditStoryLabel</shortDescription>
+        <value>Edit the Story</value>
+    </labels>
+    <labels>
+        <fullName>ActionEditTestResultsAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionEditTestResultsAlt</shortDescription>
+        <value>Click to edit these test results in a modal window</value>
+    </labels>
+    <labels>
+        <fullName>ActionEditTestResultsLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionEditTestResultsLabel</shortDescription>
+        <value>Edit Test Results</value>
+    </labels>
+    <labels>
+        <fullName>ActionEditTestScenarioLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionEditTestScenarioLabel</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>ActionExpandCollapseTemplateItemsListText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionExpandCollapseTemplateItemsListText</shortDescription>
+        <value>Click to expand/collapse list of included stories</value>
+    </labels>
+    <labels>
+        <fullName>ActionHideStoryDescriptionAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionHideStoryDescriptionAlt</shortDescription>
+        <value>Click to hide the story description</value>
+    </labels>
+    <labels>
+        <fullName>ActionHideStoryDescriptionLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionHideStoryDescriptionLabel</shortDescription>
+        <value>Hide story description</value>
+    </labels>
+    <labels>
+        <fullName>ActionLogMetadataChangeLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionLogMetadataChangeLabel</shortDescription>
+        <value>Log a Metadata Change</value>
+    </labels>
+    <labels>
+        <fullName>ActionModifyProjectMemberLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionModifyProjectMemberLabel</shortDescription>
+        <value>Modify</value>
+    </labels>
+    <labels>
+        <fullName>ActionNewProjectLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionNewProjectLabel</shortDescription>
+        <value>New Project</value>
+    </labels>
+    <labels>
+        <fullName>ActionNewProjectMemberLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionNewProjectMemberLabel</shortDescription>
+        <value>New Project Member</value>
+    </labels>
+    <labels>
+        <fullName>ActionNewReleaseFromTemplateLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionNewReleaseFromTemplateLabel</shortDescription>
+        <value>New Release From Template</value>
+    </labels>
+    <labels>
+        <fullName>ActionNewReleaseLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionNewReleaseLabel</shortDescription>
+        <value>New Release</value>
+    </labels>
+    <labels>
+        <fullName>ActionNewResourceLinkAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionNewResourceLinkAlt</shortDescription>
+        <value>Click to create a new resource link in a modal window</value>
+    </labels>
+    <labels>
+        <fullName>ActionNewResourceLinkLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionNewResourceLinkLabel</shortDescription>
+        <value>Create a New Resource Link</value>
+    </labels>
+    <labels>
+        <fullName>ActionNewStoryLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionNewStoryLabel</shortDescription>
+        <value>New Story</value>
+    </labels>
+    <labels>
+        <fullName>ActionNewTagAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionNewTagAlt</shortDescription>
+        <value>Click to create a new tag for this project</value>
+    </labels>
+    <labels>
+        <fullName>ActionNewTagAssignmentAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionNewTagAssignmentAlt</shortDescription>
+        <value>Click to assign a tag to this story</value>
+    </labels>
+    <labels>
+        <fullName>ActionNewTagAssignmentLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionNewTagAssignmentLabel</shortDescription>
+        <value>New Tag Assignment</value>
+    </labels>
+    <labels>
+        <fullName>ActionNewTagLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionNewTagLabel</shortDescription>
+        <value>New Tag</value>
+    </labels>
+    <labels>
+        <fullName>ActionNewTestResultLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionNewTestResultLabel</shortDescription>
+        <value>Report Test Results</value>
+    </labels>
+    <labels>
+        <fullName>ActionNewTestScenarioLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionNewTestScenarioLabel</shortDescription>
+        <value>New Test Scenario</value>
+    </labels>
+    <labels>
+        <fullName>ActionRefreshKanbanAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionRefreshKanbanAlt</shortDescription>
+        <value>Click to refresh the story data in the Kanban</value>
+    </labels>
+    <labels>
+        <fullName>ActionRefreshKanbanLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionRefreshKanbanLabel</shortDescription>
+        <value>Refresh the Kanban</value>
+    </labels>
+    <labels>
+        <fullName>ActionRefreshProjectsAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionRefreshProjectsAlt</shortDescription>
+        <value>Click to refresh the project data in the component</value>
+    </labels>
+    <labels>
+        <fullName>ActionRefreshProjectsLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionRefreshProjectsLabel</shortDescription>
+        <value>Refresh Projects</value>
+    </labels>
+    <labels>
+        <fullName>ActionRefreshStoriesAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionRefreshStoriesAlt</shortDescription>
+        <value>Click to refresh the story data in the list</value>
+    </labels>
+    <labels>
+        <fullName>ActionRefreshStoriesLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionRefreshStoriesLabel</shortDescription>
+        <value>Refresh List</value>
+    </labels>
+    <labels>
+        <fullName>ActionRemoveProjectMemberLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionRemoveProjectMemberLabel</shortDescription>
+        <value>Remove</value>
+    </labels>
+    <labels>
+        <fullName>ActionReorderStoryErrorTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionReorderStoryErrorTitle</shortDescription>
+        <value>Error saving new story order</value>
+    </labels>
+    <labels>
+        <fullName>ActionReorderStorySuccessMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionReorderStorySuccessMessage</shortDescription>
+        <value>Story reordered successfully.</value>
+    </labels>
+    <labels>
+        <fullName>ActionReorderStorySuccessTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionReorderStorySuccessTitle</shortDescription>
+        <value>Success</value>
+    </labels>
+    <labels>
+        <fullName>ActionResourceLinkMenuExpandCollapseAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionResourceLinkMenuExpandCollapseAlt</shortDescription>
+        <value>Click to open/close the menu for this resource link</value>
+    </labels>
+    <labels>
+        <fullName>ActionSelectTemplateLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionSelectTemplateLabel</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>ActionShowStoryDescriptionAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionShowStoryDescriptionAlt</shortDescription>
+        <value>Click to show the story description</value>
+    </labels>
+    <labels>
+        <fullName>ActionShowStoryDescriptionLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionShowStoryDescriptionLabel</shortDescription>
+        <value>Show story description</value>
+    </labels>
+    <labels>
+        <fullName>ActionTableColActionsLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionTableColActionsLabel</shortDescription>
+        <value>Actions</value>
+    </labels>
+    <labels>
+        <fullName>ActionTestScenarioMenuExpandCollapseAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionTestScenarioMenuExpandCollapseAlt</shortDescription>
+        <value>Expand/collapse the test scenario menu</value>
+    </labels>
+    <labels>
+        <fullName>ActionTestScenarioUpdateStatusLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionTestScenarioUpdateStatusLabel</shortDescription>
+        <value>Update Status</value>
+    </labels>
+    <labels>
+        <fullName>ActionTransferStoryAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionTransferStoryAlt</shortDescription>
+        <value>Click to transfer the story to a different release in a modal window</value>
+    </labels>
+    <labels>
+        <fullName>ActionTransferStoryLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionTransferStoryLabel</shortDescription>
+        <value>Transfer to Another Release</value>
+    </labels>
+    <labels>
+        <fullName>ActionUnassignTagAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionUnassignTagAlt</shortDescription>
+        <value>Click to unassign this tag from the story</value>
+    </labels>
+    <labels>
+        <fullName>ActionUnassignTagLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionUnassignTagLabel</shortDescription>
+        <value>Unassign Tag</value>
+    </labels>
+    <labels>
+        <fullName>ActionViewResourceLink</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionViewResourceLink</shortDescription>
+        <value>Click to view in a new window</value>
+    </labels>
+    <labels>
+        <fullName>ActionViewStoriesWithTag</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActionViewStoriesWithTag</shortDescription>
+        <value>Click to view all stories with this tag</value>
+    </labels>
+    <labels>
+        <fullName>AppCardAccordionImhotepContent1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AppCardAccordionImhotepContent1</shortDescription>
+        <value>Imhotep famously built the Step Pyramid of Djoser. Not only is this the first pyramid in Egypt, but it might just be the first Agile project in history (I&apos;m sure there were others, but just go with it)!</value>
+    </labels>
+    <labels>
+        <fullName>AppCardAccordionImhotepContent2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AppCardAccordionImhotepContent2</shortDescription>
+        <value>The Step Pyramid was built iteratively over time, and Imhotep revised the design, switched building materials, and tried out new construction methods as he went. In the end, Imhotep&apos;s pyramid was a major milestone in ancient construction and survives to this day as the world&apos;s oldest stone monument. Imhotep was known better by history than Djoser himself and revered as a minor god.</value>
+    </labels>
+    <labels>
+        <fullName>AppCardAccordionImhotepContent3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AppCardAccordionImhotepContent3</shortDescription>
+        <value>In saluting Imhotep&apos;s iterative approach to achieving a grand and lasting outcome, it is my hope that this app will help you leverage some simple Agile concepts and achieve success with your app build and the on-going maintenance of your org.</value>
+    </labels>
+    <labels>
+        <fullName>AppCardAccordionImhotepLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AppCardAccordionImhotepLabel</shortDescription>
+        <value>Why Imhotep?</value>
+    </labels>
+    <labels>
+        <fullName>AppCardCurrentReleaseText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AppCardCurrentReleaseText</shortDescription>
+        <value>Current Release</value>
+    </labels>
+    <labels>
+        <fullName>AppCardDocumentationLinkText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AppCardDocumentationLinkText</shortDescription>
+        <value>View Documentation &amp;amp; Release Notes</value>
+    </labels>
+    <labels>
+        <fullName>AppCardWelcomeContent1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AppCardWelcomeContent1</shortDescription>
+        <value>Welcome Imhotep, Overseer of Pharaoh&apos;s Great Works! Use this app to organize and execute on the great ideas you have for Mighty Pharaoh&apos;s Salesforce org.</value>
+    </labels>
+    <labels>
+        <fullName>AppCardWelcomeContent2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AppCardWelcomeContent2</shortDescription>
+        <value>This is not a complex app, and it was not built by a Level 10 Agile Grand Ninja Master. It loosely follows some Agile and lean concepts - Imhotep App Builder is just enough to help you do some good.</value>
+    </labels>
+    <labels>
+        <fullName>AppCardWelcomeContent3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AppCardWelcomeContent3</shortDescription>
+        <value>Use as much or as little of this app as you need.</value>
+    </labels>
+    <labels>
+        <fullName>ChangeEmptyHeading</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ChangeEmptyHeading</shortDescription>
+        <value>No changes yet</value>
+    </labels>
+    <labels>
+        <fullName>ChangeEmptyText1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ChangeEmptyText1</shortDescription>
+        <value>Ra shines high in the sky, do not waste this day!</value>
+    </labels>
+    <labels>
+        <fullName>ChangeEmptyText2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ChangeEmptyText2</shortDescription>
+        <value>As you make changes in your Salesforce environment, you can log them here to keep better track of them (examples: creating a new LWC, updating an existing flow, or deleting a custom field).</value>
+    </labels>
+    <labels>
+        <fullName>ChangeEmptyText4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ChangeEmptyText4</shortDescription>
+        <value>This list shows all changes related to stories in this release. To log changes, go to the relevant story and visit the &quot;Change Log&quot; tab.</value>
+    </labels>
+    <labels>
+        <fullName>ChangeFieldChangeLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ChangeFieldChangeLabel</shortDescription>
+        <value>Change</value>
+    </labels>
+    <labels>
+        <fullName>ChangeFieldChangeNotesLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ChangeFieldChangeNotesLabel</shortDescription>
+        <value>Change Notes</value>
+    </labels>
+    <labels>
+        <fullName>ChangeFieldChangeTypeLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ChangeFieldChangeTypeLabel</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>ChangeFieldLastModifiedLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ChangeFieldLastModifiedLabel</shortDescription>
+        <value>Last Modified</value>
+    </labels>
+    <labels>
+        <fullName>ChangeFieldMetadataComponentLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ChangeFieldMetadataComponentLabel</shortDescription>
+        <value>Metadata Component</value>
+    </labels>
+    <labels>
+        <fullName>ChangeFieldMetadataTypeLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ChangeFieldMetadataTypeLabel</shortDescription>
+        <value>Metadata Type</value>
+    </labels>
+    <labels>
+        <fullName>ChangeFieldStoryLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ChangeFieldStoryLabel</shortDescription>
+        <value>Story</value>
+    </labels>
+    <labels>
+        <fullName>ChangeFieldStoryStatusLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ChangeFieldStoryStatusLabel</shortDescription>
+        <value>Story Status</value>
+    </labels>
+    <labels>
+        <fullName>CompResourceBarHeading</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CompResourceBarHeading</shortDescription>
+        <value>Resources</value>
+    </labels>
+    <labels>
+        <fullName>GeneralModalCloseAltText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>GeneralModalCloseAltText</shortDescription>
+        <value>Click to close the modal window</value>
+    </labels>
+    <labels>
+        <fullName>GeneralModalCloseLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>GeneralModalCloseLabel</shortDescription>
+        <value>Close Window</value>
+    </labels>
+    <labels>
+        <fullName>HeadingKanbanRelease</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HeadingKanbanRelease</shortDescription>
+        <value>Story Kanban</value>
+    </labels>
+    <labels>
+        <fullName>HeadingMetadataChanges</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HeadingMetadataChanges</shortDescription>
+        <value>Metadata Component Changes</value>
+    </labels>
+    <labels>
+        <fullName>HeadingMetadataChangesEdit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HeadingMetadataChangesEdit</shortDescription>
+        <value>Edit the Metadata Component Change</value>
+    </labels>
+    <labels>
+        <fullName>HeadingProjectMembers</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HeadingProjectMembers</shortDescription>
+        <value>Project Members</value>
+    </labels>
+    <labels>
+        <fullName>HeadingProjectReleases</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HeadingProjectReleases</shortDescription>
+        <value>Releases</value>
+    </labels>
+    <labels>
+        <fullName>HeadingProjectTags</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HeadingProjectTags</shortDescription>
+        <value>Tags</value>
+    </labels>
+    <labels>
+        <fullName>HeadingProjectTiles</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HeadingProjectTiles</shortDescription>
+        <value>My Projects</value>
+    </labels>
+    <labels>
+        <fullName>HeadingStoryList</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HeadingStoryList</shortDescription>
+        <value>Story List</value>
+    </labels>
+    <labels>
+        <fullName>HeadingStoryTags</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HeadingStoryTags</shortDescription>
+        <value>Assigned Tags</value>
+    </labels>
+    <labels>
+        <fullName>HeadingStoryTestScenarios</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HeadingStoryTestScenarios</shortDescription>
+        <value>Test Scenarios</value>
+    </labels>
+    <labels>
+        <fullName>HeadingStoryTestScenariosHelp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HeadingStoryTestScenariosHelp</shortDescription>
+        <value>The Testing tab is designed for detailed tracking of tests for your story, but it&apos;s entirely optional. If you want to provide simpler test instructions, use the Acceptance Criteria/Tests field on the Details tab.</value>
+    </labels>
+    <labels>
+        <fullName>HeadingTagStories</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HeadingTagStories</shortDescription>
+        <value>Tagged Stories by Category</value>
+    </labels>
+    <labels>
+        <fullName>HeadingTestResults</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HeadingTestResults</shortDescription>
+        <value>Test Results</value>
+    </labels>
+    <labels>
+        <fullName>HeadingTestResultsHelp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HeadingTestResultsHelp</shortDescription>
+        <value>Results for each time the Test Case has been tested.</value>
+    </labels>
+    <labels>
+        <fullName>ImageImhotepLogoAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ImageImhotepLogoAlt</shortDescription>
+        <value>Imhotep App Builder logo</value>
+    </labels>
+    <labels>
+        <fullName>ImageStepPyramidAlt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ImageStepPyramidAlt</shortDescription>
+        <value>Diagram showing the internal structure of the Step Pyramid of Djoser</value>
+    </labels>
+    <labels>
+        <fullName>LogChangeLWCActionDeletedLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LogChangeLWCActionDeletedLabel</shortDescription>
+        <value>Deleted</value>
+    </labels>
+    <labels>
+        <fullName>LogChangeLWCActionModifiedLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LogChangeLWCActionModifiedLabel</shortDescription>
+        <value>Modified</value>
+    </labels>
+    <labels>
+        <fullName>LogChangeLWCActionNewLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LogChangeLWCActionNewLabel</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>LogChangeLWCComponentListEmptyState</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LogChangeLWCComponentListEmptyState</shortDescription>
+        <value>Your project does not have any known metadata of this type. Click &quot;New&quot; to report a newly created metadata component.</value>
+    </labels>
+    <labels>
+        <fullName>LogChangeLWCInitialState</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LogChangeLWCInitialState</shortDescription>
+        <value>To get started, scroll the list and select a metadata type.</value>
+    </labels>
+    <labels>
+        <fullName>LogChangeLWCListHeader</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LogChangeLWCListHeader</shortDescription>
+        <value>Selected</value>
+    </labels>
+    <labels>
+        <fullName>LogChangeLWCListMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LogChangeLWCListMessage</shortDescription>
+        <value>Below is a list of your existing metadata. Click &quot;Modified&quot; or &quot;Deleted&quot; to log a change. Click &quot;New&quot; to report a newly created metadata component.</value>
+    </labels>
+    <labels>
+        <fullName>PageListMetadataComponentChanges</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PageListMetadataComponentChanges</shortDescription>
+        <value>Metadata Component Changes</value>
+    </labels>
+    <labels>
+        <fullName>PageListRequestedStories</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PageListRequestedStories</shortDescription>
+        <value>Stories (Requested Release)</value>
+    </labels>
+    <labels>
+        <fullName>PageTabChangeLog</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PageTabChangeLog</shortDescription>
+        <value>Change Log</value>
+    </labels>
+    <labels>
+        <fullName>PageTabMyStoriesBuilding</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PageTabMyStoriesBuilding</shortDescription>
+        <value>My Stories (Building)</value>
+    </labels>
+    <labels>
+        <fullName>PageTabMyStoriesDefined</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PageTabMyStoriesDefined</shortDescription>
+        <value>My Stories (Defined)</value>
+    </labels>
+    <labels>
+        <fullName>PageTabNewestStories</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PageTabNewestStories</shortDescription>
+        <value>Newest Stories</value>
+    </labels>
+    <labels>
+        <fullName>PageTabRequestedStories</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PageTabRequestedStories</shortDescription>
+        <value>Requested Stories</value>
+    </labels>
+    <labels>
+        <fullName>PageTabStoryKanban</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PageTabStoryKanban</shortDescription>
+        <value>Story Kanban</value>
+    </labels>
+    <labels>
+        <fullName>PageTabStoryList</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PageTabStoryList</shortDescription>
+        <value>Story List</value>
+    </labels>
+    <labels>
+        <fullName>PageTabTesting</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PageTabTesting</shortDescription>
+        <value>Testing</value>
+    </labels>
+    <labels>
+        <fullName>PageTabUpdatedStories</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PageTabUpdatedStories</shortDescription>
+        <value>Updated Stories</value>
+    </labels>
+    <labels>
+        <fullName>ProjectEmptyByStatusHeading</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProjectEmptyByStatusHeading</shortDescription>
+        <value>No projects here?</value>
+    </labels>
+    <labels>
+        <fullName>ProjectEmptyByStatusText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProjectEmptyByStatusText</shortDescription>
+        <value>Don&apos;t let Pharaoh find out. Put your nose to the grindstone, my friend.</value>
+    </labels>
+    <labels>
+        <fullName>ProjectFieldStatusActive</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProjectFieldStatusActive</shortDescription>
+        <value>Active</value>
+    </labels>
+    <labels>
+        <fullName>ProjectFieldStatusCompleted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProjectFieldStatusCompleted</shortDescription>
+        <value>Completed</value>
+    </labels>
+    <labels>
+        <fullName>ProjectFieldStatusPlanning</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProjectFieldStatusPlanning</shortDescription>
+        <value>Planning</value>
+    </labels>
+    <labels>
+        <fullName>ProjectIconTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProjectIconTitle</shortDescription>
+        <value>Project</value>
+    </labels>
+    <labels>
+        <fullName>ProjectMemberEmptyText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProjectMemberEmptyText</shortDescription>
+        <value>No project members yet</value>
+    </labels>
+    <labels>
+        <fullName>ProjectMemberFieldNameLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProjectMemberFieldNameLabel</shortDescription>
+        <value>Project Member</value>
+    </labels>
+    <labels>
+        <fullName>ProjectMemberFieldNotesLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProjectMemberFieldNotesLabel</shortDescription>
+        <value>Notes</value>
+    </labels>
+    <labels>
+        <fullName>ProjectMemberFieldRoleLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProjectMemberFieldRoleLabel</shortDescription>
+        <value>Role</value>
+    </labels>
+    <labels>
+        <fullName>ReleaseEmptyHeading</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ReleaseEmptyHeading</shortDescription>
+        <value>No releases yet</value>
+    </labels>
+    <labels>
+        <fullName>ReleaseEmptyText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ReleaseEmptyText</shortDescription>
+        <value>Not a single release? Not even a backlog? Looks like you need to get movin&apos;...</value>
+    </labels>
+    <labels>
+        <fullName>ReleaseFieldIsBacklogIconTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ReleaseFieldIsBacklogIconTitle</shortDescription>
+        <value>Backlog</value>
+    </labels>
+    <labels>
+        <fullName>ReleaseFieldPointsGoalHelp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ReleaseFieldPointsGoalHelp</shortDescription>
+        <value>Maximum number of points planned for the release.</value>
+    </labels>
+    <labels>
+        <fullName>ReleaseFieldStatusAccepted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ReleaseFieldStatusAccepted</shortDescription>
+        <value>Accepted</value>
+    </labels>
+    <labels>
+        <fullName>ReleaseFieldStatusActive</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ReleaseFieldStatusActive</shortDescription>
+        <value>Active</value>
+    </labels>
+    <labels>
+        <fullName>ReleaseFieldStatusLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ReleaseFieldStatusLabel</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>ReleaseFieldStatusPlanning</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ReleaseFieldStatusPlanning</shortDescription>
+        <value>Planning</value>
+    </labels>
+    <labels>
+        <fullName>StoriesHeadingAcceptedReleaseLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoriesHeadingAcceptedReleaseLabel</shortDescription>
+        <value>Accepted Release Stories</value>
+    </labels>
+    <labels>
+        <fullName>StoriesHeadingActiveReleaseLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoriesHeadingActiveReleaseLabel</shortDescription>
+        <value>Active Release Stories</value>
+    </labels>
+    <labels>
+        <fullName>StoriesHeadingAllStoriesLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoriesHeadingAllStoriesLabel</shortDescription>
+        <value>All Stories</value>
+    </labels>
+    <labels>
+        <fullName>StoriesHeadingBacklogLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoriesHeadingBacklogLabel</shortDescription>
+        <value>Backlog Stories</value>
+    </labels>
+    <labels>
+        <fullName>StoriesHeadingPlanningReleaseLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoriesHeadingPlanningReleaseLabel</shortDescription>
+        <value>Planning Release Stories</value>
+    </labels>
+    <labels>
+        <fullName>StoryEmptyByStatusText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryEmptyByStatusText</shortDescription>
+        <value>No stories currently in this status</value>
+    </labels>
+    <labels>
+        <fullName>StoryEmptyHeading</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryEmptyHeading</shortDescription>
+        <value>No stories yet</value>
+    </labels>
+    <labels>
+        <fullName>StoryEmptyText1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryEmptyText1</shortDescription>
+        <value>This release doesn&apos;t have any stories yet? Time to get to work! Create stories that cover the requirements to implement and other tasks you need to complete.</value>
+    </labels>
+    <labels>
+        <fullName>StoryEmptyText2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryEmptyText2</shortDescription>
+        <value>If this is a backlog, create stories for all your great ideas. If this is a release for getting things done, either create stories or promote stories from your backlog.</value>
+    </labels>
+    <labels>
+        <fullName>StoryEmptyTextByCategory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryEmptyTextByCategory</shortDescription>
+        <value>No stories currently in this category</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldAcceptanceCriteriaTestsHelp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldAcceptanceCriteriaTestsHelp</shortDescription>
+        <value>Acceptance criteria and any basic testing instructions. What is the &quot;definition of done&quot; and how would someone test it to know it&apos;s working as designed. Consider your happy path and any edge cases. For more detailed testing, use the story&apos;s Testing tab.</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldAcceptanceCriteriaTestsLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldAcceptanceCriteriaTestsLabel</shortDescription>
+        <value>Acceptance Criteria/Tests</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldAssignedLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldAssignedLabel</shortDescription>
+        <value>Assigned</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldAssignedUnassigned</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldAssignedUnassigned</shortDescription>
+        <value>Unassigned</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldDeploymentChecklistHelp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldDeploymentChecklistHelp</shortDescription>
+        <value>Actions to take in order to fully deploy changes (activate a Flow, assign a permset, etc.).</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldDeploymentChecklistLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldDeploymentChecklistLabel</shortDescription>
+        <value>Deployment Checklist</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldExpediteIconTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldExpediteIconTitle</shortDescription>
+        <value>Expedited handling requested</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldLastModifiedLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldLastModifiedLabel</shortDescription>
+        <value>Last Modified</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldPointsAct</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldPointsAct</shortDescription>
+        <value>act.</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldPointsEst</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldPointsEst</shortDescription>
+        <value>est.</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldPointsLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldPointsLabel</shortDescription>
+        <value>Points</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldPriorityLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldPriorityLabel</shortDescription>
+        <value>Priority</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldReleaseLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldReleaseLabel</shortDescription>
+        <value>Release</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldSolutionBuildNotesHelp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldSolutionBuildNotesHelp</shortDescription>
+        <value>Working notes kept by the builder/developer on how they are implementing the story.</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldSolutionBuildNotesLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldSolutionBuildNotesLabel</shortDescription>
+        <value>Solution/Build Notes</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldStatusBlocked</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldStatusBlocked</shortDescription>
+        <value>Blocked</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldStatusBuilding</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldStatusBuilding</shortDescription>
+        <value>Building</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldStatusDefined</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldStatusDefined</shortDescription>
+        <value>Defined</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldStatusDeployed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldStatusDeployed</shortDescription>
+        <value>Deployed</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldStatusLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldStatusLabel</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldStatusReady</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldStatusReady</shortDescription>
+        <value>Ready</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldStatusTesting</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldStatusTesting</shortDescription>
+        <value>Testing</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldStoryDescriptionHelp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldStoryDescriptionHelp</shortDescription>
+        <value>User story / high-level requirement description.</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldStoryDescriptionLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldStoryDescriptionLabel</shortDescription>
+        <value>Story/Description</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldStoryNumberLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldStoryNumberLabel</shortDescription>
+        <value>Story Number</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldStoryTypeDefectIconTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldStoryTypeDefectIconTitle</shortDescription>
+        <value>Defect story</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldStoryTypeLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldStoryTypeLabel</shortDescription>
+        <value>Story Type</value>
+    </labels>
+    <labels>
+        <fullName>StoryFieldTitleLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryFieldTitleLabel</shortDescription>
+        <value>Title</value>
+    </labels>
+    <labels>
+        <fullName>StoryHeading</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StoryHeading</shortDescription>
+        <value>Stories</value>
+    </labels>
+    <labels>
+        <fullName>TagAssignmentEmptyText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TagAssignmentEmptyText</shortDescription>
+        <value>No tags assigned to the story yet</value>
+    </labels>
+    <labels>
+        <fullName>TagEmptyText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TagEmptyText</shortDescription>
+        <value>No tags created for this project yet</value>
+    </labels>
+    <labels>
+        <fullName>TemplateEmptyText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TemplateEmptyText</shortDescription>
+        <value>No templates yet</value>
+    </labels>
+    <labels>
+        <fullName>TemplateFieldDescriptionLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TemplateFieldDescriptionLabel</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>TemplateFieldNameLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TemplateFieldNameLabel</shortDescription>
+        <value>Template Name</value>
+    </labels>
+    <labels>
+        <fullName>TemplateFieldOwnerLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TemplateFieldOwnerLabel</shortDescription>
+        <value>Owner/Creator</value>
+    </labels>
+    <labels>
+        <fullName>TemplateItemFieldPointsBeginner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TemplateItemFieldPointsBeginner</shortDescription>
+        <value>pts (Beginner)</value>
+    </labels>
+    <labels>
+        <fullName>TemplateItemFieldPointsExpert</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TemplateItemFieldPointsExpert</shortDescription>
+        <value>pts (Expert)</value>
+    </labels>
+    <labels>
+        <fullName>TemplateItemFieldPointsIntermediate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TemplateItemFieldPointsIntermediate</shortDescription>
+        <value>pts (Intermediate)</value>
+    </labels>
+    <labels>
+        <fullName>TemplateItemFieldPointsLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TemplateItemFieldPointsLabel</shortDescription>
+        <value>Points</value>
+    </labels>
+    <labels>
+        <fullName>TemplateItemFieldPriorityLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TemplateItemFieldPriorityLabel</shortDescription>
+        <value>Priority</value>
+    </labels>
+    <labels>
+        <fullName>TemplateItemFieldStoryDescriptionLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TemplateItemFieldStoryDescriptionLabel</shortDescription>
+        <value>Story/Description</value>
+    </labels>
+    <labels>
+        <fullName>TemplateItemFieldTitleLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TemplateItemFieldTitleLabel</shortDescription>
+        <value>Title</value>
+    </labels>
+    <labels>
+        <fullName>TemplateItemHeading</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TemplateItemHeading</shortDescription>
+        <value>Template Items</value>
+    </labels>
+    <labels>
+        <fullName>TemplatesHeadingMyTemplatesLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TemplatesHeadingMyTemplatesLabel</shortDescription>
+        <value>My Templates</value>
+    </labels>
+    <labels>
+        <fullName>TemplatesHeadingSharedTemplatesLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TemplatesHeadingSharedTemplatesLabel</shortDescription>
+        <value>Shared Templates</value>
+    </labels>
+    <labels>
+        <fullName>TemplatesHeadingStandardTemplatesLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TemplatesHeadingStandardTemplatesLabel</shortDescription>
+        <value>Standard Templates</value>
+    </labels>
+    <labels>
+        <fullName>TestResultEmptyText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestResultEmptyText</shortDescription>
+        <value>No test results reported yet</value>
+    </labels>
+    <labels>
+        <fullName>TestResultFieldAssignedTesterLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestResultFieldAssignedTesterLabel</shortDescription>
+        <value>Tester</value>
+    </labels>
+    <labels>
+        <fullName>TestResultFieldBuilderNotesHelp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestResultFieldBuilderNotesHelp</shortDescription>
+        <value>Notes from the builder about test recovery or their response to the tester feedback.</value>
+    </labels>
+    <labels>
+        <fullName>TestResultFieldBuilderNotesLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestResultFieldBuilderNotesLabel</shortDescription>
+        <value>Builder Notes</value>
+    </labels>
+    <labels>
+        <fullName>TestResultFieldLastModifiedLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestResultFieldLastModifiedLabel</shortDescription>
+        <value>Last Modified</value>
+    </labels>
+    <labels>
+        <fullName>TestResultFieldResultLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestResultFieldResultLabel</shortDescription>
+        <value>Result</value>
+    </labels>
+    <labels>
+        <fullName>TestResultFieldStatusLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestResultFieldStatusLabel</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>TestResultFieldTestResultLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestResultFieldTestResultLabel</shortDescription>
+        <value>Test Result</value>
+    </labels>
+    <labels>
+        <fullName>TestResultFieldTesterFeedbackHelp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestResultFieldTesterFeedbackHelp</shortDescription>
+        <value>Notes from the tester on how the results differed from what was expected, what made the test fail, and other feedback to act on.</value>
+    </labels>
+    <labels>
+        <fullName>TestResultFieldTesterFeedbackLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestResultFieldTesterFeedbackLabel</shortDescription>
+        <value>Tester Feedback</value>
+    </labels>
+    <labels>
+        <fullName>TestResultHeading</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestResultHeading</shortDescription>
+        <value>Test Results</value>
+    </labels>
+    <labels>
+        <fullName>TestScenarioEmptyHeading</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestScenarioEmptyHeading</shortDescription>
+        <value>No test scenarios yet</value>
+    </labels>
+    <labels>
+        <fullName>TestScenarioEmptyText1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestScenarioEmptyText1</shortDescription>
+        <value>As your heart must be weighed against a feather to enter the Afterlife, so too should your work be tested to enter production.</value>
+    </labels>
+    <labels>
+        <fullName>TestScenarioEmptyText2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestScenarioEmptyText2</shortDescription>
+        <value>Note: This is an optional feature meant for detailed test tracking. Simpler test instructions may be found in the Acceptance Criteria/Tests field on the Details tab.</value>
+    </labels>
+    <labels>
+        <fullName>TestScenarioFieldDescriptionHelp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestScenarioFieldDescriptionHelp</shortDescription>
+        <value>Identifies the test scenario.</value>
+    </labels>
+    <labels>
+        <fullName>TestScenarioFieldDescriptionLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestScenarioFieldDescriptionLabel</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>TestScenarioFieldExpectedResultHelp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestScenarioFieldExpectedResultHelp</shortDescription>
+        <value>Describes the outcome a tester should experience.</value>
+    </labels>
+    <labels>
+        <fullName>TestScenarioFieldExpectedResultLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestScenarioFieldExpectedResultLabel</shortDescription>
+        <value>Expected Result</value>
+    </labels>
+    <labels>
+        <fullName>TestScenarioFieldInstructionsHelp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestScenarioFieldInstructionsHelp</shortDescription>
+        <value>Provides the steps a tester needs to follow.</value>
+    </labels>
+    <labels>
+        <fullName>TestScenarioFieldInstructionsLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestScenarioFieldInstructionsLabel</shortDescription>
+        <value>Instructions</value>
+    </labels>
+    <labels>
+        <fullName>TestScenarioFieldStatusNotReadyToTest</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestScenarioFieldStatusNotReadyToTest</shortDescription>
+        <value>Not Ready to Test</value>
+    </labels>
+    <labels>
+        <fullName>TestScenarioFieldStatusReadyToTest</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestScenarioFieldStatusReadyToTest</shortDescription>
+        <value>Ready to Test</value>
+    </labels>
+    <labels>
+        <fullName>TestScenarioFieldStatusTestCompleted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestScenarioFieldStatusTestCompleted</shortDescription>
+        <value>Test Completed</value>
+    </labels>
+    <labels>
+        <fullName>TestScenarioFieldTestScenarioLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestScenarioFieldTestScenarioLabel</shortDescription>
+        <value>Test Scenario #</value>
+    </labels>
+    <labels>
+        <fullName>TestScenarioIconTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TestScenarioIconTitle</shortDescription>
+        <value>Test Scenarios</value>
+    </labels>
+</CustomLabels>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <decisions>
+        <description>Did the Assigned field get updated?  If so, we&apos;ll want to note the newly assigned user&apos;s email address and send them an email - IF it isn&apos;t updated to blank/empty value.</description>
+        <name>decAssignedUpdatedAndNotBlank</name>
+        <label>Assigned Updated &amp; Not Blank?</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Not Updated</defaultConnectorLabel>
+        <rules>
+            <name>outAssignedUpdated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.iab__Assigned__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.iab__Assigned__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Assigned__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.iab__Assigned__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.iab__Assigned__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.iab__Assigned__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>subflowSendEmailToAssigned</targetReference>
+            </connector>
+            <label>Updated</label>
+        </rules>
+    </decisions>
+    <description>Evaluations and actions taken after a Story record is updated.
+
+05/27/2024 - S000538 - Migrated from the legacy org.
+
+08/24/2023 - S-000369 - Replaced the dedicated email alert with a call to the new Imhotep_General_SendEmail subflow for sending emails to assigned users.  Removed update to Assigned Email field as a result of it no longer being needed to send emails.
+
+03/02/2023 - S-000186 - Made flow a template so admins can modify.
+
+02/24/2023 - 000079 - Initial flow created.</description>
+    <environments>Default</environments>
+    <interviewLabel>Imhotep - Story - After Updated {!$Flow.CurrentDateTime}</interviewLabel>
+    <isTemplate>true</isTemplate>
+    <label>Imhotep - Story - After Updated</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>decAssignedUpdatedAndNotBlank</targetReference>
+        </connector>
+        <object>Story__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>subflowSendEmailToAssigned</name>
+        <label>Send Email to Assigned</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <flowName>Imhotep_General_SendEmail</flowName>
+        <inputAssignments>
+            <name>inputEmailType</name>
+            <value>
+                <stringValue>StoryAssigned</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>inputRecipientUserId</name>
+            <value>
+                <elementReference>$Record.Assigned__r.User__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>inputRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>

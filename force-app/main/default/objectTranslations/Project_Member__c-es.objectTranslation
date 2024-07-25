@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Miembro del proyecto</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Miembros del proyecto</value>
+    </caseValues>
+    <fields>
+        <label>Notas</label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <help>Utilizado exclusivamente por el flujo &quot;Imhotep - Plantilla - Usar Plantilla&quot; para mostrar una tabla de proyectos.</help>
+        <label>Nombre del proyecto</label>
+        <name>Project_Name__c</name>
+    </fields>
+    <fields>
+        <help>Utilizado exclusivamente por el flujo &quot;Imhotep - Plantilla - Usar Plantilla&quot; para mostrar una tabla de proyectos.</help>
+        <label>Tipo de proyecto</label>
+        <name>Project_Type__c</name>
+    </fields>
+    <fields>
+        <label>Proyecto</label>
+        <name>Project__c</name>
+        <relationshipLabel>Miembros del proyecto</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Rol</label>
+        <name>Role__c</name>
+        <picklistValues>
+            <masterLabel>Builder</masterLabel>
+            <translation>Constructor</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Owner/Lead</masterLabel>
+            <translation>Propietario/Líder</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Viewer</masterLabel>
+            <translation>Visualizador</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Usuario</label>
+        <name>User__c</name>
+        <relationshipLabel>Miembros del proyecto</relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Project Member Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Miembro del proyecto</nameFieldLabel>
+</CustomObjectTranslation>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Plantilla</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Plantillas</value>
+    </caseValues>
+    <fields>
+        <help>Solo el propietario puede ver y usar la plantilla cuando se establece en &quot;Privado&quot;.</help>
+        <label>Acceso</label>
+        <name>Access__c</name>
+        <picklistValues>
+            <masterLabel>Private</masterLabel>
+            <translation>Privado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public</masterLabel>
+            <translation>Público</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Si está marcado, esta plantilla fue creada a partir de otra plantilla.</help>
+        <label>¿Creado a partir de una plantilla?</label>
+        <name>Created_from_Template__c</name>
+    </fields>
+    <fields>
+        <label>¿El usuario actual es el propietario?</label>
+        <name>Current_User_is_Owner__c</name>
+    </fields>
+    <fields>
+        <help>Descripción de la plantilla, lo que incluye o para qué sirve.</help>
+        <label>Descripción</label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help>Nivel estimado de esfuerzo para implementar las historias en esta plantilla para alguien que es nuevo en, o no familiarizado con, estas tareas.</help>
+        <label>Puntos estimados (principiante)</label>
+        <name>Estimated_Points_Beginner__c</name>
+    </fields>
+    <fields>
+        <help>Nivel estimado de esfuerzo para implementar las historias en esta plantilla para alguien que tiene experiencia avanzada con estas tareas.</help>
+        <label>Puntos estimados (experto)</label>
+        <name>Estimated_Points_Expert__c</name>
+    </fields>
+    <fields>
+        <help>Nivel estimado de esfuerzo para implementar las historias en esta plantilla para alguien que tiene cierta familiaridad con estas tareas.</help>
+        <label>Puntos estimados (intermedio)</label>
+        <name>Estimated_Points_Intermediate__c</name>
+    </fields>
+    <fields>
+        <help>Número de ítems de plantilla (Historias) que vienen con esta plantilla.</help>
+        <label>Cantidad de items</label>
+        <name>Item_Count__c</name>
+    </fields>
+    <fields>
+        <help>Si está marcado, esta plantilla se incluye como parte de la app y está disponible para todos los usuarios.</help>
+        <label>¿Plantilla estándar?</label>
+        <name>Standard_Template__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Template Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Puntos estimados</label>
+            <section>Estimated Points</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Plantilla</nameFieldLabel>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Clonar plantilla</label>
+        <name>Template_Clone_Action</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Usar plantilla</label>
+        <name>Template_Use_Action</name>
+    </quickActions>
+    <validationRules>
+        <errorMessage>El acceso debe establecerse en &quot;Público&quot; para todas las plantillas estándar.</errorMessage>
+        <name>Standard_Templates_Must_Be_Public</name>
+    </validationRules>
+</CustomObjectTranslation>

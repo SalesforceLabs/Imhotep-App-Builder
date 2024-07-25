@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Metadata Component</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Metadata Components</value>
+    </caseValues>
+    <fields>
+        <label><!-- API Name --></label>
+        <name>API_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Kind of metadata (e.g. custom object, standard object, managed package object). --></help>
+        <label><!-- Category --></label>
+        <name>Category__c</name>
+        <picklistValues>
+            <masterLabel>Custom</masterLabel>
+            <translation><!-- Custom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Managed</masterLabel>
+            <translation><!-- Managed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard</masterLabel>
+            <translation><!-- Standard --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- If checked, this metadata component has been deleted in the org and won&apos;t show up in various lists of components the user still needs to actively work with. --></help>
+        <label><!-- Is Deleted? --></label>
+        <name>Is_Deleted__c</name>
+    </fields>
+    <fields>
+        <help><!-- Component&apos;s Salesforce metadata type. --></help>
+        <label><!-- Metadata Type --></label>
+        <name>Metadata_Type__c</name>
+        <picklistValues>
+            <masterLabel>AI Application</masterLabel>
+            <translation><!-- AI Application --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AI Application config</masterLabel>
+            <translation><!-- AI Application config --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Action</masterLabel>
+            <translation><!-- Action --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Action Link Group Template</masterLabel>
+            <translation><!-- Action Link Group Template --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Allow URL for Redirects</masterLabel>
+            <translation><!-- Allow URL for Redirects --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Apex Class</masterLabel>
+            <translation><!-- Apex Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Apex Sharing Reason</masterLabel>
+            <translation><!-- Apex Sharing Reason --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Apex Trigger</masterLabel>
+            <translation><!-- Apex Trigger --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>App</masterLabel>
+            <translation><!-- App --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Approval Process</masterLabel>
+            <translation><!-- Approval Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asset File</masterLabel>
+            <translation><!-- Asset File --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assignment Rule</masterLabel>
+            <translation><!-- Assignment Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assistant Recommendation Type</masterLabel>
+            <translation><!-- Assistant Recommendation Type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aura Component Bundle</masterLabel>
+            <translation><!-- Aura Component Bundle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Auth. Provider</masterLabel>
+            <translation><!-- Auth. Provider --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Auto-Response Rule</masterLabel>
+            <translation><!-- Auto-Response Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Briefcase Definition</masterLabel>
+            <translation><!-- Briefcase Definition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bucket [pmdm]</masterLabel>
+            <translation><!-- Bucket [pmdm] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bucketed Field [pmdm]</masterLabel>
+            <translation><!-- Bucketed Field [pmdm] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bucketed Value [pmdm]</masterLabel>
+            <translation><!-- Bucketed Value [pmdm] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Button or Link</masterLabel>
+            <translation><!-- Button or Link --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CORS Allowed Origin List</masterLabel>
+            <translation><!-- CORS Allowed Origin List --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Call Center</masterLabel>
+            <translation><!-- Call Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Channel Menu Deployment</masterLabel>
+            <translation><!-- Channel Menu Deployment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Classic Letterhead</masterLabel>
+            <translation><!-- Classic Letterhead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Communication Channel Layout</masterLabel>
+            <translation><!-- Communication Channel Layout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compact Layout</masterLabel>
+            <translation><!-- Compact Layout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Content Security Policy Trusted Site</masterLabel>
+            <translation><!-- Content Security Policy Trusted Site --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Console Component</masterLabel>
+            <translation><!-- Custom Console Component --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Field</masterLabel>
+            <translation><!-- Custom Field --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Help Menu Section</masterLabel>
+            <translation><!-- Custom Help Menu Section --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Index</masterLabel>
+            <translation><!-- Custom Index --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Label</masterLabel>
+            <translation><!-- Custom Label --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Metadata Type</masterLabel>
+            <translation><!-- Custom Metadata Type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Notification Type</masterLabel>
+            <translation><!-- Custom Notification Type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Object</masterLabel>
+            <translation><!-- Custom Object --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Permission</masterLabel>
+            <translation><!-- Custom Permission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Report Type</masterLabel>
+            <translation><!-- Custom Report Type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Setting</masterLabel>
+            <translation><!-- Custom Setting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dashboard</masterLabel>
+            <translation><!-- Dashboard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Import Field Mapping Set [npsp]</masterLabel>
+            <translation><!-- Data Import Field Mapping Set [npsp] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Import Field Mapping [npsp]</masterLabel>
+            <translation><!-- Data Import Field Mapping [npsp] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Import Object Mapping Set [npsp]</masterLabel>
+            <translation><!-- Data Import Object Mapping Set [npsp] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Import Object Mapping [npsp]</masterLabel>
+            <translation><!-- Data Import Object Mapping [npsp] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Service</masterLabel>
+            <translation><!-- Data Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document</masterLabel>
+            <translation><!-- Document --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Duplicate Rule</masterLabel>
+            <translation><!-- Duplicate Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EclairNG Map GeoJson</masterLabel>
+            <translation><!-- EclairNG Map GeoJson --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email Service</masterLabel>
+            <translation><!-- Email Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email Template</masterLabel>
+            <translation><!-- Email Template --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Embedded Service Deployment</masterLabel>
+            <translation><!-- Embedded Service Deployment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Entity Implements</masterLabel>
+            <translation><!-- Entity Implements --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalation Rule</masterLabel>
+            <translation><!-- Escalation Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event Subscription</masterLabel>
+            <translation><!-- Event Subscription --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Extension</masterLabel>
+            <translation><!-- Extension --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External Data Source</masterLabel>
+            <translation><!-- External Data Source --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External Service Registration</masterLabel>
+            <translation><!-- External Service Registration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Feature Gate [pmdm]</masterLabel>
+            <translation><!-- Feature Gate [pmdm] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Feed Filter</masterLabel>
+            <translation><!-- Feed Filter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Field Mapping</masterLabel>
+            <translation><!-- Field Mapping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Field Restriction Rule</masterLabel>
+            <translation><!-- Field Restriction Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Field Set</masterLabel>
+            <translation><!-- Field Set --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Filter Group [npsp]</masterLabel>
+            <translation><!-- Filter Group [npsp] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Filter Rule [npsp]</masterLabel>
+            <translation><!-- Filter Rule [npsp] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flow</masterLabel>
+            <translation><!-- Flow --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flow Definition</masterLabel>
+            <translation><!-- Flow Definition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Folder</masterLabel>
+            <translation><!-- Folder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global Value Set</masterLabel>
+            <translation><!-- Global Value Set --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Group</masterLabel>
+            <translation><!-- Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Page Component</masterLabel>
+            <translation><!-- Home Page Component --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Page Layout</masterLabel>
+            <translation><!-- Home Page Layout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inbound Network Connection</masterLabel>
+            <translation><!-- Inbound Network Connection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Language Translation</masterLabel>
+            <translation><!-- Language Translation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lightning Bolt</masterLabel>
+            <translation><!-- Lightning Bolt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lightning Community Template</masterLabel>
+            <translation><!-- Lightning Community Template --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lightning Community Theme</masterLabel>
+            <translation><!-- Lightning Community Theme --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lightning Experience Theme</masterLabel>
+            <translation><!-- Lightning Experience Theme --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lightning Message Channel</masterLabel>
+            <translation><!-- Lightning Message Channel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lightning Page</masterLabel>
+            <translation><!-- Lightning Page --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lightning Web Component Bundle</masterLabel>
+            <translation><!-- Lightning Web Component Bundle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>List View</masterLabel>
+            <translation><!-- List View --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML Data Definition</masterLabel>
+            <translation><!-- ML Data Definition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML Prediction Definition</masterLabel>
+            <translation><!-- ML Prediction Definition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML Recommendation Definition</masterLabel>
+            <translation><!-- ML Recommendation Definition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Managed Content Type</masterLabel>
+            <translation><!-- Managed Content Type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Matching Rule</masterLabel>
+            <translation><!-- Matching Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Microsoft® Outlook® Web App Domain</masterLabel>
+            <translation><!-- Microsoft® Outlook® Web App Domain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NPSP Get Started Checklist Item [npsp]</masterLabel>
+            <translation><!-- NPSP Get Started Checklist Item [npsp] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NPSP Get Started Checklist Section [npsp]</masterLabel>
+            <translation><!-- NPSP Get Started Checklist Section [npsp] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Named Credential</masterLabel>
+            <translation><!-- Named Credential --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Network</masterLabel>
+            <translation><!-- Network --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTHER</masterLabel>
+            <translation><!-- OTHER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Opportunity Stage To State Mapping [npsp]</masterLabel>
+            <translation><!-- Opportunity Stage To State Mapping [npsp] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outbound Network Connection</masterLabel>
+            <translation><!-- Outbound Network Connection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Page Layout</masterLabel>
+            <translation><!-- Page Layout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Path Assistant</masterLabel>
+            <translation><!-- Path Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Permission Set</masterLabel>
+            <translation><!-- Permission Set --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Permission Set Group</masterLabel>
+            <translation><!-- Permission Set Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platform Cache Partition</masterLabel>
+            <translation><!-- Platform Cache Partition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platform Event Channel</masterLabel>
+            <translation><!-- Platform Event Channel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platform Event Channel Member</masterLabel>
+            <translation><!-- Platform Event Channel Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platform Event Subscriber Configuration</masterLabel>
+            <translation><!-- Platform Event Subscriber Configuration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Template</masterLabel>
+            <translation><!-- Post Template --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Profile</masterLabel>
+            <translation><!-- Profile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prompt</masterLabel>
+            <translation><!-- Prompt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Queue</masterLabel>
+            <translation><!-- Queue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recommendation Strategy</masterLabel>
+            <translation><!-- Recommendation Strategy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Record Type</masterLabel>
+            <translation><!-- Record Type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RecordAction Deployment</masterLabel>
+            <translation><!-- RecordAction Deployment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recurring Donation Status Mapping [npsp]</masterLabel>
+            <translation><!-- Recurring Donation Status Mapping [npsp] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Remote Site</masterLabel>
+            <translation><!-- Remote Site --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Report</masterLabel>
+            <translation><!-- Report --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reporting Snapshot</masterLabel>
+            <translation><!-- Reporting Snapshot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Restriction Rule</masterLabel>
+            <translation><!-- Restriction Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Role</masterLabel>
+            <translation><!-- Role --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rollup [npsp]</masterLabel>
+            <translation><!-- Rollup [npsp] --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S-Control</masterLabel>
+            <translation><!-- S-Control --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Search Layout</masterLabel>
+            <translation><!-- Search Layout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Security Custom Baseline</masterLabel>
+            <translation><!-- Security Custom Baseline --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Send Action</masterLabel>
+            <translation><!-- Send Action --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sharing Criteria Rule</masterLabel>
+            <translation><!-- Sharing Criteria Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sharing Guest Rule</masterLabel>
+            <translation><!-- Sharing Guest Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sharing Owner Rule</masterLabel>
+            <translation><!-- Sharing Owner Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sharing Set</masterLabel>
+            <translation><!-- Sharing Set --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site.com</masterLabel>
+            <translation><!-- Site.com --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard Object</masterLabel>
+            <translation><!-- Standard Object --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Static Resource</masterLabel>
+            <translation><!-- Static Resource --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tab</masterLabel>
+            <translation><!-- Tab --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User Provisioning Config</masterLabel>
+            <translation><!-- User Provisioning Config --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validation Rule</masterLabel>
+            <translation><!-- Validation Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visualforce Component</masterLabel>
+            <translation><!-- Visualforce Component --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visualforce Page</masterLabel>
+            <translation><!-- Visualforce Page --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Email Alert</masterLabel>
+            <translation><!-- Workflow Email Alert --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Field Update</masterLabel>
+            <translation><!-- Workflow Field Update --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Outbound Message</masterLabel>
+            <translation><!-- Workflow Outbound Message --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Rule</masterLabel>
+            <translation><!-- Workflow Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Task</masterLabel>
+            <translation><!-- Workflow Task --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zone</masterLabel>
+            <translation><!-- Zone --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Metadata Component --></label>
+        <lookupFilter>
+            <errorMessage><!-- Value does not exist or is not a metadata component available in this project. --></errorMessage>
+        </lookupFilter>
+        <name>Parent_Metadata_Component__c</name>
+        <relationshipLabel><!-- Child Metadata Components --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- Metadata Components --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Metadata Component Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

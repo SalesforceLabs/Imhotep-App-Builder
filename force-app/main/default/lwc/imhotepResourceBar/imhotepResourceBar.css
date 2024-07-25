@@ -1,0 +1,28 @@
+.card-container-outer {
+    width:100%;
+}
+
+.card-container-inner {
+    padding:0.5em;
+    text-align:left;
+}
+
+.icon-resource {
+    margin-top:0;
+    margin-right:5px;
+}
+
+.helptext-mod .slds-form-element__icon {
+    margin-left:5px;
+    padding-top:0;
+}
+
+.slds-badge {
+    margin-left:0;
+    margin-right:0.2em;
+}
+
+.menu-subheader-weak {
+    font-weight:normal;
+    font-size:0.75rem;
+}

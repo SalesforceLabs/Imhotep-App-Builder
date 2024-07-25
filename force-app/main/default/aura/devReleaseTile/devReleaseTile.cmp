@@ -1,0 +1,104 @@
+<aura:component controller="ImhotepAppBuilderCtrl" access="global">
+    
+    <aura:attribute name="ReleaseRecord" type="Release__c" />
+
+    <aura:attribute name="url" type="String"/>
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:navigation aura:id="navService"/>
+    
+
+
+    <aura:renderIf isTrue="{!v.ReleaseRecord.iab__Is_Backlog__c}">
+
+        <!-- ### BACKLOG RELEASE TILE ### -->
+        <div class="slds-box slds-box_link slds-media" style="background-color:#f2f2f2;" data-release="{!v.ReleaseRecord.Id}" onclick="{!c.openRelease}">
+            <div class="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center">
+                <div class="slds-welcome-mat__tile-figure">
+                    <div class="slds-welcome-mat__tile-icon-container">
+                        <span class="slds-icon_container" title="{!$Label.c.ReleaseFieldIsBacklogIconTitle}"><lightning:icon iconName="utility:frozen" title="{!$Label.c.ReleaseFieldIsBacklogIconTitle}" size="medium" variant="brand" /></span>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-media__body" style="border-left:1px solid #3E3E3C;">
+                <div class="slds-welcome-mat__tile-body">
+                    <h3 class="slds-welcome-mat__tile-title" style="color:#3E3E3C;">{!v.ReleaseRecord.Name}</h3>
+                    <p class="slds-welcome-mat__tile-description" style="color:#3E3E3C;">{!$Label.c.ReleaseFieldStatusLabel}: {!v.ReleaseRecord.iab__Status__c}</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <aura:set attribute="else">
+            
+
+
+            <!-- ### PLANNING RELEASE TILE ### -->
+            <aura:renderIf isTrue="{!v.ReleaseRecord.iab__Status__c == 'Planning'}">
+                <div class="slds-box slds-box_link slds-media" style="background-color:#eef4ff;" data-release="{!v.ReleaseRecord.Id}" onclick="{!c.openRelease}">
+                    <div class="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center">
+                        <div class="slds-welcome-mat__tile-figure">
+                            <div class="slds-welcome-mat__tile-icon-container">
+                                <span class="slds-icon_container" title="{!$Label.c.ReleaseFieldStatusPlanning}"><lightning:icon iconName="utility:edit" title="{!$Label.c.ReleaseFieldStatusPlanning}" size="medium" variant="brand" /></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-media__body" style="border-left:1px solid #3E3E3C;">
+                        <div class="slds-welcome-mat__tile-body">
+                            <h3 class="slds-welcome-mat__tile-title" style="color:#3E3E3C;">{!v.ReleaseRecord.Name}</h3>
+                            <p class="slds-welcome-mat__tile-description" style="color:#3E3E3C;">{!$Label.c.ReleaseFieldStatusLabel}: {!v.ReleaseRecord.iab__Status__c}</p>
+                        </div>
+                    </div>
+                </div>
+            </aura:renderIf>
+            
+            
+            
+            <!-- ### ACTIVE RELEASE TILE ### -->
+            <aura:renderIf isTrue="{!v.ReleaseRecord.iab__Status__c == 'Active'}">
+                <div class="slds-box slds-box_link slds-media" style="background-color:#05628a;" data-release="{!v.ReleaseRecord.Id}" onclick="{!c.openRelease}">
+                    <div class="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center">
+                        <div class="slds-welcome-mat__tile-figure">
+                            <div class="slds-welcome-mat__tile-icon-container">
+                                <span class="slds-icon_container" title="{!$Label.c.ReleaseFieldStatusActive}"><lightning:icon iconName="utility:kanban" title="{!$Label.c.ReleaseFieldStatusActive}" size="medium" variant="inverse" /></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-media__body" style="border-left:1px solid #FFFFFF;">
+                        <div class="slds-welcome-mat__tile-body">
+                            <h3 class="slds-welcome-mat__tile-title" style="color:#FFFFFF;">{!v.ReleaseRecord.Name}</h3>
+                            <p class="slds-welcome-mat__tile-description" style="color:#FFFFFF;">{!$Label.c.ReleaseFieldStatusLabel}: {!v.ReleaseRecord.iab__Status__c}</p>
+                        </div>
+                    </div>
+                </div>
+            </aura:renderIf>
+            
+
+
+            <!-- ### ACCEPTED RELEASE TILE ### -->
+            <aura:renderIf isTrue="{!v.ReleaseRecord.iab__Status__c == 'Accepted'}">
+                <div class="slds-box slds-box_link slds-media" style="background-color:#cdefc4;" data-release="{!v.ReleaseRecord.Id}" onclick="{!c.openRelease}">
+                    <div class="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center">
+                        <div class="slds-welcome-mat__tile-figure">
+                            <div class="slds-welcome-mat__tile-icon-container">
+                                <span class="slds-icon_container" title="{!$Label.c.ReleaseFieldStatusAccepted}"><lightning:icon iconName="utility:success" title="{!$Label.c.ReleaseFieldStatusAccepted}" size="medium" variant="brand" /></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-media__body" style="border-left:1px solid #3E3E3C;">
+                        <div class="slds-welcome-mat__tile-body">
+                            <h3 class="slds-welcome-mat__tile-title" style="color:#3E3E3C;">{!v.ReleaseRecord.Name}</h3>
+                            <p class="slds-welcome-mat__tile-description" style="color:#3E3E3C;">{!$Label.c.ReleaseFieldStatusLabel}: {!v.ReleaseRecord.iab__Status__c}</p>
+                        </div>
+                    </div>
+                </div>
+            </aura:renderIf>
+
+        </aura:set>
+
+    </aura:renderIf>
+    
+
+
+</aura:component>

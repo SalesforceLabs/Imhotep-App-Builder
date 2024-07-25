@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Escenario de prueba</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Escenarios de prueba</value>
+    </caseValues>
+    <fields>
+        <help>¿Qué escenario se está probando?</help>
+        <label>Descripción</label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help>En el mejor de los casos, ¿qué debería experimentar el tester?</help>
+        <label>Resultados esperados</label>
+        <name>Expected_Result__c</name>
+    </fields>
+    <fields>
+        <help>¿Qué pasos debe seguir un tester para probar nuevas funcionalidades/cambios?</help>
+        <label>Instrucciones</label>
+        <name>Instructions__c</name>
+    </fields>
+    <fields>
+        <label>Estado</label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Not Ready to Test</masterLabel>
+            <translation>No listo para probar</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready to Test</masterLabel>
+            <translation>Listo para probar</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test Completed</masterLabel>
+            <translation>Prueba completada</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Historia</label>
+        <name>Story__c</name>
+        <relationshipLabel>Escenarios de prueba</relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Test Scenario Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Escenario de prueba</nameFieldLabel>
+</CustomObjectTranslation>

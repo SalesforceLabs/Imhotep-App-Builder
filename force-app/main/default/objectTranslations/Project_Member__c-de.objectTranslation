@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Projektmitglied</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Projektmitglieder</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>false</plural>
+        <value>Projektmitglied</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>true</plural>
+        <value>Projektmitglieder</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>false</plural>
+        <value>Projektmitglied</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>true</plural>
+        <value>Projektmitglieder</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>false</plural>
+        <value>Projektmitglied</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>true</plural>
+        <value>Projektmitglieder</value>
+    </caseValues>
+    <fields>
+        <label>Anmerkungen</label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <help>Wird ausschließlich von dem &quot;Imhotep - Vorlage - Vorlage verwenden&quot; Flow verwendet, um eine Tabelle von Projekten anzuzeigen.</help>
+        <label>Projektname</label>
+        <name>Project_Name__c</name>
+    </fields>
+    <fields>
+        <help>Wird ausschließlich von dem &quot;Imhotep - Vorlage - Vorlage verwenden&quot; Flow verwendet, um eine Tabelle von Projekten anzuzeigen.</help>
+        <label>Projekttyp</label>
+        <name>Project_Type__c</name>
+    </fields>
+    <fields>
+        <label>Projekt</label>
+        <name>Project__c</name>
+        <relationshipLabel>Projektmitglieder</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Rolle</label>
+        <name>Role__c</name>
+        <picklistValues>
+            <masterLabel>Builder</masterLabel>
+            <translation>Ersteller</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Owner/Lead</masterLabel>
+            <translation>Eigentümer/Leiter</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Viewer</masterLabel>
+            <translation>Betrachter</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Benutzer</label>
+        <name>User__c</name>
+        <relationshipLabel>Projektmitglieder</relationshipLabel>
+    </fields>
+    <gender>Neuter</gender>
+    <layouts>
+        <layout>Project Member Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Projektmitglied</nameFieldLabel>
+</CustomObjectTranslation>

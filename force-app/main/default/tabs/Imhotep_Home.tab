@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Custom tab for the Imhotep Home (Mobile) app page.  Created automatically by Lightning App Builder.</description>
+    <flexiPage>Imhotep_Home_Mobile</flexiPage>
+    <label>Imhotep Home</label>
+    <motif>Custom96: Street Sign</motif>
+</CustomTab>

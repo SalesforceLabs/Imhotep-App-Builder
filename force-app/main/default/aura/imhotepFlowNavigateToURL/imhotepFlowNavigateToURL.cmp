@@ -1,0 +1,5 @@
+<aura:component implements="force:lightningQuickAction,lightning:availableForFlowActions">
+   <aura:attribute name="targetObject" type="String" />
+   <aura:attribute name="recordId" type="String" />
+   <aura:attribute name="projectId" type="String" />
+</aura:component>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Ressourcenlink</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Ressourcenlinks</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>false</plural>
+        <value>Ressourcenlink</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>true</plural>
+        <value>Ressourcenlinks</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>false</plural>
+        <value>Ressourcenlink</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>true</plural>
+        <value>Ressourcenlinks</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>false</plural>
+        <value>Ressourcenlink</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>true</plural>
+        <value>Ressourcenlinks</value>
+    </caseValues>
+    <fields>
+        <label>Projekt</label>
+        <name>Project__c</name>
+        <relationshipLabel>Ressourcenlinks</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Typ</label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>AppExchange Listing</masterLabel>
+            <translation><!-- AppExchange Listing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confluence</masterLabel>
+            <translation><!-- Confluence --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Content</masterLabel>
+            <translation><!-- Content --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Figma</masterLabel>
+            <translation><!-- Figma --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Github</masterLabel>
+            <translation><!-- Github --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Google Doc</masterLabel>
+            <translation><!-- Google Doc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Google Folder</masterLabel>
+            <translation><!-- Google Folder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Google Form</masterLabel>
+            <translation><!-- Google Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Google Jamboard</masterLabel>
+            <translation><!-- Google Jamboard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Google Sheet</masterLabel>
+            <translation><!-- Google Sheet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Google Site</masterLabel>
+            <translation><!-- Google Site --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Google Slides</masterLabel>
+            <translation><!-- Google Slides --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Image</masterLabel>
+            <translation><!-- Image --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LucidChart</masterLabel>
+            <translation><!-- LucidChart --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS Excel</masterLabel>
+            <translation><!-- MS Excel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS Word</masterLabel>
+            <translation><!-- MS Word --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PDF</masterLabel>
+            <translation><!-- PDF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quip Doc</masterLabel>
+            <translation><!-- Quip Doc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salesforce Experience Cloud Site</masterLabel>
+            <translation><!-- Salesforce Experience Cloud Site --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salesforce Org</masterLabel>
+            <translation><!-- Salesforce Org --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Slack Channel</masterLabel>
+            <translation><!-- Slack Channel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Slack Post</masterLabel>
+            <translation><!-- Slack Post --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation><!-- Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tableau Dashboard</masterLabel>
+            <translation><!-- Tableau Dashboard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>URL</masterLabel>
+            <translation><!-- URL --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>URL</label>
+        <name>URL__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Resource Link Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Ressourcenlink</nameFieldLabel>
+</CustomObjectTranslation>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Projet</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Projets</value>
+    </caseValues>
+    <fields>
+        <help>Paramètre par défaut pour contrôler les fonctionnalités et la disposition activées pour les publications et histoires liées à ce projet. Le paramètre par défaut est Standard (toutes les fonctionnalités d&apos;Imhotep activées). Les publications et histoires individuelles peuvent remplacer cette sélection. Les modifications apportées à cette sélection n&apos;affectent pas les publications et histoires existantes.</help>
+        <label>Mode de publication par défaut</label>
+        <name>Default_Release_Mode__c</name>
+    </fields>
+    <fields>
+        <label>Description</label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label>Nombre de sorties</label>
+        <name>Release_Count__c</name>
+    </fields>
+    <fields>
+        <help>Contrôle la visibilité du LWC ImhotepResourceBar sur les pages d&apos;enregistrement.</help>
+        <label>Nombre de liens de ressources</label>
+        <name>Resource_Link_Count__c</name>
+    </fields>
+    <fields>
+        <label>Statut</label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation>Actif</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation>Terminé</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation>Planification</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Type</label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Demo Build</masterLabel>
+            <translation>Construction de démo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Demo Component Build</masterLabel>
+            <translation>Construction de composant démo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ISV Build</masterLabel>
+            <translation>Construction ISV</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Implementation</masterLabel>
+            <translation>Implémentation</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Org Maintenance</masterLabel>
+            <translation>Maintenance de l&apos;organisation</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>Autre</translation>
+        </picklistValues>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Project Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Nom du projet</nameFieldLabel>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Ajouter des métadonnées</label>
+        <name>Project_Add_Metadata_Action</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Nouveau membre du projet</label>
+        <name>Project_New_Project_Member_Action</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Nouvelle publication</label>
+        <name>Project_New_Release_Action</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Nouvelle publication à partir du modèle</label>
+        <name>Project_New_Release_From_Template_Action</name>
+    </quickActions>
+    <sharingReasons>
+        <label><!-- Builder Read/Write --></label>
+        <name>Builder_Read_Write</name>
+    </sharingReasons>
+    <sharingReasons>
+        <label><!-- Owner/Lead Read/Write --></label>
+        <name>Owner_Lead_Read_Write</name>
+    </sharingReasons>
+    <sharingReasons>
+        <label><!-- Viewer Read Only --></label>
+        <name>Viewer_Read_Only</name>
+    </sharingReasons>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

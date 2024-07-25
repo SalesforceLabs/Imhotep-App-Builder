@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Project__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>Imhotep Project Path</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Work on this project is currently underway, with ongoing development and collaboration efforts to meet its objectives.&lt;/p&gt;</info>
+        <picklistValueName>Active</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;All work for this project has been finished, and the project goals have been successfully achieved. This project may be resting in this status on the success of it&amp;#39;s latest release while other projects are being actively worked.&lt;/p&gt;</info>
+        <picklistValueName>Completed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;This project is in the initial stages, with focus on outlining goals and gathering requirements.&lt;/p&gt;</info>
+        <picklistValueName>Planning</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

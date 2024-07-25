@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Histoire</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Histoires</value>
+    </caseValues>
+    <fields>
+        <help>Critères d&apos;acceptation et toute instruction de test de base. Quelle est la &quot;définition du terminé&quot; et comment quelqu&apos;un le testerait pour savoir s&apos;il fonctionne comme prévu. Pensez à votre chemin optimal et à tous les cas limites. Pour des tests plus détaillés, utilisez l&apos;onglet de test de l&apos;histoire.</help>
+        <label>Critères d&apos;acceptation/tests</label>
+        <name>Acceptance_Criteria_Tests__c</name>
+    </fields>
+    <fields>
+        <help>Niveau réel d&apos;effort pour implémenter l&apos;histoire.</help>
+        <label>Points actuels</label>
+        <name>Actual_Points__c</name>
+    </fields>
+    <fields>
+        <help>Prénom et Nom concaténés du Membre du Projet Assigné. Utilisé uniquement dans les LWCs (imhotepStoryList).</help>
+        <label>Nom attribué</label>
+        <name>Assigned_Name__c</name>
+    </fields>
+    <fields>
+        <help>Membre du projet assigné pour compléter l&apos;histoire.</help>
+        <label>Assigné</label>
+        <lookupFilter>
+            <errorMessage>L&apos;utilisateur assigné doit être membre de ce projet.</errorMessage>
+        </lookupFilter>
+        <name>Assigned__c</name>
+        <relationshipLabel>Histoires assignées</relationshipLabel>
+    </fields>
+    <fields>
+        <help>Cochez lorsque l&apos;histoire est assignée à l&apos;utilisateur actuel. Utilisé comme filtre pour certaines vues de listes.</help>
+        <label>Assigné à l&apos;utilisateur actuel?</label>
+        <name>Assigned_to_Current_User__c</name>
+    </fields>
+    <fields>
+        <help>Si coché, l&apos;histoire a été créée à partir d&apos;un modèle.</help>
+        <label>Créé à partir d&apos;un modèle?</label>
+        <name>Created_from_Template__c</name>
+    </fields>
+    <fields>
+        <help>Actions à entreprendre pour déployer complètement les changements (activer un Flow, assigner un permset, etc.).</help>
+        <label>Liste de vérification du déploiement</label>
+        <name>Deployment_Checklist__c</name>
+    </fields>
+    <fields>
+        <help>Niveau estimé d&apos;effort pour implémenter l&apos;histoire.</help>
+        <label>Points estimés</label>
+        <name>Estimated_Points__c</name>
+    </fields>
+    <fields>
+        <help>Si coché, une gestion accélérée a été demandée.</help>
+        <label>Accélérer</label>
+        <name>Expedite__c</name>
+    </fields>
+    <fields>
+        <help>Nombre de Modifications de Métadonnées liées à cette Histoire.</help>
+        <label># Modifications de métadonnées</label>
+        <name>Metadata_Component_Changes__c</name>
+    </fields>
+    <fields>
+        <label>Histoire parente</label>
+        <lookupFilter>
+            <errorMessage>Vous devez sélectionner une histoire au sein du même projet.</errorMessage>
+        </lookupFilter>
+        <name>Parent_Story__c</name>
+        <relationshipLabel>Histoires enfants</relationshipLabel>
+    </fields>
+    <fields>
+        <help>Utilise les Points Estimés pour les histoires Bloquées, Définies, en Construction et en Test ; sinon utilise les Points Actuels.</help>
+        <label>Points</label>
+        <name>Points__c</name>
+    </fields>
+    <fields>
+        <help>Priorité de cette histoire au sein de la version (doit être réévaluée continuellement). Réorganiser les histoires depuis l&apos;onglet Liste des histoires de la Version.</help>
+        <label>Priorité/ordre</label>
+        <name>Priority_Order__c</name>
+    </fields>
+    <fields>
+        <label>Projet</label>
+        <name>Project__c</name>
+        <relationshipLabel>Histoires</relationshipLabel>
+    </fields>
+    <fields>
+        <help>Si coché, cette histoire ne sera pas affectée par les modifications du paramètre Mode de Publication sur la publication associée. Cela vous permet de définir ou de restreindre des fonctionnalités pour cette histoire individuelle. Il est automatiquement coché lorsque vous modifiez le type d&apos;enregistrement de l&apos;histoire, mais vous pouvez le cocher ou le décocher manuellement pour contrôler le remplacement.</help>
+        <label>Remplacement du mode de publication</label>
+        <name>Release_Mode_Override__c</name>
+    </fields>
+    <fields>
+        <label>Version</label>
+        <lookupFilter>
+            <errorMessage>Vous devez sélectionner une publication au sein du même projet.</errorMessage>
+        </lookupFilter>
+        <name>Release__c</name>
+        <relationshipLabel>Histoires</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Version demandée</label>
+        <lookupFilter>
+            <errorMessage>Vous devez sélectionner une publication au sein du même projet.</errorMessage>
+        </lookupFilter>
+        <name>Requested_Release__c</name>
+        <relationshipLabel>Histoires (publication demandée)</relationshipLabel>
+    </fields>
+    <fields>
+        <help>Notes de travail tenues par le constructeur/développeur sur la manière dont ils mettent en œuvre l&apos;histoire.</help>
+        <label>Notes de solution/construction</label>
+        <name>Solution_Build_Notes__c</name>
+    </fields>
+    <fields>
+        <label>Statut</label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Blocked</masterLabel>
+            <translation>Bloqué</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Building</masterLabel>
+            <translation>En construction</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defined</masterLabel>
+            <translation>Défini</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deployed</masterLabel>
+            <translation>Déployé</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready</masterLabel>
+            <translation>Prêt</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Testing</masterLabel>
+            <translation>En test</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Histoire utilisateur / description des exigences de haut niveau.</help>
+        <label>Histoire/description</label>
+        <name>Story_Description__c</name>
+    </fields>
+    <fields>
+        <label>Numéro de l&apos;histoire</label>
+        <name>Story_Number__c</name>
+    </fields>
+    <fields>
+        <label>Type d&apos;histoire</label>
+        <name>Story_Type__c</name>
+        <picklistValues>
+            <masterLabel>Change</masterLabel>
+            <translation>Changement</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defect</masterLabel>
+            <translation>Défaut</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation>Nouveau</translation>
+        </picklistValues>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Story (Simple) Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Détails de l&apos;histoire</label>
+            <section>Story Details</section>
+        </sections>
+        <sections>
+            <label>Vue d&apos;ensemble de l&apos;histoire</label>
+            <section>Story Overview</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Story (Standard) Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Niveau d&apos;effort</label>
+            <section>Level of Effort</section>
+        </sections>
+        <sections>
+            <label>Détails de l&apos;histoire</label>
+            <section>Story Details</section>
+        </sections>
+        <sections>
+            <label>Vue d&apos;ensemble de l&apos;histoire</label>
+            <section>Story Overview</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Titre</nameFieldLabel>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Cloner</label>
+        <name>Story_Clone_Action</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Supprimer</label>
+        <name>Story_Delete_Action</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Enregistrer une modification de métadonnées</label>
+        <name>Story_Log_Change_Action</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Transférer à une autre publication</label>
+        <name>Story_Transfer_Action</name>
+    </quickActions>
+    <recordTypes>
+        <description>Utilisez-le pour les projets qui n&apos;utilisent pas de fonctionnalités avancées (par exemple, points, scénarios de test, suivi des modifications de métadonnées).</description>
+        <label>Histoire simple</label>
+        <name>Simple</name>
+    </recordTypes>
+    <recordTypes>
+        <description>Utilisez-le pour les projets qui ont besoin d&apos;accéder à toutes les fonctionnalités d&apos;Imhotep. Type d&apos;enregistrement par défaut.</description>
+        <label>Histoire standard</label>
+        <name>Standard</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

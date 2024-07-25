@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Testergebnis</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Testergebnisse</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>false</plural>
+        <value>Testergebnis</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>true</plural>
+        <value>Testergebnisse</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>false</plural>
+        <value>Testergebnis</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>true</plural>
+        <value>Testergebnisse</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>false</plural>
+        <value>Testergebnis</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>true</plural>
+        <value>Testergebnisse</value>
+    </caseValues>
+    <fields>
+        <help>Notizen vom Entwickler über die Testwiederherstellung oder ihre Reaktion auf das Feedback des Testers.</help>
+        <label>Anmerkungen des Entwicklers</label>
+        <name>Builder_Notes__c</name>
+    </fields>
+    <fields>
+        <label>Projekt</label>
+        <name>Project__c</name>
+        <relationshipLabel>Testergebnisse</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Ergebnis</label>
+        <name>Result__c</name>
+        <picklistValues>
+            <masterLabel>Fail</masterLabel>
+            <translation>Fehlgeschlagen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pass</masterLabel>
+            <translation>Bestanden</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Status</label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation>Zugewiesen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation>Geschlossen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready to Retest</masterLabel>
+            <translation>Bereit für Retest</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reported</masterLabel>
+            <translation>Gemeldet</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Under Review</masterLabel>
+            <translation>In Überprüfung</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Story</label>
+        <name>Story__c</name>
+        <relationshipLabel>Testergebnisse</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Testszenario</label>
+        <name>Test_Scenario__c</name>
+        <relationshipLabel>Testergebnisse</relationshipLabel>
+    </fields>
+    <fields>
+        <help>Notizen darüber, wie die Ergebnisse von dem abwichen, was erwartet wurde, was den Test scheitern ließ und anderes Feedback, das umgesetzt werden soll.</help>
+        <label>Tester-Feedback</label>
+        <name>Tester_Feedback__c</name>
+    </fields>
+    <fields>
+        <help>Projektmitglied, das den Test durchführt.</help>
+        <label>Tester</label>
+        <name>Tester__c</name>
+        <relationshipLabel>Testergebnisse</relationshipLabel>
+    </fields>
+    <gender>Neuter</gender>
+    <layouts>
+        <layout>Test Result Layout</layout>
+        <sections>
+            <label>Builder-Abschnitt</label>
+            <section>Builder Section</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Testinformationen</label>
+            <section>Test Information</section>
+        </sections>
+        <sections>
+            <label>Tester-Abschnitt</label>
+            <section>Tester Section</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Testergebnis</nameFieldLabel>
+</CustomObjectTranslation>

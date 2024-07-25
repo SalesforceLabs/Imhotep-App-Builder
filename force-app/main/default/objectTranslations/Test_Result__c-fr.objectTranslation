@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Résultat du test</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Résultats des tests</value>
+    </caseValues>
+    <fields>
+        <help>Notes du constructeur sur la récupération du test ou sa réponse au retour du testeur.</help>
+        <label>Notes du constructeur</label>
+        <name>Builder_Notes__c</name>
+    </fields>
+    <fields>
+        <label>Projet</label>
+        <name>Project__c</name>
+        <relationshipLabel>Résultats des tests</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Résultat</label>
+        <name>Result__c</name>
+        <picklistValues>
+            <masterLabel>Fail</masterLabel>
+            <translation>Échec</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pass</masterLabel>
+            <translation>Réussi</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Statut</label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation>Assigné</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation>Fermé</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready to Retest</masterLabel>
+            <translation>Prêt pour retester</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reported</masterLabel>
+            <translation>Signalé</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Under Review</masterLabel>
+            <translation>En cours de révision</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Histoire</label>
+        <name>Story__c</name>
+        <relationshipLabel>Résultats des tests</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Scénario de test</label>
+        <name>Test_Scenario__c</name>
+        <relationshipLabel>Résultats des tests</relationshipLabel>
+    </fields>
+    <fields>
+        <help>Notes sur la manière dont les résultats diffèrent de ce qui était attendu, ce qui a fait échouer le test et autres retours à prendre en compte.</help>
+        <label>Retour du testeur</label>
+        <name>Tester_Feedback__c</name>
+    </fields>
+    <fields>
+        <help>Membre du projet qui effectue le test.</help>
+        <label>Testeur</label>
+        <name>Tester__c</name>
+        <relationshipLabel>Résultats des tests</relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Test Result Layout</layout>
+        <sections>
+            <label>Section du constructeur</label>
+            <section>Builder Section</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Informations de test</label>
+            <section>Test Information</section>
+        </sections>
+        <sections>
+            <label>Section du testeur</label>
+            <section>Tester Section</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Résultat du test</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

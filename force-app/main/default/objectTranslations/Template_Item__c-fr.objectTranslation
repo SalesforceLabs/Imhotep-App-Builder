@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Élément de modèle</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Éléments du modèle</value>
+    </caseValues>
+    <fields>
+        <help>Critères d&apos;acceptation et toute instruction de test de base. Quelle est la &quot;définition de fait&quot; et comment quelqu&apos;un le testerait pour savoir qu&apos;il fonctionne comme conçu. Considérez votre chemin heureux et tous les cas limites. Pour des tests plus détaillés, utilisez l&apos;onglet de Test de l&apos;histoire.</help>
+        <label>Critères d&apos;acceptation/tests</label>
+        <name>Acceptance_Criteria_Tests__c</name>
+    </fields>
+    <fields>
+        <help>Si coché, cet élément de modèle a été créé à partir d&apos;un autre modèle.</help>
+        <label>Créé à partir d&apos;un modèle?</label>
+        <name>Created_from_Template__c</name>
+    </fields>
+    <fields>
+        <help>Actions à entreprendre pour déployer complètement les changements (activer un Flux, assigner un ensemble de permissions, etc.).</help>
+        <label>Liste de vérification du déploiement</label>
+        <name>Deployment_Checklist__c</name>
+    </fields>
+    <fields>
+        <help>Niveau d&apos;effort estimé pour mettre en œuvre l&apos;histoire pour quelqu&apos;un de nouveau à, ou non familier avec, cette tâche.</help>
+        <label>Points estimés (débutant)</label>
+        <name>Estimated_Points_Beginner__c</name>
+    </fields>
+    <fields>
+        <help>Niveau d&apos;effort estimé pour mettre en œuvre l&apos;histoire pour quelqu&apos;un qui a une expérience avancée avec cette tâche.</help>
+        <label>Points estimés (expert)</label>
+        <name>Estimated_Points_Expert__c</name>
+    </fields>
+    <fields>
+        <help>Niveau d&apos;effort estimé pour mettre en œuvre l&apos;histoire pour quelqu&apos;un qui est quelque peu familier avec cette tâche.</help>
+        <label>Points estimés (intermédiaire)</label>
+        <name>Estimated_Points_Intermediate__c</name>
+    </fields>
+    <fields>
+        <help>Priorité de cette histoire dans la version (devrait être continuellement réévaluée).</help>
+        <label>Priorité/ordre</label>
+        <name>Priority_Order__c</name>
+    </fields>
+    <fields>
+        <help>Notes de travail conservées par le constructeur/développeur sur comment ils mettent en œuvre l&apos;histoire.</help>
+        <label>Notes de solution/construction</label>
+        <name>Solution_Build_Notes__c</name>
+    </fields>
+    <fields>
+        <help>Histoire d&apos;utilisateur / description de l&apos;exigence de haut niveau.</help>
+        <label>Histoire/description</label>
+        <name>Story_Description__c</name>
+    </fields>
+    <fields>
+        <label>Type d&apos;histoire</label>
+        <name>Story_Type__c</name>
+        <picklistValues>
+            <masterLabel>Change</masterLabel>
+            <translation>Changement</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defect</masterLabel>
+            <translation>Défaut</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation>Nouveau</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Modèle</label>
+        <name>Template__c</name>
+        <relationshipLabel>Éléments du modèle</relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Template Item Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Points estimés</label>
+            <section>Estimated Points</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Titre</nameFieldLabel>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

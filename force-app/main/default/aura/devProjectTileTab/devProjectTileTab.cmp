@@ -1,0 +1,173 @@
+<aura:component controller="ImhotepAppBuilderCtrl" access="global">
+    
+    <aura:attribute name="TabName" type="String" access="global"/>
+    
+    <aura:attribute name="NewProjectFlow" type="String" access="global"/>
+    <aura:attribute name="NewReleaseFlow" type="String" access="global"/>
+    <aura:attribute name="NewReleaseFromTemplateFlow" type="String" access="global"/>
+    
+    <aura:attribute name="ProjectRecords" type="Project_Member__c" />
+    
+    <aura:attribute name="ActiveReleaseRecords" type="Release__c" />
+    <aura:attribute name="PlanningReleaseRecords" type="Release__c" />
+    <aura:attribute name="BacklogReleaseRecords" type="Release__c" />
+    
+    <!-- for flow launcher -->
+    <aura:attribute name="showModal" type="Boolean" default="false" />
+    <aura:attribute name="flow" type="Object" />
+    
+    
+    
+    <!-- Only display if modal button for flow has been clicked -->
+    <div class="{!v.showModal ? 'slds-show' : 'slds-hide'}">
+        <section class="slds-modal slds-fade-in-open slds-modal_medium">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header slds-modal__header_empty">
+                    <lightning:buttonIcon   size="large"
+                                            iconName="utility:close"
+                                            variant="bare-inverse"
+                                            onclick="{!c.closeModal}"
+                                            ariaLabel="{!$Label.c.GeneralModalCloseLabel}"
+                                            alternativeText="{!$Label.c.GeneralModalCloseAltText}"
+                                            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" />
+                </header>
+                <div class="slds-modal__content slds-var-p-around_medium">{!v.body}</div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    
+    
+    
+    
+    <lightning:layout multipleRows="true" verticalAlign="stretch" class="layout-padding">
+        
+        <aura:renderif isTrue="{!v.ProjectRecords.length > 0}">
+            
+            <aura:iteration items="{!v.ProjectRecords}" var="proj">
+                
+                    <lightning:layoutItem flexibility="auto" size="12" class="layoutitem-padding">
+                        <article class="slds-card slds-card_boundary">
+                            
+                            <!-- HEADER -->
+                            
+                            <div class="slds-card__header slds-grid">
+                                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                    <div class="slds-media__figure">
+                                        <lightning:icon iconName="custom:custom64" size="small" title="{!$Label.c.ProjectIconTitle}" />
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <h2 class="slds-card__header-title">
+                                            <lightning:formattedUrl value="{! '/lightning/r/' + proj.iab__Project__c + '/view'}" label="{!proj.iab__Project__r.Name}" class="slds-card__header-link slds-truncate project-title" />
+                                            <span class="slds-badge badge-margin-left">{!proj.iab__Project__r.iab__Type__c}</span>
+                                        </h2>
+                                    </div>
+                                    <aura:renderIf isTrue="{!v.TabName != 'Completed'}">
+                                        <div class="slds-no-flex">
+                                            <lightning:button   label="{!$Label.c.ActionNewReleaseLabel}"
+                                                                iconName="utility:add"
+                                                                iconPosition="left"
+                                                                name="{!proj.iab__Project__c}"
+                                                                onclick="{!c.runNewReleaseFlow}" />
+                                            <lightning:button   label="{!$Label.c.ActionNewReleaseFromTemplateLabel}"
+                                                                iconName="utility:insert_template"
+                                                                iconPosition="left"
+                                                                name="{!proj.iab__Project__c}"
+                                                                onclick="{!c.runNewReleaseFromTemplateFlow}" />
+                                        </div>
+                                    </aura:renderIf>
+                                </header>
+                            </div>
+                            
+                            <!-- BODY -->
+                            
+                            <aura:renderIf isTrue="{!v.TabName != 'Completed'}">
+                            
+                                <div class="slds-card__body slds-card__body_inner">
+                                    <lightning:layout multipleRows="true" verticalAlign="stretch" class="layout-padding" pullToBoundary="small">
+
+                                        <aura:renderif isTrue="{!proj.iab__Project__r.iab__Release_Count__c > 0}">
+                                            
+                                            <!-- ### PROJECTS = ACTIVE ### -->
+                                            <aura:iteration items="{!v.ActiveReleaseRecords}" var="rel1">
+                                                <aura:renderIf isTrue="{!rel1.iab__Project__c == proj.iab__Project__c}">
+                                                    <lightning:layoutItem flexibility="auto" class="layoutitem-padding slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                                                        <c:devReleaseTile ReleaseRecord="{!rel1}" />
+                                                    </lightning:layoutItem>
+                                                </aura:renderIf>
+                                            </aura:iteration>
+                                            
+                                            
+                                            <!-- ### PROJECTS = PLANNING ### -->
+                                            <aura:iteration items="{!v.PlanningReleaseRecords}" var="rel2">
+                                                <aura:renderIf isTrue="{!rel2.iab__Project__c == proj.iab__Project__c}">
+                                                    <lightning:layoutItem flexibility="auto" class="layoutitem-padding slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                                                        <c:devReleaseTile ReleaseRecord="{!rel2}" />
+                                                    </lightning:layoutItem>
+                                                </aura:renderIf>
+                                            </aura:iteration>
+                                            
+                                            
+                                            <!-- ### PROJECTS = BACKLOG ### -->
+                                            <aura:iteration items="{!v.BacklogReleaseRecords}" var="rel3">
+                                                <aura:renderIf isTrue="{!rel3.iab__Project__c == proj.iab__Project__c}">
+                                                    <lightning:layoutItem flexibility="auto" class="layoutitem-padding slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                                                        <c:devReleaseTile ReleaseRecord="{!rel3}" />
+                                                    </lightning:layoutItem>
+                                                </aura:renderIf>
+                                            </aura:iteration>
+                                        
+                                            <aura:set attribute="else">
+                                                <lightning:layoutItem flexibility="auto" size="12" class="layoutitem-padding">
+                                                    <div class="slds-illustration slds-illustration_small">
+                                                        <div class="slds-text-longform">
+                                                            <p class="slds-text-body_regular">{!$Label.c.ReleaseEmptyText}</p>
+                                                        </div>
+                                                    </div>
+                                                </lightning:layoutItem>
+                                            </aura:set>
+
+                                        </aura:renderif>
+
+                                    </lightning:layout>
+                                </div>
+
+                            </aura:renderIf>
+
+                        </article>
+                    </lightning:layoutItem>
+                    
+                
+            </aura:iteration>
+            
+            
+            <!-- ### EMPTY STATE ### -->
+            <aura:set attribute="else">
+                
+                <lightning:layoutItem flexibility="auto" size="12" class="layoutitem-padding">
+                    <div class="slds-illustration slds-illustration_small">
+                        <img src="{!$Resource.ImhotepIllustrationEmptyState02}" class="slds-illustration__svg"/>
+                        
+                        <div class="slds-text-longform">
+                            <h3 class="slds-text-heading_medium">{!$Label.c.ProjectEmptyByStatusHeading}</h3>
+                            <p class="slds-text-body_regular"><strong>{!$Label.c.ProjectEmptyByStatusText}</strong></p>
+                        </div>
+
+                        <footer class="slds-card__footer">
+                            <lightning:button   label="{!$Label.c.ActionNewProjectLabel}"
+                                                variant="brand"
+                                                iconName="utility:add"
+                                                iconPosition="left"
+                                                onclick="{!c.runNewProjectFlow}" />
+                        </footer>
+                        
+                    </div>
+                </lightning:layoutItem>
+                
+            </aura:set>
+            
+        </aura:renderif>
+        
+    </lightning:layout>
+    
+</aura:component>

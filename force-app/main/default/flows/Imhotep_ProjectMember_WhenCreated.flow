@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <description>Create a new share of a Project record when a new Project Member is added.
+
+        05/25/2024 - S000519 - Migrated from the legacy org.
+        
+        03/02/2023 - S-000186 - Made flow a template so admins can modify.</description>
+    <environments>Default</environments>
+    <interviewLabel>Imhotep - Project Member - When Created {!$Flow.CurrentDateTime}</interviewLabel>
+    <isTemplate>true</isTemplate>
+    <label>Imhotep - Project Member - When Created</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>subflowCreateProjectShare</targetReference>
+        </connector>
+        <object>Project_Member__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>subflowCreateProjectShare</name>
+        <label>Create a Project Share</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <flowName>Imhotep_Share_Create</flowName>
+        <inputAssignments>
+            <name>inputProjectMemberId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>

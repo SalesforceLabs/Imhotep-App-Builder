@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Release</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Releases</value>
+    </caseValues>
+    <fields>
+        <help><!-- If checked, release was created from a template. --></help>
+        <label><!-- Created from Template? --></label>
+        <name>Created_from_Template__c</name>
+    </fields>
+    <fields>
+        <help><!-- If checked, this release is being used as a backlog and not for actual development. --></help>
+        <label><!-- Is Backlog? --></label>
+        <name>Is_Backlog__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Points remaining/free in the Points Goal (Points Goal - Total Points). --></help>
+        <label><!-- Points Available --></label>
+        <name>Points_Available__c</name>
+    </fields>
+    <fields>
+        <help><!-- Maximum number of points planned for the release. --></help>
+        <label><!-- Points Goal --></label>
+        <name>Points_Goal__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total points NOT Ready or Deployed (includes stories in Blocked, Defined, Building, and Testing statuses). --></help>
+        <label><!-- Points Left to Complete --></label>
+        <name>Points_Left_to_Complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- Releases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Release Date --></label>
+        <name>Release_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Setting that controls the features and layout enabled for this release and its related stories.  Default is Standard (all Imhotep features enabled).  Individual releases and stories can override this selection.  Changing this field or the record type will convert this release and its related stories (field data will not be lost but it may be hidden on the page). --></help>
+        <label><!-- Release Mode --></label>
+        <name>Release_Mode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Accepted</masterLabel>
+            <translation><!-- Accepted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation><!-- Planning --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Total Points --></label>
+        <name>Total_Points__c</name>
+    </fields>
+    <layouts>
+        <layout>Release (Simple) Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Release (Standard) Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- New Release --></label>
+        <name>Imhotep_Release_NewRelease_Action</name>
+    </quickActions>
+    <recordTypes>
+        <description><!-- Use for projects that don&apos;t use advanced features (e.g. points, test scenarios, tracking metadata changes). --></description>
+        <label><!-- Simple Release --></label>
+        <name>Simple</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Use for projects that need access to all Imhotep features.  Default record type. --></description>
+        <label><!-- Standard Release --></label>
+        <name>Standard</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

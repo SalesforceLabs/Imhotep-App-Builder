@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Testszenario</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Testszenarien</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>false</plural>
+        <value>Testszenario</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>true</plural>
+        <value>Testszenarien</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>false</plural>
+        <value>Testszenario</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>true</plural>
+        <value>Testszenarien</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>false</plural>
+        <value>Testszenario</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>true</plural>
+        <value>Testszenarien</value>
+    </caseValues>
+    <fields>
+        <help>Welches Szenario wird getestet?</help>
+        <label>Beschreibung</label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help>Im besten Fall, was sollte der Tester erleben?</help>
+        <label>Erwartete Ergebnisse</label>
+        <name>Expected_Result__c</name>
+    </fields>
+    <fields>
+        <help>Welche Schritte muss ein Tester befolgen, um neue/veränderte Funktionalitäten zu testen?</help>
+        <label>Anweisungen</label>
+        <name>Instructions__c</name>
+    </fields>
+    <fields>
+        <label>Status</label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Not Ready to Test</masterLabel>
+            <translation>Nicht bereit zum Testen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready to Test</masterLabel>
+            <translation>Bereit zum Testen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test Completed</masterLabel>
+            <translation>Test abgeschlossen</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Geschichte</label>
+        <name>Story__c</name>
+        <relationshipLabel>Testszenarien</relationshipLabel>
+    </fields>
+    <gender>Neuter</gender>
+    <layouts>
+        <layout>Test Scenario Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Testszenario</nameFieldLabel>
+</CustomObjectTranslation>

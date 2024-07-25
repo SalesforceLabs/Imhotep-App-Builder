@@ -1,0 +1,44 @@
+<template>
+    <lightning-card>
+        
+        <div class="slds-m-bottom_medium">
+            <img src={imhotepLogoUrl} class="slds-align_absolute-center" style="height:45px;width:auto;" alt={label.ImageImhotepLogoAlt} />
+        </div>
+        <div class="slds-m-around_medium">
+            <p class="slds-text-body_regular slds-m-bottom_medium"><strong>{label.AppCardWelcomeContent1}</strong></p>
+            <p class="slds-text-body_regular slds-m-bottom_medium">{label.AppCardWelcomeContent2}</p>
+            <p class="slds-text-body_regular">{label.AppCardWelcomeContent3}</p>
+        </div>
+
+        <template lwc:if={activeMetadata}>
+            <lightning-layout horizontal-align="center">
+                <lightning-layout-item flexibility="auto" size="12" padding="around-small">
+                    <div style="text-align:center;">
+                        <template lwc:if={activeMetadata.iab__Documentation_URL__c}>
+                            <p class="slds-m-bottom_x-small"><a class="slds-button slds-button_brand" href={activeMetadata.iab__Documentation_URL__c} target="_blank">{label.AppCardDocumentationLinkText}</a></p>
+                        </template>
+                    
+                        <p style="color:#747474;">
+                            {label.AppCardCurrentReleaseText}: {activeMetadata.iab__Current_Release_Version__c} (<lightning-formatted-date-time month="long" day="numeric" year="numeric" value={activeMetadata.iab__Current_Release_Date__c}></lightning-formatted-date-time>)
+                        </p>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+
+        <lightning-accordion
+            allow-multiple-sections-open
+            onsectiontoggle={handleSectionToggle}
+            active-section-name={activeSections}>
+
+            <lightning-accordion-section name="WhyImhotep" label={label.AppCardAccordionImhotepLabel}>
+                <p class="slds-text-body_regular slds-m-bottom_medium">{label.AppCardAccordionImhotepContent1}</p>
+                <img src={imhotepStepPyramid} class="slds-align_absolute-center slds-m-bottom_medium" alt={label.ImageStepPyramidAlt} />
+                <p class="slds-text-body_regular slds-m-bottom_medium">{label.AppCardAccordionImhotepContent2}</p>
+                <p class="slds-text-body_regular">{label.AppCardAccordionImhotepContent3}</p>
+            </lightning-accordion-section>
+
+        </lightning-accordion>
+
+    </lightning-card>
+</template>

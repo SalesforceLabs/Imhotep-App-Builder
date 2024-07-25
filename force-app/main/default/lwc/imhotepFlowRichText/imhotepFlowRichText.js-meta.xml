@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+    <description>Displays the Input Rich Text base component on a Flow screen.</description>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property   label="Default Value"
+                        name="defaultValue"
+                        type="String"
+                        role="inputOnly"
+                        description="Initial text that should appear in the input, such as an existing field value." />
+            <property   label="Label"
+                        name="labelText"
+                        type="String"
+                        role="inputOnly"
+                        description="Name/label to display for the rich text input." />
+            <property   label="Help/Tooltip Text"
+                        name="tooltipText"
+                        type="String"
+                        role="inputOnly"
+                        description="Help text to display as a tooltip next to the input field label." />
+            <property   label="Output Value"
+                        name="outputValue"
+                        type="String"
+                        role="outputOnly" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

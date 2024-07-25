@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Assegnazione del tag</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Assegnazioni dei tag</value>
+    </caseValues>
+    <fields>
+        <help>Categorizzazione usata per filtrare il componente devTagStories.</help>
+        <label>Categoria di rilascio</label>
+        <name>Release_Category__c</name>
+    </fields>
+    <fields>
+        <label>Storia</label>
+        <name>Story__c</name>
+        <relationshipLabel>Assegnazioni dei tag</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Tag</label>
+        <name>Tag__c</name>
+        <relationshipLabel>Assegnazioni dei tag</relationshipLabel>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Tag Assignment Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Assegnazione</nameFieldLabel>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

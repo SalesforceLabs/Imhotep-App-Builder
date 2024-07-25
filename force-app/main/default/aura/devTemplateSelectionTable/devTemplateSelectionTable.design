@@ -1,0 +1,3 @@
+<design:component >
+    <design:attribute name="SelectedTemplateId" label="Selected Template Id" description="Record Id for the Template selected in the component." />
+</design:component>

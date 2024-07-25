@@ -1,0 +1,83 @@
+<template>
+
+        <div class="iab-component-container">
+            
+            <!-- scrollable list of metadata types -->
+            <div class="iab-metadata-type-list-container">
+                <template for:each={metadataTypes} for:item="value">
+                    <div key={value} class="iab-selected-metadata-type iab-unselected" data-metadatatype={value} onclick={handleMetadataTypeSelection}>{value}</div>
+                </template>
+            </div>
+
+            <!-- side panel for list of metadata components -->
+            <div class="iab-metadata-component-list-container">
+                
+                <!-- initial state of the side panel -->
+                <template lwc:if={isFirstRender}>
+                    <p>{label.LogChangeLWCInitialState}</p>
+                </template>
+
+                <template lwc:else>
+                    <!-- display component list -->
+                    <template lwc:if={showComponents}>
+                        
+                        <!-- header -->
+                        <div class="slds-m-bottom_x-small">
+                            <div class="iab-type-header-text">
+                                <h1><strong>{label.LogChangeLWCListHeader}: {selectedMetadataType}</strong></h1>
+                                <p>{label.LogChangeLWCListMessage}</p>
+                            </div>
+                            <div class="iab-type-header-buttons slds-p-around_x-small">
+                                <lightning-button   variant="brand-outline"
+                                                    label={label.LogChangeLWCActionNewLabel}
+                                                    data-changetype="New"
+                                                    onclick={handleChangeTypeSelection}></lightning-button>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+
+                        <!-- list -->
+                        <template for:each={filteredMetadataComponents} for:item="comp">
+                            <div key={comp.Id} class="iab-component-row-container slds-p-vertical_x-small">
+                                <lightning-button-group>
+                                    <lightning-button   variant="brand-outline"
+                                                        label={label.LogChangeLWCActionModifiedLabel}
+                                                        data-changetype="Modified"
+                                                        data-component={comp.Id}
+                                                        onclick={handleChangeTypeSelection}></lightning-button>
+                                    <lightning-button   variant="brand-outline"
+                                                        label={label.LogChangeLWCActionDeletedLabel}
+                                                        data-changetype="Deleted"
+                                                        data-component={comp.Id}
+                                                        onclick={handleChangeTypeSelection}></lightning-button>
+                                </lightning-button-group>
+                                <div class="slds-p-left_x-small">
+                                    <p class="iab-text-name">{comp.Name}</p>
+                                    <p class="iab-text-api-name">{comp.iab__API_Name__c}</p>
+                                </div>
+                            </div>                                
+                        </template>
+                    </template>
+
+                    <!-- empty state -->
+                    <template lwc:else>
+                        <div class="slds-m-bottom_x-small">
+                            <div class="iab-type-header-text">
+                                <h1><strong>{label.LogChangeLWCListHeader}: {selectedMetadataType}</strong></h1>
+                                <p>{label.LogChangeLWCComponentListEmptyState}</p>
+                            </div>
+                            <div class="iab-type-header-buttons slds-p-around_x-small">
+                                <lightning-button   variant="brand-outline"
+                                                    label={label.LogChangeLWCActionNewLabel}
+                                                    data-changetype="New"
+                                                    onclick={handleChangeTypeSelection}></lightning-button>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                    </template>
+                </template>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+
+</template>

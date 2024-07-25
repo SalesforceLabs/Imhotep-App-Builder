@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Marca</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Marcas</value>
+    </caseValues>
+    <fields>
+        <help>Si está marcado, esta marca se está rastreando actualmente en el proyecto.</help>
+        <label>¿Está activo?</label>
+        <name>Is_Active__c</name>
+    </fields>
+    <fields>
+        <label>Proyecto</label>
+        <name>Project__c</name>
+        <relationshipLabel>Marcas</relationshipLabel>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Tag Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Marca</nameFieldLabel>
+</CustomObjectTranslation>

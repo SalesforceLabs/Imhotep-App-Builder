@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>Resource_Link_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Resource_Link_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Type__c</fields>
+        <label>Resource Link Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>External URLs related to specific Projects that are used and referenced by Project Members.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Project__c</fullName>
+        <deprecated>false</deprecated>
+        <label>Project</label>
+        <referenceTo>Project__c</referenceTo>
+        <relationshipLabel>Resource Links</relationshipLabel>
+        <relationshipName>Resource_Links</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <deprecated>false</deprecated>
+        <label>Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AppExchange Listing</fullName>
+                    <default>false</default>
+                    <label>AppExchange Listing</label>
+                </value>
+                <value>
+                    <fullName>Confluence</fullName>
+                    <default>false</default>
+                    <label>Confluence</label>
+                </value>
+                <value>
+                    <fullName>Content</fullName>
+                    <default>false</default>
+                    <label>Content</label>
+                </value>
+                <value>
+                    <fullName>Figma</fullName>
+                    <default>false</default>
+                    <label>Figma</label>
+                </value>
+                <value>
+                    <fullName>Github</fullName>
+                    <default>false</default>
+                    <label>Github</label>
+                </value>
+                <value>
+                    <fullName>Google Doc</fullName>
+                    <default>false</default>
+                    <label>Google Doc</label>
+                </value>
+                <value>
+                    <fullName>Google Folder</fullName>
+                    <default>false</default>
+                    <label>Google Folder</label>
+                </value>
+                <value>
+                    <fullName>Google Form</fullName>
+                    <default>false</default>
+                    <label>Google Form</label>
+                </value>
+                <value>
+                    <fullName>Google Jamboard</fullName>
+                    <default>false</default>
+                    <label>Google Jamboard</label>
+                </value>
+                <value>
+                    <fullName>Google Sheet</fullName>
+                    <default>false</default>
+                    <label>Google Sheet</label>
+                </value>
+                <value>
+                    <fullName>Google Site</fullName>
+                    <default>false</default>
+                    <label>Google Site</label>
+                </value>
+                <value>
+                    <fullName>Google Slides</fullName>
+                    <default>false</default>
+                    <label>Google Slides</label>
+                </value>
+                <value>
+                    <fullName>Image</fullName>
+                    <default>false</default>
+                    <label>Image</label>
+                </value>
+                <value>
+                    <fullName>LucidChart</fullName>
+                    <default>false</default>
+                    <label>LucidChart</label>
+                </value>
+                <value>
+                    <fullName>MS Word</fullName>
+                    <default>false</default>
+                    <label>MS Word</label>
+                </value>
+                <value>
+                    <fullName>MS Excel</fullName>
+                    <default>false</default>
+                    <label>MS Excel</label>
+                </value>
+                <value>
+                    <fullName>PDF</fullName>
+                    <default>false</default>
+                    <label>PDF</label>
+                </value>
+                <value>
+                    <fullName>Quip Doc</fullName>
+                    <default>false</default>
+                    <label>Quip Doc</label>
+                </value>
+                <value>
+                    <fullName>Salesforce Org</fullName>
+                    <default>false</default>
+                    <label>Salesforce Org</label>
+                </value>
+                <value>
+                    <fullName>Salesforce Experience Cloud Site</fullName>
+                    <default>false</default>
+                    <label>Salesforce Experience Cloud Site</label>
+                </value>
+                <value>
+                    <fullName>Slack Channel</fullName>
+                    <default>false</default>
+                    <label>Slack Channel</label>
+                </value>
+                <value>
+                    <fullName>Slack Post</fullName>
+                    <default>false</default>
+                    <label>Slack Post</label>
+                </value>
+                <value>
+                    <fullName>Survey</fullName>
+                    <default>false</default>
+                    <label>Survey</label>
+                </value>
+                <value>
+                    <fullName>Tableau Dashboard</fullName>
+                    <default>false</default>
+                    <label>Tableau Dashboard</label>
+                </value>
+                <value>
+                    <fullName>URL</fullName>
+                    <default>false</default>
+                    <label>URL</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>URL__c</fullName>
+        <deprecated>false</deprecated>
+        <label>URL</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <label>Resource Link</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Type__c</columns>
+        <columns>URL__c</columns>
+        <columns>Project__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Resource Link</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Resource Links</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>URL__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Project__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

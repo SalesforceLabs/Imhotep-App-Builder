@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Story__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>Imhotep Story (Simple) Path</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Progress on this story is halted due to dependencies or issues that need resolution before work can proceed.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Blocked</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Work on this story is currently underway by the assigned builder.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Building</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;This story&amp;#39;s requirements and solution have been defined, ready for work to begin.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Defined</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;The changes or features of this story have been successfully deployed to the production environment.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Deployed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Testing is complete; this story has met all acceptance criteria and is ready for final deployment.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Ready</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;This story is available for testing to validate that functionality meets expectations and is free of defects. Check for instructions in the Acceptance Criteria/Tests field (Details tab).&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Testing</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Simple</recordTypeName>
+</PathAssistant>

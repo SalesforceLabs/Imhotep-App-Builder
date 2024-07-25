@@ -1,0 +1,155 @@
+<aura:component controller="ImhotepAppBuilderCtrl" implements="lightning:availableForFlowScreens" access="global">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:attribute name="MyTemplateRecords" type="Template__c" />
+    <aura:attribute name="StandardTemplateRecords" type="Template__c" />
+    <aura:attribute name="SharedTemplateRecords" type="Template__c" />
+    
+    <aura:attribute name="MyTemplateItemRecords" type="Template_Item__c" />
+    <aura:attribute name="StandardTemplateItemRecords" type="Template_Item__c" />
+    <aura:attribute name="SharedTemplateItemRecords" type="Template_Item__c" />
+
+    <aura:attribute name="SelectedTemplateId" type="String" />
+    <aura:attribute name="buttonClicked" type="Boolean" default="false" />
+
+    <aura:handler name="compEventSelect" event="c:devTemplateSelectionEvent" action="{!c.handleTemplateSelection}"/>
+
+    <lightning:tabset selectedTabId="mine">
+        
+        <!-- ********** 	                   ********** -->
+        <!-- ********** 	                   ********** -->
+        <!-- **********      My Templates      ********** -->
+        <!-- ********** 	                   ********** -->
+        <!-- ********** 	                   ********** -->
+        <lightning:tab label="{!$Label.c.TemplatesHeadingMyTemplatesLabel}" id="mine">
+            
+            <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered" aria-label="{!$Label.c.TemplatesHeadingMyTemplatesLabel}">
+
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th scope="col" style="width:125px;"><div class="slds-truncate" title="{!$Label.c.ActionTableColActionsLabel}"></div></th>
+                        <th scope="col"><div class="slds-truncate" title="{!$Label.c.TemplateFieldNameLabel}">{!$Label.c.TemplateFieldNameLabel}</div></th>
+                        <th scope="col"><div class="slds-truncate" title="{!$Label.c.TemplateFieldDescriptionLabel}">{!$Label.c.TemplateFieldDescriptionLabel}</div></th>
+                        <th scope="col"><div class="slds-truncate" title="{!$Label.c.TemplateFieldOwnerLabel}">{!$Label.c.TemplateFieldOwnerLabel}</div></th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+        
+                    <aura:renderif isTrue="{!v.MyTemplateRecords.length > 0}">
+                        
+                        <aura:iteration items="{!v.MyTemplateRecords}" var="mytem">
+                            
+                            <c:devTemplateSelectionTableRow TemplateRecord="{!mytem}" TemplateItemRecords="{!v.MyTemplateItemRecords}" />
+                            
+                        </aura:iteration>
+                        
+                        <!-- ### EMPTY STATE ### -->
+                        <aura:set attribute="else">
+                            <tr class="slds-hint-parent">
+                                <td colspan="2"><div class="slds-truncate">{!$Label.c.TemplateEmptyText}</div></td>
+                            </tr>
+                        </aura:set>
+                        
+                    </aura:renderif>
+        
+                </tbody>
+        
+            </table>
+
+        </lightning:tab>
+        
+
+        <!-- ********** 	                   ********** -->
+        <!-- ********** 	                   ********** -->
+        <!-- **********   Standard Templates   ********** -->
+        <!-- ********** 	                   ********** -->
+        <!-- ********** 	                   ********** -->
+        <lightning:tab label="{!$Label.c.TemplatesHeadingStandardTemplatesLabel}" id="standard">
+            
+            <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered" aria-label="{!$Label.c.TemplatesHeadingStandardTemplatesLabel}">
+
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th scope="col" style="width:125px;"><div class="slds-truncate" title="{!$Label.c.ActionTableColActionsLabel}"></div></th>
+                        <th scope="col"><div class="slds-truncate" title="{!$Label.c.TemplateFieldNameLabel}">{!$Label.c.TemplateFieldNameLabel}</div></th>
+                        <th scope="col"><div class="slds-truncate" title="{!$Label.c.TemplateFieldDescriptionLabel}">{!$Label.c.TemplateFieldDescriptionLabel}</div></th>
+                        <th scope="col"><div class="slds-truncate" title="{!$Label.c.TemplateFieldOwnerLabel}">{!$Label.c.TemplateFieldOwnerLabel}</div></th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+        
+                    <aura:renderif isTrue="{!v.StandardTemplateRecords.length > 0}">
+                        
+                        <aura:iteration items="{!v.StandardTemplateRecords}" var="sttem">
+                            
+                            <c:devTemplateSelectionTableRow TemplateRecord="{!sttem}" TemplateItemRecords="{!v.StandardTemplateItemRecords}" />
+                            
+                        </aura:iteration>
+                        
+                        <!-- ### EMPTY STATE ### -->
+                        <aura:set attribute="else">
+                            <tr class="slds-hint-parent">
+                                <td colspan="2"><div class="slds-truncate">{!$Label.c.TemplateEmptyText}</div></td>
+                            </tr>
+                        </aura:set>
+                        
+                    </aura:renderif>
+        
+                </tbody>
+        
+            </table>
+
+        </lightning:tab>
+        
+
+        <!-- ********** 	                   ********** -->
+        <!-- ********** 	                   ********** -->
+        <!-- **********    Shared Templates    ********** -->
+        <!-- ********** 	                   ********** -->
+        <!-- ********** 	                   ********** -->
+        <lightning:tab label="{!$Label.c.TemplatesHeadingSharedTemplatesLabel}" id="shared">
+            
+            <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered" aria-label="{!$Label.c.TemplatesHeadingSharedTemplatesLabel}">
+
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th scope="col" style="width:125px;"><div class="slds-truncate" title="{!$Label.c.ActionTableColActionsLabel}"></div></th>
+                        <th scope="col"><div class="slds-truncate" title="{!$Label.c.TemplateFieldNameLabel}">{!$Label.c.TemplateFieldNameLabel}</div></th>
+                        <th scope="col"><div class="slds-truncate" title="{!$Label.c.TemplateFieldDescriptionLabel}">{!$Label.c.TemplateFieldDescriptionLabel}</div></th>
+                        <th scope="col"><div class="slds-truncate" title="{!$Label.c.TemplateFieldOwnerLabel}">{!$Label.c.TemplateFieldOwnerLabel}</div></th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+        
+                    <aura:renderif isTrue="{!v.SharedTemplateRecords.length > 0}">
+                        
+                        <aura:iteration items="{!v.SharedTemplateRecords}" var="shtem">
+                            
+                            <c:devTemplateSelectionTableRow TemplateRecord="{!shtem}" TemplateItemRecords="{!v.SharedTemplateItemRecords}" />
+                            
+                        </aura:iteration>
+                        
+                        <!-- ### EMPTY STATE ### -->
+                        <aura:set attribute="else">
+                            <tr class="slds-hint-parent">
+                                <td colspan="2"><div class="slds-truncate">{!$Label.c.TemplateEmptyText}</div></td>
+                            </tr>
+                        </aura:set>
+                        
+                    </aura:renderif>
+        
+                </tbody>
+        
+            </table>
+
+        </lightning:tab>
+        
+    </lightning:tabset>
+        
+        
+
+</aura:component>

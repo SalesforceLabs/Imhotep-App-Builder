@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Custom metadata type for storing different versions of the app’s configuration settings.  Only one record can be marked Active at a time.  All fields are required (except Active).</description>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If checked, this metadata record will be used actively by users in the app.</description>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>If checked, this metadata record will be used actively by users in the app.</inlineHelpText>
+        <label>Active</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Current_Release_Date__c</fullName>
+        <defaultValue>TODAY()</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Used to display the current release date on the app&apos;s home page.</description>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Used to display the current release date on the app&apos;s home page.</inlineHelpText>
+        <label>Current Release Date</label>
+        <required>true</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Current_Release_Version__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used to display the current release version on the app&apos;s home page.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Used to display the current release version on the app&apos;s home page.</inlineHelpText>
+        <label>Current Release Version</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Documentation_URL__c</fullName>
+        <defaultValue>&quot;https://sfdc.co/imhotep&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Used to redirect users to documentation and release notes from the app&apos;s home page.  Default:  https://sfdc.co/imhotep</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Used to redirect users to documentation and release notes from the app&apos;s home page.  Default:  https://sfdc.co/imhotep</inlineHelpText>
+        <label>Documentation URL</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>General_New_Project__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_General_NewProject&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used by the user to create a new project.  Default: iab__Imhotep_General_NewProject</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used by the user to create a new project.  Default: iab__Imhotep_General_NewProject</inlineHelpText>
+        <label>General - New Project</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Metadata_Change_Menu_Actions__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_MetadataChange_MenuActions&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from the Metadata Component Change components to handle actions selected from the menu of a specific change record.  Default:  iab__Imhotep_MetadataChange_MenuActions</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from the Metadata Component Change components to handle actions selected from the menu of a specific change record.  Default:  iab__Imhotep_MetadataChange_MenuActions</inlineHelpText>
+        <label>Metadata Change - Menu Actions</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Add_Metadata_Component__c</fullName>
+        <businessStatus>DeprecateCandidate</businessStatus>
+        <defaultValue>&quot;iab__Imhotep_Project_AddMetadataComponent&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>DEPRECATED.  API name for the flow used from a project record to create a new metadata component.  Default:  iab__Imhotep_Project_AddMetadataComponent</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>DEPRECATED.  API name for the flow used from a project record to create a new metadata component.  Default:  iab__Imhotep_Project_AddMetadataComponent</inlineHelpText>
+        <label>Project - Add Metadata Component</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Create_Release_from_Template__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Project_CreateReleaseFromTemplate&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a project record to create a new release from a template.  Default:  iab__Imhotep_Project_CreateReleaseFromTemplate</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a project record to create a new release from a template.  Default:  iab__Imhotep_Project_CreateReleaseFromTemplate</inlineHelpText>
+        <label>Project - Create Release from Template</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Delete_Project_Member__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_ProjectMember_Delete&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a project record to remove an existing Project Member from a project.  Default:  iab__Imhotep_ProjectMember_Delete</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a project record to remove an existing Project Member from a project.  Default:  iab__Imhotep_ProjectMember_Delete</inlineHelpText>
+        <label>Project - Delete Project Member</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Delete_Tag__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Project_DeleteTag&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a project record to delete a tag.  Default:  iab__Imhotep_Project_DeleteTag</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a project record to delete a tag.  Default:  iab__Imhotep_Project_DeleteTag</inlineHelpText>
+        <label>Project - Delete Tag</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_New_Project_Member__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Project_NewProjectMember&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a project to add a new project member.  Default:  iab__Imhotep_Project_NewProjectMember</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a project to add a new project member.  Default:  iab__Imhotep_Project_NewProjectMember</inlineHelpText>
+        <label>Project - New Project Member</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_New_Release__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Project_NewRelease&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a project record to create a new release.  Default:  iab__Imhotep_Project_NewRelease</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a project record to create a new release.  Default:  iab__Imhotep_Project_NewRelease</inlineHelpText>
+        <label>Project - New Release</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_New_Tag__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Project_NewTag&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a project record to create a new tag.  Default:  iab__Imhotep_Project_NewTag</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a project record to create a new tag.  Default:  iab__Imhotep_Project_NewTag</inlineHelpText>
+        <label>Project - New Tag</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Update_Project_Member__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_ProjectMember_Update&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a project record to update an existing Project Member.  Default:  iab__Imhotep_Project_ProjectMember_Update</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a project record to update an existing Project Member.  Default:  iab__Imhotep_Project_ProjectMember_Update</inlineHelpText>
+        <label>Project - Update Project Member</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Release_Add_Template_to_Release__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Release_AddTemplateToRelease&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a release record to add template stories.  Default:  iab__Imhotep_Release_AddTemplateToRelease</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a release record to add template stories.  Default:  iab__Imhotep_Release_AddTemplateToRelease</inlineHelpText>
+        <label>Release - Add Template to Release</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Release_Create_Template_from_Release__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Release_CreateTemplateFromRelease&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a release record to create a template from the release.  Default:  iab__Imhotep_Release_CreateTemplateFromRelease</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a release record to create a template from the release.  Default:  iab__Imhotep_Release_CreateTemplateFromRelease</inlineHelpText>
+        <label>Release - Create Template from Release</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Release_Delete_Story__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Release_DeleteStory&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a release record to delete a story.  Default: iab__Imhotep_Release_DeleteStory</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a release record to delete a story.  Default: iab__Imhotep_Release_DeleteStory</inlineHelpText>
+        <label>Release - Delete Story</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Release_New_Story__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Release_NewStory&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a release record to create a new story.  Default: iab__Imhotep_Release_NewStory</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a release record to create a new story.  Default: iab__Imhotep_Release_NewStory</inlineHelpText>
+        <label>Release - New Story</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Resource_Link_Menu_Actions__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_ResourceLink_MenuActions&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from the resource link component to handle actions selected from the menu of a specific resource link.  Default:  iab__Imhotep_ResourceLink_MenuActions</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from the resource link component to handle actions selected from the menu of a specific resource link.  Default:  iab__Imhotep_ResourceLink_MenuActions</inlineHelpText>
+        <label>Resource Link - Menu Actions</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Resource_Link_New__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_ResourceLink_New&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from the resource link component to create a new resource link for a project.  Default:  iab__Imhotep_ResourceLink_New</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from the resource link component to create a new resource link for a project.  Default:  iab__Imhotep_ResourceLink_New</inlineHelpText>
+        <label>Resource Link - New</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Story_Clone__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Story_Clone&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a story record to clone the story.  Default:  iab__Imhotep_Story_Clone</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a story record to clone the story.  Default:  iab__Imhotep_Story_Clone</inlineHelpText>
+        <label>Story - Clone</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Story_Edit__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Story_Edit&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a story record to edit the story.  Default:  iab__Imhotep_Story_Edit</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a story record to edit the story.  Default:  iab__Imhotep_Story_Edit</inlineHelpText>
+        <label>Story - Edit</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Story_Log_Change__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Story_LogChange&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a story record to log a metadata component change.  Default:  iab__Imhotep_Story_LogChange</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a story record to log a metadata component change.  Default:  iab__Imhotep_Story_LogChange</inlineHelpText>
+        <label>Story - Log Change</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Story_New_Tag_Assignment__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Story_NewTagAssignment&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a story record to create or assign a tag.  Default: iab__Imhotep_Story_NewTagAssignment</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a story record to create or assign a tag.  Default: iab__Imhotep_Story_NewTagAssignment</inlineHelpText>
+        <label>Story - New Tag Assignment</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Story_New_Test_Scenario__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Story_NewTestScenario&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a story record to create a test scenario.  Default:  iab__Imhotep_Story_NewTestScenario</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a story record to create a test scenario.  Default:  iab__Imhotep_Story_NewTestScenario</inlineHelpText>
+        <label>Story - New Test Scenario</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Story_Remove_Tag_Assignment__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Story_RemoveTagAssignment&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a story record to untag a story.  Default:  iab__Imhotep_Story_RemoveTagAssignment</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a story record to untag a story.  Default:  iab__Imhotep_Story_RemoveTagAssignment</inlineHelpText>
+        <label>Story - Remove Tag Assignment</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Story_Test_Result_Menu_Actions__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Story_TestResultMenuActions&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a story record to handle actions selected for a test scenario&apos;s test result.  Default:  iab__Imhotep_Story_TestResultMenuActions</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a story record to handle actions selected for a test scenario&apos;s test result.  Default:  iab__Imhotep_Story_TestResultMenuActions</inlineHelpText>
+        <label>Story - Test Result Menu Actions</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Story_Test_Scenario_Menu_Actions__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Story_TestScenarioMenuActions&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a story record to handle actions selected from the menu of a test scenario.  Default:  iab__Imhotep_Story_TestScenarioMenuActions</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a story record to handle actions selected from the menu of a test scenario.  Default:  iab__Imhotep_Story_TestScenarioMenuActions</inlineHelpText>
+        <label>Story - Test Scenario Menu Actions</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Story_Transfer__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Story_Transfer&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used by the user to move a story from a backlog to an active release.  Default:  iab__Imhotep_Story_Transfer</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used by the user to move a story from a backlog to an active release.  Default:  iab__Imhotep_Story_Transfer</inlineHelpText>
+        <label>Story - Transfer</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Template_Clone__c</fullName>
+        <defaultValue>&quot;iab__Imhotep_Template_Clone&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name for the flow used from a template to make a copy of the template.  Default:  iab__Imhotep_Template_Clone</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>API name for the flow used from a template to make a copy of the template.  Default:  iab__Imhotep_Template_Clone</inlineHelpText>
+        <label>Template - Clone</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Imhotep Config</label>
+    <listViews>
+        <fullName>All_Imhotep_Config_Records</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active__c</columns>
+        <columns>Current_Release_Version__c</columns>
+        <columns>DeveloperName</columns>
+        <columns>Current_Release_Date__c</columns>
+        <columns>NamespacePrefix</columns>
+        <columns>IsProtected</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Imhotep Config Records</label>
+        <language>en_US</language>
+    </listViews>
+    <pluralLabel>Imhotep Configs</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

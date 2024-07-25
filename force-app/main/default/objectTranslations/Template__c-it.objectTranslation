@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Template</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Template</value>
+    </caseValues>
+    <fields>
+        <help>Solo il proprietario può visualizzare e utilizzare il modello quando è impostato su &quot;Privato&quot;.</help>
+        <label>Accesso</label>
+        <name>Access__c</name>
+        <picklistValues>
+            <masterLabel>Private</masterLabel>
+            <translation>Privato</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public</masterLabel>
+            <translation>Pubblico</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Se selezionato, questo modello è stato creato da un altro modello.</help>
+        <label>Creato da un modello?</label>
+        <name>Created_from_Template__c</name>
+    </fields>
+    <fields>
+        <label>L&apos;utente corrente è il proprietario?</label>
+        <name>Current_User_is_Owner__c</name>
+    </fields>
+    <fields>
+        <help>Descrizione del modello, cosa include o per cosa è destinato.</help>
+        <label>Descrizione</label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help>Livello stimato di sforzo per implementare le storie in questo modello per qualcuno che è nuovo o non familiare con queste attività.</help>
+        <label>Punti stimati (principiante)</label>
+        <name>Estimated_Points_Beginner__c</name>
+    </fields>
+    <fields>
+        <help>Livello stimato di sforzo per implementare le storie in questo modello per qualcuno che ha esperienza avanzata con queste attività.</help>
+        <label>Punti stimati (esperto)</label>
+        <name>Estimated_Points_Expert__c</name>
+    </fields>
+    <fields>
+        <help>Livello stimato di sforzo per implementare le storie in questo modello per qualcuno che è abbastanza familiare con queste attività.</help>
+        <label>Punti stimati (intermedio)</label>
+        <name>Estimated_Points_Intermediate__c</name>
+    </fields>
+    <fields>
+        <help>Numero di elementi del modello (Storie) che vengono con questo modello.</help>
+        <label>Conteggio elementi</label>
+        <name>Item_Count__c</name>
+    </fields>
+    <fields>
+        <help>Se selezionato, questo modello è incluso come parte dell&apos;app ed è disponibile per tutti gli utenti.</help>
+        <label>Modello standard?</label>
+        <name>Standard_Template__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Template Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Punti stimati</label>
+            <section>Estimated Points</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Template --></nameFieldLabel>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Clona modello</label>
+        <name>Template_Clone_Action</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Usa modello</label>
+        <name>Template_Use_Action</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage>L&apos;accesso deve essere impostato su &quot;Pubblico&quot; per tutti i modelli standard.</errorMessage>
+        <name>Standard_Templates_Must_Be_Public</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Scénario de test</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Scénarios de test</value>
+    </caseValues>
+    <fields>
+        <help>Quel scénario est testé?</help>
+        <label>Description</label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help>Dans le meilleur des cas, que devrait expérimenter le testeur?</help>
+        <label>Résultats attendus</label>
+        <name>Expected_Result__c</name>
+    </fields>
+    <fields>
+        <help>Quelles étapes le testeur doit-il suivre pour tester la nouvelle fonctionnalité / les modifications?</help>
+        <label>Instructions</label>
+        <name>Instructions__c</name>
+    </fields>
+    <fields>
+        <label>Statut</label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Not Ready to Test</masterLabel>
+            <translation>Pas prêt à tester</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready to Test</masterLabel>
+            <translation>Prêt à tester</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test Completed</masterLabel>
+            <translation>Test terminé</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Histoire</label>
+        <name>Story__c</name>
+        <relationshipLabel>Scénarios de test</relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Test Scenario Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Scénario de test</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

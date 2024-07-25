@@ -1,0 +1,3245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customApplications>
+        <label><!-- Imhotep App Builder --></label>
+        <name>Imhotep_App_Builder</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Imhotep Mobile --></label>
+        <name>Imhotep_Mobile</name>
+    </customApplications>
+    <customLabels>
+        <label>Ajouter des histoires modèles</label>
+        <name>ActionAddTemplateStoriesLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquer pour cloner l&apos;histoire dans une fenêtre modale</label>
+        <name>ActionCloneStoryAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Cloner l&apos;histoire</label>
+        <name>ActionCloneStoryLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cloner</label>
+        <name>ActionCloneTestScenarioLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Créer un modèle</label>
+        <name>ActionCreateTemplateLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Supprimer</label>
+        <name>ActionDeleteMetadataChangeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Supprimer</label>
+        <name>ActionDeleteResourceLinkLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquer pour supprimer l&apos;histoire dans une fenêtre modale</label>
+        <name>ActionDeleteStoryAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Supprimer l&apos;histoire</label>
+        <name>ActionDeleteStoryLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquer pour supprimer cette étiquette du projet</label>
+        <name>ActionDeleteTagAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Supprimer l&apos;étiquette</label>
+        <name>ActionDeleteTagLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquer pour supprimer ces résultats de test dans une fenêtre modale</label>
+        <name>ActionDeleteTestResultsAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Supprimer les résultats des tests</label>
+        <name>ActionDeleteTestResultsLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Supprimer</label>
+        <name>ActionDeleteTestScenarioLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Icône de glisser-déposer</label>
+        <name>ActionDragAndDropIconLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez et glissez pour réordonner/réprioriser le récit</label>
+        <name>ActionDragAndDropIconTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Modifier</label>
+        <name>ActionEditMetadataChangeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Modifier</label>
+        <name>ActionEditResourceLinkLabel1</name>
+    </customLabels>
+    <customLabels>
+        <label>Modifier le lien de la ressource</label>
+        <name>ActionEditResourceLinkLabel2</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour éditer l&apos;histoire dans une fenêtre modale</label>
+        <name>ActionEditStoryAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Modifier l&apos;histoire</label>
+        <name>ActionEditStoryLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour éditer ces résultats de test dans une fenêtre modale</label>
+        <name>ActionEditTestResultsAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Modifier les résultats des tests</label>
+        <name>ActionEditTestResultsLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Modifier</label>
+        <name>ActionEditTestScenarioLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour déplier/replier la liste des histoires incluses</label>
+        <name>ActionExpandCollapseTemplateItemsListText</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour cacher la description de l&apos;histoire</label>
+        <name>ActionHideStoryDescriptionAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Masquer la description de l&apos;histoire</label>
+        <name>ActionHideStoryDescriptionLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Enregistrer une modification de métadonnées</label>
+        <name>ActionLogMetadataChangeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Modifier</label>
+        <name>ActionModifyProjectMemberLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Nouveau projet</label>
+        <name>ActionNewProjectLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Nouveau membre du projet</label>
+        <name>ActionNewProjectMemberLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Nouvelle version à partir d&apos;un modèle</label>
+        <name>ActionNewReleaseFromTemplateLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Nouvelle version</label>
+        <name>ActionNewReleaseLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour créer un nouveau lien de ressource dans une fenêtre modale</label>
+        <name>ActionNewResourceLinkAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Créer un nouveau lien de ressource</label>
+        <name>ActionNewResourceLinkLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Nouvelle histoire</label>
+        <name>ActionNewStoryLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour créer un nouveau tag pour ce projet</label>
+        <name>ActionNewTagAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour assigner un tag à cette histoire</label>
+        <name>ActionNewTagAssignmentAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Nouvelle attribution de tag</label>
+        <name>ActionNewTagAssignmentLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Nouvelle balise</label>
+        <name>ActionNewTagLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Rapporter les résultats des tests</label>
+        <name>ActionNewTestResultLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Nouveau scénario de test</label>
+        <name>ActionNewTestScenarioLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour rafraîchir les données de l&apos;histoire dans le Kanban</label>
+        <name>ActionRefreshKanbanAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Actualiser le Kanban</label>
+        <name>ActionRefreshKanbanLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour actualiser les données du projet dans le composant</label>
+        <name>ActionRefreshProjectsAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Actualiser les projets</label>
+        <name>ActionRefreshProjectsLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour actualiser les données de l&apos;histoire dans la liste</label>
+        <name>ActionRefreshStoriesAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Actualiser la liste</label>
+        <name>ActionRefreshStoriesLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Supprimer</label>
+        <name>ActionRemoveProjectMemberLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Erreur lors de l&apos;enregistrement du nouvel ordre des histoires</label>
+        <name>ActionReorderStoryErrorTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoire réordonnée avec succès.</label>
+        <name>ActionReorderStorySuccessMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>Succès</label>
+        <name>ActionReorderStorySuccessTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour ouvrir/fermer le menu de ce lien de ressource</label>
+        <name>ActionResourceLinkMenuExpandCollapseAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionner</label>
+        <name>ActionSelectTemplateLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour afficher la description de l&apos;histoire</label>
+        <name>ActionShowStoryDescriptionAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Afficher la description de l&apos;histoire</label>
+        <name>ActionShowStoryDescriptionLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Actions</label>
+        <name>ActionTableColActionsLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Développer/réduire le menu des scénarios de test</label>
+        <name>ActionTestScenarioMenuExpandCollapseAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Mettre à jour le statut</label>
+        <name>ActionTestScenarioUpdateStatusLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour transférer l&apos;histoire à une autre version dans une fenêtre modale</label>
+        <name>ActionTransferStoryAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Transférer à une autre version</label>
+        <name>ActionTransferStoryLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour désassigner ce tag de l&apos;histoire</label>
+        <name>ActionUnassignTagAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Désassigner le tag</label>
+        <name>ActionUnassignTagLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour voir dans une nouvelle fenêtre</label>
+        <name>ActionViewResourceLink</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour voir toutes les histoires avec ce tag</label>
+        <name>ActionViewStoriesWithTag</name>
+    </customLabels>
+    <customLabels>
+        <label>Imhotep a célèbrement construit la pyramide à degrés de Djoser. Non seulement c&apos;est la première pyramide en Égypte, mais cela pourrait bien être le premier projet Agile de l&apos;histoire (je suis sûr qu&apos;il y en avait d&apos;autres, mais allons-y) !</label>
+        <name>AppCardAccordionImhotepContent1</name>
+    </customLabels>
+    <customLabels>
+        <label>La pyramide à degrés a été construite de manière itérative au fil du temps, et Imhotep a révisé la conception, changé les matériaux de construction et essayé de nouvelles méthodes de construction au fur et à mesure. À la fin, la pyramide d&apos;Imhotep était un jalon majeur dans la construction ancienne et survit à ce jour comme le plus ancien monument en pierre du monde. Imhotep était mieux connu par l&apos;histoire que Djoser lui-même et vénéré comme un dieu mineur.</label>
+        <name>AppCardAccordionImhotepContent2</name>
+    </customLabels>
+    <customLabels>
+        <label>En saluant l&apos;approche itérative d&apos;Imhotep pour atteindre un résultat grandiose et durable, j&apos;espère que cette application vous aidera à tirer parti de certains concepts Agile simples et à réussir la construction de votre application et la maintenance continue de votre org.</label>
+        <name>AppCardAccordionImhotepContent3</name>
+    </customLabels>
+    <customLabels>
+        <label>Pourquoi Imhotep ?</label>
+        <name>AppCardAccordionImhotepLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Version actuelle</label>
+        <name>AppCardCurrentReleaseText</name>
+    </customLabels>
+    <customLabels>
+        <label>Voir documentation et notes de version</label>
+        <name>AppCardDocumentationLinkText</name>
+    </customLabels>
+    <customLabels>
+        <label>Bienvenue Imhotep, Superviseur des Grandes Œuvres du Pharaon ! Utilisez cette appli pour organiser et exécuter les grandes idées que vous avez pour l&apos;org Salesforce du Grand Pharaon.</label>
+        <name>AppCardWelcomeContent1</name>
+    </customLabels>
+    <customLabels>
+        <label>Ce n&apos;est pas une application complexe, et elle n&apos;a pas été construite par un Maître Ninja Agile de niveau 10. Elle suit librement certains concepts Agile et Lean - Imhotep App Builder est juste suffisant pour vous aider à faire du bien.</label>
+        <name>AppCardWelcomeContent2</name>
+    </customLabels>
+    <customLabels>
+        <label>Utilisez autant ou aussi peu de cette appli que nécessaire.</label>
+        <name>AppCardWelcomeContent3</name>
+    </customLabels>
+    <customLabels>
+        <label>Pas encore de changements</label>
+        <name>ChangeEmptyHeading</name>
+    </customLabels>
+    <customLabels>
+        <label>Ra brille haut dans le ciel, ne gaspille pas cette journée!</label>
+        <name>ChangeEmptyText1</name>
+    </customLabels>
+    <customLabels>
+        <label>Lorsque vous apportez des modifications à votre environnement Salesforce, vous pouvez les enregistrer ici pour mieux les suivre (exemples : création d&apos;un nouveau LWC, mise à jour d&apos;un flux existant ou suppression d&apos;un champ personnalisé).</label>
+        <name>ChangeEmptyText2</name>
+    </customLabels>
+    <customLabels>
+        <label>Cette liste montre tous les changements liés aux histoires dans cette publication. Pour enregistrer des changements, allez à l&apos;histoire concernée et visitez l&apos;onglet &quot;Journal des modifications&quot;.</label>
+        <name>ChangeEmptyText4</name>
+    </customLabels>
+    <customLabels>
+        <label>Changement</label>
+        <name>ChangeFieldChangeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Notes de changement</label>
+        <name>ChangeFieldChangeNotesLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Type</label>
+        <name>ChangeFieldChangeTypeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Dernière modification</label>
+        <name>ChangeFieldLastModifiedLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Composant de métadonnées</label>
+        <name>ChangeFieldMetadataComponentLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Type de métadonnées</label>
+        <name>ChangeFieldMetadataTypeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoire</label>
+        <name>ChangeFieldStoryLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Statut de l&apos;histoire</label>
+        <name>ChangeFieldStoryStatusLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Ressources</label>
+        <name>CompResourceBarHeading</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour fermer la fenêtre modale</label>
+        <name>GeneralModalCloseAltText</name>
+    </customLabels>
+    <customLabels>
+        <label>Fermer la fenêtre</label>
+        <name>GeneralModalCloseLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Kanban des histoires</label>
+        <name>HeadingKanbanRelease</name>
+    </customLabels>
+    <customLabels>
+        <label>Changements de composants de métadonnées</label>
+        <name>HeadingMetadataChanges</name>
+    </customLabels>
+    <customLabels>
+        <label>Modifier le changement de composant de métadonnées</label>
+        <name>HeadingMetadataChangesEdit</name>
+    </customLabels>
+    <customLabels>
+        <label>Membres du projet</label>
+        <name>HeadingProjectMembers</name>
+    </customLabels>
+    <customLabels>
+        <label>Versions</label>
+        <name>HeadingProjectReleases</name>
+    </customLabels>
+    <customLabels>
+        <label>Tags</label>
+        <name>HeadingProjectTags</name>
+    </customLabels>
+    <customLabels>
+        <label>Mes projets</label>
+        <name>HeadingProjectTiles</name>
+    </customLabels>
+    <customLabels>
+        <label>Liste des histoires</label>
+        <name>HeadingStoryList</name>
+    </customLabels>
+    <customLabels>
+        <label>Tags attribués</label>
+        <name>HeadingStoryTags</name>
+    </customLabels>
+    <customLabels>
+        <label>Scénarios de test</label>
+        <name>HeadingStoryTestScenarios</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;onglet de test est conçu pour le suivi détaillé des tests de votre histoire, mais c&apos;est entièrement optionnel. Si vous souhaitez fournir des instructions de test plus simples, utilisez le champ Critères d&apos;acceptation/Tests de l&apos;onglet Détails.</label>
+        <name>HeadingStoryTestScenariosHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoires taguées par catégorie</label>
+        <name>HeadingTagStories</name>
+    </customLabels>
+    <customLabels>
+        <label>Résultats des tests</label>
+        <name>HeadingTestResults</name>
+    </customLabels>
+    <customLabels>
+        <label>Résultats pour chaque fois que le scénario de test a été testé.</label>
+        <name>HeadingTestResultsHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Logo d&apos;Imhotep App Builder</label>
+        <name>ImageImhotepLogoAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Schéma montrant la structure interne de la pyramide à degrés de Djoser</label>
+        <name>ImageStepPyramidAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Supprimé</label>
+        <name>LogChangeLWCActionDeletedLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Modifié</label>
+        <name>LogChangeLWCActionModifiedLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Nouveau</label>
+        <name>LogChangeLWCActionNewLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Votre projet ne contient aucune métadonnée connue de ce type. Cliquez sur &quot;Nouveau&quot; pour signaler une nouvelle composante de métadonnées.</label>
+        <name>LogChangeLWCComponentListEmptyState</name>
+    </customLabels>
+    <customLabels>
+        <label>Pour commencer, faites défiler la liste et sélectionnez un type de métadonnée.</label>
+        <name>LogChangeLWCInitialState</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionné</label>
+        <name>LogChangeLWCListHeader</name>
+    </customLabels>
+    <customLabels>
+        <label>Vous trouverez ci-dessous une liste de vos métadonnées existantes. Cliquez sur &quot;Modifié&quot; ou &quot;Supprimé&quot; pour enregistrer une modification. Cliquez sur &quot;Nouveau&quot; pour signaler une nouvelle composante de métadonnées.</label>
+        <name>LogChangeLWCListMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>Changements de composants de métadonnées</label>
+        <name>PageListMetadataComponentChanges</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoires (Publication demandée)</label>
+        <name>PageListRequestedStories</name>
+    </customLabels>
+    <customLabels>
+        <label>Journal des modifications</label>
+        <name>PageTabChangeLog</name>
+    </customLabels>
+    <customLabels>
+        <label>Mes histoires (En construction)</label>
+        <name>PageTabMyStoriesBuilding</name>
+    </customLabels>
+    <customLabels>
+        <label>Mes histoires (Définies)</label>
+        <name>PageTabMyStoriesDefined</name>
+    </customLabels>
+    <customLabels>
+        <label>Nouvelles histoires</label>
+        <name>PageTabNewestStories</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoires demandées</label>
+        <name>PageTabRequestedStories</name>
+    </customLabels>
+    <customLabels>
+        <label>Kanban des histoires</label>
+        <name>PageTabStoryKanban</name>
+    </customLabels>
+    <customLabels>
+        <label>Liste des histoires</label>
+        <name>PageTabStoryList</name>
+    </customLabels>
+    <customLabels>
+        <label>Test</label>
+        <name>PageTabTesting</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoires mises à jour</label>
+        <name>PageTabUpdatedStories</name>
+    </customLabels>
+    <customLabels>
+        <label>Pas de projets ici ?</label>
+        <name>ProjectEmptyByStatusHeading</name>
+    </customLabels>
+    <customLabels>
+        <label>Ne laisse pas le pharaon le découvrir. Mets ton nez à la meule, mon ami.</label>
+        <name>ProjectEmptyByStatusText</name>
+    </customLabels>
+    <customLabels>
+        <label>Actif</label>
+        <name>ProjectFieldStatusActive</name>
+    </customLabels>
+    <customLabels>
+        <label>Terminé</label>
+        <name>ProjectFieldStatusCompleted</name>
+    </customLabels>
+    <customLabels>
+        <label>Planification</label>
+        <name>ProjectFieldStatusPlanning</name>
+    </customLabels>
+    <customLabels>
+        <label>Projet</label>
+        <name>ProjectIconTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Pas encore de membres du projet</label>
+        <name>ProjectMemberEmptyText</name>
+    </customLabels>
+    <customLabels>
+        <label>Membre du projet</label>
+        <name>ProjectMemberFieldNameLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Notes</label>
+        <name>ProjectMemberFieldNotesLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Rôle</label>
+        <name>ProjectMemberFieldRoleLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Pas encore de sorties</label>
+        <name>ReleaseEmptyHeading</name>
+    </customLabels>
+    <customLabels>
+        <label>Pas une seule sortie ? Pas même un backlog ? On dirait que tu dois te bouger...</label>
+        <name>ReleaseEmptyText</name>
+    </customLabels>
+    <customLabels>
+        <label>Backlog</label>
+        <name>ReleaseFieldIsBacklogIconTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre maximal de points prévus pour la publication.</label>
+        <name>ReleaseFieldPointsGoalHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Accepté</label>
+        <name>ReleaseFieldStatusAccepted</name>
+    </customLabels>
+    <customLabels>
+        <label>Actif</label>
+        <name>ReleaseFieldStatusActive</name>
+    </customLabels>
+    <customLabels>
+        <label>Statut</label>
+        <name>ReleaseFieldStatusLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Planification</label>
+        <name>ReleaseFieldStatusPlanning</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoires de release acceptées</label>
+        <name>StoriesHeadingAcceptedReleaseLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoires de release actives</label>
+        <name>StoriesHeadingActiveReleaseLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Toutes les histoires</label>
+        <name>StoriesHeadingAllStoriesLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoires en backlog</label>
+        <name>StoriesHeadingBacklogLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoires de release en planification</label>
+        <name>StoriesHeadingPlanningReleaseLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucune histoire dans cet état</label>
+        <name>StoryEmptyByStatusText</name>
+    </customLabels>
+    <customLabels>
+        <label>Pas encore d&apos;histoires</label>
+        <name>StoryEmptyHeading</name>
+    </customLabels>
+    <customLabels>
+        <label>Ce lancement n&apos;a pas encore d&apos;histoires ? Il est temps de se mettre au travail ! Créez des histoires qui couvrent les exigences à implémenter et les autres tâches à accomplir.</label>
+        <name>StoryEmptyText1</name>
+    </customLabels>
+    <customLabels>
+        <label>Si c&apos;est un backlog, créez des histoires pour toutes vos grandes idées. Si c&apos;est une mise en production pour avancer, créez des histoires ou promouvez des histoires de votre backlog.</label>
+        <name>StoryEmptyText2</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucune histoire dans cette catégorie</label>
+        <name>StoryEmptyTextByCategory</name>
+    </customLabels>
+    <customLabels>
+        <label>Critères d&apos;acceptation et toute instruction de test de base. Quelle est la définition du terminé et comment quelqu&apos;un le testerait pour savoir s&apos;il fonctionne comme prévu. Pensez à votre chemin optimal et à tous les cas limites. Pour des tests plus détaillés, utilisez l&apos;onglet de test de l&apos;histoire.</label>
+        <name>StoryFieldAcceptanceCriteriaTestsHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Critères d&apos;acceptation/Tests</label>
+        <name>StoryFieldAcceptanceCriteriaTestsLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Attribué</label>
+        <name>StoryFieldAssignedLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Non attribué</label>
+        <name>StoryFieldAssignedUnassigned</name>
+    </customLabels>
+    <customLabels>
+        <label>Actions à entreprendre pour déployer complètement les changements (activer un Flow, assigner un permset, etc.).</label>
+        <name>StoryFieldDeploymentChecklistHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Liste de vérification du déploiement</label>
+        <name>StoryFieldDeploymentChecklistLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Traitement accéléré demandé</label>
+        <name>StoryFieldExpediteIconTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Dernière modification</label>
+        <name>StoryFieldLastModifiedLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>réel.</label>
+        <name>StoryFieldPointsAct</name>
+    </customLabels>
+    <customLabels>
+        <label>est.</label>
+        <name>StoryFieldPointsEst</name>
+    </customLabels>
+    <customLabels>
+        <label>Points</label>
+        <name>StoryFieldPointsLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Priorité</label>
+        <name>StoryFieldPriorityLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Version</label>
+        <name>StoryFieldReleaseLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Notes de travail tenues par le constructeur/développeur sur la manière dont ils mettent en œuvre l&apos;histoire.</label>
+        <name>StoryFieldSolutionBuildNotesHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Notes de solution/construction</label>
+        <name>StoryFieldSolutionBuildNotesLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Bloqué</label>
+        <name>StoryFieldStatusBlocked</name>
+    </customLabels>
+    <customLabels>
+        <label>En construction</label>
+        <name>StoryFieldStatusBuilding</name>
+    </customLabels>
+    <customLabels>
+        <label>Défini</label>
+        <name>StoryFieldStatusDefined</name>
+    </customLabels>
+    <customLabels>
+        <label>Déployé</label>
+        <name>StoryFieldStatusDeployed</name>
+    </customLabels>
+    <customLabels>
+        <label>Statut</label>
+        <name>StoryFieldStatusLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Prêt</label>
+        <name>StoryFieldStatusReady</name>
+    </customLabels>
+    <customLabels>
+        <label>Déployé</label>
+        <name>StoryFieldStatusTesting</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoire utilisateur / description des exigences de haut niveau.</label>
+        <name>StoryFieldStoryDescriptionHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoire/Description</label>
+        <name>StoryFieldStoryDescriptionLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Numéro d&apos;Histoire</label>
+        <name>StoryFieldStoryNumberLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoire de défaut</label>
+        <name>StoryFieldStoryTypeDefectIconTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Type d&apos;histoire</label>
+        <name>StoryFieldStoryTypeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Titre</label>
+        <name>StoryFieldTitleLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoires</label>
+        <name>StoryHeading</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucun tag assigné à l&apos;histoire</label>
+        <name>TagAssignmentEmptyText</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucun tag créé pour ce projet</label>
+        <name>TagEmptyText</name>
+    </customLabels>
+    <customLabels>
+        <label>Pas de modèles pour l&apos;instant</label>
+        <name>TemplateEmptyText</name>
+    </customLabels>
+    <customLabels>
+        <label>Description</label>
+        <name>TemplateFieldDescriptionLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom du modèle</label>
+        <name>TemplateFieldNameLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Propriétaire/Créateur</label>
+        <name>TemplateFieldOwnerLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>pts (débutant)</label>
+        <name>TemplateItemFieldPointsBeginner</name>
+    </customLabels>
+    <customLabels>
+        <label>pts (expert)</label>
+        <name>TemplateItemFieldPointsExpert</name>
+    </customLabels>
+    <customLabels>
+        <label>pts (intermédiaire)</label>
+        <name>TemplateItemFieldPointsIntermediate</name>
+    </customLabels>
+    <customLabels>
+        <label>Points</label>
+        <name>TemplateItemFieldPointsLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Priorité</label>
+        <name>TemplateItemFieldPriorityLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoire/Description</label>
+        <name>TemplateItemFieldStoryDescriptionLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Titre</label>
+        <name>TemplateItemFieldTitleLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Éléments du modèle</label>
+        <name>TemplateItemHeading</name>
+    </customLabels>
+    <customLabels>
+        <label>Mes modèles</label>
+        <name>TemplatesHeadingMyTemplatesLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Modèles partagés</label>
+        <name>TemplatesHeadingSharedTemplatesLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Modèles standards</label>
+        <name>TemplatesHeadingStandardTemplatesLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucun résultat de test rapporté pour le moment</label>
+        <name>TestResultEmptyText</name>
+    </customLabels>
+    <customLabels>
+        <label>Testeur</label>
+        <name>TestResultFieldAssignedTesterLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Notes du constructeur sur la récupération des tests ou sa réponse aux retours du testeur.</label>
+        <name>TestResultFieldBuilderNotesHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Notes du constructeur</label>
+        <name>TestResultFieldBuilderNotesLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Dernière modification</label>
+        <name>TestResultFieldLastModifiedLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Résultat</label>
+        <name>TestResultFieldResultLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Statut</label>
+        <name>TestResultFieldStatusLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Résultat du test</label>
+        <name>TestResultFieldTestResultLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Commentaires du testeur sur la façon dont les résultats ont différé de ce qui était attendu, ce qui a fait échouer le test et d&apos;autres retours à prendre en compte.</label>
+        <name>TestResultFieldTesterFeedbackHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Retour du testeur</label>
+        <name>TestResultFieldTesterFeedbackLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Résultats des tests</label>
+        <name>TestResultHeading</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucun scénario de test pour l&apos;instant</label>
+        <name>TestScenarioEmptyHeading</name>
+    </customLabels>
+    <customLabels>
+        <label>Tout comme votre cœur doit être pesé contre une plume pour entrer dans l&apos;Au-delà, votre travail doit être testé pour entrer en production.</label>
+        <name>TestScenarioEmptyText1</name>
+    </customLabels>
+    <customLabels>
+        <label>Note : Il s&apos;agit d&apos;une fonction optionnelle destinée au suivi détaillé des tests. Des instructions de test plus simples peuvent être trouvées dans le champ Critères d&apos;acceptation/Tests de l&apos;onglet Détails.</label>
+        <name>TestScenarioEmptyText2</name>
+    </customLabels>
+    <customLabels>
+        <label>Identifie le scénario de test.</label>
+        <name>TestScenarioFieldDescriptionHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Description</label>
+        <name>TestScenarioFieldDescriptionLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Décrit le résultat attendu par le testeur.</label>
+        <name>TestScenarioFieldExpectedResultHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Résultat attendu</label>
+        <name>TestScenarioFieldExpectedResultLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Fournit les étapes à suivre par le testeur.</label>
+        <name>TestScenarioFieldInstructionsHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Instructions</label>
+        <name>TestScenarioFieldInstructionsLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Pas prêt à tester</label>
+        <name>TestScenarioFieldStatusNotReadyToTest</name>
+    </customLabels>
+    <customLabels>
+        <label>Prêt à tester</label>
+        <name>TestScenarioFieldStatusReadyToTest</name>
+    </customLabels>
+    <customLabels>
+        <label>Test terminé</label>
+        <name>TestScenarioFieldStatusTestCompleted</name>
+    </customLabels>
+    <customLabels>
+        <label>Scénario de test #</label>
+        <name>TestScenarioFieldTestScenarioLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Scénarios de test</label>
+        <name>TestScenarioIconTitle</name>
+    </customLabels>
+    <customTabs>
+        <label>Accueil Imhotep</label>
+        <name>Imhotep_Home</name>
+    </customTabs>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Oh non...&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Désolé, en fonction de votre rôle dans ce projet, vous n&apos;avez pas la permission de faire cela.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01b</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Projet :  &lt;/span&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;{!getProject.Name}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Votre rôle :  &lt;/span&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;{!varCurrentRole}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01c</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Certaines actions ne sont disponibles que pour le propriétaire/chef de projet (par exemple, la gestion des membres du projet).&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01d</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Fermer</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_General_CheckProjectMemberRole</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Imhotep_General_CheckRole</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Imhotep_General_GetRecordTypes</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <fieldText>Mode de publication par défaut</fieldText>
+                    <helpText>&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Paramètre par défaut pour contrôler les fonctionnalités et la mise en page activées pour les publications et les histoires liées à ce projet.&lt;/span&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;La valeur par défaut est Standard (toutes les fonctionnalités Imhotep sont activées).&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Les publications et histoires individuelles peuvent remplacer cette sélection.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Les modifications de cette sélection n&apos;affectent pas les publications et histoires existantes.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</helpText>
+                    <name>input01_DefaultReleaseMode</name>
+                </fields>
+                <fields>
+                    <name>input01_Description</name>
+                </fields>
+                <fields>
+                    <fieldText>Nom du projet</fieldText>
+                    <name>input01_Name</name>
+                </fields>
+                <fields>
+                    <fieldText>Statut</fieldText>
+                    <name>input01_Status</name>
+                </fields>
+                <fields>
+                    <name>input01_Type</name>
+                </fields>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Créer un nouveau projet&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Commencez à suivre un nouveau projet !&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;  Fournissez quelques détails ci-dessous :&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Créer un nouveau projet &gt;</nextOrFinishButtonLabel>
+            </screens>
+            <screens>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Créer un nouveau projet&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Votre nouveau projet a été créé avec succès&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;.  Nous avons également créé un backlog pour que vous puissiez commencer à l&apos;utiliser.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Il est temps de se mettre au travail !&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text99a</name>
+                </fields>
+                <name>s99</name>
+                <nextOrFinishButtonLabel>Fermer</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_General_NewProject</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <backButtonLabel>&lt; Précédent</backButtonLabel>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Une erreur s&apos;est produite&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Un problème est survenu lors du traitement de votre dernière demande&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;. &lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <fields>
+                    <name>text01b</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Votre administrateur système Salesforce a reçu une copie de l&apos;erreur. Vous pouvez réessayer votre demande. Si vous continuez à rencontrer ce problème, vous pouvez contacter votre administrateur système Salesforce pour obtenir de l&apos;aide.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(153, 153, 153);&quot;&gt;Détails de l&apos;erreur :&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(153, 153, 153);&quot;&gt;{!inputFaultMessage}&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01c</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Fermer</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_General_ScreenFlowError</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <textTemplates>
+                <name>templateEmailBody_NewProject</name>
+            </textTemplates>
+            <textTemplates>
+                <name>templateEmailBody_NewProjectMember</name>
+            </textTemplates>
+            <textTemplates>
+                <name>templateEmailBody_StoryAssigned</name>
+            </textTemplates>
+            <textTemplates>
+                <name>templateEmailBody_TestResultAssigned</name>
+            </textTemplates>
+            <textTemplates>
+                <name>templateEmailBody_TestResultReported</name>
+            </textTemplates>
+            <textTemplates>
+                <name>templateEmailBody_TestResultRetest</name>
+            </textTemplates>
+            <textTemplates>
+                <name>templateEmailSubject_NewProject</name>
+            </textTemplates>
+            <textTemplates>
+                <name>templateEmailSubject_NewProjectMember</name>
+            </textTemplates>
+            <textTemplates>
+                <name>templateEmailSubject_StoryAssigned</name>
+            </textTemplates>
+            <textTemplates>
+                <name>templateEmailSubject_TestResultAssigned</name>
+            </textTemplates>
+            <textTemplates>
+                <name>templateEmailSubject_TestResultReported</name>
+            </textTemplates>
+            <textTemplates>
+                <name>templateEmailSubject_TestResultRetest</name>
+            </textTemplates>
+        </flows>
+        <fullName>Imhotep_General_SendEmail</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <fieldText>Notes de changement (le cas échéant)</fieldText>
+                    <name>input01_ChangeNotes</name>
+                </fields>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Mettez à jour les détails de votre changement de composant de métadonnées :&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Mettre à jour le changement de composant de métadonnées</nextOrFinishButtonLabel>
+            </screens>
+            <screens>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Êtes-vous sûr de vouloir supprimer ce changement de composant de métadonnées ?&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text02a</name>
+                </fields>
+                <name>s02</name>
+                <nextOrFinishButtonLabel>Supprimer le changement de composant de métadonnées</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_MetadataChange_MenuActions</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Imhotep_ProjectMember_CRUDActions</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <choices>
+                <choiceText>&lt;strong style=&quot;font-size: 14px;&quot;&gt;Constructeur&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; (Lecture/Écriture)&lt;/span&gt;</choiceText>
+                <name>choiceRoleBuilder</name>
+            </choices>
+            <choices>
+                <choiceText>&lt;strong style=&quot;font-size: 14px;&quot;&gt;Visionneur&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; (Lecture Seule)&lt;/span&gt;</choiceText>
+                <name>choiceRoleViewer</name>
+            </choices>
+            <screens>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Supprimer l&apos;accès du membre du projet&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Projet:  {!getProjectMember.Project__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Membre du projet:  {!getProjectMember.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Souhaitez-vous supprimer cet utilisateur du projet ?&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Cette action révoquera immédiatement l&apos;accès de l&apos;utilisateur à tous les enregistrements liés au projet.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Supprimer le membre du projet</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_ProjectMember_Delete</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <choices>
+                <choiceText>&lt;strong style=&quot;font-size: 14px;&quot;&gt;Constructeur&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; (Lecture/Écriture)&lt;/span&gt;</choiceText>
+                <name>choiceRoleBuilder</name>
+            </choices>
+            <choices>
+                <choiceText>&lt;strong style=&quot;font-size: 14px;&quot;&gt;Visionneur&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; (Lecture Seule)&lt;/span&gt;</choiceText>
+                <name>choiceRoleViewer</name>
+            </choices>
+            <screens>
+                <fields>
+                    <helpText>&lt;p&gt;Les notes sont entièrement facultatives, mais peuvent aider à fournir des informations sur le rôle spécifique, l&apos;expertise, la disponibilité, etc. d&apos;une personne.&lt;/p&gt;</helpText>
+                    <name>input01_Notes</name>
+                </fields>
+                <fields>
+                    <fieldText>Rôle</fieldText>
+                    <name>input01_Role</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Modifier l&apos;accès du membre du projet&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Projet : {!getProjectMember.Project__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Membre du projet : {!getProjectMember.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Mettre à jour les détails du membre du projet ci-dessous&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; :&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Mettre à jour le membre du projet</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_ProjectMember_Update</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Imhotep_ProjectMember_WhenCreated</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Imhotep_ProjectMember_WhenDeleted</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Imhotep_ProjectMember_WhenRoleIsUpdated</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <fieldText>Type de métadonnées</fieldText>
+                    <name>input01_MetadataType</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Ajoutez un composant de métadonnées existant à la liste afin qu&apos;il puisse être utilisé lors de l&apos;enregistrement des modifications dans l&apos;application. Sélectionnez un type de métadonnées pour commencer.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;﻿&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Suivant &gt;</nextOrFinishButtonLabel>
+            </screens>
+            <screens>
+                <backButtonLabel>&lt; Retour</backButtonLabel>
+                <fields>
+                    <fieldText>Nom de l&apos;API (le cas échéant)</fieldText>
+                    <name>input02_APIName</name>
+                </fields>
+                <fields>
+                    <fieldText>Catégorie</fieldText>
+                    <name>input02_Category</name>
+                </fields>
+                <fields>
+                    <fieldText>Nom / Étiquette</fieldText>
+                    <name>input02_Name</name>
+                </fields>
+                <fields>
+                    <fieldText>Notes (le cas échéant)</fieldText>
+                    <name>input02_Notes</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input02_ParentMetadataComponent</name>
+                </fields>
+                <fields>
+                    <name>s02_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s02_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s02_Section1_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;b style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Fournissez quelques détails sur votre {!input01_MetadataType}:&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;﻿&lt;/b&gt;&lt;/p&gt;</fieldText>
+                    <name>text02a</name>
+                </fields>
+                <name>s02</name>
+                <nextOrFinishButtonLabel>Ajouter un composant de métadonnées &gt;</nextOrFinishButtonLabel>
+            </screens>
+            <screens>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;b style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Votre {!input01_MetadataType} a été ajouté avec succès en tant que composant de métadonnées.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+                    <name>text99a</name>
+                </fields>
+                <name>s99</name>
+                <nextOrFinishButtonLabel>Fermer</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Project_AddMetadataComponent</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <choices>
+                <choiceText>Débutant</choiceText>
+                <name>choicePointsBeginner</name>
+            </choices>
+            <choices>
+                <name>choicePointsExpert</name>
+            </choices>
+            <choices>
+                <choiceText>Intermédiaire</choiceText>
+                <name>choicePointsIntermediate</name>
+            </choices>
+            <screens>
+                <fields>
+                    <fieldText>Points estimés à utiliser :</fieldText>
+                    <name>input01_EstimatedPointsToUse</name>
+                </fields>
+                <fields>
+                    <name>input01_TemplateSelectionTable</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px;&quot;&gt;Sélectionnez un modèle&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Vous pouvez créer une nouvelle version pour votre projet en utilisant un modèle. Les modèles incluent une liste d&apos;histoires pré-construites pour effectuer des tâches courantes. Ces histoires peuvent également inclure des informations pré-documentées sur la façon de compléter l&apos;histoire.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01b</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Les histoires de modèles incluent également des &quot;Points estimés&quot; - des estimations approximatives du niveau d&apos;effort requis pour compléter chaque histoire. Il existe différentes estimations à choisir (Débutant, Intermédiaire et Expert), en fonction de votre niveau d&apos;expérience et de confort avec le travail connexe. Ces estimations se cumulent pour vous aider à mieux comprendre le niveau d&apos;effort global pour compléter une version.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01c</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Veuillez sélectionner un modèle et les estimations à utiliser:&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;﻿&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01d</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Suivant &gt;</nextOrFinishButtonLabel>
+            </screens>
+            <screens>
+                <backButtonLabel>&lt; Retour</backButtonLabel>
+                <fields>
+                    <fieldText>Cette version est-elle un backlog ?</fieldText>
+                    <name>input02_IsBacklog</name>
+                </fields>
+                <fields>
+                    <fieldText>Nom</fieldText>
+                    <name>input02_Name</name>
+                </fields>
+                <fields>
+                    <name>input02_Notes</name>
+                </fields>
+                <fields>
+                    <fieldText>Date de sortie</fieldText>
+                    <name>input02_ReleaseDate</name>
+                </fields>
+                <fields>
+                    <fieldText>Date de début</fieldText>
+                    <name>input02_StartDate</name>
+                </fields>
+                <fields>
+                    <fieldText>Statut</fieldText>
+                    <name>input02_Status</name>
+                </fields>
+                <fields>
+                    <name>s02_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s02_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s02_Section1_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px;&quot;&gt;Créer une nouvelle version&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px;&quot;&gt;Projet :  {!getProject.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px;&quot;&gt;Modèle sélectionné :  {!getTemplate.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Fournissez les détails de votre nouvelle version :&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text02a</name>
+                </fields>
+                <name>s02</name>
+                <nextOrFinishButtonLabel>Créer une version à partir du modèle</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Project_CreateReleaseFromTemplate</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Êtes-vous sûr de vouloir supprimer cette étiquette ?&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Cela supprimera également l&apos;étiquette de toutes les histoires auxquelles elle a été assignée pour ce projet.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Supprimer l&apos;étiquette</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Project_DeleteTag</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <choices>
+                <choiceText>&lt;strong style=&quot;font-size: 14px;&quot;&gt;Constructeur&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; (Lecture/Écriture)&lt;/span&gt;</choiceText>
+                <name>choiceRoleBuilder</name>
+            </choices>
+            <choices>
+                <choiceText>&lt;strong style=&quot;font-size: 14px;&quot;&gt;Visionneur&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; (Lecture Seule)&lt;/span&gt;</choiceText>
+                <name>choiceRoleViewer</name>
+            </choices>
+            <screens>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;L&apos;utilisateur sélectionné est déjà membre de ce projet.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>error01a</name>
+                </fields>
+                <fields>
+                    <fieldText>Notes</fieldText>
+                    <helpText>&lt;p&gt;Les notes sont entièrement facultatives, mais peuvent aider à fournir des informations sur le rôle spécifique d&apos;une personne, son expertise, sa disponibilité, etc.&lt;/p&gt;</helpText>
+                    <name>input01_Notes</name>
+                </fields>
+                <fields>
+                    <fieldText>Rôle</fieldText>
+                    <name>input01_Role</name>
+                </fields>
+                <fields>
+                    <fieldText>Sélectionner un utilisateur existant</fieldText>
+                    <name>input01_User</name>
+                </fields>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Ajouter un nouveau membre au projet&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Projet :  {!getProject.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Ajouter une nouvelle personne à votre équipe de projet&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; :&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Ajouter un membre du projet</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Project_NewProjectMember</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <fieldText>Cette version est-elle un backlog ?</fieldText>
+                    <name>input01_IsBacklog</name>
+                </fields>
+                <fields>
+                    <fieldText>Nom</fieldText>
+                    <name>input01_Name</name>
+                </fields>
+                <fields>
+                    <name>input01_Notes</name>
+                </fields>
+                <fields>
+                    <fieldText>Objectif de points</fieldText>
+                    <name>input01_PointsGoal</name>
+                </fields>
+                <fields>
+                    <fieldText>Date de sortie</fieldText>
+                    <name>input01_ReleaseDate</name>
+                </fields>
+                <fields>
+                    <fieldText>Mode de sortie</fieldText>
+                    <helpText>&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Paramètre qui contrôle les fonctionnalités et la disposition activées pour cette version et ses histoires associées.&lt;/span&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Par défaut, c&apos;est Standard (toutes les fonctionnalités d&apos;Imhotep sont activées).&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Les versions et histoires individuelles peuvent remplacer cette sélection.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Changer ce champ ou le type de fiche convertira cette version et ses histoires associées (les données des champs ne seront pas perdues mais peuvent être masquées sur la page).&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</helpText>
+                    <name>input01_ReleaseMode</name>
+                </fields>
+                <fields>
+                    <fieldText>Date de début</fieldText>
+                    <name>input01_StartDate</name>
+                </fields>
+                <fields>
+                    <fieldText>Statut</fieldText>
+                    <name>input01_Status</name>
+                </fields>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <name>s01_Section2</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section2_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section2_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px;&quot;&gt;Créer une nouvelle version&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; color: rgb(68, 68, 68);&quot;&gt;Projet:  {!getProject.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Veuillez fournir les détails de votre nouvelle version:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Créer une version</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Project_NewRelease</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(255, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;&quot;{!input01_Name}&quot; existe déjà.﻿&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>error01a</name>
+                </fields>
+                <fields>
+                    <fieldText>Est actif?</fieldText>
+                    <name>input01_IsActive</name>
+                </fields>
+                <fields>
+                    <fieldText>Nom de l&apos;étiquette</fieldText>
+                    <name>input01_Name</name>
+                </fields>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Veuillez fournir les détails de votre nouvelle étiquette:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Créer une étiquette</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Project_NewTag</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Imhotep_Project_WhenDeleted</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <choices>
+                <choiceText>Débutant</choiceText>
+                <name>choicePointsBeginner</name>
+            </choices>
+            <choices>
+                <name>choicePointsExpert</name>
+            </choices>
+            <choices>
+                <choiceText>Intermédiaire</choiceText>
+                <name>choicePointsIntermediate</name>
+            </choices>
+            <screens>
+                <fields>
+                    <fieldText>Points estimés à utiliser :</fieldText>
+                    <name>input01_EstimatedPointsToUse</name>
+                </fields>
+                <fields>
+                    <name>input01_TemplateSelectionTable</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px;&quot;&gt;Sélectionnez un modèle&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Vous pouvez créer des histoires dans votre version en utilisant un modèle. Les modèles comprennent une liste d&apos;histoires pré-construites pour effectuer des tâches courantes. Ces histoires peuvent également inclure des informations pré-documentées sur la manière de compléter l&apos;histoire.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+                    <name>text01b</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Les histoires modèles incluent également des &quot;points estimés&quot; - des estimations approximatives du niveau d&apos;effort nécessaire pour terminer chaque histoire. Il existe différentes estimations à choisir (débutant, intermédiaire et expert), en fonction de votre niveau d&apos;expérience/de confort avec le travail connexe. Ces estimations s&apos;accumulent pour vous aider à mieux comprendre le niveau d&apos;effort global nécessaire pour terminer une version.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+                    <name>text01c</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Veuillez sélectionner un modèle et les estimations à utiliser :&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;﻿&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01d</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Suivant &gt;</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Release_AddTemplateToRelease</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <name>input01_Description</name>
+                </fields>
+                <fields>
+                    <fieldText>Nom</fieldText>
+                    <name>input01_Name</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>columns</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>minRowSelection</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>selectionMode</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_StoryTable</name>
+                </fields>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px; color: rgb(0, 0, 0);&quot;&gt;Créer un nouveau modèle&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Projet sélectionné:  &lt;/span&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;{!getRelease.Project__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Version sélectionnée:  {!getRelease.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Vous pouvez créer un modèle à partir de la version sélectionnée.  Cela copiera toutes les histoires souhaitées dans un modèle que vous pouvez utiliser dans d&apos;autres versions ou même d&apos;autres projets.  Les modèles peuvent également être partagés avec d&apos;autres utilisateurs!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Veuillez fournir les détails du nouveau modèle:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);&quot;&gt;Sélectionnez les histoires que vous souhaitez inclure dans votre nouveau modèle&lt;/strong&gt;&lt;span style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);&quot;&gt; (au moins une doit être sélectionnée)&lt;/span&gt;&lt;strong style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);&quot;&gt;:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01b</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Créer un modèle</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Release_CreateTemplateFromRelease</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Êtes-vous sûr de vouloir supprimer cette histoire ?&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Cela supprimera également tous les enregistrements et données associés (Chatter, fichiers, notes, scénarios de test et résultats, etc.).&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Supprimer l&apos;histoire</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Release_DeleteStory</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <choices>
+                <choiceText>Non attribué</choiceText>
+                <name>choiceUnassignedStory</name>
+            </choices>
+            <screens>
+                <fields>
+                    <name>el_0</name>
+                </fields>
+                <fields>
+                    <name>el_1</name>
+                </fields>
+                <fields>
+                    <name>el_2</name>
+                </fields>
+                <fields>
+                    <fieldText>Membre du projet attribué (ou laissez non attribué)</fieldText>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_AssignedProjectMember</name>
+                </fields>
+                <fields>
+                    <fieldText>Notifier le membre du projet attribué par e-mail</fieldText>
+                    <name>input01_NotifyByEmail</name>
+                </fields>
+                <fields>
+                    <fieldText>Histoire parente</fieldText>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_ParentStory</name>
+                </fields>
+                <fields>
+                    <fieldText>Publication demandée</fieldText>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_RequestedRelease</name>
+                </fields>
+                <fields>
+                    <fieldText>Statut</fieldText>
+                    <name>input01_Status</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_StoryDescription</name>
+                </fields>
+                <fields>
+                    <fieldText>Type d&apos;histoire</fieldText>
+                    <name>input01_StoryType</name>
+                </fields>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column2</name>
+                </fields>
+                <fields>
+                    <name>s01_Section2</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section2_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section2_Column2</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section2_Column3</name>
+                </fields>
+                <fields>
+                    <name>s01_Section3</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section3_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section3_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 18px;&quot;&gt;Créer une nouvelle histoire&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Publication:  {!getRelease.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Veuillez entrer les détails de votre nouvelle histoire:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Créer une histoire</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Release_NewStory</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Imhotep_Release_TriggerAfterUpdate</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Imhotep_Release_TriggerBeforeUpdate</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <fieldText>Nom/Étiquette</fieldText>
+                    <name>input01_Name</name>
+                </fields>
+                <fields>
+                    <name>input01_Type</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>required</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>value</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_URL</name>
+                </fields>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Veuillez modifier les détails de votre lien de ressource :&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Mettre à jour le lien de ressource</nextOrFinishButtonLabel>
+            </screens>
+            <screens>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Êtes-vous sûr de vouloir supprimer ce lien de ressource ?&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Cela le supprimera du projet, le rendant indisponible sur d&apos;autres écrans et pour les autres membres du projet.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>Copy_1_of_text01a</name>
+                </fields>
+                <name>s02</name>
+                <nextOrFinishButtonLabel>Supprimer le lien de ressource</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_ResourceLink_MenuActions</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <fieldText>Nom/Étiquette</fieldText>
+                    <name>input01_Name</name>
+                </fields>
+                <fields>
+                    <name>input01_Type</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>required</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_URL</name>
+                </fields>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Veuillez entrer les détails de votre nouveau lien de ressource :&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Créer un lien de ressource</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_ResourceLink_New</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Imhotep_Share_Create</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Imhotep_Story_AfterUpdated</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <choices>
+                <choiceText>Non assigné</choiceText>
+                <name>choiceUnassignedStory</name>
+            </choices>
+            <screens>
+                <fields>
+                    <name>el_0</name>
+                </fields>
+                <fields>
+                    <name>el_1</name>
+                </fields>
+                <fields>
+                    <name>el_2</name>
+                </fields>
+                <fields>
+                    <fieldText>Membre du projet assigné (ou laisser non assigné)</fieldText>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_AssignedProjectMember</name>
+                </fields>
+                <fields>
+                    <fieldText>Notifier le membre du projet assigné par e-mail</fieldText>
+                    <name>input01_NotifyByEmail</name>
+                </fields>
+                <fields>
+                    <fieldText>Histoire parente</fieldText>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_ParentStory</name>
+                </fields>
+                <fields>
+                    <fieldText>Version demandée</fieldText>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_RequestedRelease</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>defaultValue</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_SolutionBuildNotes</name>
+                </fields>
+                <fields>
+                    <fieldText>Statut</fieldText>
+                    <name>input01_Status</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>defaultValue</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_StoryDescription</name>
+                </fields>
+                <fields>
+                    <fieldText>Type d&apos;histoire</fieldText>
+                    <name>input01_StoryType</name>
+                </fields>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column2</name>
+                </fields>
+                <fields>
+                    <name>s01_Section2</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section2_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section2_Column2</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section2_Column3</name>
+                </fields>
+                <fields>
+                    <name>s01_Section3</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section3_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section3_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Histoire originale:  {!varDraftStoryRec.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Tous les valeurs des champs seront clonées, mais voici quelques-unes que vous pouvez éditer immédiatement:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Cloner l&apos;histoire</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Story_Clone</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <choices>
+                <choiceText>Non assigné</choiceText>
+                <name>choiceUnassignedStory</name>
+            </choices>
+            <screens>
+                <fields>
+                    <name>el_0</name>
+                </fields>
+                <fields>
+                    <name>el_1</name>
+                </fields>
+                <fields>
+                    <name>el_2</name>
+                </fields>
+                <fields>
+                    <name>el_3</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>defaultValue</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_AcceptanceCriteriaTests</name>
+                </fields>
+                <fields>
+                    <fieldText>Membre du projet assigné (ou laisser non assigné)</fieldText>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_AssignedProjectMember</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>defaultValue</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_DeploymentChecklist</name>
+                </fields>
+                <fields>
+                    <fieldText>Niveau d&apos;effort</fieldText>
+                    <name>input01_LevelOfEffort</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_LevelOfEffort_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_LevelOfEffort_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>Histoire parente</fieldText>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_ParentStory</name>
+                </fields>
+                <fields>
+                    <fieldText>Publication</fieldText>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_Release</name>
+                </fields>
+                <fields>
+                    <fieldText>Publication demandée</fieldText>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_RequestedRelease</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>defaultValue</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_SolutionBuildNotes</name>
+                </fields>
+                <fields>
+                    <fieldText>Statut</fieldText>
+                    <name>input01_Status</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>defaultValue</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_StoryDescription</name>
+                </fields>
+                <fields>
+                    <fieldText>Détails de l&apos;histoire</fieldText>
+                    <name>input01_StoryDetails</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_StoryDetails_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_StoryDetails_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>Type d&apos;histoire</fieldText>
+                    <name>input01_StoryType</name>
+                </fields>
+                <fields>
+                    <name>s01_Section3</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section3_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section3_Column2</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Mettre à jour l&apos;histoire</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Story_Edit</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <inputParameters>
+                        <name>projectId</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_MetadataTypeActionList</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 16px;&quot;&gt;Enregistrer une modification de métadonnées﻿&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Lorsque vous apportez des modifications à votre environnement Salesforce, vous pouvez les enregistrer ici pour mieux les suivre (exemples : création d&apos;un nouveau LWC, mise à jour d&apos;un flux existant ou suppression d&apos;un champ personnalisé).&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01b</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Pour commencer, faites défiler la liste et sélectionnez un type de métadonnées.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01c</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Suivant &gt;</nextOrFinishButtonLabel>
+            </screens>
+            <screens>
+                <backButtonLabel>&lt; Retour</backButtonLabel>
+                <fields>
+                    <fieldText>Nom de l&apos;API (le cas échéant)</fieldText>
+                    <name>input02_APIName</name>
+                </fields>
+                <fields>
+                    <fieldText>Catégorie</fieldText>
+                    <name>input02_Category</name>
+                </fields>
+                <fields>
+                    <fieldText>Notes de modification (le cas échéant)</fieldText>
+                    <name>input02_ChangeNotes</name>
+                </fields>
+                <fields>
+                    <fieldText>Notes sur le composant de métadonnées (le cas échéant)</fieldText>
+                    <name>input02_ComponentNotes</name>
+                </fields>
+                <fields>
+                    <fieldText>Nom / Étiquette</fieldText>
+                    <name>input02_Name</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input02_ParentComponent</name>
+                </fields>
+                <fields>
+                    <name>s02_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s02_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s02_Section1_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 16px;&quot;&gt;Enregistrer une modification de métadonnées&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text02a</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(150, 148, 146);&quot;&gt;Type de modification&lt;/span&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; :  {!input01_MetadataTypeActionList.outputSelectedChangeType}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(150, 148, 146);&quot;&gt;Type de métadonnées&lt;/span&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; :  {!input01_MetadataTypeActionList.outputSelectedMetadataType}&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text02b</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Entrez les détails du composant de métadonnées que vous créez dans cette histoire:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text02c</name>
+                </fields>
+                <name>s02</name>
+                <nextOrFinishButtonLabel>Enregistrer le changement</nextOrFinishButtonLabel>
+            </screens>
+            <screens>
+                <backButtonLabel>&lt; Retour</backButtonLabel>
+                <fields>
+                    <fieldText>Notes de modification (le cas échéant)</fieldText>
+                    <name>input03_Notes</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 16px;&quot;&gt;Enregistrer une modification de métadonnées&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text03a</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(150, 148, 146);&quot;&gt;Type de modification&lt;/span&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; : {!input01_MetadataTypeActionList.outputSelectedChangeType}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(150, 148, 146);&quot;&gt;Type de métadonnées&lt;/span&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; : {!input01_MetadataTypeActionList.outputSelectedMetadataType}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(150, 148, 146);&quot;&gt;Composant de métadonnées&lt;/span&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; : {!getSelectedComponent.Name}&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text03b</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Fournissez des notes sur la modification en cours:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text03c</name>
+                </fields>
+                <name>s03</name>
+                <nextOrFinishButtonLabel>Enregistrer le changement</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Story_LogChange</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;b style=&quot;color: rgb(255, 0, 0);&quot;&gt;&quot;{!input01_Name}&quot; existe déjà.﻿&lt;/b&gt;&lt;/p&gt;</fieldText>
+                    <name>error01_ExistingTag</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(255, 0, 0);&quot;&gt;L&apos;histoire est déjà liée à l&apos;étiquette sélectionnée.&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>error01_ExistingThemeAssignment</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>messageToggleActive</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>messageToggleInactive</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_CreateTag</name>
+                </fields>
+                <fields>
+                    <fieldText>Nom de l&apos;étiquette</fieldText>
+                    <name>input01_Name</name>
+                </fields>
+                <fields>
+                    <fieldText>Sélectionnez une étiquette</fieldText>
+                    <name>input01_Tag</name>
+                </fields>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Avec quelle étiquette active cette histoire doit-elle être associée?&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Si vous ne voyez pas l&apos;étiquette que vous cherchez, c&apos;est qu&apos;elle est inactive ou qu&apos;elle n&apos;existe pas.&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01b</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Il n&apos;y a pas d&apos;étiquettes actives. Vous devrez peut-être en créer une ou mettre à jour une étiquette inactive.&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01c</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Assigner une étiquette</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Story_NewTagAssignment</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_Description</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_ExpectedResult</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_Instructions</name>
+                </fields>
+                <fields>
+                    <fieldText>Statut</fieldText>
+                    <name>input01_Status</name>
+                </fields>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <name>s01_Section2</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section2_Column1</name>
+                </fields>
+                <fields>
+                    <name>s01_Section3</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section3_Column1</name>
+                </fields>
+                <fields>
+                    <name>s01_Section4</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section4_Column1</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Veuillez entrer les détails de votre nouveau scénario de test:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Créer un scénario de test</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Story_NewTestScenario</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Imhotep_Story_RemoveTagAssignment</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <fieldText>Testeur assigné</fieldText>
+                    <name>input01_AssignedTester</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>defaultValue</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_BuilderNotes</name>
+                </fields>
+                <fields>
+                    <fieldText>Résultat</fieldText>
+                    <name>input01_Result</name>
+                </fields>
+                <fields>
+                    <fieldText>Statut</fieldText>
+                    <name>input01_Status</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>defaultValue</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_TesterFeedback</name>
+                </fields>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Mettez à jour votre résultat de test:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Mettre à jour le résultat du test</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Story_TestResultMenuActions</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <inputParameters>
+                        <name>defaultValue</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_Description</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>defaultValue</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_ExpectedResult</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>defaultValue</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_Instructions</name>
+                </fields>
+                <fields>
+                    <fieldText>Statut</fieldText>
+                    <name>input01_Status</name>
+                </fields>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <name>s01_Section2</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section2_Column1</name>
+                </fields>
+                <fields>
+                    <name>s01_Section3</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section3_Column1</name>
+                </fields>
+                <fields>
+                    <name>s01_Section4</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section4_Column1</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Mettre à jour les détails de votre scénario de test:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Mettre à jour le scénario de test</nextOrFinishButtonLabel>
+            </screens>
+            <screens>
+                <fields>
+                    <fieldText>Testeur assigné</fieldText>
+                    <name>input02_AssignedTester</name>
+                </fields>
+                <fields>
+                    <fieldText>Notifier par e-mail le membre assigné du projet</fieldText>
+                    <name>input02_NotifyByEmail</name>
+                </fields>
+                <fields>
+                    <fieldText>Résultat</fieldText>
+                    <name>input02_Result</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input02_TesterFeedback</name>
+                </fields>
+                <fields>
+                    <name>s02_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s02_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <name>s02_Section2</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s02_Section2_Column1</name>
+                </fields>
+                <fields>
+                    <name>s02_Section3</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s02_Section3_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s02_Section3_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Fournissez le résultat de vos tests:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text02a</name>
+                </fields>
+                <name>s02</name>
+                <nextOrFinishButtonLabel>Rapporter le résultat du test</nextOrFinishButtonLabel>
+            </screens>
+            <screens>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Êtes-vous sûr de vouloir supprimer ce scénario de test?&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Cela supprimera également tous les résultats de test signalés pour ce scénario de test.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>Copy_1_of_text01a</name>
+                </fields>
+                <name>s03</name>
+                <nextOrFinishButtonLabel>Supprimer le scénario de test</nextOrFinishButtonLabel>
+            </screens>
+            <screens>
+                <fields>
+                    <inputParameters>
+                        <name>defaultValue</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input04_Description</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>defaultValue</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input04_ExpectedResult</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>defaultValue</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input04_Instructions</name>
+                </fields>
+                <fields>
+                    <fieldText>Statut</fieldText>
+                    <name>input04_Status</name>
+                </fields>
+                <fields>
+                    <name>s04_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s04_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <name>s04_Section2</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s04_Section2_Column1</name>
+                </fields>
+                <fields>
+                    <name>s04_Section3</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s04_Section3_Column1</name>
+                </fields>
+                <fields>
+                    <name>s04_Section4</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s04_Section4_Column1</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Veuillez modifier les détails ci-dessous pour votre nouveau scénario de test:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text04a</name>
+                </fields>
+                <name>s04</name>
+                <nextOrFinishButtonLabel>Créer un scénario de test</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Story_TestScenarioMenuActions</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <fieldText>Sélectionnez une publication</fieldText>
+                    <name>input01_Release</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Transférez l&apos;histoire sélectionnée vers l&apos;une des publications suivantes:&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Transférer à la publication sélectionnée</nextOrFinishButtonLabel>
+            </screens>
+            <screens>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Désolé, vous ne pouvez pas transférer cette histoire à un autre release car aucun release n&apos;est disponible.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Un release ou un backlog doit avoir le statut Planification ou Actif pour recevoir des histoires.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text02a</name>
+                </fields>
+                <name>s02</name>
+                <nextOrFinishButtonLabel>Fermer</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Story_Transfer</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <name>input01_Description</name>
+                </fields>
+                <fields>
+                    <fieldText>Nom</fieldText>
+                    <name>input01_Name</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>columns</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>minRowSelection</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>selectionMode</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_TemplateItemTable</name>
+                </fields>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px;&quot;&gt;Créer un nouveau modèle&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Modèle sélectionné: {!getTemplate.Name} (inclut {!getTemplate.Item_Count__c} histoires)&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Vous pouvez cloner le modèle sélectionné pour créer votre propre version personnalisée.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Veuillez fournir les détails du nouveau modèle:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Sélectionnez les histoires que vous souhaitez inclure dans votre nouveau modèle&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; (au moins une doit être sélectionnée)&lt;/span&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01b</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Créer un modèle</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Template_Clone</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows/>
+        <fullName>Imhotep_Template_CreateStories</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <choices>
+                <choiceText>&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Débutant&lt;/strong&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt; ({!getTemplate.Estimated_Points_Beginner__c} points au total pour ce modèle)&lt;/span&gt;</choiceText>
+                <name>choiceBeginner</name>
+            </choices>
+            <choices>
+                <choiceText>&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Ajouter les histoires du modèle à une &lt;u&gt;version existante&lt;/u&gt;&lt;/strong&gt;</choiceText>
+                <name>choiceExistingRelease</name>
+            </choices>
+            <choices>
+                <choiceText>&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Expert&lt;/strong&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt; ({!getTemplate.Estimated_Points_Expert__c} points au total pour ce modèle)&lt;/span&gt;</choiceText>
+                <name>choiceExpert</name>
+            </choices>
+            <choices>
+                <choiceText>&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Intermédiaire&lt;/strong&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt; ({!getTemplate.Estimated_Points_Intermediate__c} points au total pour ce modèle)&lt;/span&gt;</choiceText>
+                <name>choiceIntermediate</name>
+            </choices>
+            <choices>
+                <choiceText>&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Créer une &lt;u&gt;nouvelle&lt;/u&gt; version à partir du modèle&lt;/strong&gt;</choiceText>
+                <name>choiceNewRelease</name>
+            </choices>
+            <screens>
+                <fields>
+                    <inputParameters>
+                        <name>columns</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>&quot;Vos projets&quot;</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>maxRowSelection</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>minRowSelection</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>selectionMode</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>shouldDisplayLabel</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_ProjectTable</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px;&quot;&gt;Sélectionner un projet&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Modèle sélectionné à utiliser : {!getTemplate.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Vous pouvez utiliser le modèle sélectionné pour peupler votre projet avec des histoires.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Veuillez sélectionner un projet :&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Suivant &gt;</nextOrFinishButtonLabel>
+            </screens>
+            <screens>
+                <backButtonLabel>&lt; Retour</backButtonLabel>
+                <fields>
+                    <fieldText>Comment utiliser le modèle :</fieldText>
+                    <name>input02_CreationMode</name>
+                </fields>
+                <fields>
+                    <fieldText>Cette version est-elle un backlog?</fieldText>
+                    <name>input02_IsBacklog</name>
+                </fields>
+                <fields>
+                    <fieldText>Nom</fieldText>
+                    <name>input02_Name</name>
+                </fields>
+                <fields>
+                    <fieldText>Remarques</fieldText>
+                    <name>input02_Notes</name>
+                </fields>
+                <fields>
+                    <fieldText>Date de sortie</fieldText>
+                    <name>input02_ReleaseDate</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>columns</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>&quot;Versions&quot;</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>maxRowSelection</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>minRowSelection</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>selectionMode</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>shouldDisplayLabel</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input02_ReleaseTable</name>
+                </fields>
+                <fields>
+                    <fieldText>Date de début</fieldText>
+                    <name>input02_StartDate</name>
+                </fields>
+                <fields>
+                    <fieldText>Statut</fieldText>
+                    <name>input02_Status</name>
+                </fields>
+                <fields>
+                    <name>s02_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s02_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s02_Section1_Column2</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 18px;&quot;&gt;Sélectionner une version&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Modèle sélectionné : {!getTemplate.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Projet sélectionné : {!input01_ProjectTable.firstSelectedRow.Project_Name__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Vous pouvez utiliser le modèle sélectionné pour ajouter des histoires à une version existante ou créer une nouvelle version.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Veuillez sélectionner une version existante (ou choisir d&apos;en créer une nouvelle) :&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text02a</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 18px;&quot;&gt;Détails de la nouvelle version&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Modèle sélectionné : {!getTemplate.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Projet sélectionné : {!input01_ProjectTable.firstSelectedRow.Project_Name__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px; background-color: rgb(255, 255, 255);&quot;&gt;Vous pouvez utiliser le modèle sélectionné pour ajouter des histoires à une version existante ou créer une nouvelle version.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Veuillez fournir les détails de votre nouvelle version (ou choisir d&apos;utiliser une version existante) :&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text02b</name>
+                </fields>
+                <name>s02</name>
+                <nextOrFinishButtonLabel>Suivant &gt;</nextOrFinishButtonLabel>
+            </screens>
+            <screens>
+                <backButtonLabel>&lt; Retour</backButtonLabel>
+                <fields>
+                    <fieldText>Niveau de points estimés :</fieldText>
+                    <name>input03_EstimatedPointsLevel</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Sélectionnez le niveau de points estimés&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Une dernière étape : vous devez décider quel niveau de points estimés utiliser lors de la création des histoires de modèle associées.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Les histoires de modèle incluent les &quot;points estimés&quot; - des estimations approximatives du niveau d&apos;effort requis pour compléter chaque histoire. Il existe différentes estimations à choisir (débutant, intermédiaire et expert), en fonction de votre niveau d&apos;expérience et de confort avec le travail connexe. Ces estimations s&apos;additionnent pour vous aider à mieux comprendre le niveau global d&apos;effort nécessaire pour compléter une version.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Veuillez sélectionner le niveau de points estimés à utiliser :&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text03a</name>
+                </fields>
+                <name>s03</name>
+                <nextOrFinishButtonLabel>Créer à partir du modèle</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Template_UseTemplate</fullName>
+    </flowDefinitions>
+    <quickActions>
+        <label><!-- Log a Call --></label>
+        <name>Imhotep_Log_A_Call_Global_Action</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Event --></label>
+        <name>Imhotep_New_Event_Global_Action</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Task --></label>
+        <name>Imhotep_New_Task_Global_Action</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Email --></label>
+        <name>Imhotep_Send_Email_Global_Action</name>
+    </quickActions>
+    <reportTypes>
+        <description><!-- Projects with Metadata Components with Metadata Component Changes --></description>
+        <label><!-- Projects with Metadata Components with Metadata Component Changes --></label>
+        <name>Projects_with_Metadata_Components_with_Metadata_Component_Changes</name>
+        <sections>
+            <label><!-- Metadata Component Changes --></label>
+            <name>Metadata Component Changes</name>
+        </sections>
+        <sections>
+            <label><!-- Metadata Components --></label>
+            <name>Metadata Components</name>
+        </sections>
+        <sections>
+            <label><!-- Projects --></label>
+            <name>Projects</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Projects with Releases with Stories --></description>
+        <label><!-- Projects with Releases with Stories --></label>
+        <name>Projects_with_Releases_with_Stories</name>
+        <sections>
+            <label><!-- Projects --></label>
+            <name>Projects</name>
+        </sections>
+        <sections>
+            <label><!-- Releases --></label>
+            <name>Releases</name>
+        </sections>
+        <sections>
+            <label><!-- Stories --></label>
+            <name>Stories</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Projects with Releases with Stories with Metadata Component Changes --></description>
+        <label><!-- Projects with Releases with Stories with Metadata Component Changes --></label>
+        <name>Projects_with_Releases_with_Stories_with_Metadata_Component_Changes</name>
+        <sections>
+            <label><!-- Metadata Component Changes --></label>
+            <name>Metadata Component Changes</name>
+        </sections>
+        <sections>
+            <label><!-- Projects --></label>
+            <name>Projects</name>
+        </sections>
+        <sections>
+            <label><!-- Releases --></label>
+            <name>Releases</name>
+        </sections>
+        <sections>
+            <label><!-- Stories --></label>
+            <name>Stories</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Projects with Releases with Stories with Tag Assignments --></description>
+        <label><!-- Projects with Releases with Stories with Tag Assignments --></label>
+        <name>Projects_with_Releases_with_Stories_with_Tag_Assignments</name>
+        <sections>
+            <label><!-- Projects --></label>
+            <name>Projects</name>
+        </sections>
+        <sections>
+            <label><!-- Releases --></label>
+            <name>Releases</name>
+        </sections>
+        <sections>
+            <label><!-- Stories --></label>
+            <name>Stories</name>
+        </sections>
+        <sections>
+            <label><!-- Tag Assignments --></label>
+            <name>Tag Assignments</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Projects with Releases with Stories with Test Results --></description>
+        <label><!-- Projects with Releases with Stories with Test Results --></label>
+        <name>Projects_with_Releases_with_Stories_with_Test_Results</name>
+        <sections>
+            <label><!-- Projects --></label>
+            <name>Projects</name>
+        </sections>
+        <sections>
+            <label><!-- Releases --></label>
+            <name>Releases</name>
+        </sections>
+        <sections>
+            <label><!-- Stories --></label>
+            <name>Stories</name>
+        </sections>
+        <sections>
+            <label><!-- Test Results --></label>
+            <name>Test Results</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Projects with Releases with Stories with Test Scenarios --></description>
+        <label><!-- Projects with Releases with Stories with Test Scenarios --></label>
+        <name>Projects_with_Releases_with_Stories_with_Test_Scenarios</name>
+        <sections>
+            <label><!-- Projects --></label>
+            <name>Projects</name>
+        </sections>
+        <sections>
+            <label><!-- Releases --></label>
+            <name>Releases</name>
+        </sections>
+        <sections>
+            <label><!-- Stories --></label>
+            <name>Stories</name>
+        </sections>
+        <sections>
+            <label><!-- Test Scenarios --></label>
+            <name>Test Scenarios</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Projects with Tags with Tag Assignments --></description>
+        <label><!-- Projects with Tags with Tag Assignments --></label>
+        <name>Projects_with_Tags_with_Tag_Assignments</name>
+        <sections>
+            <label><!-- Projects --></label>
+            <name>Projects</name>
+        </sections>
+        <sections>
+            <label><!-- Tag Assignments --></label>
+            <name>Tag Assignments</name>
+        </sections>
+        <sections>
+            <label><!-- Tags --></label>
+            <name>Tags</name>
+        </sections>
+    </reportTypes>
+</Translations>

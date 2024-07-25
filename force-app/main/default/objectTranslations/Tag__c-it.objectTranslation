@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Tag</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Tag</value>
+    </caseValues>
+    <fields>
+        <help>Se selezionato, questo tag è attualmente tracciato nel progetto.</help>
+        <label>È attivo?</label>
+        <name>Is_Active__c</name>
+    </fields>
+    <fields>
+        <label>Progetto</label>
+        <name>Project__c</name>
+        <relationshipLabel>Tag</relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Tag Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Tag --></nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

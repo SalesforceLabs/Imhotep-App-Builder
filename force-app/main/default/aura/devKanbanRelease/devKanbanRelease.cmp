@@ -1,0 +1,410 @@
+<aura:component controller="ImhotepAppBuilderCtrl" implements="flexipage:availableForRecordHome,force:hasRecordId,flexipage:availableForAllPageTypes" access="global">
+    <!--  implements="flexipage:availableForRecordHome,force:hasRecordId,flexipage:availableForAllPageTypes" -->
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:attribute name="ImhotepActiveMetadata" type="iab__Imhotep_Config__mdt" />
+
+    <!-- deprecated attributes -->
+    <aura:attribute name="NewStoryFlow" type="String" access="global" />
+    
+    <aura:attribute name="KanbanHeight" type="String" access="global" />
+    
+    <aura:attribute name="ParamRelease" type="String" access="global" />
+    <aura:attribute name="ParamStatus" type="Boolean" access="global" />
+    
+    <aura:attribute name="UserHasEditAccessToRelease" type="Boolean" default="false" access="global" />
+    
+    <aura:attribute name="BlockedStoryRecords" type="Story__c" />
+    <aura:attribute name="DefinedStoryRecords" type="Story__c" />
+    <aura:attribute name="BuildingStoryRecords" type="Story__c" />
+    <aura:attribute name="TestingStoryRecords" type="Story__c" />
+    <aura:attribute name="ReadyStoryRecords" type="Story__c" />
+    <aura:attribute name="DeployedStoryRecords" type="Story__c" />
+
+    <aura:attribute name="DragStoryId" type="String" />
+    <aura:attribute name="DragStoryOriginalStatus" type="String" />
+    <aura:attribute name="DragDropZone" type="String" />
+    
+    <!-- reloads the component if the record is edited -->
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    
+    <!-- for flow launcher -->
+    <aura:attribute name="showModal" type="Boolean" default="false"></aura:attribute>
+    <aura:attribute name="flow" type="Object"></aura:attribute>
+    
+    
+    
+    <!-- Only display if modal button for flow has been clicked -->
+    <div class="{! v.showModal ? 'slds-show' : 'slds-hide' }">
+        <section class="slds-modal slds-fade-in-open slds-modal_medium">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header slds-modal__header_empty">
+                	<lightning:buttonIcon   size="large"
+                                            iconName="utility:close"
+                                            variant="bare-inverse"
+                                            onclick="{!c.closeModal}"
+                                            ariaLabel="{!$Label.c.GeneralModalCloseLabel}"
+                                            alternativeText="{!$Label.c.GeneralModalCloseAltText}"
+                                            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" />
+                </header>
+                <div class="slds-modal__content slds-var-p-around_medium">
+                    {! v.body }
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    
+    
+    
+    <div class="card-container-outer">
+        <!-- style="background:#FFFFFF;border-radius:4px;box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.1);border:1px solid #dddbda;" -->
+        <div class="card-container-header slds-p-around_x-small" style="border-radius:4px 4px 0 0;box-shadow:0 2px 0 0 rgba(0, 0, 0, 0.1);border:1px solid #0b5cab;">
+            <div style="float:left;" class="slds-p-top_xx-small"><p class="slds-text-heading_medium">{!$Label.c.HeadingKanbanRelease}</p></div>
+            <div style="float:right;">
+                <lightning:buttonIcon   variant="border-inverse"
+                                        ariaLabel="{!$Label.c.ActionRefreshKanbanLabel}"
+                                        alternativeText="{!$Label.c.ActionRefreshKanbanAlt}"
+                                        iconName="utility:refresh"
+                                        onclick="{!c.doInit}"
+                                        class="button-icon-position" />
+                <lightning:button   variant="inverse"
+                                    label="{!$Label.c.ActionNewStoryLabel}"
+                                    iconName="utility:add"
+                                    iconPosition="left"
+                                    name="{!v.ImhotepActiveMetadata.iab__Release_New_Story__c}"
+                                    onclick="{!c.runFlowRecordSensitive}"
+                                    class="slds-m-left_small" />
+                <lightning:button   variant="inverse"
+                                    label="{!$Label.c.ActionAddTemplateStoriesLabel}"
+                                    iconName="utility:insert_template"
+                                    iconPosition="left"
+                                    name="{!v.ImhotepActiveMetadata.iab__Release_Add_Template_to_Release__c}"
+                                    onclick="{!c.runFlowRecordSensitive}"
+                                    class="slds-m-left_small" />
+                <lightning:button   variant="inverse"
+                                    label="{!$Label.c.ActionCreateTemplateLabel}"
+                                    iconName="utility:text_template"
+                                    iconPosition="left"
+                                    name="{!v.ImhotepActiveMetadata.iab__Release_Create_Template_from_Release__c}"
+                                    onclick="{!c.runFlowRecordSensitive}"
+                                    class="slds-m-left_small" />
+            </div>
+            <div style="clear:both;"/>
+        </div>
+        
+        <div style="background:#FFFFFF;border-radius:0 0 4px 4px;box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.1);border:1px solid #dddbda;">
+            <lightning:layout multipleRows="true" verticalAlign="stretch" class="kanban-board">
+                
+                
+                <!-- ### BLOCKED STORIES ### -->
+                <lightning:layoutitem flexibility="auto" class="kanban-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_2-of-12">
+                    <div class="slds-text-heading_small kanban-col-header">{!$Label.c.StoryFieldStatusBlocked}</div>
+                    <div class="drop-target" id="Blocked" ondragover="{!c.allowDrag}" ondrop="{!c.dropStoryCard}" style="{! 'height:' + v.KanbanHeight + 'px;'}">
+                        <aura:renderif isTrue="{!v.BlockedStoryRecords.length > 0}">
+                            <aura:iteration items="{!v.BlockedStoryRecords}" var="sbl">
+                                <div class="story-card story-blocked" id="{!sbl.Id}" data-originalstatus="{!sbl.iab__Status__c}" draggable="{!v.UserHasEditAccessToRelease}" ondragstart="{!c.startDrag}">
+                                    <div>
+                                        # {!sbl.iab__Story_Number__c}
+                                        <aura:renderif isTrue="{!sbl.iab__Story_Type__c == 'Defect'}">
+                                            &nbsp;<lightning:icon iconName="utility:bug" title="{!$Label.c.StoryFieldStoryTypeDefectIconTitle}" size="xx-small" />
+                                        </aura:renderif>
+                                        <aura:renderif isTrue="{!sbl.iab__Expedite__c}">
+                                            &nbsp;<lightning:icon iconName="utility:clock" title="{!$Label.c.StoryFieldExpediteIconTitle}" size="xx-small" />
+                                        </aura:renderif>
+                                        <br/>
+                                        <strong><lightning:formattedUrl value="{! '/lightning/r/' + sbl.Id + '/view'}" label="{!sbl.Name}" /></strong>
+                                        <br/>
+                                        <aura:renderif isTrue="{!sbl.iab__Assigned_Project_Member__c}">
+                                            {!sbl.iab__Assigned__r.iab__User__r.FirstName + ' ' + sbl.iab__Assigned__r.iab__User__r.LastName}
+                                            
+                                            <aura:set attribute="else">
+                                                {!$Label.c.StoryFieldAssignedUnassigned}
+                                            </aura:set>
+                                        </aura:renderif>
+                                    </div>
+                                    <div style="float:left;">{!$Label.c.StoryFieldPriorityLabel}: {!sbl.iab__Priority_Order__c}</div>
+                                    <div style="float:right;">{!$Label.c.StoryFieldPointsLabel}: 
+                                        <aura:renderif isTrue="{!sbl.iab__Estimated_Points__c}">
+                                            {!sbl.iab__Estimated_Points__c}&nbsp;{!$Label.c.StoryFieldPointsEst}
+                                            
+                                            <aura:set attribute="else">
+                                                ?&nbsp;{!$Label.c.StoryFieldPointsEst}
+                                            </aura:set>
+                                        </aura:renderif>
+                                    </div>
+                                    <div style="clear:both;"/>
+                                </div>
+                            </aura:iteration>
+                            
+                            <aura:set attribute="else">
+                                <div class="empty-card">{!$Label.c.StoryEmptyByStatusText}</div>
+                            </aura:set>
+                        </aura:renderif>
+                    </div>
+                </lightning:layoutitem>
+                
+                
+                <!-- ### DEFINED STORIES ### -->
+                <lightning:layoutitem flexibility="auto" class="kanban-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_2-of-12">
+                    <div class="slds-text-heading_small kanban-col-header">{!$Label.c.StoryFieldStatusDefined}</div>
+                    <div class="drop-target" id="Defined" ondragover="{!c.allowDrag}" ondrop="{!c.dropStoryCard}" style="{! 'height:' + v.KanbanHeight + 'px;'}">
+                        <aura:renderif isTrue="{!v.DefinedStoryRecords.length > 0}">
+                            <aura:iteration items="{!v.DefinedStoryRecords}" var="sdef">
+                                <div class="story-card story-defined" id="{!sdef.Id}" data-originalstatus="{!sdef.iab__Status__c}" draggable="{!v.UserHasEditAccessToRelease}" ondragstart="{!c.startDrag}">
+                                    <div>
+                                        # {!sdef.iab__Story_Number__c}
+                                        <aura:renderif isTrue="{!sdef.iab__Story_Type__c == 'Defect'}">
+                                            &nbsp;<lightning:icon iconName="utility:bug" title="{!$Label.c.StoryFieldStoryTypeDefectIconTitle}" size="xx-small" />
+                                        </aura:renderif>
+                                        <aura:renderif isTrue="{!sdef.iab__Expedite__c}">
+                                            &nbsp;<lightning:icon iconName="utility:clock" title="{!$Label.c.StoryFieldExpediteIconTitle}" size="xx-small" />
+                                        </aura:renderif>
+                                        <br/>
+                                        <strong><lightning:formattedUrl value="{! '/lightning/r/' + sdef.Id + '/view'}" label="{!sdef.Name}" /></strong>
+                                        <br/>
+                                        <aura:renderif isTrue="{!sdef.iab__Assigned__c}">
+                                            {!sdef.iab__Assigned__r.iab__User__r.FirstName + ' ' + sdef.iab__Assigned__r.iab__User__r.LastName}
+                                            
+                                            <aura:set attribute="else">
+                                                {!$Label.c.StoryFieldAssignedUnassigned}
+                                            </aura:set>
+                                        </aura:renderif>
+                                    </div>
+                                    <div style="float:left;">{!$Label.c.StoryFieldPriorityLabel}: {!sdef.iab__Priority_Order__c}</div>
+                                    <div style="float:right;">{!$Label.c.StoryFieldPointsLabel}: 
+                                        <aura:renderif isTrue="{!sdef.iab__Estimated_Points__c}">
+                                            {!sdef.iab__Estimated_Points__c}&nbsp;{!$Label.c.StoryFieldPointsEst}
+                                            
+                                            <aura:set attribute="else">
+                                                ?&nbsp;{!$Label.c.StoryFieldPointsEst}
+                                            </aura:set>
+                                        </aura:renderif>
+                                    </div>
+                                    <div style="clear:both;"/>
+                                </div>
+                            </aura:iteration>
+                            
+                            <aura:set attribute="else">
+                                <div class="empty-card">{!$Label.c.StoryEmptyByStatusText}</div>
+                            </aura:set>
+                        </aura:renderif>
+                    </div>
+                </lightning:layoutitem>
+                
+                
+                <!-- ### BUILDING STORIES ### -->
+                <lightning:layoutitem flexibility="auto" class="kanban-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_2-of-12">
+                    <div class="slds-text-heading_small kanban-col-header">{!$Label.c.StoryFieldStatusBuilding}</div>
+                    <div class="drop-target" id="Building" ondragover="{!c.allowDrag}" ondrop="{!c.dropStoryCard}" style="{! 'height:' + v.KanbanHeight + 'px;'}">
+                        <aura:renderif isTrue="{!v.BuildingStoryRecords.length > 0}">
+                            <aura:iteration items="{!v.BuildingStoryRecords}" var="sb">
+                                <div class="story-card" id="{!sb.Id}" data-originalstatus="{!sb.iab__Status__c}" draggable="{!v.UserHasEditAccessToRelease}" ondragstart="{!c.startDrag}">
+                                    <div>
+                                        # {!sb.iab__Story_Number__c}
+                                        <aura:renderif isTrue="{!sb.iab__Story_Type__c == 'Defect'}">
+                                            &nbsp;<lightning:icon iconName="utility:bug" title="{!$Label.c.StoryFieldStoryTypeDefectIconTitle}" size="xx-small" />
+                                        </aura:renderif>
+                                        <aura:renderif isTrue="{!sb.iab__Expedite__c}">
+                                            &nbsp;<lightning:icon iconName="utility:clock" title="{!$Label.c.StoryFieldExpediteIconTitle}" size="xx-small" />
+                                        </aura:renderif>
+                                        <br/>
+                                        <strong><lightning:formattedUrl value="{! '/lightning/r/' + sb.Id + '/view'}" label="{!sb.Name}" /></strong>
+                                        <br/>
+                                        <aura:renderif isTrue="{!sb.iab__Assigned__c}">
+                                            {!sb.iab__Assigned__r.iab__User__r.FirstName + ' ' + sb.iab__Assigned__r.iab__User__r.LastName}
+                                            
+                                            <aura:set attribute="else">
+                                                {!$Label.c.StoryFieldAssignedUnassigned}
+                                            </aura:set>
+                                        </aura:renderif>
+                                    </div>
+                                    <div style="float:left;">{!$Label.c.StoryFieldPriorityLabel}: {!sb.iab__Priority_Order__c}</div>
+                                    <div style="float:right;">{!$Label.c.StoryFieldPointsLabel}: 
+                                        <aura:renderif isTrue="{!sb.iab__Estimated_Points__c}">
+                                            {!sb.iab__Estimated_Points__c}&nbsp;{!$Label.c.StoryFieldPointsEst}
+                                            
+                                            <aura:set attribute="else">
+                                                ?&nbsp;{!$Label.c.StoryFieldPointsEst}
+                                            </aura:set>
+                                        </aura:renderif>
+                                    </div>
+                                    <div style="clear:both;"/>
+                                </div>
+                            </aura:iteration>
+                            
+                            <aura:set attribute="else">
+                                <div class="empty-card">{!$Label.c.StoryEmptyByStatusText}</div>
+                            </aura:set>
+                        </aura:renderif>
+                    </div>
+                </lightning:layoutitem>
+                
+                
+                <!-- ### TESTING STORIES ### -->
+                <lightning:layoutitem flexibility="auto" class="kanban-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_2-of-12">
+                    <div class="slds-text-heading_small kanban-col-header">{!$Label.c.StoryFieldStatusTesting}</div>
+                    <div class="drop-target" id="Testing" ondragover="{!c.allowDrag}" ondrop="{!c.dropStoryCard}" style="{! 'height:' + v.KanbanHeight + 'px;'}">
+                        <aura:renderif isTrue="{!v.TestingStoryRecords.length > 0}">
+                            <aura:iteration items="{!v.TestingStoryRecords}" var="st">
+                                <div class="story-card" id="{!st.Id}" data-originalstatus="{!st.iab__Status__c}" draggable="{!v.UserHasEditAccessToRelease}" ondragstart="{!c.startDrag}">
+                                    <div>
+                                        # {!st.iab__Story_Number__c}
+                                        <aura:renderif isTrue="{!st.iab__Story_Type__c == 'Defect'}">
+                                            &nbsp;<lightning:icon iconName="utility:bug" title="{!$Label.c.StoryFieldStoryTypeDefectIconTitle}" size="xx-small" />
+                                        </aura:renderif>
+                                        <aura:renderif isTrue="{!st.iab__Expedite__c}">
+                                            &nbsp;<lightning:icon iconName="utility:clock" title="{!$Label.c.StoryFieldExpediteIconTitle}" size="xx-small" />
+                                        </aura:renderif>
+                                        <br/>
+                                        <strong><lightning:formattedUrl value="{! '/lightning/r/' + st.Id + '/view'}" label="{!st.Name}" /></strong>
+                                        <br/>
+                                        <aura:renderif isTrue="{!st.iab__Assigned__c}">
+                                            {!st.iab__Assigned__r.iab__User__r.FirstName + ' ' + st.iab__Assigned__r.iab__User__r.LastName}
+                                            
+                                            <aura:set attribute="else">
+                                                {!$Label.c.StoryFieldAssignedUnassigned}
+                                            </aura:set>
+                                        </aura:renderif>
+                                    </div>
+                                    <div style="float:left;">{!$Label.c.StoryFieldPriorityLabel}: {!st.iab__Priority_Order__c}</div>
+                                    <div style="float:right;">{!$Label.c.StoryFieldPointsLabel}: 
+                                        <aura:renderif isTrue="{!st.iab__Estimated_Points__c}">
+                                            {!st.iab__Estimated_Points__c}&nbsp;{!$Label.c.StoryFieldPointsEst}
+                                            
+                                            <aura:set attribute="else">
+                                                ?&nbsp;{!$Label.c.StoryFieldPointsEst}
+                                            </aura:set>
+                                        </aura:renderif>
+                                    </div>
+                                    <div style="clear:both;"/>
+                                </div>
+                            </aura:iteration>
+                            
+                            <aura:set attribute="else">
+                                <div class="empty-card">{!$Label.c.StoryEmptyByStatusText}</div>
+                            </aura:set>
+                        </aura:renderif>
+                    </div>
+                </lightning:layoutitem>
+                
+                
+                <!-- ### READY STORIES ### -->
+                <lightning:layoutitem flexibility="auto" class="kanban-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_2-of-12">
+                    <div class="slds-text-heading_small kanban-col-header">{!$Label.c.StoryFieldStatusReady}</div>
+                    <div class="drop-target" id="Ready" ondragover="{!c.allowDrag}" ondrop="{!c.dropStoryCard}" style="{! 'height:' + v.KanbanHeight + 'px;'}">
+                        <aura:renderif isTrue="{!v.ReadyStoryRecords.length > 0}">
+                            <aura:iteration items="{!v.ReadyStoryRecords}" var="sr">
+                                <div class="story-card story-ready" id="{!sr.Id}" data-originalstatus="{!sr.iab__Status__c}" draggable="{!v.UserHasEditAccessToRelease}" ondragstart="{!c.startDrag}">
+                                    <div>
+                                        # {!sr.iab__Story_Number__c}
+                                        <aura:renderif isTrue="{!sr.iab__Story_Type__c == 'Defect'}">
+                                            &nbsp;<lightning:icon iconName="utility:bug" title="{!$Label.c.StoryFieldStoryTypeDefectIconTitle}" size="xx-small" />
+                                        </aura:renderif>
+                                        <aura:renderif isTrue="{!sr.iab__Expedite__c}">
+                                            &nbsp;<lightning:icon iconName="utility:clock" title="{!$Label.c.StoryFieldExpediteIconTitle}" size="xx-small" />
+                                        </aura:renderif>
+                                        <br/>
+                                        <strong><lightning:formattedUrl value="{! '/lightning/r/' + sr.Id + '/view'}" label="{!sr.Name}" /></strong>
+                                        <br/>
+                                        <aura:renderif isTrue="{!sr.iab__Assigned__c}">
+                                            {!sr.iab__Assigned__r.iab__User__r.FirstName + ' ' + sr.iab__Assigned__r.iab__User__r.LastName}
+                                            
+                                            <aura:set attribute="else">
+                                                {!$Label.c.StoryFieldAssignedUnassigned}
+                                            </aura:set>
+                                        </aura:renderif>
+                                    </div>
+                                    <div style="float:left;">{!$Label.c.StoryFieldPriorityLabel}: {!sr.iab__Priority_Order__c}</div>
+                                    <div style="float:right;">{!$Label.c.StoryFieldPointsLabel}: 
+                                        <aura:renderif isTrue="{!sr.iab__Estimated_Points__c}">
+                                            {!sr.iab__Estimated_Points__c}&nbsp;{!$Label.c.StoryFieldPointsEst}
+                                            
+                                            <aura:set attribute="else">
+                                                ?&nbsp;{!$Label.c.StoryFieldPointsEst}
+                                            </aura:set>
+                                        </aura:renderif>
+                                        
+                                        <aura:renderif isTrue="{!sr.iab__Actual_Points__c}">
+                                            / {!sr.iab__Actual_Points__c}&nbsp;{!$Label.c.StoryFieldPointsAct}
+                                            
+                                            <aura:set attribute="else">
+                                                / ?&nbsp;{!$Label.c.StoryFieldPointsAct}
+                                            </aura:set>
+                                        </aura:renderif>
+                                    </div>
+                                    <div style="clear:both;"/>
+                                </div>
+                            </aura:iteration>
+                            
+                            <aura:set attribute="else">
+                                <div class="empty-card">{!$Label.c.StoryEmptyByStatusText}</div>
+                            </aura:set>
+                        </aura:renderif>
+                    </div>
+                </lightning:layoutitem>
+                
+                
+                <!-- ### DEPLOYED STORIES ### -->
+                <lightning:layoutitem flexibility="auto" class="kanban-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_2-of-12">
+                    <div class="slds-text-heading_small kanban-col-header">{!$Label.c.StoryFieldStatusDeployed}</div>
+                    <div class="drop-target" id="Deployed" ondragover="{!c.allowDrag}" ondrop="{!c.dropStoryCard}" style="{! 'height:' + v.KanbanHeight + 'px;'}">
+                        <aura:renderif isTrue="{!v.DeployedStoryRecords.length > 0}">
+                            <aura:iteration items="{!v.DeployedStoryRecords}" var="sdep">
+                                <div class="story-card story-deployed" id="{!sdep.Id}" data-originalstatus="{!sdep.iab__Status__c}" draggable="{!v.UserHasEditAccessToRelease}" ondragstart="{!c.startDrag}">
+                                    <div>
+                                        # {!sdep.iab__Story_Number__c}
+                                        <aura:renderif isTrue="{!sdep.iab__Story_Type__c == 'Defect'}">
+                                            &nbsp;<lightning:icon iconName="utility:bug" title="{!$Label.c.StoryFieldStoryTypeDefectIconTitle}" size="xx-small" />
+                                        </aura:renderif>
+                                        <aura:renderif isTrue="{!sdep.iab__Expedite__c}">
+                                            &nbsp;<lightning:icon iconName="utility:clock" title="{!$Label.c.StoryFieldExpediteIconTitle}" size="xx-small" />
+                                        </aura:renderif>
+                                        <br/>
+                                        <strong><lightning:formattedUrl value="{! '/lightning/r/' + sdep.Id + '/view'}" label="{!sdep.Name}" /></strong>
+                                        <br/>
+                                        <aura:renderif isTrue="{!sdep.iab__Assigned__c}">
+                                            {!sdep.iab__Assigned__r.iab__User__r.FirstName + ' ' + sdep.iab__Assigned__r.iab__User__r.LastName}
+                                            
+                                            <aura:set attribute="else">
+                                                {!$Label.c.StoryFieldAssignedUnassigned}
+                                            </aura:set>
+                                        </aura:renderif>
+                                    </div>
+                                    <div style="float:left;">{!$Label.c.StoryFieldPriorityLabel}: {!sdep.iab__Priority_Order__c}</div>
+                                    <div style="float:right;">{!$Label.c.StoryFieldPointsLabel}: 
+                                        <aura:renderif isTrue="{!sdep.iab__Estimated_Points__c}">
+                                            {!sdep.iab__Estimated_Points__c}&nbsp;{!$Label.c.StoryFieldPointsEst}
+                                            
+                                            <aura:set attribute="else">
+                                                ?&nbsp;{!$Label.c.StoryFieldPointsEst}
+                                            </aura:set>
+                                        </aura:renderif>
+                                        
+                                        <aura:renderif isTrue="{!sdep.iab__Actual_Points__c}">
+                                            / {!sdep.iab__Actual_Points__c}&nbsp;{!$Label.c.StoryFieldPointsAct}
+                                            
+                                            <aura:set attribute="else">
+                                                / ?&nbsp;{!$Label.c.StoryFieldPointsAct}
+                                            </aura:set>
+                                        </aura:renderif>
+                                    </div>
+                                    <div style="clear:both;"/>
+                                </div>
+                            </aura:iteration>
+                            
+                            <aura:set attribute="else">
+                                <div class="empty-card">{!$Label.c.StoryEmptyByStatusText}</div>
+                            </aura:set>
+                        </aura:renderif>
+                    </div>
+                </lightning:layoutitem>
+                
+            </lightning:layout>
+        </div>
+        
+    </div>
+    
+    
+</aura:component>

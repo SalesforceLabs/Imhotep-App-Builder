@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Vorlagenelement</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Vorlagenelemente</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>false</plural>
+        <value>Vorlagenelement</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>true</plural>
+        <value>Vorlagenelemente</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>false</plural>
+        <value>Vorlagenelement</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>true</plural>
+        <value>Vorlagenelemente</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>false</plural>
+        <value>Vorlagenelement</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>true</plural>
+        <value>Vorlagenelemente</value>
+    </caseValues>
+    <fields>
+        <help>Akzeptanzkriterien und grundlegende Testanweisungen. Was ist die &quot;Definition von Fertigstellung&quot; und wie würde jemand es testen, um zu wissen, dass es wie entworfen funktioniert. Betrachten Sie Ihren optimalen Pfad und alle Randfälle. Für detailliertere Tests verwenden Sie die Test-Registerkarte der Story.</help>
+        <label>Akzeptanzkriterien/Tests</label>
+        <name>Acceptance_Criteria_Tests__c</name>
+    </fields>
+    <fields>
+        <help>Wenn angekreuzt, wurde dieser Vorlageneintrag aus einer anderen Vorlage erstellt.</help>
+        <label>Aus Vorlage erstellt?</label>
+        <name>Created_from_Template__c</name>
+    </fields>
+    <fields>
+        <help>Aktionen, die unternommen werden müssen, um Änderungen vollständig zu implementieren (einen Flow aktivieren, ein Berechtigungsset zuweisen usw.).</help>
+        <label>Einsatz-Checkliste</label>
+        <name>Deployment_Checklist__c</name>
+    </fields>
+    <fields>
+        <help>Geschätzter Aufwand, um die Story für jemanden umzusetzen, der neu bei oder nicht vertraut mit dieser Aufgabe ist.</help>
+        <label>Geschätzte Punkte (Anfänger)</label>
+        <name>Estimated_Points_Beginner__c</name>
+    </fields>
+    <fields>
+        <help>Geschätzter Aufwand, um die Story für jemanden umzusetzen, der fortgeschrittene Erfahrung mit dieser Aufgabe hat.</help>
+        <label>Geschätzte Punkte (Experte)</label>
+        <name>Estimated_Points_Expert__c</name>
+    </fields>
+    <fields>
+        <help>Geschätzter Aufwand, um die Story für jemanden umzusetzen, der etwas vertraut mit dieser Aufgabe ist.</help>
+        <label>Geschätzte Punkte (Fortgeschritten)</label>
+        <name>Estimated_Points_Intermediate__c</name>
+    </fields>
+    <fields>
+        <help>Priorität dieser Story innerhalb des Releases (sollte kontinuierlich neu bewertet werden).</help>
+        <label>Priorität/Reihenfolge</label>
+        <name>Priority_Order__c</name>
+    </fields>
+    <fields>
+        <help>Arbeitsnotizen, die vom Ersteller/Entwickler darüber geführt werden, wie sie die Story umsetzen.</help>
+        <label>Lösungs-/Build-Notizen</label>
+        <name>Solution_Build_Notes__c</name>
+    </fields>
+    <fields>
+        <help>Benutzergeschichte / Beschreibung der Anforderung auf hoher Ebene.</help>
+        <label>Story/Beschreibung</label>
+        <name>Story_Description__c</name>
+    </fields>
+    <fields>
+        <label>Story-Typ</label>
+        <name>Story_Type__c</name>
+        <picklistValues>
+            <masterLabel>Change</masterLabel>
+            <translation>Änderung</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defect</masterLabel>
+            <translation>Fehler</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation>Neu</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Vorlage</label>
+        <name>Template__c</name>
+        <relationshipLabel>Vorlagenelemente</relationshipLabel>
+    </fields>
+    <gender>Neuter</gender>
+    <layouts>
+        <layout>Template Item Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Geschätzte Punkte</label>
+            <section>Estimated Points</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Title --></nameFieldLabel>
+</CustomObjectTranslation>

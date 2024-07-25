@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Template</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Templates</value>
+    </caseValues>
+    <fields>
+        <help><!-- Only the owner can view and use the template when it is set to &quot;Private&quot;. --></help>
+        <label><!-- Access --></label>
+        <name>Access__c</name>
+        <picklistValues>
+            <masterLabel>Private</masterLabel>
+            <translation><!-- Private --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public</masterLabel>
+            <translation><!-- Public --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- If checked, this template was created from another template. --></help>
+        <label><!-- Created from Template? --></label>
+        <name>Created_from_Template__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current User is Owner? --></label>
+        <name>Current_User_is_Owner__c</name>
+    </fields>
+    <fields>
+        <help><!-- Description of the template, what it includes, or what it&apos;s for. --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Estimated level of effort to implement the stories in this template for someone who is new to, or unfamiliar with, these tasks. --></help>
+        <label><!-- Estimated Points (Beginner) --></label>
+        <name>Estimated_Points_Beginner__c</name>
+    </fields>
+    <fields>
+        <help><!-- Estimated level of effort to implement the stories in this template for someone who has advanced experience with these tasks. --></help>
+        <label><!-- Estimated Points (Expert) --></label>
+        <name>Estimated_Points_Expert__c</name>
+    </fields>
+    <fields>
+        <help><!-- Estimated level of effort to implement the stories in this template for someone who is somewhat familiar with these tasks. --></help>
+        <label><!-- Estimated Points (Intermediate) --></label>
+        <name>Estimated_Points_Intermediate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of template items (Stories) that come with this template. --></help>
+        <label><!-- Item Count --></label>
+        <name>Item_Count__c</name>
+    </fields>
+    <fields>
+        <help><!-- If checked, this template is included as part of the app and is available to all users. --></help>
+        <label><!-- Standard Template? --></label>
+        <name>Standard_Template__c</name>
+    </fields>
+    <layouts>
+        <layout>Template Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Estimated Points --></label>
+            <section>Estimated Points</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Clone Template --></label>
+        <name>Template_Clone_Action</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Use Template --></label>
+        <name>Template_Use_Action</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Access must be set to &quot;Public&quot; for all standard templates. --></errorMessage>
+        <name>Standard_Templates_Must_Be_Public</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,5 @@
+<design:component>
+   <design:attribute name="targetObject" label="Target Object" description="Acceptable value(s): Story." />   
+   <design:attribute name="recordId" label="Story Record Id" />
+   <design:attribute name="projectId" label="Project Id" />
+</design:component>

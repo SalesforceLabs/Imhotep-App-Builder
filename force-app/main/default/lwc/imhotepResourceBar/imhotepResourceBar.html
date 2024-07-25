@@ -1,0 +1,54 @@
+<template>
+    <div class="card-container-outer" style="background:#FFFFFF;border-radius:4px;box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.1);border:1px solid #dddbda;">
+        <div class="card-container-inner">
+
+            <lightning-layout vertical-align="center">
+                
+                <lightning-layout-item flexibility="no-grow">
+                    <p class="slds-text-title_caps">
+                        {label.CompResourceBarHeading}
+                        <lightning-button-icon  aria-label={label.ActionNewResourceLinkLabel}
+                                                alternative-text={label.ActionNewResourceLinkAlt}
+                                                onclick={openNewResourceLinkFlow}
+                                                icon-name="utility:new"
+                                                variant="bare"
+                                                class="slds-m-left_xx-small slds-m-right_small"></lightning-button-icon>
+                    </p>
+                </lightning-layout-item>
+
+                <lightning-layout-item flexibility="auto">
+                    <template for:each={projectresources} for:item="res">
+                        
+                        <span key={res.Id} class="slds-badge slds-badge_lightest slds-m-vertical_xxx-small">
+                            <lightning-formatted-url value={res.iab__URL__c} label={res.Name} target="_blank" tooltip={label.ActionViewResourceLink}></lightning-formatted-url>
+                            
+                            <lightning-button-menu
+                                    alternative-text={label.ActionResourceLinkMenuExpandCollapseAlt}
+                                    data-id={res.Id}
+                                    onselect={openMenuActionsProjectResourceFlow}
+                                    variant="bare"
+                                    icon-name="utility:down"
+                                    icon-size="small"
+                                    class="slds-m-left_xx-small"
+                                    menu-alignment="auto">
+                                <lightning-menu-subheader label={res.iab__Type__c} class="menu-subheader-weak"></lightning-menu-subheader>
+                                <lightning-menu-divider></lightning-menu-divider>
+                                <lightning-menu-item
+                                    label={label.ActionEditResourceLinkLabel1}
+                                    value="EditResourceLink"
+                                    icon-name="utility:edit"></lightning-menu-item>
+                                <lightning-menu-item
+                                    label={label.ActionDeleteResourceLinkLabel}
+                                    value="DeleteResourceLink"
+                                    icon-name="utility:delete"></lightning-menu-item>
+                            </lightning-button-menu>
+                        </span>
+
+                    </template>
+                </lightning-layout-item>
+
+            </lightning-layout>
+
+        </div>
+    </div>
+</template>

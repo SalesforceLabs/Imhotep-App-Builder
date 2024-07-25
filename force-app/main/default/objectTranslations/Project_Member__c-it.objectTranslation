@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Membro del progetto</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Membri del progetto</value>
+    </caseValues>
+    <fields>
+        <label>Note</label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <help>Utilizzato esclusivamente dal flusso &quot;Imhotep - Modello - Usa Modello&quot; per visualizzare una tabella di progetti.</help>
+        <label>Nome del progetto</label>
+        <name>Project_Name__c</name>
+    </fields>
+    <fields>
+        <help>Utilizzato esclusivamente dal flusso &quot;Imhotep - Modello - Usa Modello&quot; per visualizzare una tabella di progetti.</help>
+        <label>Tipo di progetto</label>
+        <name>Project_Type__c</name>
+    </fields>
+    <fields>
+        <label>Progetto</label>
+        <name>Project__c</name>
+        <relationshipLabel>Membri del progetto</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Ruolo</label>
+        <name>Role__c</name>
+        <picklistValues>
+            <masterLabel>Builder</masterLabel>
+            <translation>Costruttore</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Owner/Lead</masterLabel>
+            <translation>Proprietario/Responsabile</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Viewer</masterLabel>
+            <translation>Visualizzatore</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Utente</label>
+        <name>User__c</name>
+        <relationshipLabel>Membri del progetto</relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Project Member Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Membro del progetto</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

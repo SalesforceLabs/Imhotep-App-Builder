@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <decisions>
+        <description>Determine which action has been requested by an authorized user from the parent flow.  See inputSelectedAction variable description for acceptable values.</description>
+        <name>decAuthorizedAction</name>
+        <label>Authorized Action</label>
+        <locationX>776</locationX>
+        <locationY>242</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>outActionCreatePM</name>
+            <conditionLogic>(1 AND 2) OR 3</conditionLogic>
+            <conditions>
+                <leftValueReference>inputSelectedAction</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CreateProjectMember</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>subflowCheckRole.outputIsAuthorized</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>inputSelectedAction</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CreateInitialProjectMember</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>getUser</targetReference>
+            </connector>
+            <label>Create PM</label>
+        </rules>
+        <rules>
+            <name>outActionEditPM</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>inputSelectedAction</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>EditProjectMember</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>subflowCheckRole.outputIsAuthorized</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>updatePM</targetReference>
+            </connector>
+            <label>Edit PM</label>
+        </rules>
+        <rules>
+            <name>outActionDeletePM</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>inputSelectedAction</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DeleteProjectMember</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>subflowCheckRole.outputIsAuthorized</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>deletePM</targetReference>
+            </connector>
+            <label>Delete PM</label>
+        </rules>
+        <rules>
+            <name>outActionDeleteAllPMs</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>inputSelectedAction</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DeleteAllProjectMembers</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>subflowCheckRole.outputIsAuthorized</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>deleteAllPMs</targetReference>
+            </connector>
+            <label>Delete All PMs</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>decSendEmailToNewPM</name>
+        <label>Send Email to New PM?</label>
+        <locationX>182</locationX>
+        <locationY>566</locationY>
+        <defaultConnectorLabel>Don&apos;t Send</defaultConnectorLabel>
+        <rules>
+            <name>outSendEmail</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>inputSendEmail</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>subflowSendEmailToNewProjectMember</targetReference>
+            </connector>
+            <label>Send Email</label>
+        </rules>
+    </decisions>
+    <description>Called as a subflow for handling all create, update, and delete actions for the Project Member object, running in System Context Without Sharing mode.  Input variables:  inputNotes, inputProjectId, inputProjectMemberId, inputRole, inputSelectedAction, inputSendEmail, and inputUserId.
+
+To create PM, provide inputSelectedAction, inputProjectId, inputNotes, inputRole, inputSendEmail, and inputUserId.
+
+To edit PM, provide inputSelectedAction, inputProjectId, inputProjectMemberId, inputNotes, and inputRole.
+
+To delete PM, provide inputSelectedAction, inputProjectId, and inputProjectMemberId.
+
+To delete all PMs for a project, provide inputSelectedAction and inputProjectId.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fProjectMemberName</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!getUser.FirstName}), {!getUser.LastName}, {!getUser.FirstName} &amp; &quot; &quot; &amp; {!getUser.LastName})</expression>
+    </formulas>
+    <interviewLabel>Imhotep - Project Member - CRUD Actions {!$Flow.CurrentDateTime}</interviewLabel>
+    <isTemplate>true</isTemplate>
+    <label>Imhotep - Project Member - CRUD Actions</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>createPMOLD</name>
+        <label>Create PM</label>
+        <locationX>182</locationX>
+        <locationY>458</locationY>
+        <connector>
+            <targetReference>decSendEmailToNewPM</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>fProjectMemberName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Notes__c</field>
+            <value>
+                <elementReference>inputNotes</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Project__c</field>
+            <value>
+                <elementReference>inputProjectId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Role__c</field>
+            <value>
+                <elementReference>inputRole</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>User__c</field>
+            <value>
+                <elementReference>inputUserId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Project_Member__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordDeletes>
+        <name>deleteAllPMs</name>
+        <label>Delete All PMs</label>
+        <locationX>1106</locationX>
+        <locationY>350</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Project__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>inputProjectId</elementReference>
+            </value>
+        </filters>
+        <object>Project_Member__c</object>
+    </recordDeletes>
+    <recordDeletes>
+        <name>deletePM</name>
+        <label>Delete PM</label>
+        <locationX>842</locationX>
+        <locationY>350</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>inputProjectMemberId</elementReference>
+            </value>
+        </filters>
+        <object>Project_Member__c</object>
+    </recordDeletes>
+    <recordLookups>
+        <name>getUser</name>
+        <label>Get User</label>
+        <locationX>182</locationX>
+        <locationY>350</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>createPMOLD</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>inputUserId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>updatePM</name>
+        <label>Update PM</label>
+        <locationX>578</locationX>
+        <locationY>350</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>inputProjectMemberId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Notes__c</field>
+            <value>
+                <elementReference>inputNotes</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Role__c</field>
+            <value>
+                <elementReference>inputRole</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Project_Member__c</object>
+    </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>650</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>subflowCheckRole</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>subflowCheckRole</name>
+        <label>Check Role</label>
+        <locationX>776</locationX>
+        <locationY>134</locationY>
+        <connector>
+            <targetReference>decAuthorizedAction</targetReference>
+        </connector>
+        <flowName>Imhotep_General_CheckRole</flowName>
+        <inputAssignments>
+            <name>inputProjectId</name>
+            <value>
+                <elementReference>inputProjectId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>inputRequiredRole</name>
+            <value>
+                <stringValue>Owner/Lead</stringValue>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>subflowSendEmailToNewProjectMember</name>
+        <label>Send Email to New Project Member</label>
+        <locationX>50</locationX>
+        <locationY>674</locationY>
+        <flowName>Imhotep_General_SendEmail</flowName>
+        <inputAssignments>
+            <name>inputEmailType</name>
+            <value>
+                <stringValue>NewProjectMember</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>inputRecipientUserId</name>
+            <value>
+                <elementReference>inputUserId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>inputRecordId</name>
+            <value>
+                <elementReference>createPMOLD</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <description>New or updated value for a Project Member&apos;s Notes.  Only required for CreateProjectMember and EditProjectMember.</description>
+        <name>inputNotes</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Record Id for the related Project.  Required for all values of inputSelectedAction.</description>
+        <name>inputProjectId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Record Id for the related Project Member.  Only required for EditProjectMember and DeleteProjectMember.</description>
+        <name>inputProjectMemberId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>New or updated value for a Project Member&apos;s Role.  Only required for CreateProjectMember and EditProjectMember.</description>
+        <name>inputRole</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Acceptable values include: CreateProjectMember, EditProjectMember, DeleteProjectMember, DeleteAllProjectMembers</description>
+        <name>inputSelectedAction</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>When checked, an email will be sent to the new Project Member.</description>
+        <name>inputSendEmail</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <description>Record Id for the User to be associated to a new Project Member record.  Only required for CreateProjectMember.</description>
+        <name>inputUserId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

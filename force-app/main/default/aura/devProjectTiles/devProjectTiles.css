@@ -1,0 +1,12 @@
+.THIS .card-container-outer {
+    width:100%;
+}
+
+.THIS .card-container-inner {
+    border-radius:4px 4px 0 0;
+    text-align:left;
+}
+
+.THIS .tab-padding {
+    padding:5px;
+}

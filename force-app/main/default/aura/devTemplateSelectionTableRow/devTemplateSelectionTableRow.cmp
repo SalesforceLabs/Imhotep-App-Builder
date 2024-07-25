@@ -1,0 +1,88 @@
+<aura:component controller="ImhotepAppBuilderCtrl" access="global">
+    
+    <aura:attribute name="TemplateRecord" type="Template__c" />
+    <aura:attribute name="TemplateItemRecords" type="Template_Item__c" />
+    <aura:attribute name="expanded" default="false" type="Boolean" />
+
+    <aura:registerEvent name="compEventSelect" type="c:devTemplateSelectionEvent"/>
+    
+    
+    <!-- Display template plus sub-rows for the template items/stories -->
+    <tr class="slds-hint-parent">
+        <td data-label="{!$Label.c.ActionTableColActionsLabel}">
+            <lightning:button   variant="brand"
+                                label="{!$Label.c.ActionSelectTemplateLabel}"
+                                name="{!v.TemplateRecord.Id}"
+                                onclick="{!c.handleTemplateSelection}" />
+        </td>
+        <td data-label="{!$Label.c.TemplateFieldNameLabel}">
+            <div class="slds-truncate" title="{!$Label.c.TemplateFieldNameLabel}">
+                <lightning:buttonStateful   labelWhenOff=""
+                                            labelWhenOn=""
+                                            iconNameWhenOff="utility:chevronright"
+                                            iconNameWhenOn="utility:chevrondown"
+                                            variant="text"
+                                            state="{!v.expanded}"
+                                            onclick="{!c.handleExpandButtonClick}"
+                />
+                <div class="slds-assistive-text">{!$Label.c.ActionExpandCollapseTemplateItemsListText}</div>
+                <strong>{!v.TemplateRecord.Name}</strong>
+            </div>
+        </td>
+        <td data-label="{!$Label.c.TemplateItemFieldStoryDescriptionLabel}">
+            <div class="slds-cell-wrap" title="{!$Label.c.TemplateItemFieldStoryDescriptionLabel}">
+                {!v.TemplateRecord.iab__Description__c}
+            </div>
+        </td>
+        <td data-label="{!$Label.c.TemplateFieldOwnerLabel}">
+            <div class="slds-cell-wrap" title="{!$Label.c.TemplateFieldOwnerLabel}">
+                {!v.TemplateRecord.Owner.FirstName}&nbsp;{!v.TemplateRecord.Owner.LastName}
+            </div>
+        </td>
+    </tr>
+
+    <!-- Display template items/stories -->
+    <aura:renderif isTrue="{!v.expanded}">
+
+        <tr class="slds-hint-parent">
+            <td data-label="{!$Label.c.ActionTableColActionsLabel}"></td>
+            <td data-label="{!$Label.c.TemplateItemHeading}" colspan="3">
+
+                <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered" aria-label="{!$Label.c.TemplateItemHeading}">
+
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th scope="col"><div class="slds-truncate" title="{!$Label.c.TemplateItemFieldPriorityLabel}">#</div></th>
+                            <th scope="col"><div class="slds-truncate" title="{!$Label.c.TemplateItemFieldTitleLabel}">{!$Label.c.TemplateItemFieldTitleLabel}</div></th>
+                            <th scope="col"><div class="slds-truncate" title="{!$Label.c.TemplateItemFieldPointsLabel}">{!$Label.c.TemplateItemFieldPointsLabel}</div></th>
+                        </tr>
+                    </thead>
+            
+                    <tbody>
+            
+                        <aura:iteration items="{!v.TemplateItemRecords}" var="ti">
+
+                            <aura:renderif isTrue="{!ti.iab__Template__c == v.TemplateRecord.Id}">
+                                <tr class="slds-hint-parent">
+                                    <td data-label="{!$Label.c.TemplateItemFieldPriorityLabel}"><div class="slds-truncate" title="{!$Label.c.TemplateItemFieldPriorityLabel}">{!ti.iab__Priority_Order__c}</div></td>
+                                    <td data-label="{!$Label.c.TemplateItemFieldTitleLabel}"><div class="slds-cell-wrap" title="{!$Label.c.TemplateItemFieldTitleLabel}">{!ti.Name}</div></td>
+                                    <td data-label="{!$Label.c.TemplateItemFieldPointsLabel}"><div class="slds-truncate" title="{!$Label.c.TemplateItemFieldPointsLabel}">
+                                        {!ti.iab__Estimated_Points_Beginner__c}&nbsp;{!$Label.c.TemplateItemFieldPointsBeginner}; 
+                                        {!ti.iab__Estimated_Points_Intermediate__c}&nbsp;{!$Label.c.TemplateItemFieldPointsIntermediate};
+                                        {!ti.iab__Estimated_Points_Expert__c}&nbsp;{!$Label.c.TemplateItemFieldPointsExpert}
+                                    </div></td>
+                                </tr>
+                            </aura:renderif>
+
+                        </aura:iteration>
+
+                    </tbody>
+
+                </table>
+
+            </td>
+        </tr>
+
+    </aura:renderif>
+    
+</aura:component>

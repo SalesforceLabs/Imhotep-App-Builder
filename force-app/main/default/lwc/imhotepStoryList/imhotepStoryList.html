@@ -1,0 +1,210 @@
+<template>
+
+    <div class="card-container-outer">
+        <!--  style="background:#FFFFFF;border-radius:4px;box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.1);border:1px solid #dddbda;" -->
+        <div class="card-container-header slds-p-around_x-small" style="border-radius:4px 4px 0 0;box-shadow:0 2px 0 0 rgba(0, 0, 0, 0.1);border:1px solid #0b5cab;">
+            <div style="float:left;" class="slds-p-top_xx-small">
+                <p class="slds-text-heading_medium slds-truncate">
+                    <a href={storiesRelatedListURL} class="custom-header-link">{label.HeadingStoryList}</a>
+                </p>
+            </div>
+            <div style="float:right;">
+                <lightning-button-icon  aria-label={label.ActionRefreshStoriesLabel}
+                                        alternative-text={label.ActionRefreshStoriesAlt}
+                                        onclick={refreshList}
+                                        variant="border-inverse"
+                                        icon-name="utility:refresh"
+                                        class="button-icon-position"></lightning-button-icon>
+                <lightning-button   label={label.ActionNewStoryLabel}
+                                    onclick={openNewStoryFlow}
+                                    variant="inverse"
+                                    icon-name="utility:add"
+                                    icon-position="left"
+                                    class="slds-m-left_xx-small"></lightning-button>
+                <lightning-button   label={label.ActionAddTemplateStoriesLabel}
+                                    onclick={openAddTemplateStoriesFlow}
+                                    variant="inverse"
+                                    icon-name="utility:insert_template"
+                                    icon-position="left"
+                                    class="slds-m-left_xx-small"></lightning-button>
+                <lightning-button   label={label.ActionCreateTemplateLabel}
+                                    onclick={openCreateTemplateFlow}
+                                    variant="inverse"
+                                    icon-name="utility:text_template"
+                                    icon-position="left"
+                                    class="slds-m-left_xx-small"></lightning-button>
+                
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        
+        <div class="main-content-area" style="background:#FFFFFF;border-radius:0 0 4px 4px;box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.1);border:1px solid #dddbda;">
+
+            <!-- show an empty state illustration card with a call to action to create a new story -->
+            <template lwc:if={hideStoryTable}>
+
+                <div class="slds-illustration slds-illustration_small" style="padding:10px 10px 0 10px;">
+                    <img src={imageEmptyState02} class="slds-illustration__svg" />
+                    
+                    <div class="slds-text-longform">
+                        <h3 class="slds-text-heading_medium">{label.StoryEmptyHeading}</h3>
+                        <p class="slds-text-body_regular">{label.StoryEmptyText1}</p>
+                        <p class="slds-text-body_regular">{label.StoryEmptyText2}</p>
+                    </div>
+                    <footer class="slds-card__footer">
+                        <lightning-button   label={label.ActionNewStoryLabel}
+                                            onclick={openNewStoryFlow}
+                                            variant="brand"
+                                            icon-name="utility:add"
+                                            icon-position="left"></lightning-button>
+                    </footer>
+                </div>
+
+            </template>
+            
+            <!-- show the story table -->
+            <template lwc:else>
+                
+                <table class="slds-table slds-table_bordered" aria-label={label.StoryHeading} lwc:ref="storyTable">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <template if:true={isDraggable}>
+                                <th scope="col"></th>
+                            </template>
+
+                            <th scope="col"><div class="slds-truncate" title={label.StoryFieldPriorityLabel}>&#35;</div></th>
+                            <th scope="col"><div class="slds-truncate" title={label.StoryFieldStoryNumberLabel}>{label.StoryFieldStoryNumberLabel}</div></th>
+                            <th scope="col" style="width:40%;"><div class="slds-truncate" title={label.StoryFieldTitleLabel}>{label.StoryFieldTitleLabel}</div></th>
+                            <th scope="col"><div class="slds-truncate" title={label.StoryFieldStoryTypeLabel}>{label.StoryFieldStoryTypeLabel}</div></th>
+                            <th scope="col"><div class="slds-truncate" title={label.StoryFieldPointsLabel}>{label.StoryFieldPointsLabel}</div></th>
+                            <th scope="col"><div class="slds-truncate" title={label.StoryFieldStatusLabel}>{label.StoryFieldStatusLabel}</div></th>
+                            <th scope="col"><div class="slds-truncate" title={label.StoryFieldAssignedLabel}>{label.StoryFieldAssignedLabel}</div></th>
+                            <th scope="col"><div class="slds-truncate" title={label.StoryFieldLastModifiedLabel}>{label.StoryFieldLastModifiedLabel}</div></th>
+                            <th scope="col" class="slds-cell_action-mode" style="width:3.25rem"><div class="slds-truncate" title={label.ActionTableColActionsLabel}>{label.ActionTableColActionsLabel}</div></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <template for:each={mockStories} for:item="ms">
+                            <tr key={ms.Id}
+                                class="slds-hint-parent"
+                                draggable={isDraggable}
+                                ondragstart={handleDragStart}
+                                ondragenter={handleDragEnter}
+                                ondragend={handleDragEnd}
+                                data-id={ms.Id}>
+
+                                <template if:true={isDraggable}>
+                                    <td data-label={label.ActionDragAndDropIconLabel}>
+                                        <lightning-icon icon-name="utility:drag_and_drop" size="x-small" title={label.ActionDragAndDropIconTitle} class="slds-p-right_x-small"></lightning-icon>
+                                    </td>
+                                </template>
+
+                                <td data-label={label.StoryFieldPriorityLabel}><div class="slds-truncate slds-cell-wrap" title={ms.Priority_Order__c}>{ms.Priority_Order__c}</div></td>
+                                <td data-label={label.StoryFieldStoryNumberLabel}><div class="slds-truncate slds-cell-wrap" title={ms.Story_Number__c}>{ms.Story_Number__c}</div></td>
+                                <td data-label={label.StoryFieldTitleLabel}>
+                                    <div class="slds-truncate slds-cell-wrap" title={ms.Name}>
+                                        <template if:true={ms.isExpandable}>
+                                            <template lwc:if={ms.isExpanded}>
+                                                <lightning-button-icon  aria-label={label.ActionHideStoryDescriptionLabel}
+                                                                        alternative-text={label.ActionHideStoryDescriptionAlt}
+                                                                        icon-name="utility:chevrondown"
+                                                                        data-id={ms.Id}
+                                                                        onclick={handleExpansion}
+                                                                        variant="bare"
+                                                                        size="small"
+                                                                        class="slds-m-right_small"></lightning-button-icon>
+                                            </template>
+                                            <template lwc:else>
+                                                <lightning-button-icon  aria-label={label.ActionShowStoryDescriptionLabel}
+                                                                        alternative-text={label.ActionShowStoryDescriptionAlt}
+                                                                        icon-name="utility:chevronright"
+                                                                        data-id={ms.Id}
+                                                                        onclick={handleExpansion}
+                                                                        variant="bare"
+                                                                        size="small"
+                                                                        class="slds-m-right_small"></lightning-button-icon>
+                                            </template>
+                                        </template>
+                                        <template if:false={ms.isExpandable}>
+                                            <lightning-button-icon  aria-label={label.ActionShowStoryDescriptionLabel}
+                                                                    alternative-text={label.ActionShowStoryDescriptionAlt}
+                                                                    icon-name="utility:chevronright"
+                                                                    data-id={ms.Id}
+                                                                    variant="bare"
+                                                                    size="small"
+                                                                    class="slds-m-right_small"
+                                                                    disabled></lightning-button-icon>
+                                        </template>
+                                        <lightning-formatted-url value={ms.Story_URL} label={ms.Name}></lightning-formatted-url>
+                                        <template if:true={ms.Expedite__c}>
+                                            &nbsp;<lightning-icon icon-name="utility:clock" title={label.StoryFieldExpediteIconTitle} size="xx-small"></lightning-icon>
+                                        </template>
+                                        <template lwc:if={ms.isExpanded}>
+                                            <div class="slds-m-top_x-small slds-m-bottom_x-small">
+                                                <label class="slds-form-element__label">{label.StoryFieldStoryDescriptionLabel}</label>
+                                                <div>
+                                                    <lightning-formatted-rich-text value={ms.Story_Description__c}></lightning-formatted-rich-text>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </td>
+                                <td data-label={label.StoryFieldStoryTypeLabel}><div class="slds-truncate" title={ms.Story_Type__c}>{ms.Story_Type__c}</div></td>
+                                <td data-label={label.StoryFieldPointsLabel}><div class="slds-truncate" title={label.StoryFieldPointsLabel}>
+                                    <template lwc:if={ms.Estimated_Points__c}>{ms.Estimated_Points__c}&nbsp;{label.StoryFieldPointsEst}</template>
+                                    <template lwc:else>&#63; {label.StoryFieldPointsEst}</template>
+                                    &nbsp;&#47;&nbsp;
+                                    <template lwc:if={ms.Actual_Points__c}>{ms.Actual_Points__c}&nbsp;{label.StoryFieldPointsAct}</template>
+                                    <template lwc:else>&#63; {label.StoryFieldPointsAct}</template>
+                                </div></td>
+                                <td data-label={label.StoryFieldStatusLabel}><div class="slds-truncate" title={ms.Status__c}>{ms.Status__c}</div></td>
+                                <td data-label={label.StoryFieldAssignedLabel}>
+                                    <div class="slds-truncate" title={ms.Assigned_Name__c}>
+                                        <template lwc:if={ms.Assigned__c}><lightning-formatted-url value={ms.Assigned_URL} label={ms.Assigned_Name__c}></lightning-formatted-url></template>
+                                        <template lwc:else>{label.StoryFieldAssignedUnassigned}</template>
+                                    </div>
+                                </td>
+                                <td data-label={label.StoryFieldLastModifiedLabel}>
+                                    <div class="slds-truncate" title={ms.LastModifiedDate}>
+                                        <lightning-formatted-date-time value={ms.LastModifiedDate} day="numeric" month="numeric" year="numeric" hour="numeric" minute="numeric"></lightning-formatted-date-time>
+                                    </div>
+                                </td>
+                                <td data-label={label.ActionTableColActionsLabel}>
+                                    <lightning-button-group>
+                                        <lightning-button-icon  aria-label={label.ActionEditStoryLabel}
+                                                                alternative-text={label.ActionEditStoryAlt}
+                                                                onclick={handleStoryEdit}
+                                                                data-id={ms.Id}
+                                                                icon-name="utility:edit"></lightning-button-icon>
+                                        <lightning-button-icon  aria-label={label.ActionTransferStoryLabel}
+                                                                alternative-text={label.ActionTransferStoryAlt}
+                                                                onclick={handleStoryTransfer}
+                                                                data-id={ms.Id}
+                                                                icon-name="utility:replace"></lightning-button-icon>
+                                        <lightning-button-icon  aria-label={label.ActionCloneStoryLabel}
+                                                                alternative-text={label.ActionCloneStoryAlt}
+                                                                onclick={handleStoryClone}
+                                                                data-id={ms.Id}
+                                                                icon-name="utility:copy"></lightning-button-icon>
+                                        <lightning-button-icon  aria-label={label.ActionDeleteStoryLabel}
+                                                                alternative-text={label.ActionDeleteStoryAlt}
+                                                                onclick={handleStoryDelete}
+                                                                data-id={ms.Id}
+                                                                icon-name="utility:delete"></lightning-button-icon>
+                                    </lightning-button-group>
+                                </td>
+
+                            </tr>
+                        </template>
+                        
+                    </tbody>
+                </table>
+
+            </template>
+
+        </div>
+            
+    </div>
+
+</template>

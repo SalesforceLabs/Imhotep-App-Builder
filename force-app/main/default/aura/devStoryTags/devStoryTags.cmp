@@ -1,0 +1,89 @@
+<aura:component controller="ImhotepAppBuilderCtrl" implements="force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes" access="global">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="ImhotepActiveMetadata" type="iab__Imhotep_Config__mdt" />
+
+    <!-- deprecated attributes -->
+    <aura:attribute name="NewTagAssignmentFlow" type="String" access="global" />
+    
+    <aura:attribute name="TagAssignmentRecords" type="Tag_Assignment__c" />
+    
+    <!-- reloads the component if the record is edited -->
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    
+    <!-- for flow launcher -->
+    <aura:attribute name="showModal" type="Boolean" default="false" />
+    <aura:attribute name="flow" type="Object" />
+    
+    
+    
+    <!-- Only display if modal button for flow has been clicked -->
+    <div class="{! v.showModal ? 'slds-show' : 'slds-hide' }">
+        <section class="slds-modal slds-fade-in-open slds-modal_medium">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header slds-modal__header_empty">
+                	<lightning:buttonIcon   size="large"
+                                            iconName="utility:close"
+                                            variant="bare-inverse"
+                                            onclick="{!c.closeModal}"
+                                            ariaLabel="{!$Label.c.GeneralModalCloseLabel}"
+                                            alternativeText="{!$Label.c.GeneralModalCloseAltText}"
+                                            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" />
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    {!v.body}
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    
+    
+    
+    <div class="card-container-outer" style="background:#FFFFFF;border-radius:4px;box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.1);border:1px solid #dddbda;padding-bottom:5px;">
+        <lightning:layout multipleRows="true" verticalAlign="stretch" class="layout-padding">
+            
+            <!-- ### TAGS ### -->
+            <lightning:layoutItem flexibility="auto" size="12" class="layoutitem-padding">
+                    <div class="slds-text-title_caps" style="padding-bottom:5px;">
+                        {!$Label.c.HeadingStoryTags}
+                        <lightning:buttonIcon   ariaLabel="{!$Label.c.ActionNewTagAssignmentLabel}"
+                                                alternativeText="{!$Label.c.ActionNewTagAssignmentAlt}"
+                                                iconName="utility:new"
+                                                variant="bare"
+                                                class="button-padding"
+                                                name="{!v.ImhotepActiveMetadata.iab__Story_New_Tag_Assignment__c}"
+                                                onclick="{! c.runFlowRecordSensitive }" />
+                    </div>
+                    
+                    <aura:renderif isTrue="{!v.TagAssignmentRecords.length > 0}">
+                        
+                        <aura:iteration items="{!v.TagAssignmentRecords}" var="dt">
+                            <span class="slds-pill slds-pill_link slds-m-vertical_xxx-small">
+                                <a href="{! '/lightning/r/' + dt.iab__Tag__r.Id + '/view'}" class="slds-pill__action" title="{!$Label.c.ActionViewStoriesWithTag}">
+                                    <span class="slds-pill__label"><strong>{!dt.iab__Tag__r.Name}</strong></span>
+                                </a>
+                                <lightning:buttonIcon   ariaLabel="{!$Label.c.ActionUnassignTagLabel}"
+                                                        alternativeText="{!$Label.c.ActionUnassignTagAlt}"
+                                                        name="{!v.ImhotepActiveMetadata.iab__Story_Remove_Tag_Assignment__c}"
+                                                        value="{!dt.Id}"
+                                                        onclick="{! c.removeTagAssignment }"
+                                                        iconName="utility:close"
+                                                        variant="bare"
+                                                        class="slds-pill__remove" />
+                            </span>
+                        </aura:iteration>
+                        
+                        <aura:set attribute="else">
+                            <div class="empty-state">
+                                {!$Label.c.TagAssignmentEmptyText}
+                            </div>
+                        </aura:set>
+                        
+                    </aura:renderif>
+            </lightning:layoutItem>
+            
+        </lightning:layout>
+    </div>
+</aura:component>

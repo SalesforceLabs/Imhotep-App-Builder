@@ -1,0 +1,323 @@
+<aura:component controller="ImhotepAppBuilderCtrl" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:attribute name="ImhotepActiveMetadata" type="iab__Imhotep_Config__mdt" />
+
+    <!-- deprecated attributes -->
+    <aura:attribute name="AddFlowAPIName" type="String" access="global" />
+    
+    <aura:attribute name="TestScenarioRecords" type="Test_Scenario__c" />
+    
+    <!-- reloads the component if the record is edited -->
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    
+    <!-- for flow launcher -->
+    <aura:attribute name="showModal" type="Boolean" default="false" />
+    <aura:attribute name="flow" type="Object" />
+    
+    
+    
+    <!-- Only display if modal button for flow has been clicked -->
+    <div class="{!v.showModal ? 'slds-show' : 'slds-hide'}">
+        <section class="slds-modal slds-fade-in-open slds-modal_medium">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header slds-modal__header_empty">
+                    <lightning:buttonIcon   size="large"
+                                            iconName="utility:close"
+                                            variant="bare-inverse"
+                                            onclick="{!c.closeModal}"
+                                            ariaLabel="{!$Label.c.GeneralModalCloseLabel}"
+                                            alternativeText="{!$Label.c.GeneralModalCloseAltText}"
+                                            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" />
+                </header>
+                <div class="slds-modal__content slds-var-p-around_medium">{!v.body}</div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+
+
+
+    <div class="slds-card" style="margin-bottom:10px;">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon-custom-custom95" title="{!$Label.c.TestScenarioIconTitle}">
+                        <lightning:icon iconName="custom:custom95" title="{!$Label.c.TestScenarioIconTitle}" size="small" />
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <lightning:formattedUrl value="{!'/lightning/r/' + v.recordId + '/related/iab__Test_Scenarios__r/view'}" label="{!$Label.c.HeadingStoryTestScenarios}" class="slds-card__header-link slds-truncate" />
+                        <lightning:helptext class="helptext-mod" content="{!$Label.c.HeadingStoryTestScenariosHelp}" />
+                    </h2>
+                </div>
+                <div class="slds-no-flex">
+                    <lightning:buttonGroup>
+                    <lightning:button   label="{!$Label.c.ActionNewTestScenarioLabel}"
+                                        variant="brand"
+                                        iconName="utility:add"
+                                        iconPosition="left"
+                                        onclick="{!c.runFlowToAdd}" />
+                </lightning:buttonGroup>
+                </div>
+            </header>
+        </div>
+        
+        
+        
+        <div class="slds-card__body slds-card__body_inner">
+                
+            <!-- ### TEST SCENARIOS ### -->
+            <aura:renderIf isTrue="{!v.TestScenarioRecords.length > 0}">
+                
+                <aura:set attribute="else">
+
+                    <div class="slds-illustration slds-illustration_small">
+                        <img src="{!$Resource.ImhotepIllustrationEmptyState02}" class="slds-illustration__svg"/>
+                        
+                        <div class="slds-text-longform">
+                            <h3 class="slds-text-heading_medium">{!$Label.c.TestScenarioEmptyHeading}</h3>
+                            <p class="slds-text-body_regular"><strong>{!$Label.c.TestScenarioEmptyText1}</strong></p>
+                            <p class="slds-text-body_regular">{!$Label.c.TestScenarioEmptyText2}</p>
+                        </div>
+                        <footer class="slds-card__footer">
+                            <lightning:button   label="{!$Label.c.ActionNewTestScenarioLabel}"
+                                                variant="brand"
+                                                iconName="utility:add"
+                                                iconPosition="left"
+                                                onclick="{!c.runFlowToAdd}" />
+                        </footer>
+                    </div>
+
+                </aura:set>
+            
+                <aura:iteration items="{!v.TestScenarioRecords}" var="ts">
+                    
+                    <div class="slds-card slds-card_boundary slds-m-bottom_small" style="padding-top:0;">
+                        <div class="slds-theme_shade">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="slds-media__body">
+                                    <h3 class="slds-section__title slds-theme_shade">
+                                        <span class="slds-truncate slds-var-p-horizontal_small">
+                                            <strong><lightning:formattedUrl value="{!'/lightning/r/' + ts.Id + '/view'}" label="{! $Label.c.TestScenarioFieldTestScenarioLabel + ' ' + ts.Name}" class="slds-truncate" /></strong>
+                                            <span class="slds-icon_container slds-var-p-left_medium slds-var-p-right_small">
+                                                <aura:renderIf isTrue="{!ts.iab__Status__c == 'Not Ready to Test'}"><lightning:icon iconName="utility:error" variant="error" title="{!ts.iab__Status__c}" size="xx-small" /></aura:renderIf>
+                                                <aura:renderIf isTrue="{!ts.iab__Status__c == 'Ready to Test'}"><lightning:icon iconName="utility:play" variant="success" title="{!ts.iab__Status__c}" size="xx-small" /></aura:renderIf>
+                                                <aura:renderIf isTrue="{!ts.iab__Status__c == 'Test Completed'}"><lightning:icon iconName="utility:success" variant="success" title="{!ts.iab__Status__c}" size="xx-small" /></aura:renderIf>
+                                            </span>
+                                            {!ts.iab__Status__c}
+                                        </span>
+                                    </h3>
+                                </div>
+                                <div class="slds-no-flex">
+
+                                    <lightning:buttonMenu   onselect="{!c.handleTestScenarioMenuSelect}"
+                                                            name="{!ts.Id}"
+                                                            alternativeText="{!$Label.c.ActionTestScenarioMenuExpandCollapseAlt}"
+                                                            variant="border-filled"
+                                                            iconSize="x-small"
+                                                            iconName="utility:settings"
+                                                            class="slds-var-m-right_large"
+                                                            menuAlignment="auto">
+                                        
+                                        <lightning:menuItem value="EditTestScenario"
+                                                            label="{!$Label.c.ActionEditTestScenarioLabel}"
+                                                            iconName="utility:edit" />
+
+                                        <lightning:menuItem value="CloneTestScenario"
+                                                            label="{!$Label.c.ActionCloneTestScenarioLabel}"
+                                                            iconName="utility:copy" />
+
+                                        <lightning:menuItem value="DeleteTestScenario"
+                                                            label="{!$Label.c.ActionDeleteTestScenarioLabel}"
+                                                            iconName="utility:delete" />
+                                        
+                                        <lightning:menuDivider />
+                                        
+                                        <aura:renderIf isTrue="{!ts.iab__Status__c == 'Ready to Test'}">
+                                            <lightning:menuItem value="NewTestResults"
+                                                                label="{!$Label.c.ActionNewTestResultLabel}"
+                                                                iconName="utility:edit_form" />
+
+                                            <aura:set attribute="else">
+                                                <lightning:menuItem value="NewTestResults"
+                                                                disabled="true"
+                                                                label="{!$Label.c.ActionNewTestResultLabel}"
+                                                                iconName="utility:edit_form" />
+                                            </aura:set>
+                                        </aura:renderIf>
+                                        
+                                        <lightning:menuDivider />
+                                        
+                                        <lightning:menuSubheader label="{!$Label.c.ActionTestScenarioUpdateStatusLabel + ':'}" class="menuSubheader-weak" />
+                                        
+                                        <aura:renderIf isTrue="{!ts.iab__Status__c != 'Not Ready to Test'}">
+                                            <lightning:menuItem value="StatusNotReady"
+                                                                label="{!$Label.c.TestScenarioFieldStatusNotReadyToTest}"
+                                                                iconName="utility:error" />
+                                        </aura:renderIf>
+                                        
+                                        <aura:renderIf isTrue="{!ts.iab__Status__c != 'Ready to Test'}">
+                                            <lightning:menuItem value="StatusReady"
+                                                                label="{!$Label.c.TestScenarioFieldStatusReadyToTest}"
+                                                                iconName="utility:play" />
+                                        </aura:renderIf>
+                                        
+                                        <aura:renderIf isTrue="{!ts.iab__Status__c != 'Test Completed'}">
+                                            <lightning:menuItem value="StatusCompleted"
+                                                                label="{!$Label.c.TestScenarioFieldStatusTestCompleted}"
+                                                                iconName="utility:success" />
+                                        </aura:renderIf>
+
+                                    </lightning:buttonMenu>
+
+                                </div>
+                            </header>
+                        </div>
+                        <div class="slds-card__body slds-card__body_inner">
+                            <lightning:layout multipleRows="true" verticalAlign="stretch" pullToBoundary="small">
+                                <lightning:layoutItem flexibility="auto" size="2" largeDeviceSize="2" mediumDeviceSize="12" smallDeviceSize="12" padding="horizontal-small">
+                                    <p class="slds-text-title_caps slds-p-top_x-small">
+                                        <strong>{!$Label.c.TestScenarioFieldDescriptionLabel}</strong>
+                                        <lightning:helptext class="helptext-mod" content="{!$Label.c.TestScenarioFieldDescriptionHelp}" />
+                                    </p>
+                                    <lightning:formattedRichText value="{!ts.iab__Description__c}"/>
+                                </lightning:layoutItem>
+
+                                <lightning:layoutItem flexibility="auto" size="5" largeDeviceSize="5" mediumDeviceSize="12" smallDeviceSize="12" padding="horizontal-small">
+                                    <p class="slds-text-title_caps slds-p-top_x-small">
+                                        <strong>{!$Label.c.TestScenarioFieldExpectedResultLabel}</strong>
+                                        <lightning:helptext class="helptext-mod" content="{!$Label.c.TestScenarioFieldExpectedResultHelp}" />
+                                    </p>
+                                    <lightning:formattedRichText value="{!ts.iab__Expected_Result__c}"/>
+                                </lightning:layoutItem>
+
+                                <lightning:layoutItem flexibility="auto" size="5" largeDeviceSize="5" mediumDeviceSize="12" smallDeviceSize="12" padding="horizontal-small">
+                                    <p class="slds-text-title_caps slds-p-top_x-small">
+                                        <strong>{!$Label.c.TestScenarioFieldInstructionsLabel}</strong>
+                                        <lightning:helptext class="helptext-mod" content="{!$Label.c.TestScenarioFieldInstructionsHelp}" />
+                                    </p>
+                                    <lightning:formattedRichText value="{!ts.iab__Instructions__c}"/>
+                                </lightning:layoutItem>
+                            </lightning:layout>
+
+                            <lightning:layout multipleRows="true" verticalAlign="stretch" pullToBoundary="small">
+                                <lightning:layoutItem flexibility="auto">
+                                
+                                    <div class="slds-card" style="padding-top:0;">
+                                        <div class="slds-card__header slds-grid">
+                                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                                <div class="slds-media__body">
+                                                    <h2 class="slds-card__header-title">
+                                                            {!$Label.c.HeadingTestResults}
+                                                            <lightning:helptext class="helptext-mod" content="{!$Label.c.HeadingTestResultsHelp}" />
+                                                    </h2>
+                                                </div>
+                                                <div class="slds-no-flex">
+                                                    
+                                                    <aura:renderIf isTrue="{!ts.iab__Status__c == 'Ready to Test'}">
+                                                        <lightning:buttonGroup>
+                                                            <lightning:button   label="{!$Label.c.ActionNewTestResultLabel}"
+                                                                                variant="brand"
+                                                                                name="{!ts.Id}"
+                                                                                iconName="utility:edit_form"
+                                                                                iconPosition="left"
+                                                                                onclick="{!c.runFlowToReportTestResults}" />
+                                                        </lightning:buttonGroup>
+
+                                                        <aura:set attribute="else">
+                                                            <lightning:buttonGroup>
+                                                                <lightning:button   label="{!$Label.c.ActionNewTestResultLabel}"
+                                                                                    disabled="true"
+                                                                                    variant="brand"
+                                                                                    name="{!ts.Id}"
+                                                                                    iconName="utility:edit_form"
+                                                                                    iconPosition="left"
+                                                                                    onclick="{!c.runFlowToReportTestResults}" />
+                                                            </lightning:buttonGroup>
+                                                        </aura:set>
+                                                    </aura:renderIf>
+
+                                                </div>
+                                            </header>
+                                        </div>
+                                        <div class="slds-card__body slds-card__body_inner">
+                                    
+                                            <table class="slds-table slds-table_bordered slds-no-row-hover" aria-label="{!$Label.c.TestResultHeading}">
+                                                <thead>
+                                                    <tr class="slds-line-height_reset">
+                                                        <th scope="col"><div class="slds-truncate" title="{!$Label.c.TestResultFieldTestResultLabel}">&#35;</div></th>
+                                                        <th scope="col"><div class="slds-truncate" title="{!$Label.c.TestResultFieldResultLabel}">{!$Label.c.TestResultFieldResultLabel}</div></th>
+                                                        <th scope="col"><div class="slds-truncate" title="{!$Label.c.TestResultFieldAssignedTesterLabel}">{!$Label.c.TestResultFieldAssignedTesterLabel}</div></th>
+                                                        <th scope="col"><div class="slds-truncate" title="{!$Label.c.TestResultFieldTesterFeedbackLabel}">
+                                                            {!$Label.c.TestResultFieldTesterFeedbackLabel}
+                                                            <lightning:helptext class="helptext-mod" content="{!$Label.c.TestResultFieldTesterFeedbackHelp}" />
+                                                        </div></th>
+                                                        <th scope="col"><div class="slds-truncate" title="{!$Label.c.TestResultFieldBuilderNotesLabel}">
+                                                            {!$Label.c.TestResultFieldBuilderNotesLabel}
+                                                            <lightning:helptext class="helptext-mod" content="{!$Label.c.TestResultFieldBuilderNotesHelp}" />
+                                                        </div></th>
+                                                        <th scope="col"><div class="slds-truncate" title="{!$Label.c.TestResultFieldStatusLabel}">{!$Label.c.TestResultFieldStatusLabel}</div></th>
+                                                        <th scope="col"><div class="slds-truncate" title="{!$Label.c.TestResultFieldLastModifiedLabel}">{!$Label.c.TestResultFieldLastModifiedLabel}</div></th>
+                                                        <th scope="col" class="slds-cell_action-mode"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    
+                                                    <aura:renderIf isTrue="{!ts.iab__Test_Results__r.length > 0}">
+                                                        <aura:iteration items="{!ts.iab__Test_Results__r}" var="tr">
+                                                            <tr class="slds-hint-parent">
+                                                                <td data-label="{!$Label.c.TestResultFieldTestResultLabel}"><div class="slds-truncate" title="{!tr.Name}"><lightning:formattedUrl value="{! '/lightning/r/' + tr.Id + '/view'}" label="{!tr.Name}" /></div></td>
+                                                                <td data-label="{!$Label.c.TestResultFieldResultLabel}"><div class="slds-truncate" title="{!tr.iab__Result__c}">{!tr.iab__Result__c}</div></td>
+                                                                <td data-label="{!$Label.c.TestResultFieldAssignedTesterLabel}"><div class="slds-truncate" title="{!tr.iab__Tester__r.iab__User__r.FirstName + ' ' + tr.iab__Tester__r.iab__User__r.LastName}"><lightning:formattedUrl value="{! '/lightning/r/' + tr.iab__Tester__c + '/view'}" label="{!tr.iab__Tester__r.iab__User__r.FirstName + ' ' + tr.iab__Tester__r.iab__User__r.LastName}" /></div></td>
+                                                                <td data-label="{!$Label.c.TestResultFieldTesterFeedbackLabel}"><div class="slds-truncate slds-cell-wrap" title="Tester Feedback"><lightning:formattedRichText value="{!tr.iab__Tester_Feedback__c}"/></div></td>
+                                                                <td data-label="{!$Label.c.TestResultFieldBuilderNotesLabel}"><div class="slds-truncate slds-cell-wrap" title="Builder Notes"><lightning:formattedRichText value="{!tr.iab__Builder_Notes__c}"/></div></td>
+                                                                <td data-label="{!$Label.c.TestResultFieldStatusLabel}"><div class="slds-truncate" title="{!tr.iab__Status__c}">{!tr.iab__Status__c}</div></td>
+                                                                <td data-label="{!$Label.c.TestResultFieldLastModifiedLabel}"><div class="slds-truncate" title="{!tr.LastModifiedDate}"><lightning:formattedDateTime value="{!tr.LastModifiedDate}" year="numeric" month="numeric" day="numeric"/></div></td>
+                                                                <td data-label="{!$Label.c.ActionTableColActionsLabel}">
+                                                                    <lightning:buttonGroup>
+                                                                        <lightning:buttonIcon   name="{!tr.Id}"
+                                                                                                iconName="utility:edit"
+                                                                                                onclick="{!c.handleTestResultEdit}"
+                                                                                                ariaLabel="{!$Label.c.ActionEditTestResultsLabel}"
+                                                                                                alternativeText="{!$Label.c.ActionEditTestResultsAlt}" />
+                                                                        <lightning:buttonIcon   name="{!tr.Id}"
+                                                                                                iconName="utility:delete"
+                                                                                                onclick="{!c.handleTestResultDelete}"
+                                                                                                ariaLabel="{!$Label.c.ActionDeleteTestResultsLabel}"
+                                                                                                alternativeText="{!$Label.c.ActionDeleteTestResultsAlt}" />
+                                                                    </lightning:buttonGroup>
+                                                                </td>
+                                                            </tr>
+                                                        </aura:iteration>
+                                                        
+                                                        <aura:set attribute="else">
+                                                            <tr class="slds-hint-parent"><th colspan="8">{!$Label.c.TestResultEmptyText}</th></tr>
+                                                        </aura:set>
+                                                    </aura:renderIf>
+                                                    
+                                                </tbody>
+                                            </table>
+                                    
+                                        </div>
+                                    </div>
+
+                                </lightning:layoutItem>
+                            </lightning:layout>
+                        </div>
+                    </div>
+
+                </aura:iteration>
+            </aura:renderIf>
+
+        </div>
+        
+        
+        
+    </div>
+    
+    
+    
+</aura:component>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>false</plural>
+        <value>Projekt</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Nominative</caseType>
+        <plural>true</plural>
+        <value>Projekte</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>false</plural>
+        <value>Projekt</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Accusative</caseType>
+        <plural>true</plural>
+        <value>Projekte</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>false</plural>
+        <value>Projekt</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Genitive</caseType>
+        <plural>true</plural>
+        <value>Projekte</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>false</plural>
+        <value>Projekt</value>
+    </caseValues>
+    <caseValues>
+        <caseType>Dative</caseType>
+        <plural>true</plural>
+        <value>Projekte</value>
+    </caseValues>
+    <fields>
+        <help>Standard-Einstellung zur Steuerung der aktivierten Funktionen und des Layouts für die zugehörigen Releases und Stories dieses Projekts. Standard ist Standard (alle Imhotep-Funktionen aktiviert). Einzelne Releases und Stories können diese Auswahl überschreiben. Änderungen an dieser Auswahl wirken sich nicht auf bestehende Releases und Stories aus.</help>
+        <label>Standard-Release-Modus</label>
+        <name>Default_Release_Mode__c</name>
+    </fields>
+    <fields>
+        <label>Beschreibung</label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label>Anzahl der Veröffentlichungen</label>
+        <name>Release_Count__c</name>
+    </fields>
+    <fields>
+        <help>Steuert die Sichtbarkeit der ImhotepResourceBar LWC auf Datensatzseiten.</help>
+        <label>Anzahl der Ressourcenlinks</label>
+        <name>Resource_Link_Count__c</name>
+    </fields>
+    <fields>
+        <label>Status</label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation>Aktiv</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation>Abgeschlossen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation>Planung</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Typ</label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Demo Build</masterLabel>
+            <translation>Demo-Erstellung</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Demo Component Build</masterLabel>
+            <translation>Demo-Komponentenerstellung</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ISV Build</masterLabel>
+            <translation>ISV-Erstellung</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Implementation</masterLabel>
+            <translation>Implementierung</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Org Maintenance</masterLabel>
+            <translation>Wartung der Organisation</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>Sonstige</translation>
+        </picklistValues>
+    </fields>
+    <gender>Neuter</gender>
+    <layouts>
+        <layout>Project Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Projektname</nameFieldLabel>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Metadaten hinzufügen</label>
+        <name>Project_Add_Metadata_Action</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Neues Projektmitglied</label>
+        <name>Project_New_Project_Member_Action</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Neues Release</label>
+        <name>Project_New_Release_Action</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Neues Release aus Vorlage</label>
+        <name>Project_New_Release_From_Template_Action</name>
+    </quickActions>
+    <sharingReasons>
+        <label><!-- Builder Read/Write --></label>
+        <name>Builder_Read_Write</name>
+    </sharingReasons>
+    <sharingReasons>
+        <label><!-- Owner/Lead Read/Write --></label>
+        <name>Owner_Lead_Read_Write</name>
+    </sharingReasons>
+    <sharingReasons>
+        <label><!-- Viewer Read Only --></label>
+        <name>Viewer_Read_Only</name>
+    </sharingReasons>
+</CustomObjectTranslation>

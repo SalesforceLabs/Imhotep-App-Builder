@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Template Item</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Template Items</value>
+    </caseValues>
+    <fields>
+        <help><!-- Acceptance criteria and any basic testing instructions. What is the &quot;definition of done&quot; and how would someone test it to know it&apos;s working as designed. Consider your happy path and any edge cases. For more detailed testing, use the story&apos;s Testing tab. --></help>
+        <label><!-- Acceptance Criteria/Tests --></label>
+        <name>Acceptance_Criteria_Tests__c</name>
+    </fields>
+    <fields>
+        <help><!-- If checked, this template item was created from another template. --></help>
+        <label><!-- Created from Template? --></label>
+        <name>Created_from_Template__c</name>
+    </fields>
+    <fields>
+        <help><!-- Actions to take in order to fully deploy changes (activate a Flow, assign a permset, etc.). --></help>
+        <label><!-- Deployment Checklist --></label>
+        <name>Deployment_Checklist__c</name>
+    </fields>
+    <fields>
+        <help><!-- Estimated level of effort to implement the story for someone who is new to, or unfamiliar with, this task. --></help>
+        <label><!-- Estimated Points (Beginner) --></label>
+        <name>Estimated_Points_Beginner__c</name>
+    </fields>
+    <fields>
+        <help><!-- Estimated level of effort to implement the story for someone who has advanced experience with this task. --></help>
+        <label><!-- Estimated Points (Expert) --></label>
+        <name>Estimated_Points_Expert__c</name>
+    </fields>
+    <fields>
+        <help><!-- Estimated level of effort to implement the story for someone who is somewhat familiar with this task. --></help>
+        <label><!-- Estimated Points (Intermediate) --></label>
+        <name>Estimated_Points_Intermediate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Priority of this story within the release (should be continuously reassessed). --></help>
+        <label><!-- Priority/Order --></label>
+        <name>Priority_Order__c</name>
+    </fields>
+    <fields>
+        <help><!-- Working notes kept by the builder/developer on how they are implementing the story. --></help>
+        <label><!-- Solution/Build Notes --></label>
+        <name>Solution_Build_Notes__c</name>
+    </fields>
+    <fields>
+        <help><!-- User story/high-level requirement description. --></help>
+        <label><!-- Story/Description --></label>
+        <name>Story_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Story Type --></label>
+        <name>Story_Type__c</name>
+        <picklistValues>
+            <masterLabel>Change</masterLabel>
+            <translation><!-- Change --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defect</masterLabel>
+            <translation><!-- Defect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Template --></label>
+        <name>Template__c</name>
+        <relationshipLabel><!-- Template Items --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Template Item Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Estimated Points --></label>
+            <section>Estimated Points</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
