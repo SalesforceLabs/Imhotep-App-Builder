@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>55.0</apiVersion>
+    <apiVersion>64.0</apiVersion>
     <isExposed>true</isExposed>
+    <masterLabel>Imhotep Flow Rich Text Input</masterLabel>
     <description>Displays the Input Rich Text base component on a Flow screen.</description>
     <targets>
         <target>lightning__FlowScreen</target>

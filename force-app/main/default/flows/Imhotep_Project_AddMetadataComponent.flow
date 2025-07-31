@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>setDraftMetadataComponent</name>
         <label>Set Draft Metadata Component</label>
         <locationX>50</locationX>
-        <locationY>566</locationY>
+        <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>varDraftMetadataComponent.Metadata_Type__c</assignToReference>
             <operator>Assign</operator>
@@ -17,28 +18,28 @@
             <assignToReference>varDraftMetadataComponent.Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>input02_Name</elementReference>
+                <elementReference>input01_Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>varDraftMetadataComponent.API_Name__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>input02_APIName</elementReference>
+                <elementReference>input01_APIName</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>varDraftMetadataComponent.Parent_Metadata_Component__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>input02_ParentMetadataComponent.recordId</elementReference>
+                <elementReference>input01_ParentMetadataComponent.recordId</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>varDraftMetadataComponent.Notes__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>input02_Notes</elementReference>
+                <elementReference>input01_Notes</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -52,7 +53,7 @@
             <assignToReference>varDraftMetadataComponent.Category__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>input02_Category</elementReference>
+                <elementReference>input01_Category</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -127,7 +128,7 @@
         <name>createMetadataComponent</name>
         <label>Create Metadata Component</label>
         <locationX>50</locationX>
-        <locationY>674</locationY>
+        <locationY>566</locationY>
         <connector>
             <targetReference>s99</targetReference>
         </connector>
@@ -139,71 +140,95 @@
     <runInMode>DefaultMode</runInMode>
     <screens>
         <name>s01</name>
-        <label>Metadata Type</label>
+        <label>Enter Details</label>
         <locationX>50</locationX>
         <locationY>350</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>s02</targetReference>
-        </connector>
-        <fields>
-            <name>text01a</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Add an existing Metadata Component to the list so it can be used when logging changes in the app.  Select a metadata type to get started.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;﻿&lt;/strong&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <fields>
-            <name>input01_MetadataType</name>
-            <choiceReferences>listMetadataType</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Metadata Type</fieldText>
-            <fieldType>RadioButtons</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
-        </fields>
-        <nextOrFinishButtonLabel>Next &gt;</nextOrFinishButtonLabel>
-        <showFooter>true</showFooter>
-        <showHeader>false</showHeader>
-    </screens>
-    <screens>
-        <name>s02</name>
-        <label>Metadata Component Details</label>
-        <locationX>50</locationX>
-        <locationY>458</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
-        <backButtonLabel>&lt; Back</backButtonLabel>
-        <connector>
             <targetReference>setDraftMetadataComponent</targetReference>
         </connector>
         <fields>
-            <name>text02a</name>
-            <fieldText>&lt;p&gt;&lt;b style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Provide some details about your {!input01_MetadataType}:&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;﻿&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <name>text01a</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Metadata Components are usually created when you log metadata changes by working on a Story.  But it&apos;s common to have a project that modifies pre-existing things in your Salesforce org.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
-            <name>s02_Section1</name>
+            <name>text01b</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Use this flow to add an existing Metadata Component to the list so it can be used when logging changes in your stories&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; (for bulk insert, consider using the &lt;/span&gt;&lt;a href=&quot;https://help.salesforce.com/s/articleView?id=xcloud.import_with_data_import_wizard.htm&amp;amp;type=5&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 14px;&quot;&gt;Salesforce Data Import Wizard&lt;/a&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>s01_Section1</name>
             <fieldType>RegionContainer</fieldType>
             <fields>
-                <name>s02_Section1_Column1</name>
+                <name>s01_Section1_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>input02_Name</name>
+                    <name>input01_MetadataType</name>
+                    <choiceReferences>listMetadataType</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Metadata Type</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <fields>
+                    <name>input01_Name</name>
                     <dataType>String</dataType>
                     <fieldText>Name / Label</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <fields>
-                    <name>input02_APIName</name>
+                    <name>input01_APIName</name>
                     <dataType>String</dataType>
                     <fieldText>API Name (if any)</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -214,10 +239,10 @@
                 <isRequired>false</isRequired>
             </fields>
             <fields>
-                <name>s02_Section1_Column2</name>
+                <name>s01_Section1_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>input02_ParentMetadataComponent</name>
+                    <name>input01_ParentMetadataComponent</name>
                     <extensionName>flowruntime:lookup</extensionName>
                     <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
@@ -247,9 +272,17 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <fields>
-                    <name>input02_Category</name>
+                    <name>input01_Category</name>
                     <choiceReferences>choicesCategories</choiceReferences>
                     <dataType>String</dataType>
                     <defaultValue>
@@ -259,6 +292,29 @@
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <fields>
+                    <name>input01_Notes</name>
+                    <fieldText>Notes (if any)</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -270,13 +326,14 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
-        </fields>
-        <fields>
-            <name>input02_Notes</name>
-            <fieldText>Notes (if any)</fieldText>
-            <fieldType>LargeTextArea</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Add Metadata Component &gt;</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
@@ -286,14 +343,22 @@
         <name>s99</name>
         <label>Completed</label>
         <locationX>50</locationX>
-        <locationY>782</locationY>
+        <locationY>674</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <fields>
             <name>text99a</name>
-            <fieldText>&lt;p&gt;&lt;b style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Your {!input01_MetadataType} has been successfully added as a Metadata Component.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Your {!input01_MetadataType} has been successfully added as a Metadata Component.&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Close</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
@@ -306,7 +371,7 @@
             <targetReference>subflowCheckRole</targetReference>
         </connector>
     </start>
-    <status>Obsolete</status>
+    <status>Active</status>
     <subflows>
         <description>Check to see if the current user is a Builder of the project.</description>
         <name>subflowCheckRole</name>
@@ -341,7 +406,7 @@
         <name>subflowHandleScreenError</name>
         <label>Handle Screen Error</label>
         <locationX>314</locationX>
-        <locationY>782</locationY>
+        <locationY>674</locationY>
         <flowName>Imhotep_General_ScreenFlowError</flowName>
         <inputAssignments>
             <name>inputFaultMessage</name>

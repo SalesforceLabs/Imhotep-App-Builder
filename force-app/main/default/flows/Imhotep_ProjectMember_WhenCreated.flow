@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>57.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <description>Create a new share of a Project record when a new Project Member is added.
 
         05/25/2024 - S000519 - Migrated from the legacy org.

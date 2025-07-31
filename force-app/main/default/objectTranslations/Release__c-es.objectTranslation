@@ -14,12 +14,18 @@
         <name>Created_from_Template__c</name>
     </fields>
     <fields>
+        <help>Breve descripción del propósito o alcance del lanzamiento.</help>
+        <label>Descripción</label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
         <help>Si está marcado, esta liberación se está utilizando como un backlog y no para el desarrollo real.</help>
         <label>¿Es backlog?</label>
         <name>Is_Backlog__c</name>
     </fields>
     <fields>
-        <label>Notas</label>
+        <help>Redacte sus notas de la versión detalladas aquí.</help>
+        <label>Notas de la versión</label>
         <name>Notes__c</name>
     </fields>
     <fields>

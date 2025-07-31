@@ -1,8 +1,9 @@
 <design:component>
-    
     <design:supportedFormFactors>
         <design:supportedFormFactor type="Large"/>
         <design:supportedFormFactor type="Small"/>
     </design:supportedFormFactors>
-	
+    <sfdc:objects>
+        <sfdc:object>Story__c</sfdc:object>
+    </sfdc:objects>
 </design:component>

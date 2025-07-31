@@ -217,6 +217,11 @@
     </quickActions>
     <quickActions>
         <aspect>Master</aspect>
+        <label>Nouvelle histoire enfant</label>
+        <name>Story_New_Child_Story</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
         <label>Transférer à une autre publication</label>
         <name>Story_Transfer_Action</name>
     </quickActions>

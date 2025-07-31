@@ -19,16 +19,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// *******************************************************************************************
-// MODIFICATION LOG
-// Date			Developer		Story		Description
-// 06/30/2024   Mitch Lynch     S000497     Cloned imhotepFlowNavigate and modified to use force:navigateToURL (instead of force:navigateToSObject).
-// *******************************************************************************************/
-// NOTES
-// current this component only supports navigating to a Story; for other objects, use imhotepFlowNavigate.
-//
-// Navigate to URL: https://developer.salesforce.com/docs/component-library/bundle/force:navigateToURL/documentation
-// Redirect Flow Users with a Local Action: https://help.salesforce.com/s/articleView?id=sf.flow_concepts_finish_override.htm&type=5
 // *******************************************************************************************/
 
 ({
@@ -46,6 +36,24 @@
             // form the url
             // example: /lightning/r/iab__Story__c/a02ak000001itWTAAY/view?ws=%2Flightning%2Fr%2Fiab__Project__c%2Fa00ak00000AhoqDAAR%2Fview
             var url = '/lightning/r/iab__Story__c/' + record + '/view?ws=%2Flightning%2Fr%2Fiab__Project__c%2F' + project + '%2Fview';
+
+            // get the Lightning event that opens a URL
+            var redirect = $A.get("e.force:navigateToURL");
+
+            // Pass the record ID to the event
+            redirect.setParams({"url": url});
+                
+            // Open the record
+            redirect.fire();
+        }
+
+        else if(targetobject == 'Release') {
+            // get the Project Id
+            var project = component.get("v.projectId");
+
+            // form the url
+            // example: /lightning/r/iab__Release__c/a01ak00000RElcDAAT/view?ws=%2Flightning%2Fr%2Fiab__Project__c%2Fa00ak00000AhoqDAAR%2Fview
+            var url = '/lightning/r/iab__Release__c/' + record + '/view?ws=%2Flightning%2Fr%2Fiab__Project__c%2F' + project + '%2Fview';
 
             // get the Lightning event that opens a URL
             var redirect = $A.get("e.force:navigateToURL");

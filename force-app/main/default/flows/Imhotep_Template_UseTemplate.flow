@@ -16,7 +16,6 @@
         </inputParameters>
         <nameSegment>iab:imhotepFlowNavigate</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>actionNavigateToRelease02</name>
@@ -34,9 +33,9 @@
         </inputParameters>
         <nameSegment>iab:imhotepFlowNavigate</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>setDraftRelease</name>
         <label>Set Draft Release</label>
@@ -71,10 +70,10 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>varRecDraftRelease.Notes__c</assignToReference>
+            <assignToReference>varRecDraftRelease.Description__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>input02_Notes</elementReference>
+                <elementReference>input02_Description</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -373,6 +372,14 @@
             <name>text01a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px;&quot;&gt;Select a Project&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Selected Template to Use:  {!getTemplate.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;You can use the selected template to populate your project with stories.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Please select a project:&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input01_ProjectTable</name>
@@ -427,6 +434,14 @@
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Next &gt;</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
@@ -448,6 +463,14 @@
             <name>text02a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 18px;&quot;&gt;Select a Release&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Selected Template:  {!getTemplate.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Selected Project:  {!input01_ProjectTable.firstSelectedRow.Project_Name__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;You can use the selected template to add stories to an existing release or create a new release altogether.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Please select an existing release (or choose to create a new one):&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
@@ -463,6 +486,14 @@
             <name>text02b</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 18px;&quot;&gt;New Release Details&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Selected Template:  {!getTemplate.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Selected Project:  {!input01_ProjectTable.firstSelectedRow.Project_Name__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px; background-color: rgb(255, 255, 255);&quot;&gt;You can use the selected template to add stories to an existing release or create a new release altogether.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Please provide the details of your new release (or choose to use an existing one):&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
@@ -484,6 +515,14 @@
             <fieldType>RadioButtons</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input02_ReleaseTable</name>
@@ -538,6 +577,14 @@
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
@@ -559,6 +606,14 @@
             <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
@@ -586,6 +641,14 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <fields>
                     <name>input02_Status</name>
@@ -598,6 +661,14 @@
                     <fieldType>RadioButtons</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -620,6 +691,14 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <fields>
                     <name>input02_ReleaseDate</name>
@@ -631,6 +710,14 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -642,6 +729,14 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
@@ -654,14 +749,27 @@
             </visibilityRule>
         </fields>
         <fields>
-            <name>input02_Notes</name>
+            <name>input02_Description</name>
             <defaultValue>
                 <stringValue>{!getTemplate.Description__c}</stringValue>
             </defaultValue>
-            <fieldText>Notes</fieldText>
+            <fieldText>Description</fieldText>
             <fieldType>LargeTextArea</fieldType>
+            <helpText>&lt;p&gt;{!$Label.iab__ReleaseFieldDescriptionHelp}&lt;/p&gt;</helpText>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(255, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;{!$Label.iab__ReleaseFieldDescriptionValidationError}&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>LEN({!input02_Description})&lt;=1000</formulaExpression>
+            </validationRule>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
@@ -693,6 +801,14 @@
             <name>text03a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Select Estimated Points Level&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;One final step:  you need to decide which Estimated Points level to use when creating the related template stories.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Template stories include &quot;Estimated Points&quot; - rough estimates of the level of effort required to complete each story. There are different estimates to choose from (Beginner, Intermediate, and Expert), depending on your experience/comfort level with the related work. These estimates roll up to help you better understand the overall level of effort to complete a release.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Please select the Estimated Points level to use:&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input03_EstimatedPointsLevel</name>
@@ -704,6 +820,14 @@
             <fieldType>RadioButtons</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Create from Template</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>

@@ -492,7 +492,7 @@ Actual_Points__c)</formula>
                 </value>
                 <value>
                     <fullName>Defined</fullName>
-                    <default>false</default>
+                    <default>true</default>
                     <label>Defined</label>
                 </value>
                 <value>

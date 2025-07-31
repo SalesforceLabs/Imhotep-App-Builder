@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>setDraftTestScenario</name>
         <label>Set Draft Test Scenario</label>
@@ -152,6 +153,14 @@
             <name>text01a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Please enter the details of your new test scenario:&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s01_Section1</name>
@@ -170,6 +179,14 @@
                     <fieldType>RadioButtons</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -181,6 +198,14 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s01_Section2</name>
@@ -207,6 +232,14 @@
                     <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -218,6 +251,14 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s01_Section3</name>
@@ -244,6 +285,14 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -255,6 +304,14 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s01_Section4</name>
@@ -281,6 +338,14 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -292,6 +357,14 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Create Test Scenario</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>

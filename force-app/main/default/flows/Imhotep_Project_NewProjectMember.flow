@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>setErrorForExistingMember</name>
         <label>Set Error for Existing Member</label>
         <locationX>314</locationX>
-        <locationY>890</locationY>
+        <locationY>998</locationY>
         <assignmentItems>
             <assignToReference>varFlagErrorExistingProjectMember</assignToReference>
             <operator>Assign</operator>
@@ -22,7 +23,7 @@
         <name>setResetExistingMemberFlag</name>
         <label>Reset Existing Member Flag</label>
         <locationX>182</locationX>
-        <locationY>566</locationY>
+        <locationY>674</locationY>
         <assignmentItems>
             <assignToReference>varFlagErrorExistingProjectMember</assignToReference>
             <operator>Assign</operator>
@@ -54,7 +55,7 @@
         <name>decExistingProjectMember</name>
         <label>Existing Project Member?</label>
         <locationX>182</locationX>
-        <locationY>782</locationY>
+        <locationY>890</locationY>
         <defaultConnector>
             <targetReference>setErrorForExistingMember</targetReference>
         </defaultConnector>
@@ -93,34 +94,19 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>s01</targetReference>
+                <targetReference>getActiveInternalUsers</targetReference>
             </connector>
             <label>Authorized</label>
         </rules>
     </decisions>
     <description>Add a new project member to a given project.</description>
     <dynamicChoiceSets>
-        <name>choicesUsers</name>
+        <description>All active, internal user records.</description>
+        <name>choicesCollActiveInternalUsers</name>
+        <collectionReference>getActiveInternalUsers</collectionReference>
         <dataType>String</dataType>
         <displayField>Name</displayField>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>NotEqualTo</operator>
-            <value>
-                <elementReference>$User.Id</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>IsActive</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </filters>
         <object>User</object>
-        <sortField>Name</sortField>
-        <sortOrder>Asc</sortOrder>
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <environments>Default</environments>
@@ -147,6 +133,57 @@
         </value>
     </processMetadataValues>
     <processType>Flow</processType>
+    <recordLookups>
+        <name>getActiveInternalUsers</name>
+        <label>Get Active Internal Users</label>
+        <locationX>182</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>s01</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>UserType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Standard</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>FirstName</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Integration</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>FirstName</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Security</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>User</object>
+        <sortField>Name</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordLookups>
         <name>getProject</name>
         <label>Get Project</label>
@@ -175,7 +212,7 @@
         <name>getSearchForExistingProjectMember</name>
         <label>Search for Existing Project Member</label>
         <locationX>182</locationX>
-        <locationY>674</locationY>
+        <locationY>782</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>decExistingProjectMember</targetReference>
@@ -208,7 +245,7 @@
         <name>s01</name>
         <label>Enter Details</label>
         <locationX>182</locationX>
-        <locationY>458</locationY>
+        <locationY>566</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -219,6 +256,14 @@
             <name>text01a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Add a New Project Member&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Project:  {!getProject.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Add someone new to your project team&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s01_Section1</name>
@@ -228,7 +273,7 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>input01_User</name>
-                    <choiceReferences>choicesUsers</choiceReferences>
+                    <choiceReferences>choicesCollActiveInternalUsers</choiceReferences>
                     <defaultValue>
                         <elementReference>input01_User.selectedChoiceValues</elementReference>
                     </defaultValue>
@@ -238,11 +283,27 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <fields>
                     <name>error01a</name>
                     <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;The selected user is already a member of this project.&lt;/span&gt;&lt;/p&gt;</fieldText>
                     <fieldType>DisplayText</fieldType>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -275,6 +336,14 @@
                     <fieldType>RadioButtons</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -286,6 +355,14 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input01_Notes</name>
@@ -297,6 +374,14 @@
             <helpText>&lt;p&gt;Notes are entirely optional, but might help provide info about a person&apos;s specific role, expertise, availability, etc.&lt;/p&gt;</helpText>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Add Project Member</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
@@ -344,7 +429,7 @@
         <name>subflowCreateProjectMember</name>
         <label>Create Project Member</label>
         <locationX>50</locationX>
-        <locationY>890</locationY>
+        <locationY>998</locationY>
         <flowName>Imhotep_ProjectMember_CRUDActions</flowName>
         <inputAssignments>
             <name>inputNotes</name>

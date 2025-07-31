@@ -1,0 +1,20 @@
+<template>
+    <template lwc:if={showReleaseList}>
+        <div class="slds-p-top_x-small">
+            <p class="iab-text-name">{label.SelectReleaseLWCFieldLabel}:</p>
+            <template for:each={inputReleaseColl} for:item='release'>
+                <div key={release.Id} class="iab-row-container slds-p-vertical_x-small">
+                    <lightning-button-group>
+                        <lightning-button   variant="brand"
+                                            label={label.SelectReleaseLWCActionLabel}
+                                            value={release.Id}
+                                            onclick={handleSelection}></lightning-button>
+                    </lightning-button-group>
+                    <div class="slds-p-left_x-small">
+                        <p class="iab-text-name">{release.Name}</p>
+                    </div>
+                </div> 
+            </template>
+        </div>
+    </template>
+</template>

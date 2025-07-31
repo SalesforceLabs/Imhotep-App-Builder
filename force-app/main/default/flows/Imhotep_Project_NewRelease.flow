@@ -16,9 +16,9 @@
         </inputParameters>
         <nameSegment>iab:imhotepFlowNavigate</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>setDraftRelease</name>
         <label>Set Draft Release</label>
@@ -46,10 +46,10 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>varDraftRelease.Notes__c</assignToReference>
+            <assignToReference>varDraftRelease.Description__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>input01_Notes</elementReference>
+                <elementReference>input01_Description</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -226,6 +226,14 @@
             <name>text01a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px;&quot;&gt;Create a New Release&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; color: rgb(68, 68, 68);&quot;&gt;Project:  {!getProject.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Please provide the details for your new release:&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s01_Section1</name>
@@ -240,6 +248,14 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -251,6 +267,14 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s01_Section2</name>
@@ -268,6 +292,14 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <fields>
                     <name>input01_Status</name>
@@ -280,6 +312,14 @@
                     <fieldType>RadioButtons</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -302,6 +342,14 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <fields>
                     <name>input01_ReleaseDate</name>
@@ -313,6 +361,14 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <fields>
                     <name>input01_PointsGoal</name>
@@ -324,8 +380,19 @@
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;{!$Label.iab__ReleaseFieldPointsGoalHelp}&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>false</booleanValue>
+                    </isDisabled>
                     <isRequired>false</isRequired>
                     <scale>0</scale>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -347,13 +414,34 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
-            <name>input01_Notes</name>
-            <fieldText>Notes</fieldText>
+            <name>input01_Description</name>
+            <fieldText>Description</fieldText>
             <fieldType>LargeTextArea</fieldType>
+            <helpText>&lt;p&gt;{!$Label.iab__ReleaseFieldDescriptionHelp}&lt;/p&gt;</helpText>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(255, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;{!$Label.iab__ReleaseFieldDescriptionValidationError}&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>LEN({!input01_Description})&lt;=1000</formulaExpression>
+            </validationRule>
         </fields>
         <fields>
             <name>input01_ReleaseMode</name>
@@ -367,6 +455,14 @@
             <helpText>&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Setting that controls the features and layout enabled for this release and its related stories.&lt;/span&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Default is Standard (all Imhotep features enabled).&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Individual releases and stories can override this selection.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span class=&quot;ql-cursor&quot;&gt;﻿&lt;/span&gt;Changing this field or the record type will convert this release and its related stories (field data will not be lost but it may be hidden on the page).&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</helpText>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Create Release</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>

@@ -21,10 +21,6 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 ********************************************************************************************
-* MODIFICATION LOG
-* 	Date			Developer			Story		Description
-*	03/06/2023		Mitch Lynch			S-000188	Initial component created.
-********************************************************************************************
 -->
 
 <aura:event type="COMPONENT">

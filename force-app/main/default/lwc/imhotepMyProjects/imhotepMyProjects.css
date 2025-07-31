@@ -1,0 +1,33 @@
+:host {
+    --slds-c-card-color-border: var(--slds-g-color-border-1);
+    --slds-c-button-inverse-color-border: rgb(201, 201, 201);   /* same as --lwc-buttonColorBorderPrimary, used for lightning-button-icon buttons */
+    --slds-c-card-radius-border: var(--slds-g-radius-border-4);
+}
+
+.slds-card {
+    color: var(--slds-g-color-on-surface-2);
+}
+
+.iab-no-border {
+    border: none;
+}
+
+.iab-project-card {
+    border-radius: var(--slds-g-radius-border-4);
+    border: var(--slds-g-sizing-border-1) solid var(--slds-c-card-color-border);
+}
+
+.iab-release-card {
+    border-radius: var(--slds-g-radius-border-4);
+}
+
+.iab-release-card:hover {
+    cursor: pointer;
+    outline: 0;
+    border: var(--slds-g-sizing-border-1) solid var(--slds-g-color-border-accent-2);
+    box-shadow: 0 0 0 1px var(--slds-g-color-accent-1) inset;
+}
+
+.iab-release-name {
+    font-weight: bold;
+}

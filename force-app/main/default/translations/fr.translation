@@ -9,6 +9,10 @@
         <name>Imhotep_Mobile</name>
     </customApplications>
     <customLabels>
+        <label>Ajouter des métadonnées</label>
+        <name>ActionAddMetadataLabel</name>
+    </customLabels>
+    <customLabels>
         <label>Ajouter des histoires modèles</label>
         <name>ActionAddTemplateStoriesLabel</name>
     </customLabels>
@@ -125,6 +129,18 @@
         <name>ActionModifyProjectMemberLabel</name>
     </customLabels>
     <customLabels>
+        <label>Erreur lors de la mise à jour du statut de l’histoire</label>
+        <name>ActionMoveStoryErrorTitle</name>
+    </customLabels>
+    <customLabels>
+        <label>Statut de l’histoire mis à jour en</label>
+        <name>ActionMoveStorySuccessMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>Succès</label>
+        <name>ActionMoveStorySuccessTitle</name>
+    </customLabels>
+    <customLabels>
         <label>Nouveau projet</label>
         <name>ActionNewProjectLabel</name>
     </customLabels>
@@ -193,6 +209,14 @@
         <name>ActionRefreshProjectsLabel</name>
     </customLabels>
     <customLabels>
+        <label><!-- ActionRefreshReleasesAlt --></label>
+        <name>ActionRefreshReleasesAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Actualiser les versions</label>
+        <name>ActionRefreshReleasesLabel</name>
+    </customLabels>
+    <customLabels>
         <label>Cliquez pour actualiser les données de l&apos;histoire dans la liste</label>
         <name>ActionRefreshStoriesAlt</name>
     </customLabels>
@@ -221,6 +245,10 @@
         <name>ActionResourceLinkMenuExpandCollapseAlt</name>
     </customLabels>
     <customLabels>
+        <label>Réinitialiser la recherche et les filtres</label>
+        <name>ActionSearchFilterResetKanbanLabel</name>
+    </customLabels>
+    <customLabels>
         <label>Sélectionner</label>
         <name>ActionSelectTemplateLabel</name>
     </customLabels>
@@ -243,6 +271,14 @@
     <customLabels>
         <label>Mettre à jour le statut</label>
         <name>ActionTestScenarioUpdateStatusLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliquez pour afficher/masquer la recherche et les filtres des histoires</label>
+        <name>ActionToggleFiltersKanbanAlt</name>
+    </customLabels>
+    <customLabels>
+        <label>Activer/Désactiver la recherche et les filtres des histoires</label>
+        <name>ActionToggleFiltersKanbanLabel</name>
     </customLabels>
     <customLabels>
         <label>Cliquez pour transférer l&apos;histoire à une autre version dans une fenêtre modale</label>
@@ -353,7 +389,7 @@
         <name>ChangeFieldStoryStatusLabel</name>
     </customLabels>
     <customLabels>
-        <label>Ressources</label>
+        <label>Ressources du projet</label>
         <name>CompResourceBarHeading</name>
     </customLabels>
     <customLabels>
@@ -377,6 +413,10 @@
         <name>HeadingMetadataChangesEdit</name>
     </customLabels>
     <customLabels>
+        <label>Composants de métadonnées</label>
+        <name>HeadingMetadataComponents</name>
+    </customLabels>
+    <customLabels>
         <label>Membres du projet</label>
         <name>HeadingProjectMembers</name>
     </customLabels>
@@ -391,6 +431,10 @@
     <customLabels>
         <label>Mes projets</label>
         <name>HeadingProjectTiles</name>
+    </customLabels>
+    <customLabels>
+        <label>Cet onglet comprend une liste complète de vos versions, ainsi que des raccourcis vers les versions avec lesquelles vous travaillez probablement le plus (versions actives, versions en planification et backlogs).</label>
+        <name>HeadingReleaseListHelp</name>
     </customLabels>
     <customLabels>
         <label>Liste des histoires</label>
@@ -429,6 +473,42 @@
         <name>ImageStepPyramidAlt</name>
     </customLabels>
     <customLabels>
+        <label>Filtrer par assigné</label>
+        <name>InputAssigneeFilterKanbanLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Filtrer par autres attributs</label>
+        <name>InputOtherAttributesFilterKanbanLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Recherche dans Titre, Histoire/Description et Numéro de l&apos;histoire</label>
+        <name>InputSearchKanbanHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Rechercher des histoires</label>
+        <name>InputSearchKanbanLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Filtrer par type d’histoire</label>
+        <name>InputStoryTypeFilterKanbanLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Pour apparaître dans le Kanban, les histoires doivent avoir tous les tags sélectionnés.</label>
+        <name>InputTagFilterKanbanHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Filtrer par tag</label>
+        <name>InputTagFilterKanbanLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoires sans tags</label>
+        <name>KanbanFilterValueStoriesWithoutTags</name>
+    </customLabels>
+    <customLabels>
+        <label>Histoires non assignées</label>
+        <name>KanbanFilterValueUnassignedStories</name>
+    </customLabels>
+    <customLabels>
         <label>Supprimé</label>
         <name>LogChangeLWCActionDeletedLabel</name>
     </customLabels>
@@ -457,6 +537,38 @@
         <name>LogChangeLWCListMessage</name>
     </customLabels>
     <customLabels>
+        <label>Aucun composant de métadonnées</label>
+        <name>MetadataEmptyHeading</name>
+    </customLabels>
+    <customLabels>
+        <label>Un parchemin vierge porte la promesse de la sagesse ; un rempli, sa preuve.</label>
+        <name>MetadataEmptyText1</name>
+    </customLabels>
+    <customLabels>
+        <label>Au fur et à mesure que vous créez et modifiez Salesforce en travaillant sur une histoire, un inventaire de vos métadonnées Salesforce pour le projet apparaîtra ici.</label>
+        <name>MetadataEmptyText2</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom de l&apos;API</label>
+        <name>MetadataFieldAPINameLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Catégorie</label>
+        <name>MetadataFieldCategoryLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Type de métadonnées</label>
+        <name>MetadataFieldMetadataTypeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Composant de métadonnées</label>
+        <name>MetadataFieldNameLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Tous les composants de métadonnées</label>
+        <name>MetadataTypeAllLabel</name>
+    </customLabels>
+    <customLabels>
         <label>Changements de composants de métadonnées</label>
         <name>PageListMetadataComponentChanges</name>
     </customLabels>
@@ -467,6 +579,10 @@
     <customLabels>
         <label>Journal des modifications</label>
         <name>PageTabChangeLog</name>
+    </customLabels>
+    <customLabels>
+        <label>Composants de métadonnées</label>
+        <name>PageTabMetadataComponents</name>
     </customLabels>
     <customLabels>
         <label>Mes histoires (En construction)</label>
@@ -481,6 +597,14 @@
         <name>PageTabNewestStories</name>
     </customLabels>
     <customLabels>
+        <label>Membres du projet</label>
+        <name>PageTabProjectMembers</name>
+    </customLabels>
+    <customLabels>
+        <label>Versions</label>
+        <name>PageTabReleases</name>
+    </customLabels>
+    <customLabels>
         <label>Histoires demandées</label>
         <name>PageTabRequestedStories</name>
     </customLabels>
@@ -491,6 +615,10 @@
     <customLabels>
         <label>Liste des histoires</label>
         <name>PageTabStoryList</name>
+    </customLabels>
+    <customLabels>
+        <label>Tâches et histoires enfants</label>
+        <name>PageTabTasksAndChildStories</name>
     </customLabels>
     <customLabels>
         <label>Test</label>
@@ -525,6 +653,10 @@
         <name>ProjectIconTitle</name>
     </customLabels>
     <customLabels>
+        <label>Aucun membre du projet</label>
+        <name>ProjectMemberEmptyHeading</name>
+    </customLabels>
+    <customLabels>
         <label>Pas encore de membres du projet</label>
         <name>ProjectMemberEmptyText</name>
     </customLabels>
@@ -541,6 +673,14 @@
         <name>ProjectMemberFieldRoleLabel</name>
     </customLabels>
     <customLabels>
+        <label>Backlog pour la création, l&apos;évaluation et la priorisation des histoires.</label>
+        <name>ReleaseBacklogDefaultDescription</name>
+    </customLabels>
+    <customLabels>
+        <label>Backlog</label>
+        <name>ReleaseBacklogDefaultName</name>
+    </customLabels>
+    <customLabels>
         <label>Pas encore de sorties</label>
         <name>ReleaseEmptyHeading</name>
     </customLabels>
@@ -549,12 +689,36 @@
         <name>ReleaseEmptyText</name>
     </customLabels>
     <customLabels>
+        <label>Brève description de l&apos;objectif ou de la portée de la publication.</label>
+        <name>ReleaseFieldDescriptionHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Description</label>
+        <name>ReleaseFieldDescriptionLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Vous avez dépassé la longueur maximale de caractères (1000 caractères, espaces compris). Veuillez réduire votre description pour l&apos;enregistrer.</label>
+        <name>ReleaseFieldDescriptionValidationError</name>
+    </customLabels>
+    <customLabels>
         <label>Backlog</label>
         <name>ReleaseFieldIsBacklogIconTitle</name>
     </customLabels>
     <customLabels>
+        <label>Est-ce un backlog?</label>
+        <name>ReleaseFieldIsBacklogLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Version</label>
+        <name>ReleaseFieldNameLabel</name>
+    </customLabels>
+    <customLabels>
         <label>Nombre maximal de points prévus pour la publication.</label>
         <name>ReleaseFieldPointsGoalHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Date de sortie</label>
+        <name>ReleaseFieldReleaseDateLabel</name>
     </customLabels>
     <customLabels>
         <label>Accepté</label>
@@ -571,6 +735,14 @@
     <customLabels>
         <label>Planification</label>
         <name>ReleaseFieldStatusPlanning</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionner</label>
+        <name>SelectReleaseLWCActionLabel</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionner une version</label>
+        <name>SelectReleaseLWCFieldLabel</name>
     </customLabels>
     <customLabels>
         <label>Histoires de release acceptées</label>
@@ -591,6 +763,10 @@
     <customLabels>
         <label>Histoires de release en planification</label>
         <name>StoriesHeadingPlanningReleaseLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- StoryChildStoriesRelatedListLabel --></label>
+        <name>StoryChildStoriesRelatedListLabel</name>
     </customLabels>
     <customLabels>
         <label>Aucune histoire dans cet état</label>
@@ -1113,11 +1289,19 @@
             </choices>
             <screens>
                 <fields>
-                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Supprimer l&apos;accès du membre du projet&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Projet:  {!getProjectMember.Project__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Membre du projet:  {!getProjectMember.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Souhaitez-vous supprimer cet utilisateur du projet ?&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Cette action révoquera immédiatement l&apos;accès de l&apos;utilisateur à tous les enregistrements liés au projet.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Supprimer l&apos;accès du membre du projet&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Membre du projet:  {!getProjectMember.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Souhaitez-vous supprimer cet utilisateur du projet ?&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Cette action révoquera immédiatement l&apos;accès de l&apos;utilisateur à tous les enregistrements liés au projet.&lt;/span&gt;&lt;/p&gt;</fieldText>
                     <name>text01a</name>
                 </fields>
                 <name>s01</name>
                 <nextOrFinishButtonLabel>Supprimer le membre du projet</nextOrFinishButtonLabel>
+            </screens>
+            <screens>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Supprimer l&apos;accès au membre du projet&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Membre du projet : {!getProjectMember.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Vous n&apos;êtes pas autorisé à supprimer le propriétaire/chef du projet.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Pour retirer cette personne du projet, vous devez d&apos;abord désigner un autre membre du projet comme propriétaire/chef.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text99a</name>
+                </fields>
+                <name>s99</name>
+                <nextOrFinishButtonLabel>Fermer</nextOrFinishButtonLabel>
             </screens>
         </flows>
         <fullName>Imhotep_ProjectMember_Delete</fullName>
@@ -1142,7 +1326,7 @@
                     <name>input01_Role</name>
                 </fields>
                 <fields>
-                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Modifier l&apos;accès du membre du projet&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Projet : {!getProjectMember.Project__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Membre du projet : {!getProjectMember.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Mettre à jour les détails du membre du projet ci-dessous&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; :&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Modifier l&apos;accès du membre du projet&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Projet : {!fProjectName}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Membre du projet : {!getProjectMember.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Mettre à jour les détails du membre du projet ci-dessous&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; :&lt;/span&gt;&lt;/p&gt;</fieldText>
                     <name>text01a</name>
                 </fields>
                 <name>s01</name>
@@ -1167,33 +1351,24 @@
         <flows>
             <screens>
                 <fields>
+                    <fieldText>Nom API (le cas échéant)</fieldText>
+                    <name>input01_APIName</name>
+                </fields>
+                <fields>
+                    <fieldText>Catégorie</fieldText>
+                    <name>input01_Category</name>
+                </fields>
+                <fields>
                     <fieldText>Type de métadonnées</fieldText>
                     <name>input01_MetadataType</name>
                 </fields>
                 <fields>
-                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Ajoutez un composant de métadonnées existant à la liste afin qu&apos;il puisse être utilisé lors de l&apos;enregistrement des modifications dans l&apos;application. Sélectionnez un type de métadonnées pour commencer.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;﻿&lt;/strong&gt;&lt;/p&gt;</fieldText>
-                    <name>text01a</name>
-                </fields>
-                <name>s01</name>
-                <nextOrFinishButtonLabel>Suivant &gt;</nextOrFinishButtonLabel>
-            </screens>
-            <screens>
-                <backButtonLabel>&lt; Retour</backButtonLabel>
-                <fields>
-                    <fieldText>Nom de l&apos;API (le cas échéant)</fieldText>
-                    <name>input02_APIName</name>
-                </fields>
-                <fields>
-                    <fieldText>Catégorie</fieldText>
-                    <name>input02_Category</name>
-                </fields>
-                <fields>
                     <fieldText>Nom / Étiquette</fieldText>
-                    <name>input02_Name</name>
+                    <name>input01_Name</name>
                 </fields>
                 <fields>
                     <fieldText>Notes (le cas échéant)</fieldText>
-                    <name>input02_Notes</name>
+                    <name>input01_Notes</name>
                 </fields>
                 <fields>
                     <inputParameters>
@@ -1202,7 +1377,9 @@
                     </inputParameters>
                     <inputParameters>
                         <name>label</name>
-                        <value/>
+                        <value>
+                            <stringValue>&quot;Composant de métadonnées parent (le cas échéant)&quot;</stringValue>
+                        </value>
                     </inputParameters>
                     <inputParameters>
                         <name>objectApiName</name>
@@ -1212,31 +1389,35 @@
                         <name>required</name>
                         <value/>
                     </inputParameters>
-                    <name>input02_ParentMetadataComponent</name>
+                    <name>input01_ParentMetadataComponent</name>
                 </fields>
                 <fields>
-                    <name>s02_Section1</name>
-                </fields>
-                <fields>
-                    <inputParameters>
-                        <name>width</name>
-                        <value/>
-                    </inputParameters>
-                    <name>s02_Section1_Column1</name>
+                    <name>s01_Section1</name>
                 </fields>
                 <fields>
                     <inputParameters>
                         <name>width</name>
                         <value/>
                     </inputParameters>
-                    <name>s02_Section1_Column2</name>
+                    <name>s01_Section1_Column1</name>
                 </fields>
                 <fields>
-                    <fieldText>&lt;p&gt;&lt;b style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Fournissez quelques détails sur votre {!input01_MetadataType}:&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;﻿&lt;/b&gt;&lt;/p&gt;</fieldText>
-                    <name>text02a</name>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column2</name>
                 </fields>
-                <name>s02</name>
-                <nextOrFinishButtonLabel>Ajouter un composant de métadonnées &gt;</nextOrFinishButtonLabel>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Les composants de métadonnées sont généralement créés lorsque vous enregistrez des modifications de métadonnées en travaillant sur une histoire. Mais il est courant d&apos;avoir un projet qui modifie des éléments préexistants dans votre organisation Salesforce.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Utilisez ce flux pour ajouter un composant de métadonnées existant à la liste afin qu&apos;il puisse être utilisé lors de l&apos;enregistrement des modifications dans vos histoires&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; (pour les insertions en masse, envisagez d&apos;utiliser l&apos; &lt;/span&gt;&lt;a href=&quot;https://help.salesforce.com/s/articleView?id=xcloud.import_with_data_import_wizard.htm&amp;amp;type=5&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-size: 14px;&quot;&gt;Assistant d&apos;importation de données Salesforce&lt;/a&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+                    <name>text01b</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Suivant &gt;</nextOrFinishButtonLabel>
             </screens>
             <screens>
                 <fields>
@@ -1292,15 +1473,17 @@
             <screens>
                 <backButtonLabel>&lt; Retour</backButtonLabel>
                 <fields>
+                    <fieldText>Description</fieldText>
+                    <name>input02_Description</name>
+                    <validationRule/>
+                </fields>
+                <fields>
                     <fieldText>Cette version est-elle un backlog ?</fieldText>
                     <name>input02_IsBacklog</name>
                 </fields>
                 <fields>
                     <fieldText>Nom</fieldText>
                     <name>input02_Name</name>
-                </fields>
-                <fields>
-                    <name>input02_Notes</name>
                 </fields>
                 <fields>
                     <fieldText>Date de sortie</fieldText>
@@ -1340,6 +1523,30 @@
             </screens>
         </flows>
         <fullName>Imhotep_Project_CreateReleaseFromTemplate</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <screens>
+                <fields>
+                    <fieldText>Confirmer le nom du projet à supprimer</fieldText>
+                    <name>input01_ProjectNameFromUser</name>
+                    <validationRule>
+                        <errorMessage>&lt;p&gt;&lt;strong style=&quot;color: rgb(255, 0, 0);&quot;&gt;La valeur que vous avez saisie ne correspond pas au nom du projet ci-dessus.&amp;nbsp;Si vous souhaitez supprimer le projet, veuillez réessayer.&lt;/strong&gt;&lt;/p&gt;</errorMessage>
+                    </validationRule>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Êtes-vous sûr de vouloir supprimer ce projet ?&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Cette action supprimera également tous les enregistrements et données associés (versions, histoires, scénarios de test et résultats, composants et modifications de métadonnées, liens de ressources, Chatter, fichiers, notes, tâches, etc.).&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text01a</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Avant que votre projet ne soit supprimé, veuillez confirmer en saisissant son nom tel qu&apos;il apparaît ci-dessous :&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;&quot;{!getProject.Name}&quot;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+                    <name>text01b</name>
+                </fields>
+                <name>s01</name>
+                <nextOrFinishButtonLabel>Supprimer le projet</nextOrFinishButtonLabel>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Project_Delete</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows>
@@ -1413,15 +1620,16 @@
         <flows>
             <screens>
                 <fields>
+                    <name>input01_Description</name>
+                    <validationRule/>
+                </fields>
+                <fields>
                     <fieldText>Cette version est-elle un backlog ?</fieldText>
                     <name>input01_IsBacklog</name>
                 </fields>
                 <fields>
                     <fieldText>Nom</fieldText>
                     <name>input01_Name</name>
-                </fields>
-                <fields>
-                    <name>input01_Notes</name>
                 </fields>
                 <fields>
                     <fieldText>Objectif de points</fieldText>
@@ -1574,11 +1782,12 @@
         <flows>
             <screens>
                 <fields>
-                    <name>input01_Description</name>
+                    <fieldText>Description</fieldText>
+                    <name>input02_Description</name>
                 </fields>
                 <fields>
                     <fieldText>Nom</fieldText>
-                    <name>input01_Name</name>
+                    <name>input02_Name</name>
                 </fields>
                 <fields>
                     <inputParameters>
@@ -1597,27 +1806,39 @@
                         <name>selectionMode</name>
                         <value/>
                     </inputParameters>
-                    <name>input01_StoryTable</name>
+                    <name>input02_StoryTable</name>
                 </fields>
                 <fields>
-                    <name>s01_Section1</name>
+                    <name>s02_Section1</name>
                 </fields>
                 <fields>
                     <inputParameters>
                         <name>width</name>
                         <value/>
                     </inputParameters>
-                    <name>s01_Section1_Column1</name>
+                    <name>s02_Section1_Column1</name>
                 </fields>
                 <fields>
-                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px; color: rgb(0, 0, 0);&quot;&gt;Créer un nouveau modèle&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Projet sélectionné:  &lt;/span&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;{!getRelease.Project__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Version sélectionnée:  {!getRelease.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Vous pouvez créer un modèle à partir de la version sélectionnée.  Cela copiera toutes les histoires souhaitées dans un modèle que vous pouvez utiliser dans d&apos;autres versions ou même d&apos;autres projets.  Les modèles peuvent également être partagés avec d&apos;autres utilisateurs!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Veuillez fournir les détails du nouveau modèle:&lt;/strong&gt;&lt;/p&gt;</fieldText>
-                    <name>text01a</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px; color: rgb(0, 0, 0);&quot;&gt;Créer un nouveau modèle&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+                    <name>text02a</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Version s&amp;#233;lectionn&amp;#233;e:  {!getRelease.Name}&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>text02b</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Vous pouvez créer un modèle à partir de la version sélectionnée. Cela copiera toutes les histoires souhaitées dans un modèle que vous pourrez utiliser dans d&apos;autres versions ou même d&apos;autres projets. Les modèles peuvent également être partagés avec d&apos;autres utilisateurs !&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+                    <name>text02c</name>
+                </fields>
+                <fields>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Veuillez fournir les détails du nouveau modèle :&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <name>text02d</name>
                 </fields>
                 <fields>
                     <fieldText>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);&quot;&gt;Sélectionnez les histoires que vous souhaitez inclure dans votre nouveau modèle&lt;/strong&gt;&lt;span style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);&quot;&gt; (au moins une doit être sélectionnée)&lt;/span&gt;&lt;strong style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);&quot;&gt;:&lt;/strong&gt;&lt;/p&gt;</fieldText>
-                    <name>text01b</name>
+                    <name>text02e</name>
                 </fields>
-                <name>s01</name>
+                <name>s02</name>
                 <nextOrFinishButtonLabel>Créer un modèle</nextOrFinishButtonLabel>
             </screens>
         </flows>
@@ -2265,7 +2486,9 @@
                     </inputParameters>
                     <inputParameters>
                         <name>label</name>
-                        <value/>
+                        <value>
+                            <stringValue>Composant de métadonnées parent (le cas échéant)</stringValue>
+                        </value>
                     </inputParameters>
                     <inputParameters>
                         <name>objectApiName</name>
@@ -2312,8 +2535,30 @@
             <screens>
                 <backButtonLabel>&lt; Retour</backButtonLabel>
                 <fields>
+                    <fieldText>Nom de l&apos;API (le cas échéant)</fieldText>
+                    <name>input03_APIName</name>
+                </fields>
+                <fields>
+                    <fieldText>Nom / Étiquette</fieldText>
+                    <name>input03_Name</name>
+                </fields>
+                <fields>
                     <fieldText>Notes de modification (le cas échéant)</fieldText>
                     <name>input03_Notes</name>
+                </fields>
+                <fields>
+                    <fieldText>Le composant de métadonnées a été renommé</fieldText>
+                    <name>input03_Renamed</name>
+                </fields>
+                <fields>
+                    <name>s03_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s03_Section1_Column1</name>
                 </fields>
                 <fields>
                     <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 16px;&quot;&gt;Enregistrer une modification de métadonnées&lt;/strong&gt;&lt;/p&gt;</fieldText>
@@ -2335,6 +2580,139 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows>
+            <choices>
+                <name>choiceUnassignedStory</name>
+            </choices>
+            <screens>
+                <fields>
+                    <name>el_0</name>
+                </fields>
+                <fields>
+                    <name>el_1</name>
+                </fields>
+                <fields>
+                    <name>el_2</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_AssignedProjectMember</name>
+                </fields>
+                <fields>
+                    <name>input01_NotifyByEmail</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_ParentStory</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_RequestedRelease</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_SolutionBuildNotes</name>
+                </fields>
+                <fields>
+                    <name>input01_Status</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>labelText</name>
+                        <value/>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>tooltipText</name>
+                        <value/>
+                    </inputParameters>
+                    <name>input01_StoryDescription</name>
+                </fields>
+                <fields>
+                    <name>input01_StoryType</name>
+                </fields>
+                <fields>
+                    <name>s01_Section1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section1_Column2</name>
+                </fields>
+                <fields>
+                    <name>s01_Section2</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section2_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section2_Column2</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section2_Column3</name>
+                </fields>
+                <fields>
+                    <name>s01_Section3</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section3_Column1</name>
+                </fields>
+                <fields>
+                    <inputParameters>
+                        <name>width</name>
+                        <value/>
+                    </inputParameters>
+                    <name>s01_Section3_Column2</name>
+                </fields>
+                <fields>
+                    <name>text01a</name>
+                </fields>
+                <name>s01</name>
+            </screens>
+        </flows>
+        <fullName>Imhotep_Story_NewChildStory</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
             <screens>
                 <fields>
                     <fieldText>&lt;p&gt;&lt;b style=&quot;color: rgb(255, 0, 0);&quot;&gt;&quot;{!input01_Name}&quot; existe déjà.﻿&lt;/b&gt;&lt;/p&gt;</fieldText>
@@ -2351,7 +2729,9 @@
                     </inputParameters>
                     <inputParameters>
                         <name>label</name>
-                        <value/>
+                        <value>
+                            <stringValue>Créer un nouveau tag?</stringValue>
+                        </value>
                     </inputParameters>
                     <inputParameters>
                         <name>messageToggleActive</name>
@@ -2995,16 +3375,17 @@
                     <name>input02_CreationMode</name>
                 </fields>
                 <fields>
+                    <fieldText>Description</fieldText>
+                    <name>input02_Description</name>
+                    <validationRule/>
+                </fields>
+                <fields>
                     <fieldText>Cette version est-elle un backlog?</fieldText>
                     <name>input02_IsBacklog</name>
                 </fields>
                 <fields>
                     <fieldText>Nom</fieldText>
                     <name>input02_Name</name>
-                </fields>
-                <fields>
-                    <fieldText>Remarques</fieldText>
-                    <name>input02_Notes</name>
                 </fields>
                 <fields>
                     <fieldText>Date de sortie</fieldText>

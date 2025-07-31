@@ -14,12 +14,18 @@
         <name>Created_from_Template__c</name>
     </fields>
     <fields>
+        <help><!-- Brief description of the purpose or scope of the release. --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
         <help><!-- If checked, this release is being used as a backlog and not for actual development. --></help>
         <label><!-- Is Backlog? --></label>
         <name>Is_Backlog__c</name>
     </fields>
     <fields>
-        <label><!-- Notes --></label>
+        <help><!-- Draft your detailed release notes here. --></help>
+        <label><!-- Release Notes --></label>
         <name>Notes__c</name>
     </fields>
     <fields>

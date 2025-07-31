@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Imhotep Release Selection List</masterLabel>
+    <description>Displays Releases as a list of action/navigation buttons on a Flow screen.</description>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property   label="Release Collection"
+                        name="inputReleaseColl"
+                        type="@salesforce/schema/iab__Release__c[]"
+                        role="inputOnly"
+                        description="Record collection of Releases." />
+            <property   label="Output: Button Clicked?"
+                        name="outputButtonClicked"
+                        type="Boolean"
+                        role="outputOnly" />
+            <property   label="Output: Selected Release Id"
+                        name="outputSelectedReleaseId"
+                        type="String"
+                        role="outputOnly" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

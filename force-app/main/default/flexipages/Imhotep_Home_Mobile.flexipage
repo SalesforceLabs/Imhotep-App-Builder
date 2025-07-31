@@ -210,12 +210,16 @@
         </itemInstances>
         <itemInstances>
             <componentInstance>
-                <componentName>devProjectTiles</componentName>
-                <identifier>iab_devProjectTiles</identifier>
+                <componentName>imhotepMyProjects</componentName>
+                <identifier>iab_imhotepMyProjects</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
             <componentInstance>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>Tabs</value>
+                </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>tabs</name>
                     <value>Facet-148f0adc-eaeb-42fd-9882-f718d9ab2cc6</value>

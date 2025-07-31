@@ -36,6 +36,34 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Default_Story_Kanban_Height__c</fullName>
+        <defaultValue>&quot;73vh&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Sets the height (e.g. 450px, 70vh) of the columns in the Story Kanban, located on the Release record page.  Default value is 73vh (73% of viewport height).</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Sets the height (e.g. 450px, 70vh) of the columns in the Story Kanban, located on the Release record page.  Default value is 73vh (73% of viewport height).</inlineHelpText>
+        <label>Default Story Kanban Height</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Default_Story_Status__c</fullName>
+        <defaultValue>&quot;Defined&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Used by various flows when creating stories as the initial value of the Status field.  Must exactly match an active Status picklist value.  Default is &quot;Defined&quot;.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Used by various flows when creating stories as the initial value of the Status field.  Must exactly match an active Status picklist value.  Default is &quot;Defined&quot;.</inlineHelpText>
+        <label>Default Story Status</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Documentation_URL__c</fullName>
         <defaultValue>&quot;https://sfdc.co/imhotep&quot;</defaultValue>
         <deprecated>false</deprecated>

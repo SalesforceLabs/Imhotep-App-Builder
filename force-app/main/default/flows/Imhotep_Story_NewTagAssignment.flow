@@ -19,9 +19,9 @@
         </inputParameters>
         <nameSegment>ImhotepStringToCollectionInvocable</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>setAddExistingTagIdToColl</name>
         <label>Add Existing Tag Id to Coll</label>
@@ -616,6 +616,14 @@
                     <name>text01c</name>
                     <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;There are no active Tags.  You may need to create one, or update an inactive one.&lt;/strong&gt;&lt;/p&gt;</fieldText>
                     <fieldType>DisplayText</fieldType>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -631,6 +639,14 @@
                     <name>text01a</name>
                     <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Which active Tag should this story be associated with?&lt;/strong&gt;&lt;/p&gt;</fieldText>
                     <fieldType>DisplayText</fieldType>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -653,6 +669,14 @@
                     <name>error01_ExistingThemeAssignment</name>
                     <fieldText>&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(255, 0, 0);&quot;&gt;Story is already linked to the selected Tag.&lt;/strong&gt;&lt;/p&gt;</fieldText>
                     <fieldType>DisplayText</fieldType>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -689,6 +713,14 @@
                     <fieldType>MultiSelectCheckboxes</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -711,6 +743,14 @@
                     <name>text01b</name>
                     <fieldText>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;If you don&apos;t see the Tag you&apos;re looking for, it&apos;s either inactive or doesn&apos;t exist.&lt;/strong&gt;&lt;/p&gt;</fieldText>
                     <fieldType>DisplayText</fieldType>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -777,6 +817,14 @@
                     <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <fields>
                     <name>input01_Name</name>
@@ -788,6 +836,14 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -803,6 +859,14 @@
                     <name>error01_ExistingTag</name>
                     <fieldText>&lt;p&gt;&lt;b style=&quot;color: rgb(255, 0, 0);&quot;&gt;&quot;{!input01_Name}&quot; already exists.﻿&lt;/b&gt;&lt;/p&gt;</fieldText>
                     <fieldType>DisplayText</fieldType>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -831,6 +895,14 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Assign Tag</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>

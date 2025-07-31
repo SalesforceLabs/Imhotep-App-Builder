@@ -4,7 +4,7 @@
         <name>actionNavigateToNewStory</name>
         <label>Navigate to New Story</label>
         <locationX>314</locationX>
-        <locationY>2270</locationY>
+        <locationY>2378</locationY>
         <actionName>iab:imhotepFlowNavigateToURL</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -27,10 +27,11 @@
             </value>
         </inputParameters>
         <nameSegment>iab:imhotepFlowNavigateToURL</nameSegment>
+        <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>setAssigned</name>
         <label>Set Assigned</label>
@@ -44,14 +45,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>s01</targetReference>
+            <targetReference>getProjectStories</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>setDraftStory</name>
         <label>Set Draft Story</label>
         <locationX>314</locationX>
-        <locationY>1406</locationY>
+        <locationY>1514</locationY>
         <assignmentItems>
             <assignToReference>varDraftStoryRec.Story_Type__c</assignToReference>
             <operator>Assign</operator>
@@ -167,7 +168,7 @@
         <name>decIsAssigned</name>
         <label>Is Assigned?</label>
         <locationX>314</locationX>
-        <locationY>1514</locationY>
+        <locationY>1622</locationY>
         <defaultConnector>
             <targetReference>createStory</targetReference>
         </defaultConnector>
@@ -226,7 +227,7 @@
         <name>decSendEmail</name>
         <label>Send Email?</label>
         <locationX>314</locationX>
-        <locationY>1970</locationY>
+        <locationY>2078</locationY>
         <defaultConnector>
             <targetReference>actionNavigateToNewStory</targetReference>
         </defaultConnector>
@@ -292,6 +293,15 @@
     </decisions>
     <description>Create a new user story from a Release.  Inputs:  recordId (for Release).</description>
     <dynamicChoiceSets>
+        <description>All Stories related to the current Release&apos;s Project.</description>
+        <name>choicesCollProjectStories</name>
+        <collectionReference>getProjectStories</collectionReference>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <object>Story__c</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
         <name>choicesProjectMembers</name>
         <dataType>String</dataType>
         <displayField>Name</displayField>
@@ -322,24 +332,6 @@
             </value>
         </filters>
         <object>Release__c</object>
-        <sortField>Name</sortField>
-        <sortOrder>Asc</sortOrder>
-        <valueField>Id</valueField>
-    </dynamicChoiceSets>
-    <dynamicChoiceSets>
-        <description>All Stories related to the current Release&apos;s Project.</description>
-        <name>choicesProjectStories</name>
-        <dataType>String</dataType>
-        <displayField>Name</displayField>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Project__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>getRelease.Project__c</elementReference>
-            </value>
-        </filters>
-        <object>Story__c</object>
         <sortField>Name</sortField>
         <sortOrder>Asc</sortOrder>
         <valueField>Id</valueField>
@@ -394,7 +386,7 @@
         <name>createStory</name>
         <label>Create Story</label>
         <locationX>314</locationX>
-        <locationY>1862</locationY>
+        <locationY>1970</locationY>
         <connector>
             <targetReference>decSendEmail</targetReference>
         </connector>
@@ -435,7 +427,7 @@
         <name>getAssignedProjectMember</name>
         <label>Get Assigned Project Member</label>
         <locationX>50</locationX>
-        <locationY>1622</locationY>
+        <locationY>1730</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>createStory</targetReference>
@@ -516,6 +508,29 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>getProjectStories</name>
+        <label>Get Project Stories</label>
+        <locationX>314</locationX>
+        <locationY>1190</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>s01</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Project__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>getRelease.Project__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Story__c</object>
+        <sortField>Name</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>getRelease</name>
         <label>Get Release</label>
         <locationX>930</locationX>
@@ -545,7 +560,7 @@
         <name>s01</name>
         <label>New Story Details</label>
         <locationX>314</locationX>
-        <locationY>1190</locationY>
+        <locationY>1298</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -556,6 +571,14 @@
             <name>text01a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 18px;&quot;&gt;Create a New Story&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Release:  {!getRelease.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;Please enter the details of your new story:&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s01_Section1</name>
@@ -574,6 +597,14 @@
                     <fieldType>RadioButtons</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -591,18 +622,34 @@
                     <choiceReferences>listStatus</choiceReferences>
                     <dataType>String</dataType>
                     <defaultValue>
-                        <stringValue>Defined</stringValue>
+                        <elementReference>getActiveCustomMetadataSettings.Default_Story_Status__c</elementReference>
                     </defaultValue>
                     <fieldText>Status</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <objectFieldReference>varDraftStoryRec.Expedite__c</objectFieldReference>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -614,12 +661,28 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <objectFieldReference>varDraftStoryRec.Name</objectFieldReference>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input01_StoryDescription</name>
@@ -640,6 +703,14 @@
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s01_Section2</name>
@@ -652,6 +723,14 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <objectFieldReference>varDraftStoryRec.Estimated_Points__c</objectFieldReference>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -666,7 +745,7 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>input01_ParentStory</name>
-                    <choiceReferences>choicesProjectStories</choiceReferences>
+                    <choiceReferences>choicesCollProjectStories</choiceReferences>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Parent Story</fieldText>
                     <fieldType>ComponentChoice</fieldType>
@@ -679,6 +758,14 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -706,6 +793,14 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -727,6 +822,14 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s01_Section3</name>
@@ -753,6 +856,14 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -775,6 +886,14 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -796,6 +915,14 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Create Story</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
@@ -813,7 +940,7 @@
         <name>getRecordType</name>
         <label>Get Record Type</label>
         <locationX>314</locationX>
-        <locationY>1298</locationY>
+        <locationY>1406</locationY>
         <connector>
             <targetReference>setDraftStory</targetReference>
         </connector>
@@ -860,7 +987,7 @@
         <name>subflowHandleScreenError</name>
         <label>Handle Screen Error</label>
         <locationX>754</locationX>
-        <locationY>1970</locationY>
+        <locationY>2078</locationY>
         <flowName>Imhotep_General_ScreenFlowError</flowName>
         <inputAssignments>
             <name>inputFaultMessage</name>
@@ -879,7 +1006,7 @@
         <name>subflowSendEmailToAssigned</name>
         <label>Send Email to Assigned</label>
         <locationX>182</locationX>
-        <locationY>2078</locationY>
+        <locationY>2186</locationY>
         <connector>
             <targetReference>actionNavigateToNewStory</targetReference>
         </connector>

@@ -217,6 +217,11 @@
     </quickActions>
     <quickActions>
         <aspect>Master</aspect>
+        <label>Nueva subhistoria</label>
+        <name>Story_New_Child_Story</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
         <label>Transferir a otro lanzamiento</label>
         <name>Story_Transfer_Action</name>
     </quickActions>

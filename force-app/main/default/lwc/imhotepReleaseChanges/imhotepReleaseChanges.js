@@ -8,29 +8,32 @@
 // Copyright (c) 2023, Salesforce, Inc.
 // SPDX-License-Identifier: Apache-2
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the
+// License. You may obtain a copy of the License at
 //
 //     http://www.apache.org/licenses/LICENSE-2.0
 //
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-// *******************************************************************************************
-// MODIFICATION LOG
-// Date			Developer		Story		Description
-// 07/24/2024   Mitch Lynch     S000093     Created base component.
-// *******************************************************************************************
-// NOTES
-// Lightning Datatable LWC documentation: https://developer.salesforce.com/docs/component-library/bundle/lightning-datatable/documentation
+// Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS"
+// BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
+// governing permissions and limitations under the License.
 // *******************************************************************************************
 
-import { LightningElement, api, wire } from 'lwc';
+import { LightningElement, api, wire, track } from 'lwc';
 import { refreshApex } from '@salesforce/apex';
-import Id from "@salesforce/user/Id";
+
+// import object and field info
+import { getObjectInfo, getPicklistValues } from 'lightning/uiObjectInfoApi';
+import CHANGE_OBJECT from '@salesforce/schema/Metadata_Component_Change__c';
+import CHANGE_TYPE_FIELD from '@salesforce/schema/Metadata_Component_Change__c.Change_Type__c';
+import STORY_OBJECT from '@salesforce/schema/Story__c';
+import STORY_STATUS_FIELD from '@salesforce/schema/Story__c.Status__c';
+
+// import Apex
+import getImhotepActiveMetadata from '@salesforce/apex/ImhotepAppBuilderCtrl.getImhotepActiveMetadata';
+import getReleaseChanges from '@salesforce/apex/ImhotepAppBuilderCtrl.getReleaseChanges';
+
+// import components
+import ImhotepFlowModal from 'c/imhotepFlowModal';
 
 // import custom labels
 import ActionDeleteMetadataChangeLabel from "@salesforce/label/c.ActionDeleteMetadataChangeLabel";
@@ -51,15 +54,37 @@ import ChangeFieldStoryStatusLabel from "@salesforce/label/c.ChangeFieldStorySta
 import HeadingMetadataChanges from "@salesforce/label/c.HeadingMetadataChanges";
 import HeadingMetadataChangesEdit from "@salesforce/label/c.HeadingMetadataChangesEdit";
 
-// import Apex
-import getImhotepActiveMetadata from '@salesforce/apex/ImhotepAppBuilderCtrl.getImhotepActiveMetadata';
-import getReleaseChanges from '@salesforce/apex/ImhotepAppBuilderCtrl.getReleaseChanges';
-import ImhotepFlowModal from 'c/imhotepFlowModal';
-
-// Import static resources
+// import static resources
 import EMPTY_IMAGE_02 from '@salesforce/resourceUrl/ImhotepIllustrationEmptyState02';
 
 export default class ImhotepReleaseChanges extends LightningElement {
+
+    // set incoming variables
+    @api recordId;                              // current page's iab__Release__c recordId
+
+    changeTypeMap = [];                         // stores a value-to-label mapping for translation of the Metadata Component Change iab__Change_Type__c picklist
+    changeStoryStatusMap = [];                  // stores a value-to-label mapping for translation of the Story iab__Status__c picklist
+
+    // header variables
+    changeRelatedListHeader;                    // used as a header title, including the number of change records
+    changeRelatedListHeaderHelp;                // help text that explains how to use the component
+    changesRelatedListUrl;                      // used to hold the calculated URL for accessing the full standard related list for stories
+
+    // prep variables for receiving results of Apex methods
+    activeMetadata;
+    wiredChanges;
+    @track mockChanges = [];                    // holds the mutated list of change records to use in the table, containing miscellaneous values that weren't originally part of the object records
+    allChangesRaw = [];
+    dataReadyForProcessing = false;             // flag to confirm that the main data wire adapter has run without error
+    numChangeCount;                             // total number of records in mockChanges
+    hideChangeTable = true;                     // controls whether or not to hide the change table and instead display an empty state illustration card
+    
+    sortDirectionDefault = 'asc';               // standard default sort direction for unsorted columns
+    sortedBy = 'LastModifiedDate';              // initial column the mockChanges data is sorted by, as delivered by getStoryChanges()
+    sortDirection = 'desc';                     // initial order the mockChanges is sorted by, as delivered by getStoryChanges()
+    sortedByTemp;                               // temporary value used for the actual sort (allows url columns to be sorted by column labels instead)
+    
+    isLoading = true;                           // initialize as true to display a spinner in the data-table while data is loading
 
     // define custom labels
     label = {
@@ -82,32 +107,8 @@ export default class ImhotepReleaseChanges extends LightningElement {
         HeadingMetadataChangesEdit,
     }
 
-    // set incoming variables
-    @api recordId;                              // current page's iab__Release__c recordId
-    userId = Id;                                // current user's recordId
-
     // static resource variables
     imageEmptyState02 = EMPTY_IMAGE_02;         // holds the static resource illustration displayed in the empty state of the table
-
-    // header variables
-    changeRelatedListHeader;                    // used as a header title, including the number of change records
-    changeRelatedListHeaderHelp;                // help text that explains how to use the component
-    changesRelatedListUrl;                      // used to hold the calculated URL for accessing the full standard related list for stories
-
-    // prep variables for receiving results of Apex methods
-    activeMetadata;
-    wiredChanges;
-    userHasEditAccess = false;                  // controls if user can edit metadata changes in the list
-    mockChanges = [];                           // holds the mutated list of change records to use in the table, containing miscellaneous values that weren't originally part of the object records
-    numChangeCount;                             // total number of records in mockChanges
-    hideChangeTable = true;                     // controls whether or not to hide the change table and instead display an empty state illustration card
-    
-    sortDirectionDefault = 'asc';               // standard default sort direction for unsorted columns
-    sortedBy = 'LastModifiedDate';              // initial column the mockChanges data is sorted by, as delivered by getStoryChanges()
-    sortDirection = 'desc';                     // initial order the mockChanges is sorted by, as delivered by getStoryChanges()
-    sortedByTemp;                               // temporary value used for the actual sort (allows url columns to be sorted by column labels instead)
-    
-    isLoading = true;                           // initialize as true to display a spinner in the data-table while data is loading
 
     // data table row-level actions
     actions = [
@@ -216,9 +217,13 @@ export default class ImhotepReleaseChanges extends LightningElement {
             }
         }
     ];
-    
-    
-    
+
+
+
+    // ======================================
+    // LIFECYCLE HOOKS
+    // ======================================
+
     connectedCallback(){
         // prepare an initial value for the header
         this.changeRelatedListHeader = this.label.HeadingMetadataChanges;
@@ -232,142 +237,117 @@ export default class ImhotepReleaseChanges extends LightningElement {
 
 
 
-    // wire the getImhotepActiveMetadata() method
-    @wire(getImhotepActiveMetadata)
-        wiredActiveMetadata({ error, data }) {
-            if (data) {
-                this.activeMetadata = data
-            } else if (error) {
-                console.error('Error retrieving active metadata: ', error);
-            }
-        }
+    // ======================================
+    // WIRE ADAPTER METHODS
+    // ======================================
+
+    // retrieves info about the iab__Metadata_Compoent_Change__c object
+    @wire(getObjectInfo, {
+        objectApiName: CHANGE_OBJECT
+    })
+    changeObjectInfo;
 
 
 
-    // wire the getReleaseChanges() method
-    @wire(getReleaseChanges, {paramReleaseId: '$recordId'})
-        wiredChanges(value) {
-            // Hold on to the provisioned value so we can refresh it later.
-            this.wiredChanges = value; // track the provisioned value
-            const { data, error } = value; // destructure the provisioned value
+    // retrieves active picklist values for the iab__Metadata_Component_Change__c object's iab__Change_Type__c field
+    @wire(getPicklistValues, {
+        recordTypeId: '$changeObjectInfo.data.defaultRecordTypeId',
+        fieldApiName: CHANGE_TYPE_FIELD
+    })
+    changeTypePicklistValues({ data, error }) {
+        if (data) {
+            this.changeTypeMap = data.values.map(val => ({
+                label: val.label,
+                value: val.value
+            }));
+
+            // trigger the processing method
+            this.processData();
             
-            if (data) {
-                this.mockChanges = [];
-                data.forEach((change) => {
-                    this.mockChanges.push({
-                        Id: change.Id,
-                        Name: change.Name,
-                        Change_URL: '/lightning/r/iab__Metadata_Component_Change__c/' + change.Id + '/view',
-                        Change_Notes: change.iab__Change_Notes__c,
-                        Change_Type: change.iab__Change_Type__c,
-                        LastModifiedDate: change.LastModifiedDate,
-                        Metadata_Component: change.iab__Metadata_Component__r.Name,
-                        Metadata_Component_URL: '/lightning/r/iab__Metadata_Component__c/' + change.iab__Metadata_Component__c + '/view',
-                        Metadata_Type: change.iab__Metadata_Type__c,
-                        Story: change.iab__Story__r.iab__Story_Number__c + ': ' + change.iab__Story__r.Name,
-                        Story_URL: '/lightning/r/iab__Story__c/' + change.iab__Story__c + '/view',
-                        Story_Status: change.iab__Story__r.iab__Status__c
-                    })
-                });
-
-                this.numChangeCount = this.mockChanges.length;
-                if(this.numChangeCount > 0) {
-                    this.hideChangeTable = false;
-                }
-                else {
-                    this.hideChangeTable = true;
-                }
-
-                // prep the header text to include the number of changes
-                this.changeRelatedListHeader = this.label.HeadingMetadataChanges + ' (' + this.numChangeCount + ')';
-
-                // turn off the data table's loading spinner
-                this.isLoading = false;
-            }
-            else if (error) {
-                this.numChangeCount = 0;
-                this.hideChangeTable = true;
-                
-                // prep the header text to include the number of changes
-                this.changeRelatedListHeader = this.label.HeadingMetadataChanges + ' (' + this.numChangeCount + ')';
-
-                console.error('Error retrieving metadata component changes: ', error);
-            }
+        } else if (error) {
+            console.error('Error loading the Change Type picklist values for Metadata Component Changes: ', error);
         }
+    }
 
 
 
-    // handles resorting of the table when a column header is clicked
-    handleSort(event) {
-        // store property values for comparison before they are overwritten
-        const sortedByPrior = this.sortedBy;
-        const sortDirectionPrior = this.sortDirection;
-        
-        // get new values from clicked on column and update properties
-        const { fieldName: sortedBy, sortDirection } = event.detail;
-        this.sortedBy = sortedBy;
-        this.sortDirection = sortDirection;
+    // retrieves info about the iab__Story__c object
+    @wire(getObjectInfo, {
+        objectApiName: STORY_OBJECT
+    })
+    storyObjectInfo;
 
-        if (this.sortedBy === sortedByPrior) {
-            this.sortDirection = sortDirectionPrior === 'asc' ? 'desc' : 'asc';
-        } else {
-            this.sortDirection = 'asc';
+
+
+    // retrieves active picklist values for the iab__Story__c object's iab__Status__c field
+    @wire(getPicklistValues, {
+        recordTypeId: '$changeObjectInfo.data.defaultRecordTypeId',
+        fieldApiName: STORY_STATUS_FIELD
+    })
+    storyStatusPicklistValues({ data, error }) {
+        if (data) {
+            this.storyStatusMap = data.values.map(val => ({
+                label: val.label,
+                value: val.value
+            }));
+
+            // trigger the processing method
+            this.processData();
+            
+        } else if (error) {
+            console.error('Error loading the Status picklist values for Stories: ', error);
         }
-
-        this.sortData();
     }
 
 
     
-    // sorts mockData based on the current value of sortedColumn and sortDirection
-    // this is a separate method so that it can be called from a handler for a column header click, or separately (not used elsewhere, this is more for future-proofing composability).
-    sortData() {
-        let sortedData = JSON.parse(JSON.stringify(this.mockChanges));
-        
-        /* OLD CODE TO MANUALLY DESIGNATE URL COLUMNS, NOT IN USE
-        // set the sortedBy value to use during the sort;
-        // sortedByTemp = sortedBy unless the sort is for a column with a url data type
-        // because these columns should be shorted by the label, not the url
-        switch(this.sortedBy) {
-            case 'Change_URL': this.sortedByTemp = 'Name'; break;
-            case 'Metadata_Component_URL': this.sortedByTemp = 'Metadata_Component'; break;
-            default: this.sortedByTemp = this.sortedBy;
+    // wire the getImhotepActiveMetadata() method
+    @wire(getImhotepActiveMetadata)
+    wiredActiveMetadata({ error, data }) {
+        if (data) {
+            this.activeMetadata = data
+        } else if (error) {
+            console.error('Error retrieving active metadata: ', error);
         }
-        */
-
-        // Find the column definition for the current sortedBy field
-        const column = this.columns.find(col => col.fieldName === this.sortedBy);
-
-        // set the sortedBy value to use during the sort;
-        // if the column's data type is 'url', set sortedByTemp to the typeAttributes label fieldName instead
-        // else set sortedByTemp to sortedBy
-        // because these columns should be sorted by the label, not the url
-        if (column && column.type === 'url') {
-            this.sortedByTemp = column.typeAttributes.label.fieldName;
-        } else {
-            this.sortedByTemp = this.sortedBy;
-        }
-        
-        sortedData.sort((a, b) => {
-            let aVal = a[this.sortedByTemp] || ''; // Handle blank values
-            let bVal = b[this.sortedByTemp] || ''; // Handle blank values
-            let reverse = this.sortDirection === 'asc' ? 1 : -1;
-
-            /* OLD CODE THAT SORTED WITH BLANK VALUES AT THE TOP
-            return aVal > bVal ? 1 * reverse : aVal < bVal ? -1 * reverse : 0;
-            */
-            if (aVal === '') return 1 * reverse;        // Move blank values to the bottom
-            if (bVal === '') return -1 * reverse;       // Move blank values to the bottom
-            return aVal > bVal ? 1 * reverse : aVal < bVal ? -1 * reverse : 0;
-        });
-
-        this.mockChanges = sortedData;
-
-        this.sortedByTemp = '';
     }
 
 
 
+    // wire the getReleaseChanges() method
+    @wire(getReleaseChanges, {
+        paramReleaseId: '$recordId'
+    })
+    wiredChanges(value) {
+        // Hold on to the provisioned value so we can refresh it later.
+        this.wiredChanges = value; // track the provisioned value
+        const { data, error } = value; // destructure the provisioned value
+        
+        if (data) {
+            // store raw data; transformations and translations will happen in processData()
+            this.allChangesRaw = data;
+
+            // trigger the processing method
+            this.dataReadyForProcessing = true;
+            this.processData();
+        }
+        else if (error) {
+            this.dataReadyForProcessing = false;
+            this.numChangeCount = 0;
+            this.hideChangeTable = true;
+            
+            // prep the header text to include the number of changes
+            this.changeRelatedListHeader = this.label.HeadingMetadataChanges + ' (' + this.numChangeCount + ')';
+
+            console.error('Error retrieving metadata component changes: ', error);
+        }
+    }
+
+
+
+    // ======================================
+    // EVENT HANDLER METHODS
+    // ======================================
+    
     // handles actions for individual Metadata Component Change rows when menu items are clicked
     // related metadata field is:   iab__Metadata_Change_Menu_Actions__c
     // related flow is:             iab__Imhotep_MetadataChange_MenuActions
@@ -397,11 +377,126 @@ export default class ImhotepReleaseChanges extends LightningElement {
                 }
             ]
         }).then((result) => {
-            // if modal closed with X button, promise returns result = 'undefined'
-            // if modal closed with OK button, promise returns result = 'okay'
-            // if modal closed when a flow finishes, promise returns result = 'okay'
             refreshApex(this.wiredChanges);
         });
+    }
+    
+    
+    
+    // handles resorting of the table when a column header is clicked
+    handleSort(event) {
+        // store property values for comparison before they are overwritten
+        const sortedByPrior = this.sortedBy;
+        const sortDirectionPrior = this.sortDirection;
+        
+        // get new values from clicked on column and update properties
+        const { fieldName: sortedBy, sortDirection } = event.detail;
+        this.sortedBy = sortedBy;
+        this.sortDirection = sortDirection;
+
+        if (this.sortedBy === sortedByPrior) {
+            this.sortDirection = sortDirectionPrior === 'asc' ? 'desc' : 'asc';
+        } else {
+            this.sortDirection = 'asc';
+        }
+
+        this.sortData();
+    }
+
+
+
+    // ======================================
+    // PRIVATE HELPER METHODS
+    // ======================================
+
+    // processes data and applies translations once all dependencies are met
+    processData() {
+        // ensure all data dependencies are met before proceeding
+        // check if raw data exists and if changeTypeMap and storyStatusMap are populated
+        if (!this.dataReadyForProcessing || !this.changeTypeMap || this.changeTypeMap.length === 0 || !this.storyStatusMap || this.storyStatusMap.length === 0) {
+            // console.log('processMetadataComponentData: Waiting for all data dependencies to be met.');
+            this.isLoading = true;      // keep spinner if data is not ready
+            return;
+        }
+
+        // helper function to get translated Change Type
+        const getTranslatedChangeType = (changeTypeValue) => {
+            const match = this.changeTypeMap.find(item => item.value === changeTypeValue);
+            return match ? match.label : changeTypeValue;       // fallback to original value if no translation found
+        };
+
+        // helper function to get translated Story Status
+        const getTranslatedStoryStatus = (storyStatusValue) => {
+            const match = this.storyStatusMap.find(item => item.value === storyStatusValue);
+            return match ? match.label : storyStatusValue;      // fallback to original value if no translation found
+        };
+
+        // reset
+        this.mockChanges = [];
+
+        this.mockChanges = this.allChangesRaw.map(change => ({
+            Id: change.Id,
+            Name: change.Name,
+            Change_URL: '/lightning/r/iab__Metadata_Component_Change__c/' + change.Id + '/view',
+            Change_Notes: change.iab__Change_Notes__c,
+            Change_Type: getTranslatedChangeType(change.iab__Change_Type__c),
+            LastModifiedDate: change.LastModifiedDate,
+            Metadata_Component: change.iab__Metadata_Component__r.Name,
+            Metadata_Component_URL: '/lightning/r/iab__Metadata_Component__c/' + change.iab__Metadata_Component__c + '/view',
+            Metadata_Type: change.iab__Metadata_Type__c,
+            Story: change.iab__Story__r.iab__Story_Number__c + ': ' + change.iab__Story__r.Name,
+            Story_URL: '/lightning/r/iab__Story__c/' + change.iab__Story__c + '/view',
+            Story_Status: getTranslatedStoryStatus(change.iab__Story__r.iab__Status__c)
+        }));
+
+        this.numChangeCount = this.mockChanges.length;
+        if(this.numChangeCount > 0) {
+            this.hideChangeTable = false;
+        }
+        else {
+            this.hideChangeTable = true;
+        }
+
+        // prep the header text to include the number of changes
+        this.changeRelatedListHeader = this.label.HeadingMetadataChanges + ' (' + this.numChangeCount + ')';
+
+        // turn off the data table's loading spinner
+        this.isLoading = false;
+    }
+
+
+
+    // sorts mockData based on the current value of sortedColumn and sortDirection
+    // this is a separate method so that it can be called from a handler for a column header click, or separately (not used elsewhere, this is more for future-proofing composability).
+    sortData() {
+        let sortedData = JSON.parse(JSON.stringify(this.mockChanges));
+        
+        // Find the column definition for the current sortedBy field
+        const column = this.columns.find(col => col.fieldName === this.sortedBy);
+
+        // set the sortedBy value to use during the sort;
+        // if the column's data type is 'url', set sortedByTemp to the typeAttributes label fieldName instead
+        // else set sortedByTemp to sortedBy
+        // because these columns should be sorted by the label, not the url
+        if (column && column.type === 'url') {
+            this.sortedByTemp = column.typeAttributes.label.fieldName;
+        } else {
+            this.sortedByTemp = this.sortedBy;
+        }
+        
+        sortedData.sort((a, b) => {
+            let aVal = (a[this.sortedByTemp] || '').toLowerCase(); // handle blank values and convert to lowercase
+            let bVal = (b[this.sortedByTemp] || '').toLowerCase(); // handle blank values and convert to lowercase
+            let reverse = this.sortDirection === 'asc' ? 1 : -1;
+
+            if (aVal === '') return 1 * reverse;        // move blank values to the bottom
+            if (bVal === '') return -1 * reverse;       // move blank values to the bottom
+            return aVal > bVal ? 1 * reverse : aVal < bVal ? -1 * reverse : 0;
+        });
+
+        this.mockChanges = sortedData;
+
+        this.sortedByTemp = '';
     }
 
 }

@@ -41,7 +41,7 @@
     
     
     
-    <div class="card-container-outer" style="background:#FFFFFF;border-radius:4px;box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.1);border:1px solid #dddbda;padding-bottom:5px;">
+    <article class="slds-card slds-var-m-bottom_small slds-var-p-around_x-small">
         <lightning:layout multipleRows="true" verticalAlign="stretch" class="layout-padding">
             
             <!-- ### TAGS ### -->
@@ -85,5 +85,5 @@
             </lightning:layoutItem>
             
         </lightning:layout>
-    </div>
+    </article>
 </aura:component>

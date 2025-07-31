@@ -19,7 +19,7 @@
                         </template>
                     
                         <p style="color:#747474;">
-                            {label.AppCardCurrentReleaseText}: {activeMetadata.iab__Current_Release_Version__c} (<lightning-formatted-date-time month="long" day="numeric" year="numeric" value={activeMetadata.iab__Current_Release_Date__c}></lightning-formatted-date-time>)
+                            {label.AppCardCurrentReleaseText}: {activeMetadata.iab__Current_Release_Version__c} (<lightning-formatted-date-time month="long" day="numeric" year="numeric" time-zone="UTC" value={activeMetadata.iab__Current_Release_Date__c}></lightning-formatted-date-time>)
                         </p>
                     </div>
                 </lightning-layout-item>

@@ -20,16 +20,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 // *******************************************************************************************
-// MODIFICATION LOG
-// Date			Developer		Story		Description
-// 05/25/2024   Mitch Lynch     S000504     Reworked the component to work in the new org.
-//
-// LEGACY ORG PACKAGE CHANGES:
-// 02/24/2024   Mitch Lynch     S000430     Modified to use custom labels, such as {!$Label.c.GeneralModalCloseLabel}.
-// 02/21/2024   Mitch Lynch     S000436     Commented out all console.log() methods used for debugging.
-// 02/21/2024   Mitch Lynch     S000437     Standardized button and icon attributes for accessibility.
-// 03/06/2023	Mitch Lynch		S-000188	Initial component created.
-// *******************************************************************************************
 
 ({
 	

@@ -46,12 +46,18 @@
         <name>Created_from_Template__c</name>
     </fields>
     <fields>
+        <help>Kurze Beschreibung des Zwecks oder Umfangs des Releases.</help>
+        <label>Beschreibung</label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
         <help>Wenn angekreuzt, wird diese Veröffentlichung als Backlog verwendet und nicht für die eigentliche Entwicklung.</help>
         <label>Ist Backlog?</label>
         <name>Is_Backlog__c</name>
     </fields>
     <fields>
-        <label>Anmerkungen</label>
+        <help>Entwerfen Sie hier Ihre detaillierten Versionshinweise.</help>
+        <label>Versionshinweise</label>
         <name>Notes__c</name>
     </fields>
     <fields>

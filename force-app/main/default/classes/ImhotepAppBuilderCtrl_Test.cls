@@ -20,33 +20,6 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 *******************************************************************************************/
-/* MODIFICATION LOG
-* 	Date		Developer			Story		Description
-*   07/24/2024  Mitch Lynch         S000093     Added tests for getReleaseChanges().
-*   07/23/2024  Mitch Lynch         S000369     Added tests for getMetadataComponents() and getMetadataTypes().
-*   06/04/2024  Mitch Lynch         S000037     Modified saveReorderedStories() input from String to Map<Id,Decimal> to protect against SOQL injection.
-*   05/24/2024  Mitch Lynch         S000486     Reworked the class to work in the new org.
-*
-*   LEGACY ORG PACKAGE CHANGES:
-*   08/21/2023  Mitch Lynch         S-000102    Added tests for getStoriesByRelease() and saveReorderedStories() methods.
-*   07/01/2023  Mitch Lynch         S-000329    Added tests for getProjectId(), which was based on getProjectResources().
-*   06/30/2023  Mitch Lynch         S-000336    Added tests for getProjectResources(), getTestCasesWithTestResults(). Added new test coverage in testGetAllReleases() and testTagAssignmentRecords().
-*   03/07/2023  Mitch Lynch         S-000298    Added tests for getImhotepActiveMetadata().
-*   03/07/2023  Mitch Lynch         S-000188    Added tests for getTemplateItemsForType().
-*   03/04/2023  Mitch Lynch         S-000188    Added Template test data and tests for getTemplatesByType().
-*   02/28/2023  Mitch Lynch         S-000183    Continued writing test coverage for missing methods: testGetProjectsByMembership(), testGetProjectMembers(), testGetAllReleases(), and testGetReleaseLists().
-*   02/27/2023  Mitch Lynch         S-000183    Continued writing test coverage for missing methods: makeData(), testGetActiveProjectTagRecords(), testGetStoryTagAssignmentRecords(), testGetTagAssignmentRecords(), and testCheckUserEditAccess().
-*   02/25/2023  Mitch Lynch         S-000183    Renamed from ImhotepReleaseKanbanCtrl_Test to ImhotepAppBuilderCtrl_Test to consolidate code and reduce test code.
-*   02/24/2023  Mitch Lynch         S-000180    Renamed from devReleaseKanbanCtrl_Test to ImhotepReleaseKanbanCtrl_Test.
-*   02/21/2023  Mitch Lynch         S-000166    Updated to use namespace "imhotep".
-*   10/24/2022  Mitch Lynch         S-000101    Added moveStory() to test moveStory() method.
-*   10/24/2022  Mitch Lynch         S-000101    Added testGetStoriesByStatus() to test getStatoriesByStatus() method.
-*	10/20/2022	Mitch Lynch			S-000092	Updated to replace the "In Progress" status with "Building" in the test data, replace the "Ready to Deploy" status with "Ready" in the test data, add records for the new "Testing" status, and remove records for the retired "Accepted" status, to reflect picklist value changes in the Story__c.Status__c field.
-*	09/25/2022	Mitch Lynch			000064		Initial creation.
-*******************************************************************************************/
-/* NOTES
-* 
-*******************************************************************************************/
 
 @isTest
 public with sharing class ImhotepAppBuilderCtrl_Test {
@@ -55,8 +28,6 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
 
     @TestSetup
     public static void makeData(){
-        
-        
         
         // *************************
         // USERS
@@ -271,7 +242,8 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
             iab__Release__c			    = release01.Id,
             Name                        = 'New Blocked Story',
             iab__Priority_Order__c	    = storyCount,
-            iab__Status__c			    = 'Blocked'
+            iab__Status__c			    = 'Blocked',
+            iab__Assigned__c            = pm02.Id
         );
         sList.add(story01rel01);
         storyCount = storyCount + 1;
@@ -296,7 +268,8 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
                 iab__Release__c			= release01.Id,
                 Name                    = 'New Building Story',
                 iab__Priority_Order__c	= storyCount,
-                iab__Status__c			= 'Building'
+                iab__Status__c			= 'Building',
+                iab__Assigned__c        = pm02.Id
             );
             sList.add(story03rel01);
             storyCount = storyCount + 1;
@@ -309,7 +282,8 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
                 iab__Release__c			= release01.Id,
                 Name                    = 'New Testing Story',
                 iab__Priority_Order__c	= storyCount,
-                iab__Status__c			= 'Testing'
+                iab__Status__c			= 'Testing',
+                iab__Assigned__c        = pm02.Id
             );
             sList.add(story04rel01);
             storyCount = storyCount + 1;
@@ -320,7 +294,8 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
             iab__Project__c             = project02.Id,
             iab__Release__c			    = release01.Id,
             Name                        = 'Story for Test Scenario Testing',
-            iab__Status__c			    = 'Testing'
+            iab__Status__c			    = 'Testing',
+            iab__Assigned__c            = pm02.Id
         );
         sList.add(storyForTestScenarioTesting);
         
@@ -331,7 +306,8 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
                 iab__Release__c			= release01.Id,
                 Name                    = 'New Ready Story',
                 iab__Priority_Order__c	= storyCount,
-                iab__Status__c			= 'Ready'
+                iab__Status__c			= 'Ready',
+                iab__Assigned__c        = pm02.Id
             );
             sList.add(story05rel01);
             storyCount = storyCount + 1;
@@ -344,7 +320,8 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
                 iab__Release__c			= release01.Id,
                 Name                    = 'New Deployed Story',
                 iab__Priority_Order__c	= storyCount,
-                iab__Status__c			= 'Deployed'
+                iab__Status__c			= 'Deployed',
+                iab__Assigned__c        = pm02.Id
             );
             sList.add(story06rel01);
             storyCount = storyCount + 1;
@@ -745,14 +722,14 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
     @isTest
     public static void testGetImhotepActiveMetadata(){
     
-        // Test
+        // test
         Test.startTest();
         
         iab__Imhotep_Config__mdt activeImhotepMetadata = ImhotepAppBuilderCtrl.getImhotepActiveMetadata();
         
         Test.stopTest();
         
-        // Assertions
+        // assertions
         system.assert(activeImhotepMetadata.iab__Active__c == true);
 
     }
@@ -770,40 +747,68 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get the Id of the project with metadata components
         iab__Story__c storyWithMetadataComponents = [SELECT Id,iab__Project__c FROM iab__Story__c WHERE Name = 'Story for Test Scenario testing' LIMIT 1];
 
-        // Test
+        // test
         Test.startTest();
 
         // try to query with the story's project recordId
         try {
             List<iab__Metadata_Component__c> componentList = ImhotepAppBuilderCtrl.getMetadataComponents(storyWithMetadataComponents.iab__Project__c);
 
-            // Assertions
+            // assertions
             Assert.isNotNull(componentList);                     // is not empty
             Assert.isTrue(componentList.size() == 3);            // has 3 metadata components
 
         } catch (Exception e) {
-            // Assertions
+            // assertions
             Assert.fail('Fail - exception not expected but thrown');
         }
 
         Test.stopTest();
     }
 
+
+
     // tests ImhotepAppBuilderCtrl.getMetadataTypes()
     @isTest
     public static void testGetMetadataTypes() {
         
-        // Test
+        // test
         Test.startTest();
 
         try {
             List<String> typeList = ImhotepAppBuilderCtrl.getMetadataTypes();
 
-            // Assertions
+            // assertions
             Assert.isNotNull(typeList);                     // is not empty
 
         } catch (Exception e) {
-            // Assertions
+            // assertions
+            Assert.fail('Fail - exception not expected but thrown');
+        }
+
+        Test.stopTest();
+    }
+
+
+
+    // tests ImhotepAppBuilderCtrl.getProjectMetadataTypes()
+    @isTest
+    public static void testGetProjectMetadataTypes() {
+
+        // get the Id of the project with metadata components
+        iab__Project__c projectWithMetadataComponents = [SELECT Id,Name FROM iab__Project__c WHERE Name = 'Project 2 - Active' LIMIT 1];
+        
+        // test
+        Test.startTest();
+
+        try {
+            List<String> typeList = ImhotepAppBuilderCtrl.getProjectMetadataTypes(projectWithMetadataComponents.Id);
+
+            // assertions
+            Assert.isNotNull(typeList);                     // is not empty
+
+        } catch (Exception e) {
+            // assertions
             Assert.fail('Fail - exception not expected but thrown');
         }
 
@@ -823,7 +828,7 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get the Id of the story with metadata changes
         iab__Story__c storyWithMetadata = [SELECT Id FROM iab__Story__c WHERE Name = 'Story for Test Scenario testing' LIMIT 1];
 
-        // Test
+        // test
         Test.startTest();
 
         // set a boolean flag
@@ -833,12 +838,12 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         try {
             List<iab__Metadata_Component_Change__c> changeList = ImhotepAppBuilderCtrl.getStoryChanges(storyWithMetadata.Id);
 
-            // Assertions
+            // assertions
             Assert.isNotNull(changeList);                     // is not empty
             Assert.isTrue(changeList.size() == 3);            // has 3 metadata component changes
 
         } catch (Exception e) {
-            // Assertions
+            // assertions
             Assert.fail('Fail - exception not expected but thrown');
         }
 
@@ -846,6 +851,8 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
 
     }
     
+
+
     // tests ImhotepAppBuilderCtrl.getStoryChanges() when there's an exception thrown
     @isTest
     public static void testGetStoryChangesException() {
@@ -853,14 +860,14 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // set a fake story recordId so you can test catching the exception
         String fakeStoryId = '123456789012345';
 
-        // Test
+        // test
         Test.startTest();
 
         // try to query with the fake story recordId
         try {
             List<iab__Metadata_Component_Change__c> changeList02 = ImhotepAppBuilderCtrl.getStoryChanges(fakeStoryId);
         } catch (Exception e) {
-            // Assertions
+            // assertions
             Assert.isTrue(true, 'Success - exception expected and thrown');
         }
 
@@ -876,7 +883,7 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get the Id of the release with metadata changes
         iab__Release__c releaseWithMetadata = [SELECT Id FROM iab__Release__c WHERE Name = 'MVP' LIMIT 1];
 
-        // Test
+        // test
         Test.startTest();
 
         // set a boolean flag
@@ -886,12 +893,12 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         try {
             List<iab__Metadata_Component_Change__c> changeList = ImhotepAppBuilderCtrl.getReleaseChanges(releaseWithMetadata.Id);
 
-            // Assertions
+            // assertions
             Assert.isNotNull(changeList);                     // is not empty
             Assert.isTrue(changeList.size() == 3);            // has 3 metadata component changes
 
         } catch (Exception e) {
-            // Assertions
+            // assertions
             Assert.fail('Fail - exception not expected but thrown');
         }
 
@@ -899,6 +906,8 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
 
     }
     
+
+
     // tests ImhotepAppBuilderCtrl.getReleaseChanges() when there's an exception thrown
     @isTest
     public static void testGetReleaseChangesException() {
@@ -906,14 +915,14 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // set a fake release recordId so you can test catching the exception
         String fakeReleaseId = '123456789012345';
 
-        // Test
+        // test
         Test.startTest();
 
         // try to query with the fake release recordId
         try {
             List<iab__Metadata_Component_Change__c> changeList02 = ImhotepAppBuilderCtrl.getReleaseChanges(fakeReleaseId);
         } catch (Exception e) {
-            // Assertions
+            // assertions
             Assert.isTrue(true, 'Success - exception expected and thrown');
         }
 
@@ -925,6 +934,76 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
     // *************************
     // PROJECTS
     // *************************
+
+    // tests ImhotepAppBuilderCtrl.getMyProjects()
+    @isTest
+    public static void testGetMyProjects() {
+        // get current user (who is also a project member in makeData())
+        User testUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
+
+        // test
+        Test.startTest();
+
+        // call the method to get projects for the current user
+        List<iab__Project__c> userProjects = ImhotepAppBuilderCtrl.getMyProjects();
+
+        Test.stopTest();
+
+        // assertions
+        // in makeData(), the test user (user01) is a member of 5 projects.
+        // ensure the list is not empty and contains the expected number of projects.
+        System.assert(userProjects != null, 'The list of projects should not be null.');
+        System.assertEquals(5, userProjects.size(), 'Expected 5 projects for the current user.');
+
+        // verify that each project has its related releases loaded correctly
+        // Project 2 - Active (project02) has 2 releases: 'MVP' (Active) and 'MVP Backlog' (Planning, Is_Backlog=true)
+        // Project 4 - Active (project04) has 4 releases: 'Release 1.0' (Accepted), 'Release 2.0' (Active), 'Backlog' (Planning, Is_Backlog=true), 'Release 3.0' (Planning)
+        // the query in getMyProjects() filters for Is_Backlog=TRUE OR Status IN ('Planning', 'Active')
+        // so, for project02, both MVP and MVP Backlog should be included.
+        // for project04, Release 2.0, Backlog, and Release 3.0 should be included. Release 1.0 (Accepted) should NOT be.
+
+        for (iab__Project__c proj : userProjects) {
+            if (proj.Name == 'Project 2 - Active') {
+                System.assert(proj.iab__Releases__r != null, 'Project 2 should have related releases.');
+                System.assertEquals(2, proj.iab__Releases__r.size(), 'Project 2 should have 2 relevant releases.');
+                Boolean foundMVP = false;
+                Boolean foundMVPBacklog = false;
+                for(iab__Release__c rel : proj.iab__Releases__r) {
+                    if(rel.Name == 'MVP' && rel.iab__Status__c == 'Active') {
+                        foundMVP = true;
+                    }
+                    if(rel.Name == 'MVP Backlog' && rel.iab__Is_Backlog__c == true) {
+                        foundMVPBacklog = true;
+                    }
+                }
+                System.assert(foundMVP, 'MVP release should be found for Project 2.');
+                System.assert(foundMVPBacklog, 'MVP Backlog release should be found for Project 2.');
+
+            } else if (proj.Name == 'Project 4 - Active') {
+                System.assert(proj.iab__Releases__r != null, 'Project 4 should have related releases.');
+                System.assertEquals(3, proj.iab__Releases__r.size(), 'Project 4 should have 3 relevant releases.');
+                Boolean foundRelease2_0 = false;
+                Boolean foundBacklog = false;
+                Boolean foundRelease3_0 = false;
+                for(iab__Release__c rel : proj.iab__Releases__r) {
+                    if(rel.Name == 'Release 2.0' && rel.iab__Status__c == 'Active') {
+                        foundRelease2_0 = true;
+                    }
+                    if(rel.Name == 'Backlog' && rel.iab__Is_Backlog__c == true) {
+                        foundBacklog = true;
+                    }
+                    if(rel.Name == 'Release 3.0' && rel.iab__Status__c == 'Planning') {
+                        foundRelease3_0 = true;
+                    }
+                }
+                System.assert(foundRelease2_0, 'Release 2.0 should be found for Project 4.');
+                System.assert(foundBacklog, 'Backlog release should be found for Project 4.');
+                System.assert(foundRelease3_0, 'Release 3.0 should be found for Project 4.');
+            }
+        }
+    }
+
+
     
     // tests ImhotepAppBuilderCtrl.getProjectId() when Id = project
     @isTest
@@ -933,16 +1012,18 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get project02
         iab__Project__c resProject = [SELECT Id,Name FROM iab__Project__c WHERE Name = 'Project 2 - Active' LIMIT 1];
 
-        // Test
+        // test
         Test.startTest();
 
         String projectId = ImhotepAppBuilderCtrl.getProjectId(resProject.Id);
 
         Test.stopTest();
 
-        // Assertions
+        // assertions
         Assert.isNotNull(projectId);    // is not empty
     }
+
+
 
     // tests ImhotepAppBuilderCtrl.getProjectId() when Id = release
     @isTest
@@ -954,16 +1035,18 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get project02's MVP release
         iab__Release__c resRelease = [SELECT Id,Name FROM iab__Release__c WHERE iab__Project__c = :resProject.Id AND Name = 'MVP' LIMIT 1];
 
-        // Test
+        // test
         Test.startTest();
 
         String projectId = ImhotepAppBuilderCtrl.getProjectId(resRelease.Id);
 
         Test.stopTest();
 
-        // Assertions
+        // assertions
         Assert.isNotNull(projectId);    // is not empty
     }
+
+
 
     // tests ImhotepAppBuilderCtrl.getProjectId() when Id = story
     @isTest
@@ -978,14 +1061,14 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get a story from the MVP release
         iab__Story__c resStory = [SELECT Id,Name FROM iab__Story__c WHERE iab__Release__c = :resRelease.Id LIMIT 1];
 
-        // Test
+        // test
         Test.startTest();
 
         String projectId = ImhotepAppBuilderCtrl.getProjectId(resStory.Id);
 
         Test.stopTest();
 
-        // Assertions
+        // assertions
         Assert.isNotNull(projectId);    // is not empty
     }
     
@@ -1002,7 +1085,7 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get current user
         User testuser = [SELECT Id,FirstName,LastName FROM User WHERE Id = :UserInfo.getUserId()];
         
-        // Test
+        // test
         Test.startTest();
 
         List<List<iab__Project_Member__c>> allProjectMembers = ImhotepAppBuilderCtrl.getProjectsByMembership(testuser.Id);
@@ -1013,7 +1096,7 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
 
         Test.stopTest();
 
-        // Assertions
+        // assertions
         system.assert(allProjectMembers.isEmpty() == false);
         
         system.assert(planningList.size() == 1);
@@ -1031,17 +1114,39 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get project02
         iab__Project__c testproject = [SELECT Id,Name FROM iab__Project__c WHERE Name = 'Project 2 - Active'];
         
-        // Test
+        // test
         Test.startTest();
 
         List<iab__Project_Member__c> allProjectMembers = ImhotepAppBuilderCtrl.getProjectMembers(testproject.Id);
 
         Test.stopTest();
 
-        // Assertions
+        // assertions
         system.assert(allProjectMembers.isEmpty() == false);
         
         system.assert(allProjectMembers.size() == 1);
+        
+    }
+
+
+
+    // tests ImhotepAppBuilderCtrl.getAssignedProjectMembersForRelease()
+    @isTest
+    public static void testGetAssignedProjectMembersForRelease(){
+        
+        // get Release Id for MVP
+        iab__Release__c release = [SELECT Id,Name FROM iab__Release__c WHERE Name = 'MVP' LIMIT 1];
+        
+        // test
+        Test.startTest();
+
+        List<Project_Member__c> allAssignedProjectMembers = ImhotepAppBuilderCtrl.getAssignedProjectMembersForRelease(release.Id);
+
+        Test.stopTest();
+
+        // assertions
+        system.assert(allAssignedProjectMembers.isEmpty() == false);
+        system.assert(allAssignedProjectMembers.size() == 1);
         
     }
 
@@ -1051,8 +1156,6 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
     // RESOURCE LINKS (was Project Resources)
     // *************************
 
-
-
     // tests ImhotepAppBuilderCtrl.getResourceLinks() when Id = project
     @isTest
     public static void testGetResourceLinksIfProject(){
@@ -1060,17 +1163,19 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get project02
         iab__Project__c resProject = [SELECT Id,Name FROM iab__Project__c WHERE Name = 'Project 2 - Active' LIMIT 1];
 
-        // Test
+        // test
         Test.startTest();
 
         List<iab__Resource_Link__c> allResourceLinks = ImhotepAppBuilderCtrl.getResourceLinks(resProject.Id);
 
         Test.stopTest();
 
-        // Assertions
+        // assertions
         Assert.isNotNull(allResourceLinks);                     // is not empty
         Assert.isTrue(allResourceLinks.size() == 3);            // has 3 test case records
     }
+
+
 
     // tests ImhotepAppBuilderCtrl.getResourceLinks() when Id = release
     @isTest
@@ -1082,17 +1187,19 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get project02's MVP release
         iab__Release__c resRelease = [SELECT Id,Name FROM iab__Release__c WHERE iab__Project__c = :resProject.Id AND Name = 'MVP' LIMIT 1];
 
-        // Test
+        // test
         Test.startTest();
 
         List<iab__Resource_Link__c> allResourceLinks = ImhotepAppBuilderCtrl.getResourceLinks(resRelease.Id);
 
         Test.stopTest();
 
-        // Assertions
+        // assertions
         Assert.isNotNull(allResourceLinks);                     // is not empty
         Assert.isTrue(allResourceLinks.size() == 3);            // has 3 test case records
     }
+
+
 
     // tests ImhotepAppBuilderCtrl.getResourceLinks() when Id = story
     @isTest
@@ -1107,14 +1214,14 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get a story from the MVP release
         iab__Story__c resStory = [SELECT Id,Name FROM iab__Story__c WHERE iab__Release__c = :resRelease.Id LIMIT 1];
 
-        // Test
+        // test
         Test.startTest();
 
         List<iab__Resource_Link__c> allResourceLinks = ImhotepAppBuilderCtrl.getResourceLinks(resStory.Id);
 
         Test.stopTest();
 
-        // Assertions
+        // assertions
         Assert.isNotNull(allResourceLinks);                     // is not empty
         Assert.isTrue(allResourceLinks.size() == 3);            // has 3 test case records
     }
@@ -1129,21 +1236,21 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
     @isTest
     public static void testGetAllReleases(){
         
-        // Test
+        // test
         Test.startTest();
 
-        // Test #1 for active releases (size = 2)
+        // test #1 for active releases (size = 2)
         List<iab__Release__c> allActiveReleases = ImhotepAppBuilderCtrl.getAllReleases('Active',false);
 
-        // Test #2 for backlog releases (size = 2)
+        // test #2 for backlog releases (size = 2)
         List<iab__Release__c> allBacklogReleases = ImhotepAppBuilderCtrl.getAllReleases('Planning',true);
 
-        // Test #3 for accepted releases (size = 1)
+        // test #3 for accepted releases (size = 1)
         List<iab__Release__c> allAcceptedReleases = ImhotepAppBuilderCtrl.getAllReleases('Accepted',false);
 
         Test.stopTest();
 
-        // Assertions
+        // assertions
         system.assert(allActiveReleases.isEmpty() == false);
         system.assert(allActiveReleases.size() == 2);
         
@@ -1164,7 +1271,7 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get project02
         iab__Project__c testproject = [SELECT Id,Name FROM iab__Project__c WHERE Name = 'Project 4 - Active'];
 
-        // Test
+        // test
         Test.startTest();
 
         List<List<iab__Release__c>> allReleases = ImhotepAppBuilderCtrl.getReleaseLists(testproject.Id);
@@ -1176,7 +1283,7 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
 
         Test.stopTest();
 
-        // Assertions
+        // assertions
         system.assert(allReleases.isEmpty() == false);
         
         system.assert(planningList.size() == 1);            // should have 1
@@ -1199,14 +1306,14 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get Release Id for MVP
         iab__Release__c release = [SELECT Id,Name FROM iab__Release__c WHERE Name = 'MVP Backlog' LIMIT 1];
         
-        // Test
+        // test
         Test.startTest();
 
         List<iab__Story__c> allStories = ImhotepAppBuilderCtrl.getStoriesByRelease(release.Id);
 
         Test.stopTest();
 
-        // Assertions
+        // assertions
         system.assert(allStories.isEmpty() == false);
         system.assert(allStories.size() == 6);
         
@@ -1221,7 +1328,7 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get Release Id for MVP
         iab__Release__c release = [SELECT Id,Name FROM iab__Release__c WHERE Name = 'MVP' LIMIT 1];
         
-        // Test
+        // test
         Test.startTest();
 
         List<List<iab__Story__c>> allStories = ImhotepAppBuilderCtrl.getStoriesByStatus(release.Id);
@@ -1235,7 +1342,7 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
 
         Test.stopTest();
 
-        // Assertions
+        // assertions
         system.assert(allStories.isEmpty() == false);
         
         system.assert(blockedList.size() == 1);
@@ -1244,6 +1351,28 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         system.assert(testingList.size() == 5);
         system.assert(readyList.size() == 5);
         system.assert(deployedList.size() == 6);
+        
+    }
+
+
+
+    // tests ImhotepAppBuilderCtrl.getStoriesForRelease()
+    @isTest
+    public static void testGetStoriesForRelease(){
+        
+        // get Release Id for MVP
+        iab__Release__c release = [SELECT Id,Name FROM iab__Release__c WHERE Name = 'MVP' LIMIT 1];
+        
+        // test
+        Test.startTest();
+
+        List<iab__Story__c> allStories = ImhotepAppBuilderCtrl.getStoriesForRelease(release.Id);
+
+        Test.stopTest();
+
+        // assertions
+        system.assert(allStories.isEmpty() == false);
+        system.assert(allStories.size() == 22);
         
     }
 
@@ -1262,14 +1391,14 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // update the status value
         String newstatus = 'Testing';
         
-        // Test
+        // test
         Test.startTest();
         
         iab__Story__c updatedstory = ImhotepAppBuilderCtrl.moveStory(story.Id,newstatus);
         
         Test.stopTest();
         
-        // Assertions
+        // assertions
         system.assert(updatedstory.iab__Status__c == 'Testing');
 
     }
@@ -1312,7 +1441,7 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // serialize the map using JSON class
         // String serializedStoryMap = JSON.serialize(reversedStoryMap);
         
-        // Test
+        // test
         Test.startTest();
         
         // reorder stories by passing map to the method
@@ -1324,7 +1453,7 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         
         Test.stopTest();
         
-        // Assertions
+        // assertions
 
         // count stories (updatedStoryCount should be 6)
         system.assert(updatedStoryCount == 6);
@@ -1356,14 +1485,14 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get project02
         iab__Project__c testproject = [SELECT Id FROM iab__Project__c WHERE Name = 'Project 2 - Active'];
         
-        // Test
+        // test
         Test.startTest();
         
         List<iab__Tag__c> tagList = ImhotepAppBuilderCtrl.getActiveProjectTagRecords(testproject.Id);
         
         Test.stopTest();
         
-        // Assertions
+        // assertions
         system.assert(tagList.isEmpty() == false);
         
         system.assert(tagList.size() == 3);
@@ -1383,18 +1512,20 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get 1 story for project02 where status = Blocked
         iab__Story__c buildingStory = [SELECT Id,Name FROM iab__Story__c WHERE Name = 'New Blocked Story' LIMIT 1];
         
-        // Test
+        // test
         Test.startTest();
         
         List<iab__Tag_Assignment__c> assignmentList = ImhotepAppBuilderCtrl.getStoryTagAssignmentRecords(buildingStory.Id);
         
         Test.stopTest();
         
-        // Assertions
+        // assertions
         system.assert(assignmentList.isEmpty() == false);
         
         system.assert(assignmentList.size() == 2);
     }
+
+
 
     // tests ImhotepAppBuilderCtrl.getTagAssignmentRecords()
     @isTest
@@ -1403,7 +1534,7 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get tag called 'Test Tag 01'
         iab__Tag__c testTag = [SELECT Id,Name FROM iab__Tag__c WHERE Name = 'Test Tag 01' LIMIT 1];
         
-        // Test
+        // test
         Test.startTest();
         
         // test the "All" parameter
@@ -1414,12 +1545,34 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         
         Test.stopTest();
         
-        // Assertions
+        // assertions
         system.assert(tagAssignmentsAll.isEmpty() == false);
         system.assert(tagAssignmentsAll.size() == 1);
 
         system.assert(tagAssignmentsActive.isEmpty() == false);
         system.assert(tagAssignmentsActive.size() == 1);
+    }
+
+
+
+    // tests ImhotepAppBuilderCtrl.getTagsForRelease()
+    @isTest
+    public static void testGetTagsForRelease(){
+        
+        // get Release Id for MVP
+        iab__Release__c release = [SELECT Id,Name FROM iab__Release__c WHERE Name = 'MVP' LIMIT 1];
+        
+        // test
+        Test.startTest();
+
+        List<iab__Tag__c> allTags = ImhotepAppBuilderCtrl.getTagsForRelease(release.Id);
+
+        Test.stopTest();
+
+        // assertions
+        system.assert(allTags.isEmpty() == false);
+        system.assert(allTags.size() == 2);
+        
     }
 
 
@@ -1432,7 +1585,7 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
     @isTest
     public static void testGetTemplatesByType() {
         
-        // Test
+        // test
         Test.startTest();
 
         List<List<iab__Template__c>> allTemplates = ImhotepAppBuilderCtrl.getTemplatesByType();
@@ -1443,7 +1596,7 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
 
         Test.stopTest();
 
-        // Assertions
+        // assertions
         system.assert(temList01.isEmpty() == false);
         system.assert(temList01.size() == 2);
 
@@ -1464,21 +1617,21 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
     @isTest
     public static void testGetTemplateItemsForType() {
         
-        // Test
+        // test
         Test.startTest();
 
-        // Test #1 for template items (Mine)
+        // test #1 for template items (Mine)
         List<iab__Template_Item__c> myTemplateItems = ImhotepAppBuilderCtrl.getTemplateItemsForType('Mine');
 
-        // Test #2 for template items (Standard)
+        // test #2 for template items (Standard)
         List<iab__Template_Item__c> standardTemplateItems = ImhotepAppBuilderCtrl.getTemplateItemsForType('Standard');
 
-        // Test #3 for template items (Mine)
+        // test #3 for template items (Mine)
         List<iab__Template_Item__c> sharedTemplateItems = ImhotepAppBuilderCtrl.getTemplateItemsForType('Shared');
 
         Test.stopTest();
 
-        // Assertions
+        // assertions
         system.assert(myTemplateItems.isEmpty() == false);
         system.assert(myTemplateItems.size() == 6);
         
@@ -1503,7 +1656,7 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get the Id of the story with test cases and test results
         iab__Story__c storyWithTests = [SELECT Id FROM iab__Story__c WHERE Name = 'Story for Test Scenario testing' LIMIT 1];
 
-        // Test
+        // test
         Test.startTest();
 
         // set a boolean flag
@@ -1516,20 +1669,22 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
             // save the list of child records on the second test case in the list (the "Ready to Test" one)
             List<iab__Test_Result__c> testResultList = testCaseList[1].iab__Test_Results__r;
 
-            // Assertions
+            // assertions
             Assert.isNotNull(testCaseList);                     // is not empty
             Assert.isTrue(testCaseList.size() == 3);            // has 3 test case records
             Assert.isNotNull(testResultList);                   // is not empty
             Assert.isTrue(testResultList.size() == 3);          // has 3 test result records
 
         } catch (Exception e) {
-            // Assertions
+            // assertions
             Assert.fail('Fail - exception not expected but thrown');
         }
 
         Test.stopTest();
 
     }
+
+
 
     // tests ImhotepAppBuilderCtrl.getTestScenariosWithTestResults() when there's an exception thrown
     @isTest
@@ -1538,14 +1693,14 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // set a fake story recordId so you can test catching the exception
         String fakeStoryId = '123456789012345';
 
-        // Test
+        // test
         Test.startTest();
 
         // try to query with the fake story recordId
         try {
             List<iab__Test_Scenario__c> testCaseList02 = ImhotepAppBuilderCtrl.getTestScenariosWithTestResults(fakeStoryId);
         } catch (Exception e) {
-            // Assertions
+            // assertions
             Assert.isTrue(true, 'Success - exception expected and thrown');
         }
 
@@ -1568,17 +1723,15 @@ public with sharing class ImhotepAppBuilderCtrl_Test {
         // get current user
         User testuser = [SELECT Id,FirstName,LastName FROM User WHERE Id = :UserInfo.getUserId()];
 
-        // Test
+        // test
         Test.startTest();
         
         Boolean haseditaccess = ImhotepAppBuilderCtrl.checkUserEditAccess(testrelease.Id,testuser.Id);
         
         Test.stopTest();
         
-        // Assertions
+        // assertions
         system.assert(haseditaccess, 'This user does not have edit access');
     }
-
-
 
 }

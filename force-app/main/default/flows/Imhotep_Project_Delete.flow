@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Only a Builder or Owner/Lead can delete Stories.</description>
+        <name>decIsCurrentUserAuthorized</name>
+        <label>Is Current User Authorized?</label>
+        <locationX>578</locationX>
+        <locationY>350</locationY>
+        <defaultConnectorLabel>Not Authorized</defaultConnectorLabel>
+        <rules>
+            <name>outCurrentUserAuthorizedYES</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>subflowCheckRole.outputIsAuthorized</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>s01</targetReference>
+            </connector>
+            <label>Authorized</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>decTypedValueMatches</name>
+        <label>Typed Value Matches?</label>
+        <locationX>314</locationX>
+        <locationY>566</locationY>
+        <defaultConnectorLabel>Does Not Match</defaultConnectorLabel>
+        <rules>
+            <name>outTypedNameMatches</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>input01_ProjectNameFromUser</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>getProject.Name</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>deleteProject</targetReference>
+            </connector>
+            <label>Matches</label>
+        </rules>
+    </decisions>
+    <description>Handles the deletion of a project and all of its related records and data.</description>
+    <environments>Default</environments>
+    <interviewLabel>Imhotep - Project - Delete {!$Flow.CurrentDateTime}</interviewLabel>
+    <isTemplate>true</isTemplate>
+    <label>Imhotep - Project - Delete</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordDeletes>
+        <name>deleteProject</name>
+        <label>Delete Project</label>
+        <locationX>50</locationX>
+        <locationY>674</locationY>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>subflowHandleScreenError</targetReference>
+        </faultConnector>
+        <inputReference>getProject</inputReference>
+    </recordDeletes>
+    <recordLookups>
+        <name>getProject</name>
+        <label>Get Project</label>
+        <locationX>578</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>subflowCheckRole</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>subflowHandleScreenError</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Project__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <runInMode>DefaultMode</runInMode>
+    <screens>
+        <name>s01</name>
+        <label>Confirm Delete</label>
+        <locationX>314</locationX>
+        <locationY>458</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>decTypedValueMatches</targetReference>
+        </connector>
+        <fields>
+            <name>text01a</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Are you sure you want to delete this Project?&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;This action will also delete any related records and data (Releases, Stories, Test Scenarios and Results, Metadata Components and Changes, Resource Links, Chatter, Files, Notes, Tasks, etc.).&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>text01b</name>
+            <fieldText>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Before your Project is deleted, please confirm by typing its name as it appears below:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;&quot;{!getProject.Name}&quot;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>input01_ProjectNameFromUser</name>
+            <dataType>String</dataType>
+            <fieldText>Confirm Name of Project to Delete</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;strong style=&quot;color: rgb(255, 0, 0);&quot;&gt;The value you typed does not match the project&apos;s name above.&amp;nbsp;If you wish to delete the project, please try again.&lt;/strong&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>{!input01_ProjectNameFromUser} = {!getProject.Name}</formulaExpression>
+            </validationRule>
+        </fields>
+        <nextOrFinishButtonLabel>Delete Project</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>452</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>getProject</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Check to see if the current user is the Owner/Lead of the project.</description>
+        <name>subflowCheckRole</name>
+        <label>Check Role</label>
+        <locationX>578</locationX>
+        <locationY>242</locationY>
+        <connector>
+            <targetReference>decIsCurrentUserAuthorized</targetReference>
+        </connector>
+        <flowName>Imhotep_General_CheckProjectMemberRole</flowName>
+        <inputAssignments>
+            <name>inputProjectId</name>
+            <value>
+                <elementReference>getProject.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>inputRequiredRole</name>
+            <value>
+                <stringValue>Owner/Lead</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>inputShowScreen</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>subflowHandleScreenError</name>
+        <label>Handle Screen Error</label>
+        <locationX>1106</locationX>
+        <locationY>242</locationY>
+        <flowName>Imhotep_General_ScreenFlowError</flowName>
+        <inputAssignments>
+            <name>inputFaultMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>inputShowErrorScreen</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <description>Project recordId (input variable)</description>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

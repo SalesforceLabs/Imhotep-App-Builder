@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>setCountRolesForBuilder</name>
         <label>Count Roles</label>
@@ -473,21 +474,53 @@
             <name>text01a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Womp womp...&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>text01b</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Sorry, based on your role for this project, you do not have permission to do that.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>text01c</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Project:  &lt;/span&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;{!getProject.Name}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Your Role:  &lt;/span&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;{!varCurrentRole}&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>text01d</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Some actions are only available to a project&apos;s owner/lead (e.g. managing project members).&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Close</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>

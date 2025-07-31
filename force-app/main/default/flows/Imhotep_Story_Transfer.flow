@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>setAddToColl</name>
         <label>Add to Coll</label>
@@ -74,7 +75,7 @@
             <assignToReference>loopOnChanges.Release__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>input01_Release</elementReference>
+                <elementReference>input01_Release.outputSelectedReleaseId</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -177,37 +178,6 @@
         </rules>
     </decisions>
     <description>Moves the selected story from one release (like a backlog) to another.</description>
-    <dynamicChoiceSets>
-        <name>listReleases</name>
-        <dataType>String</dataType>
-        <displayField>Name</displayField>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Status__c</field>
-            <operator>NotEqualTo</operator>
-            <value>
-                <stringValue>Accepted</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Project__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>getStory.Project__c</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>Id</field>
-            <operator>NotEqualTo</operator>
-            <value>
-                <elementReference>getStory.Release__c</elementReference>
-            </value>
-        </filters>
-        <object>Release__c</object>
-        <sortField>Start_Date__c</sortField>
-        <sortOrder>Asc</sortOrder>
-        <valueField>Id</valueField>
-    </dynamicChoiceSets>
     <environments>Default</environments>
     <formulas>
         <name>formulaNewStoryPriority</name>
@@ -270,7 +240,7 @@
             <field>Release__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>input01_Release</elementReference>
+                <elementReference>input01_Release.outputSelectedReleaseId</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -406,7 +376,7 @@
         <inputAssignments>
             <field>Release__c</field>
             <value>
-                <elementReference>input01_Release</elementReference>
+                <elementReference>input01_Release.outputSelectedReleaseId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -433,18 +403,39 @@
             <name>text01a</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Transfer the selected story to one of the following releases:&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input01_Release</name>
-            <choiceReferences>listReleases</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Select a Release</fieldText>
-            <fieldType>RadioButtons</fieldType>
+            <extensionName>iab:imhotepFlowReleaseSelectionList</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>inputReleaseColl</name>
+                <value>
+                    <elementReference>getReleases</elementReference>
+                </value>
+            </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Transfer to Selected Release</nextOrFinishButtonLabel>
-        <showFooter>true</showFooter>
+        <showFooter>false</showFooter>
         <showHeader>false</showHeader>
     </screens>
     <screens>
@@ -459,6 +450,14 @@
             <name>text02a</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Sorry, you can&apos;t transfer this story to another release because there aren&apos;t any releases available.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;A release or backlog must have a status of Planning or Active to receive stories.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Close</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>

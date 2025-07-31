@@ -86,6 +86,10 @@
         <name>Project_Add_Metadata_Action</name>
     </quickActions>
     <quickActions>
+        <label><!-- Delete --></label>
+        <name>Project_Delete</name>
+    </quickActions>
+    <quickActions>
         <label><!-- New Project Member --></label>
         <name>Project_New_Project_Member_Action</name>
     </quickActions>

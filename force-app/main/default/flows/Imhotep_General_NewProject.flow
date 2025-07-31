@@ -16,9 +16,9 @@
         </inputParameters>
         <nameSegment>iab:imhotepFlowNavigate</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>setDraftBacklogRelease</name>
         <label>Set Draft Backlog Release</label>
@@ -42,7 +42,7 @@
             <assignToReference>varRecDraftBacklogRelease.Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Backlog</stringValue>
+                <elementReference>$Label.iab__ReleaseBacklogDefaultName</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -70,7 +70,7 @@
             <assignToReference>varRecDraftBacklogRelease.Notes__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Backlog for creating, evaluating, and prioritizing stories.</stringValue>
+                <elementReference>$Label.iab__ReleaseBacklogDefaultDescription</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -246,6 +246,14 @@
             <name>text01a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Create a New Project&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Begin tracking a new project!&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;  Provide a few details below:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input01_Name</name>
@@ -257,6 +265,14 @@
             <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s01_Section1</name>
@@ -275,6 +291,14 @@
                     <fieldType>RadioButtons</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -298,6 +322,14 @@
                     <fieldType>RadioButtons</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -309,6 +341,14 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input01_Description</name>
@@ -316,6 +356,14 @@
             <fieldType>LargeTextArea</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input01_DefaultReleaseMode</name>
@@ -329,6 +377,14 @@
             <helpText>&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Default setting for controlling the features and layout enabled for this project&apos;s related releases and stories.&lt;/span&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Default is Standard (all Imhotep features enabled).&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Individual releases and stories can override this selection.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Changes to this selection do not effect existing releases and stories.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</helpText>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Create New Project &gt;</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
@@ -349,6 +405,14 @@
             <name>text99a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Create a New Project&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Your new project was created successfully&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;.  We&apos;ve also created a backlog for you to start using.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Time to get to work!&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Close</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>

@@ -122,6 +122,11 @@
     </quickActions>
     <quickActions>
         <aspect>Master</aspect>
+        <label>Löschen</label>
+        <name>Project_Delete</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
         <label>Neues Projektmitglied</label>
         <name>Project_New_Project_Member_Action</name>
     </quickActions>

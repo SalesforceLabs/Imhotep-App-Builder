@@ -20,34 +20,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 // *******************************************************************************************
-// MODIFICATION LOG
-// Date			Developer		Story		Description
-// 06/21/2024   Mitch Lynch     S000368     Replaced SLDS empty state image with custom image (ImhotepIllustrationEmptyState02).
-// 05/27/2024   Mitch Lynch     S000488     Reworked the component to work in the new org. Removed design attribute (deprecated in old package). Renamed devStoryTestScenarios (was devStoryTestCases).
-//
-// LEGACY ORG PACKAGE CHANGES:
-// 02/24/2024   Mitch Lynch     S000430     Modified to use custom labels, such as {!$Label.c.GeneralModalCloseLabel}.
-// 02/22/2024   Mitch Lynch     S000440     Added padding to Test Case field labels for better responsiveness when collapsed into a single column view.
-// 02/21/2024   Mitch Lynch     S000436     Commented out all console.log() methods used for debugging.
-// 02/21/2024   Mitch Lynch     S000437     Standardized button and icon attributes for accessibility.
-// 06/24/2023   Mitch Lynch     S-000332    Added the CloneTestCase menu item to allow user to clone the Test Case to create a new one.
-// 06/20/2023   Mitch Lynch     000077      Adjusted the formatting of the Test Results table.  Added an empty state for the Test Cases card which uses the ImhotepIllustrationEmptyState01 static resource.
-// 06/09/2023   Mitch Lynch     S-000327    Added <design:supportedFormFactors> tag to xml config file to allow component to be used in both large and small form factors.
-// 06/07/2023   Mitch Lynch     000077		Added DeleteTestCase button and logic.
-// 06/06/2023   Mitch Lynch     000077		Swapped getTestCases() with getTestCasesWithTestResults() and created the Test Results table for each Test Case.
-// 06/05/2023	Mitch Lynch		000077		Updated to add the handleTestCaseMenuSelect() method for handling Test Case menu item actions.
-// 05/23/2023   Mitch Lynch     S-000306    Reintroduced the AddFlowAPIName attribute due to failing package upgrades (has to be present for orgs where previously installed).
-// 03/07/2023   Mitch Lynch     S-000298    Adjusted to retrieve Flow API Names from the custom metadata type instead of being set as design attributes.  To update the Release record type, see the active imhotep__Imhotep_App_Builder_Setting__mdt custom metadata type record.
-// 02/24/2023   Mitch Lynch     S-000180    Renamed controller from devImhotepAppBuilderCtrl to ImhotepAppBuilderCtrl.
-// 02/21/2023   Mitch Lynch     S-000166    Updated to use namespace "imhotep".
-// 10/26/2022	Mitch Lynch		000077		Created base component.
-// *******************************************************************************************
-// NOTES
-// This component, including any referenced resources including but not limited to components, Apex controllers, objects, fields, and static resources, was developed by Mitch Lynch for Salesforce.com.  Use only with permission.
-//
-// Empty state of main card is based on the SLDS Illustration blueprint for One Call to Action: https://www.lightningdesignsystem.com/components/illustration/?variant=base#One-Call-to-Action-Button
-// SLDS Page Header (Inside a Card) Blueprint:  https://www.lightningdesignsystem.com/components/page-headers/?variant=base#Inside-a-card
-// *******************************************************************************************
 
 ({
 	doInit : function(component) {

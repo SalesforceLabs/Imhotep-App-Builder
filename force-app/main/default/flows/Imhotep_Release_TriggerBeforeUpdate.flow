@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <decisions>
         <description>If the release&apos;s Release Mode or Record Type field changed independently, they need to be synchronized before the record changes are saved.</description>
         <name>decUpdateRTReleaseMode</name>

@@ -1,0 +1,149 @@
+<template>
+    <article class="slds-card iab-no-border">
+        
+        <!-- Header -->
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon-custom-custom64" title={label.HeadingProjectTiles}>
+                        <lightning-icon icon-name="custom:custom64" title={label.HeadingProjectTiles} size="small"></lightning-icon>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        {label.HeadingProjectTiles}
+                    </h2>
+                </div>
+                <div class="slds-no-flex">
+                    <lightning-button-group>
+                    <lightning-button-icon  aria-label={label.ActionRefreshProjectsLabel}
+                                            alternative-text={label.ActionRefreshProjectsAlt}
+                                            variant="brand-outline"
+                                            icon-name="utility:refresh"
+                                            onclick={handleRefresh}></lightning-button-icon>
+                    <lightning-button       label={label.ActionNewProjectLabel}
+                                            variant="brand-outline"
+                                            icon-name="utility:add"
+                                            icon-position="left"
+                                            onclick={openNewProjectFlow}></lightning-button>
+                </lightning-button-group>
+                </div>
+            </header>
+        </div>
+        <!-- END: Header -->
+
+
+        <!-- Project Tabs -->
+        <lightning-layout>
+            <lightning-layout-item size="12">
+                <lightning-tabset class="slds-tabs_medium" active-tab-value={activeTabValue}>
+                    <template for:each={statusTabs} for:item="tab">
+                        
+                        <!-- Project Tab -->
+                        <lightning-tab label={tab.label} value={tab.value} key={tab.value} class="slds-var-p-horizontal_small">
+                            <template if:true={tab.projects.length}>
+                                
+                                <template for:each={tab.projects} for:item="project">
+
+
+                                    <!-- Project Card -->
+                                    <article key={project.Id} class="slds-card iab-project-card">
+                                        <div class="slds-card__header slds-grid">
+                                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                                <div class="slds-media__figure">
+                                                    <span class="slds-icon_container slds-icon-custom-custom64" title={project.Name}>
+                                                        <lightning-icon icon-name="custom:custom64" title={project.Name} size="small"></lightning-icon>
+                                                    </span>
+                                                </div>
+                                                <div class="slds-media__body">
+                                                    <h2 class="slds-card__header-title">
+                                                        <a class="slds-truncate" data-object="iab__Project__c" data-record={project.Id} onclick={openRecord}>{project.Name}</a>
+                                                        <lightning-badge label={project.translatedType} class="slds-var-m-horizontal_small"></lightning-badge>
+                                                    </h2>
+                                                </div>
+                                                <div class="slds-no-flex">
+                                                    <lightning-button-group>
+                                                    <lightning-button   label={label.ActionNewReleaseLabel}
+                                                                        variant="brand-outline"
+                                                                        icon-name="utility:add"
+                                                                        icon-position="left"
+                                                                        data-id={project.Id}
+                                                                        onclick={openNewReleaseFlow}></lightning-button>
+                                                    <lightning-button   label={label.ActionNewReleaseFromTemplateLabel}
+                                                                        variant="brand-outline"
+                                                                        icon-name="utility:add"
+                                                                        icon-position="left"
+                                                                        data-id={project.Id}
+                                                                        onclick={openNewReleaseFromTemplateFlow}></lightning-button>
+                                                </lightning-button-group>
+                                                </div>
+                                            </header>
+                                        </div>
+                                        <lightning-layout vertical-align="stretch" multiple-rows class="slds-var-p-horizontal_x-small">
+                                            <template for:each={project.releases} for:item="release">
+
+                                                <!-- Release Card -->
+                                                <lightning-layout-item key={release.Id} size="12" small-device-size="12" medium-device-size="6" large-device-size="4" flexibility="auto" class="slds-var-p-horizontal_x-small">
+                                                    <article class="slds-card slds-card_boundary slds-var-m-bottom_small slds-var-p-around_small iab-release-card" style={release.style} data-object="iab__Release__c" data-record={release.Id} onclick={openRecord}>
+                                                        <lightning-layout vertical-align="center" class="slds-var-p-horizontal_x-small">
+                                                            <lightning-layout-item size="2" flexibility="auto" class="slds-align_absolute-center">
+                                                                <template lwc:if={release.iconUseInverseVariant}>
+                                                                    <lightning-icon icon-name={release.icon} size="small" variant="inverse"></lightning-icon>
+                                                                </template>
+                                                                <template lwc:else>
+                                                                    <lightning-icon icon-name={release.icon} size="small"></lightning-icon>
+                                                                </template>
+                                                            </lightning-layout-item>
+
+                                                            <lightning-layout-item size="10" flexibility="auto">
+                                                                <h3 class="iab-release-name">{release.Name}</h3>
+                                                                <p class="slds-text-body_small">{label.ReleaseFieldStatusLabel}: {release.translatedStatus}</p>
+                                                            </lightning-layout-item>
+                                                        </lightning-layout>
+                                                    </article>
+                                                </lightning-layout-item>
+                                                <!-- END: Release Card -->
+
+                                            </template>
+                                        </lightning-layout>
+
+                                    </article>
+                                    <!-- END: Project Card -->
+                                    
+                                </template>
+
+                            </template>
+                            
+                            <!-- Empty State -->
+                            <template if:false={tab.projects.length}>
+                                <!-- show an empty state illustration card with a call to action to create a new project -->
+                                <div class="slds-illustration slds-illustration_small" style="padding:10px 10px 0 10px;">
+                                    <img src={imageEmptyState02} class="slds-illustration__svg" />
+                                    
+                                    <div class="slds-text-longform">
+                                        <h3 class="slds-text-heading_medium">{label.ProjectEmptyByStatusHeading}</h3>
+                                        <p class="slds-text-body_regular">{label.ProjectEmptyByStatusText}</p>
+                                    </div>
+                                    <footer class="slds-card__footer">
+                                        <lightning-button   label={label.ActionNewProjectLabel}
+                                                            onclick={openNewProjectFlow}
+                                                            variant="brand"
+                                                            icon-name="utility:add"
+                                                            icon-position="left"></lightning-button>
+                                    </footer>
+                                </div>
+
+                            </template>
+                            <!-- END: Empty State -->
+                            
+                        </lightning-tab>
+                        <!-- END: Project Tab -->
+
+                    </template>
+                </lightning-tabset>
+            </lightning-layout-item>
+        </lightning-layout>
+        <!-- END: Project Tabs -->
+
+    </article>
+</template>

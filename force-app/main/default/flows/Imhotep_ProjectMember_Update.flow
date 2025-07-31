@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <choices>
         <name>choiceRoleBuilder</name>
         <choiceText>&lt;strong style=&quot;font-size: 14px;&quot;&gt;Builder&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; (Read/Write)&lt;/span&gt;</choiceText>
@@ -67,6 +68,11 @@
     </decisions>
     <description>Update the selected Project Member record.</description>
     <environments>Default</environments>
+    <formulas>
+        <name>fProjectName</name>
+        <dataType>String</dataType>
+        <expression>{!getProjectMember.Project__r.Name}</expression>
+    </formulas>
     <interviewLabel>Imhotep - Project Member - Update {!$Flow.CurrentDateTime}</interviewLabel>
     <isAdditionalPermissionRequiredToRun>true</isAdditionalPermissionRequiredToRun>
     <isTemplate>true</isTemplate>
@@ -128,8 +134,16 @@
         </connector>
         <fields>
             <name>text01a</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Modify Project Member Access&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Project:  {!getProjectMember.Project__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Project Member:  {!getProjectMember.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Update the project member&apos;s details below&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Modify Project Member Access&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Project:  {!fProjectName}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Project Member:  {!getProjectMember.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Update the project member&apos;s details below&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input01_Role</name>
@@ -143,6 +157,14 @@
             <fieldType>RadioButtons</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
@@ -164,6 +186,14 @@
             <helpText>&lt;p&gt;Notes are entirely optional, but might help provide info about a person&apos;s specific role, expertise, availability, etc.&lt;/p&gt;</helpText>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Update Project Member</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>

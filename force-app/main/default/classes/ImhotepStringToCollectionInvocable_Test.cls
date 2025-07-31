@@ -20,13 +20,6 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 *******************************************************************************************/
-/* MODIFICATION LOG
-* 	Date		Developer		Story		Description
-*   05/25/2024  Mitch Lynch     S000510     Reworked the class to work in the new org.
-*
-*   LEGACY ORG PACKAGE CHANGES:
-*	03/03/2023	Mitch Lynch		S-000187	Initial creation.
-*******************************************************************************************/
 
 @isTest
 public with sharing class ImhotepStringToCollectionInvocable_Test {

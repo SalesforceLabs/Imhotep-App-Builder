@@ -1,0 +1,8 @@
+.iab-row-container {
+    display:        flex;
+    align-items:    center;
+}
+
+.iab-text-name {
+    font-weight:    bold;
+}

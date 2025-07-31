@@ -1,0 +1,92 @@
+:host {
+    --slds-c-button-inverse-color-border: rgb(201, 201, 201);   /* same as --lwc-buttonColorBorderPrimary, used for lightning-button-icon buttons */
+    --slds-c-card-radius-border: var(--slds-g-radius-border-4);
+}
+
+.slds-card {
+    color: var(--slds-g-color-on-surface-2);
+}
+
+.iab-filter-card {
+    background-color: var(--slds-g-color-surface-container-2);
+    max-height: 525px; /* something big enough to hold the content */
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    max-height: 1000px;
+    opacity: 1;
+}
+
+.iab-kanban-board {
+    overflow-x: scroll;
+}
+
+.iab-column-header {
+    font-size: 1.125rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.iab-story-list {
+    overflow-y: scroll;
+    background: #ffffff;
+    border: none;
+}
+
+.iab-story-card {
+    border-radius: var(--slds-g-radius-border-4);
+}
+
+.iab-story-card:hover {
+    cursor: pointer;
+    outline: 0;
+    border: var(--slds-g-sizing-border-1) solid var(--slds-g-color-border-accent-2);
+    box-shadow: 0 0 0 1px var(--slds-g-color-accent-1) inset;
+}
+
+.iab-story-card-text {
+    font-size: 0.8rem;
+    color: #333333;
+}
+
+.iab-story-card-text-bold {
+    font-weight: bold;
+}
+
+.iab-badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.iab-clickable-badge {
+    background-color: var(--slds-g-color-surface-container-2);
+    color: var(--slds-g-color-on-surface-2);
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.9rem;
+    font-size: 0.65rem;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #767676; /* #dddbda; */
+    transition: all 0.2s ease-in-out;
+}
+
+.iab-clickable-badge:hover {
+    background-color: #0b5cab;
+    border-color: #0b5cab;
+    color: #ffffff;
+}
+
+.iab-badge-selected {
+    background-color: #0b5cab;
+    border-color: #0b5cab;
+    color: #ffffff;
+}
+
+.iab-empty-state {
+    font-style: italic;
+    color: #888888;
+    padding: 1rem;
+    text-align: center;
+}

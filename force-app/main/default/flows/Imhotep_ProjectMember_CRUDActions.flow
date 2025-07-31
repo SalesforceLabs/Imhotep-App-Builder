@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <decisions>
         <description>Determine which action has been requested by an authorized user from the parent flow.  See inputSelectedAction variable description for acceptable values.</description>
         <name>decAuthorizedAction</name>

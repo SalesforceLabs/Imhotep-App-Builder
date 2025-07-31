@@ -211,6 +211,10 @@
         <name>Story_Log_Change_Action</name>
     </quickActions>
     <quickActions>
+        <label><!-- New Child Story --></label>
+        <name>Story_New_Child_Story</name>
+    </quickActions>
+    <quickActions>
         <label><!-- Transfer to Another Release --></label>
         <name>Story_Transfer_Action</name>
     </quickActions>

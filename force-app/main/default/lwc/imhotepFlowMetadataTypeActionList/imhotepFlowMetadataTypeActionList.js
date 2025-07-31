@@ -8,28 +8,22 @@
 // Copyright (c) 2023, Salesforce, Inc.
 // SPDX-License-Identifier: Apache-2
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the
+// License. You may obtain a copy of the License at
 //
 //     http://www.apache.org/licenses/LICENSE-2.0
 //
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-// *******************************************************************************************
-// MODIFICATION LOG
-// Date			Developer		Story		Description
-// 06/30/2024   Mitch Lynch     S000369     Created base component.
-// *******************************************************************************************
-// NOTES
-// Lightning Datatable LWC documentation: https://developer.salesforce.com/docs/component-library/bundle/lightning-datatable/documentation
+// Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS"
+// BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
+// governing permissions and limitations under the License.
 // *******************************************************************************************
 
 import { LightningElement, api, wire, track } from 'lwc';
 import { FlowNavigationNextEvent } from 'lightning/flowSupport';
+
+// import Apex
+import getMetadataTypes from '@salesforce/apex/ImhotepAppBuilderCtrl.getMetadataTypes';
+import getMetadataComponents from '@salesforce/apex/ImhotepAppBuilderCtrl.getMetadataComponents';
 
 // import custom labels
 import LogChangeLWCActionDeletedLabel from "@salesforce/label/c.LogChangeLWCActionDeletedLabel";
@@ -40,23 +34,8 @@ import LogChangeLWCInitialState from "@salesforce/label/c.LogChangeLWCInitialSta
 import LogChangeLWCListHeader from "@salesforce/label/c.LogChangeLWCListHeader";
 import LogChangeLWCListMessage from "@salesforce/label/c.LogChangeLWCListMessage";
 
-// import Apex
-import getMetadataTypes from '@salesforce/apex/ImhotepAppBuilderCtrl.getMetadataTypes';
-import getMetadataComponents from '@salesforce/apex/ImhotepAppBuilderCtrl.getMetadataComponents';
-
 export default class ImhotepFlowMetadataTypeActionList extends LightningElement {
-
-    // define custom labels
-    label = {
-        LogChangeLWCActionDeletedLabel,
-        LogChangeLWCActionModifiedLabel,
-        LogChangeLWCActionNewLabel,
-        LogChangeLWCComponentListEmptyState,
-        LogChangeLWCInitialState,
-        LogChangeLWCListHeader,
-        LogChangeLWCListMessage,
-    }
-
+    
     // set input properties
     @api projectId;                             // Id for a iab__Project__c record
 
@@ -73,9 +52,39 @@ export default class ImhotepFlowMetadataTypeActionList extends LightningElement 
     metadataComponentCount;                     // number of metadata components in the selected metadata type
     isFirstRender = true;                       // controls whether to display the initial instructions or not
     showComponents = false;                     // controls whether to display the selected iab__Metadata_Component__c records for the selected metadata type
+    
+    // define custom labels
+    label = {
+        LogChangeLWCActionDeletedLabel,
+        LogChangeLWCActionModifiedLabel,
+        LogChangeLWCActionNewLabel,
+        LogChangeLWCComponentListEmptyState,
+        LogChangeLWCInitialState,
+        LogChangeLWCListHeader,
+        LogChangeLWCListMessage,
+    }
 
 
 
+    // ======================================
+    // WIRE ADAPTER METHODS
+    // ======================================
+    
+    // wire the getMetadataComponents() method
+    // retrieve all iab__Metadata_Component__c records for a specific iab__Project__c
+    @wire(getMetadataComponents, {
+        paramProjectId: '$projectId'
+    })
+    wiredMetadataComponents({ error, data }) {
+        if (data) {
+            this.metadataComponents = data;
+        } else if (error) {
+            console.error(error);
+        }
+    }
+    
+    
+    
     // wire the getMetadataTypes() method
     // retrieves all iab__Metadata_Type__c picklist values
     @wire(getMetadataTypes)
@@ -87,21 +96,36 @@ export default class ImhotepFlowMetadataTypeActionList extends LightningElement 
         }
     }
 
-    
 
-    // wire the getMetadataComponents() method
-    // retrieve all iab__Metadata_Component__c records for a specific iab__Project__c
-    @wire(getMetadataComponents, {paramProjectId: '$projectId'})
-    wiredMetadataComponents({ error, data }) {
-        if (data) {
-            this.metadataComponents = data;
-        } else if (error) {
-            console.error(error);
-        }
+
+    // ======================================
+    // EVENT HANDLER METHODS
+    // ======================================
+
+    // event handler when a New, Modified, or Deleted button is clicked
+    // handles data prep and flow navigation to the next screen
+    handleChangeTypeSelection(event) {
+        // determine which metadata type was selected
+        console.log("this.outputSelectedMetadataType: " + this.outputSelectedMetadataType);
+
+        // determine which change type was selected
+        this.outputSelectedChangeType = event.target.dataset.changetype;
+        console.log("this.outputSelectedChangeType: " + this.outputSelectedChangeType);
+        
+        // determine which metadata component was clicked on (if any)
+        this.outputSelectedComponent = event.target.dataset.component;
+        console.log("this.outputSelectedComponent: " + this.outputSelectedComponent);
+
+        this.outputSelectedMetadataType = this.selectedMetadataType;
+        this.outputButtonClicked = true;
+        
+        // navigate to the next screen
+        const navigateNextEvent = new FlowNavigationNextEvent();
+        this.dispatchEvent(navigateNextEvent);
     }
-
-
-
+    
+    
+    
     // event handler when a metadata type is selected
     // handles data prep/filtering, display, and styling
     handleMetadataTypeSelection(event) {
@@ -145,27 +169,4 @@ export default class ImhotepFlowMetadataTypeActionList extends LightningElement 
         event.target.classList.add('iab-selected');
     }
 
-
-
-    // event handler when a New, Modified, or Deleted button is clicked
-    // handles data prep and flow navigation to the next screen
-    handleChangeTypeSelection(event) {
-        // determine which metadata type was selected
-        console.log("this.outputSelectedMetadataType: " + this.outputSelectedMetadataType);
-
-        // determine which change type was selected
-        this.outputSelectedChangeType = event.target.dataset.changetype;
-        console.log("this.outputSelectedChangeType: " + this.outputSelectedChangeType);
-        
-        // determine which metadata component was clicked on (if any)
-        this.outputSelectedComponent = event.target.dataset.component;
-        console.log("this.outputSelectedComponent: " + this.outputSelectedComponent);
-
-        this.outputSelectedMetadataType = this.selectedMetadataType;
-        this.outputButtonClicked = true;
-        
-        // navigate to the next screen
-        const navigateNextEvent = new FlowNavigationNextEvent();
-        this.dispatchEvent(navigateNextEvent);
-    }
 }

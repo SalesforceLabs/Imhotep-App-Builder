@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>setDraftStory</name>
         <label>Set Draft Story</label>
         <locationX>270</locationX>
-        <locationY>1082</locationY>
+        <locationY>1190</locationY>
         <assignmentItems>
             <assignToReference>varRecDraftStory.Name</assignToReference>
             <operator>Assign</operator>
@@ -80,7 +81,7 @@
             <assignToReference>varRecDraftStory.Status__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Defined</stringValue>
+                <elementReference>getActiveCustomMetadataSettings.Default_Story_Status__c</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -119,7 +120,7 @@
         <name>setNewPriorityTo1</name>
         <label>Set New Priority to 1</label>
         <locationX>314</locationX>
-        <locationY>458</locationY>
+        <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>varStoryPriority</assignToReference>
             <operator>Assign</operator>
@@ -135,7 +136,7 @@
         <name>setNewPriorityToNPlus1</name>
         <label>Set New Priority to N+1</label>
         <locationX>50</locationX>
-        <locationY>458</locationY>
+        <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>varStoryPriority</assignToReference>
             <operator>Assign</operator>
@@ -151,7 +152,7 @@
         <name>decStoryFound</name>
         <label>Story Found?</label>
         <locationX>182</locationX>
-        <locationY>350</locationY>
+        <locationY>458</locationY>
         <defaultConnector>
             <targetReference>setNewPriorityTo1</targetReference>
         </defaultConnector>
@@ -199,7 +200,7 @@
         <name>loopTemplateItems</name>
         <label>Loop on Template Items</label>
         <locationX>182</locationX>
-        <locationY>974</locationY>
+        <locationY>1082</locationY>
         <collectionReference>getTemplateItems</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -232,14 +233,38 @@
         <name>createStories</name>
         <label>Create Stories</label>
         <locationX>182</locationX>
-        <locationY>1274</locationY>
+        <locationY>1382</locationY>
         <inputReference>varCollDraftStories</inputReference>
     </recordCreates>
+    <recordLookups>
+        <description>Retrieve the active custom metadata type settings for Imhotep App Builder.  Only one metadata type record is retrieved (where Active = true).  If there are multiple active records, you may experience errors until you update old records (uncheck the Active checkbox).</description>
+        <name>getActiveCustomMetadataSettings</name>
+        <label>Get Active Custom Metadata Settings</label>
+        <locationX>182</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>getRelease</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Active__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Imhotep_Config__mdt</object>
+        <sortField>DeveloperName</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordLookups>
         <name>getLowestPriorityStory</name>
         <label>Get Lowest Priority Story</label>
         <locationX>182</locationX>
-        <locationY>242</locationY>
+        <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>decStoryFound</targetReference>
@@ -262,7 +287,7 @@
         <name>getRelease</name>
         <label>Get Release</label>
         <locationX>182</locationX>
-        <locationY>134</locationY>
+        <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>getLowestPriorityStory</targetReference>
@@ -283,7 +308,7 @@
         <name>getTemplate</name>
         <label>Get Template</label>
         <locationX>182</locationX>
-        <locationY>758</locationY>
+        <locationY>866</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>getTemplateItems</targetReference>
@@ -304,7 +329,7 @@
         <name>getTemplateItems</name>
         <label>Get Template Items</label>
         <locationX>182</locationX>
-        <locationY>866</locationY>
+        <locationY>974</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>loopTemplateItems</targetReference>
@@ -328,7 +353,7 @@
         <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>getRelease</targetReference>
+            <targetReference>getActiveCustomMetadataSettings</targetReference>
         </connector>
     </start>
     <status>Active</status>
@@ -336,7 +361,7 @@
         <name>subflowGetRecordType</name>
         <label>Get Record Type</label>
         <locationX>182</locationX>
-        <locationY>650</locationY>
+        <locationY>758</locationY>
         <connector>
             <targetReference>getTemplate</targetReference>
         </connector>

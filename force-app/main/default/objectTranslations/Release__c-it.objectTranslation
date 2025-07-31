@@ -14,12 +14,18 @@
         <name>Created_from_Template__c</name>
     </fields>
     <fields>
+        <help>Breve descrizione dello scopo o dell&apos;ambito del rilascio.</help>
+        <label>Descrizione</label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
         <help>Se selezionato, questo rilascio viene utilizzato come un backlog e non per lo sviluppo effettivo.</help>
         <label>È backlog?</label>
         <name>Is_Backlog__c</name>
     </fields>
     <fields>
-        <label>Note</label>
+        <help>Redigi qui le tue note di rilascio dettagliate.</help>
+        <label>Note di rilascio</label>
         <name>Notes__c</name>
     </fields>
     <fields>

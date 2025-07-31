@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <decisions>
         <name>decShowErrorScreenToUser</name>
         <label>Show Error Screen to User?</label>
@@ -62,6 +63,14 @@
             <name>text01a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;An Error Has Occurred&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;There was a problem encountered while processing your last request&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;. &lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s01_Section1</name>
@@ -73,6 +82,14 @@
                     <name>text01b</name>
                     <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;{!inputAdditionalMessageToDisplay}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
                     <fieldType>DisplayText</fieldType>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -84,6 +101,14 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
@@ -99,6 +124,14 @@
             <name>text01c</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Your Salesforce System Administrator has been sent a copy of the error.  You may try your request again. If you continue to experience this problem, you may want to reach out to your Salesforce System Administrator for assistance.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(153, 153, 153);&quot;&gt;Error Details:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(153, 153, 153);&quot;&gt;{!inputFaultMessage}&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Close</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>

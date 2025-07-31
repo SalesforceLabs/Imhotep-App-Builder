@@ -1,8 +1,9 @@
 // *******************************************************************************************
 // @Name			devProjectTiles.cmp
-// @Author		Mitch Lynch (mitch.lynch@salesforce.com)
+// @Author		    Mitch Lynch (mitch.lynch@salesforce.com)
 // @Date			09/25/2022
-// @Description	Displays tile menu for all Projects.
+// @Description	    DEPRECATED, use imhotepMyProjects LWC instead. Displays tile menu for all Projects.
+// @Use             DEPRECATED / NOT IN USE
 // *******************************************************************************************
 // COPYRIGHT AND LICENSE
 // Copyright (c) 2023, Salesforce, Inc.
@@ -19,32 +20,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// *******************************************************************************************
-// MODIFICATION LOG
-// Date			Developer		Story		Description
-// 05/25/2024   Mitch Lynch     S000515     Reworked the component to work in the new org.  Deleted design attributes (previously deprecated in legacy org).
-//
-// LEGACY ORG PACKAGE CHANGES:
-// 02/24/2024   Mitch Lynch     S000430     Modified to use custom labels, such as {!$Label.c.GeneralModalCloseLabel}.
-// 02/21/2024   Mitch Lynch     S000436     Commented out all console.log() methods used for debugging.
-// 02/19/2024   Mitch Lynch     S000437     Standardized button attributes for accessibility.
-// 08/26/2023   Mitch Lynch     S-000386    Added refresh icon button to refresh the component's data manually (calls doInit()).
-// 06/21/2023   Mitch Lynch     S-000330    Updated to pass the name of the new project flow and the name of the tab to the devProjectTileTab component to help display an appropriate empty state.
-// 05/23/2023   Mitch Lynch     S-000306    Reintroduced the NewProjectFlow and NewReleaseFlow attributes due to failing package upgrades (have to be present for orgs where previously installed).
-// 05/19/2023   Mitch Lynch     S-000304    Reduced the padding in the header and switched to using SLDS standard padding.
-// 03/07/2023   Mitch Lynch     S-000298    Adjusted to retrieve Flow API Names from the custom metadata type instead of being set as design attributes.  To update the Release record type, see the active imhotep__Imhotep_App_Builder_Setting__mdt custom metadata type record.
-// 03/07/2023   Mitch Lynch     S-000188    Added support for the "New Release From Template" button.
-// 02/28/2023   Mitch Lynch     S-000183    Rewrote getProjectsByMembership() so that Aura controller finds and passes the current user Id as a parameter to the Apex method so it would be testable.
-// 02/25/2023   Mitch Lynch     S-000183    Replace controller ImhotepProjectsCtrl with ImhotepAppBuilderCtrl.
-// 02/24/2023   Mitch Lynch     S-000180    Renamed controller from devProjectsCtrl to ImhotepProjectsCtrl.
-// 02/21/2023   Mitch Lynch     S-000166    Updated to use namespace "imhotep".
-// 10/14/2022	Mitch Lynch		000053		Updated to query Projects through Project_Member__c records for the current user. Updated default value of NewProjectFlow to Imhotep_General_NewProject and NewReleaseFlow to Imhotep_Project_NewRelease.
-// 09/28/2022	Mitch Lynch		000070		Modified to use a tabbed layout by Project Status__c. Rewrote project query as a list of lists. Moved each set of project to a child component to avoid duplicative code.
-// 09/26/2022	Mitch Lynch		000070		Continued base component development.
-// 09/25/2022	Mitch Lynch		000070		Created base component.
-// *******************************************************************************************
-// NOTES
-// This component, including any referenced resources including but not limited to components, Apex controllers, objects, fields, and static resources, was developed by Mitch Lynch for Salesforce.com.  Use only with permission.
 // *******************************************************************************************
 
 ({

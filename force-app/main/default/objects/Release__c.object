@@ -187,6 +187,19 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Brief description of the purpose or scope of the release.</description>
+        <inlineHelpText>Brief description of the purpose or scope of the release.</inlineHelpText>
+        <label>Description</label>
+        <length>1000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>Is_Backlog__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
@@ -201,7 +214,9 @@
     <fields>
         <fullName>Notes__c</fullName>
         <deprecated>false</deprecated>
-        <label>Notes</label>
+        <description>Draft your detailed release notes here.</description>
+        <inlineHelpText>Draft your detailed release notes here.</inlineHelpText>
+        <label>Release Notes</label>
         <length>32768</length>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -362,7 +377,7 @@
         <columns>Start_Date__c</columns>
         <columns>Release_Date__c</columns>
         <columns>Project__c</columns>
-        <columns>Notes__c</columns>
+        <columns>Description__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
@@ -373,7 +388,7 @@
         <columns>Start_Date__c</columns>
         <columns>Release_Date__c</columns>
         <columns>Project__c</columns>
-        <columns>Notes__c</columns>
+        <columns>Description__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Is_Backlog__c</field>
@@ -388,7 +403,7 @@
         <columns>Start_Date__c</columns>
         <columns>Release_Date__c</columns>
         <columns>Project__c</columns>
-        <columns>Notes__c</columns>
+        <columns>Description__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Status__c</field>
@@ -408,7 +423,7 @@
         <columns>Start_Date__c</columns>
         <columns>Release_Date__c</columns>
         <columns>Project__c</columns>
-        <columns>Notes__c</columns>
+        <columns>Description__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Status__c</field>
@@ -428,7 +443,7 @@
         <columns>Start_Date__c</columns>
         <columns>Release_Date__c</columns>
         <columns>Project__c</columns>
-        <columns>Notes__c</columns>
+        <columns>Description__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Status__c</field>
@@ -520,6 +535,7 @@
     <searchLayouts>
         <searchResultsAdditionalFields>Project__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Description__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>

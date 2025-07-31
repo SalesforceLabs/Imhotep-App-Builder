@@ -1,4 +1,4 @@
-<aura:component controller="ImhotepAppBuilderCtrl" implements="force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes" access="global">
+<aura:component controller="ImhotepAppBuilderCtrl" implements="force:hasRecordId" access="global">
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 

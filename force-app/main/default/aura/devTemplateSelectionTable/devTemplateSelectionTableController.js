@@ -20,20 +20,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 // *******************************************************************************************
-// MODIFICATION LOG
-// Date			Developer		Story		Description
-// 05/25/2024   Mitch Lynch     S000503     Reworked the component to work in the new org.
-//
-// LEGACY ORG PACKAGE CHANGES:
-// 02/24/2024   Mitch Lynch     S000430     Modified to use custom labels, such as {!$Label.c.GeneralModalCloseLabel}.
-// 02/21/2024   Mitch Lynch     S000436     Commented out all console.log() methods used for debugging.
-// 02/21/2024   Mitch Lynch     S000437     Standardized button and icon attributes for accessibility.
-// 03/06/2023   Mitch Lynch     S-000188    Continued development.
-// 03/04/2023	Mitch Lynch		S-000188    Created base component.
-// *******************************************************************************************
-// NOTES
-// This component, including any referenced resources including but not limited to components, Apex controllers, objects, fields, and static resources, was developed by Mitch Lynch for Salesforce.com.  Use only with permission.
-// *******************************************************************************************
 
 ({
 	doInit : function(component, event, helper) {

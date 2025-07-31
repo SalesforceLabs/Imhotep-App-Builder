@@ -249,6 +249,11 @@
     </quickActions>
     <quickActions>
         <aspect>Master</aspect>
+        <label>Neue untergeordnete Story</label>
+        <name>Story_New_Child_Story</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
         <label>In anderes Release übertragen</label>
         <name>Story_Transfer_Action</name>
     </quickActions>

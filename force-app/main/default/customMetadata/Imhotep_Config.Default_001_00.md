@@ -4,7 +4,7 @@
     <protected>false</protected>
     <values>
         <field>Active__c</field>
-        <value xsi:type="xsd:boolean">true</value>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
     <values>
         <field>Current_Release_Date__c</field>
@@ -13,6 +13,14 @@
     <values>
         <field>Current_Release_Version__c</field>
         <value xsi:type="xsd:string">1.4</value>
+    </values>
+    <values>
+        <field>Default_Story_Kanban_Height__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Default_Story_Status__c</field>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Documentation_URL__c</field>

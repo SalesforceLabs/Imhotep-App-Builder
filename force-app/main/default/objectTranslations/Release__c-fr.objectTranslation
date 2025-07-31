@@ -14,12 +14,18 @@
         <name>Created_from_Template__c</name>
     </fields>
     <fields>
+        <help>Brève description de l&apos;objectif ou de la portée de la publication.</help>
+        <label>Description</label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
         <help>Si coché, cette version est utilisée comme un backlog et non pour le développement réel.</help>
         <label>Est-ce un backlog?</label>
         <name>Is_Backlog__c</name>
     </fields>
     <fields>
-        <label>Notes</label>
+        <help>Rédigez vos notes de version détaillées ici.</help>
+        <label>Notes de version</label>
         <name>Notes__c</name>
     </fields>
     <fields>

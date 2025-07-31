@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <choices>
         <name>choicePointsBeginner</name>
         <choiceText>Beginner</choiceText>
@@ -113,21 +114,53 @@
             <name>text01a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px; color: rgb(0, 0, 0);&quot;&gt;Select a Template&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>text01b</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;You can create stories in your release using a template.  Templates include a list of pre-built stories for carrying out common tasks.  These stories can also include pre-documented information on how to complete the story.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>text01c</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Template stories also include &quot;Estimated Points&quot; - rough estimates of the level of effort required to complete each story.  There are different estimates to choose from (Beginner, Intermediate, and Expert), depending on your experience/comfort level with the related work.  These estimates roll up to help you better understand the overall level of effort to complete a release.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>text01d</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);&quot;&gt;Please select a template and which estimates to use:&lt;/strong&gt;&lt;span style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);&quot;&gt;﻿&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input01_EstimatedPointsToUse</name>
@@ -139,6 +172,14 @@
             <fieldType>RadioButtons</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input01_TemplateSelectionTable</name>
@@ -150,6 +191,14 @@
                 <assignToReference>varSelectedTemplateId</assignToReference>
                 <name>SelectedTemplateId</name>
             </outputParameters>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Next &gt;</nextOrFinishButtonLabel>
         <showFooter>false</showFooter>

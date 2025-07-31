@@ -20,87 +20,25 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 *******************************************************************************************/
-/* MODIFICATION LOG
-* 	Date		Developer			Story		Description
-*   07/24/2024  Mitch Lynch         S000093     Added getReleaseChanges() method.
-*   07/11/2024  Mitch Lynch         S000369     Added getMetadataComponents() method.
-*   06/30/2024  Mitch Lynch         S000369     Added getMetadataTypes() method.
-*   06/22/2024  Mitch Lynch         S000366     Added iab__Metadata_Change_Menu_Actions__c to the getImhotepActiveMetadata() method.
-*   06/18/2024  Mitch Lynch         S000366     Added getStoryChanges() method.
-*   06/06/2024  Mitch Lynch         S000044     Recovered from Salesforce Code Analyzer scans.
-*   06/04/2024  Mitch Lynch         S000037     Modified format of input parameters from String to Id to better validate the input and protect against SOQL injection in the following methods:
-*                                                   - DONE getProjectsByMembership(ParamUserId)
-*                                                   - DONE getProjectMembers(Id ParamProjectId)
-*                                                   - DONE getReleaseLists(Id ParamProjectId)
-*                                                   - DONE getStoriesByRelease(Id ParamReleaseId)
-*                                                   - DONE getStoriesByStatus(Id ParamReleaseId)
-*                                                   - DONE getStoryTagAssignmentRecords(Id ParamStoryId)
-*                                                   - DONE getTagAssignmentRecords(Id ParamTagId)
-*                                                   - DONE getTestScenariosWithTestResults(Id ParamStoryId)
-*                                                   - DONE saveReorderedStories(Map<Id,Decimal> orderedMap)
-*   06/02/2024  Mitch Lynch         S000033     Added iab__Documentation_URL__c to getImhotepActiveMetadata().
-*   05/24/2024  Mitch Lynch         S000486     Reworked the class to work in the new org.
-*                                                   - renamed getProjectResources() to getResourceLinks().
-*                                                   - renamed getTestCasesWithTestResults() to getTestScenariosWithTestResults().
-*
-*   LEGACY ORG PACKAGE CHANGES:
-*   01/14/2024  Mitch Lynch         S-000417    Added FLS checks as identified by Checkmarx to moveStory() and saveReorderedStories().
-*   08/26/2023  Mitch Lynch         S-000402    For getStoriesByRelease(), added additional field to query (imhotep__Story_Description__c).
-*   08/26/2023  Mitch Lynch         S-000394    For getImhotepActiveMetadata(), added additional field to query (imhotep__Story_Edit__c).
-*   08/26/2023  Mitch Lynch         S-000329    For getImhotepActiveMetadata(), added additional field to query (imhotep__Story_Clone__c).
-*   08/18/2023  Mitch Lynch         S-000102    Updated getStoriesByRelease() to replace the Project Member-related user fields with the new Assigned_User__c formula field on Story__c. Added imhotep__Release_Delete_Story__c to getImhotepActiveMetadata().
-*   08/17/2023  Mitch Lynch         S-000102    Added saveReorderedStories() to support the imhotepStoryList LWC... probably replaces the need for reorderStory().
-*   08/14/2023  Mitch Lynch         S-000102    Added getStoriesByRelease() to support the imhotepStoryList LWC.
-*   07/01/2023  Mitch Lynch         S-000335    For getImhotepActiveMetadata(), added additional fields to return (Project_Resource_New__c, Project_Resource_Menu_Actions__c)
-*   07/01/2023  Mitch Lynch         S-000329    Added getProjectId() method, which was based on getProjectResources().
-*   06/30/2023  Mitch Lynch         S-000329    For getImhotepActiveMetadata(), added additional fields to return (Current_Release_Date__c, Current_Release_Version__c).
-*   06/30/2023  Mitch Lynch         S-000336    Removed getTestCases(), which was replaced by getTestCasesWithTestResults(). It was dragging down test coverage so it has been commented out.
-*   06/28/2023  Mitch Lynch         S-000315    Added imhotep__Project_Delete_Tag__c to getImhotepActiveMetadata().
-*   06/26/2023  Mitch Lynch         S-000315    Added imhotep__Story_Remove_Tag_Assignment__c to getImhotepActiveMetadata().
-*   06/20/2023  Mitch Lynch         000077      For getTestCasesWithTestResults(), added "ORDER BY Name ASC" clause for the embedded relationship query.
-*   06/06/2023  Mitch Lynch         000077      Added the imhotep__Story_Test_Case_Menu_Actions__c and imhotep__Story_Test_Result_Menu_Actions__c fields to the query for getImhotepActiveMetadata().
-*   06/01/2023  Mitch Lynch         000050      Added getProjectResources() method to support the new imhotepProjectResourcesBar LWC.
-*   03/07/2023  Mitch Lynch         S-000298    Added getImhotepActiveMetadata(). Used to retrieve custom metadata for components rather than using design attributes.  To update the Release record type, see the active imhotep__Imhotep_App_Builder_Setting__mdt custom metadata type record.
-*   03/04/2023  Mitch Lynch         S-000188    Added getTemplatesByType().
-*   02/28/2023  Mitch Lynch         S-000183    Rewrote getProjectsByMembership() to use a parameter for current user Id that's passed from the Aura controller, rather than calculated in the method, so it would be more testable.
-*   02/25/2023  Mitch Lynch         S-000183    Merge ImhotepProjectsCtrl and ImhotepReleaseKanbanCtrl into ImhotepAppBuilder.
-*   02/24/2023  Mitch Lynch         S-000180    Renamed devImhotepAppBuilderCtrl to ImhotepAppBuilderCtrl (also devProjectsCtrl to ImhotepProjectsCtrl and devReleaseKanbanCtrl to ImhotepReleaseKanbanCtrl).
-*   02/24/2023  Mitch Lynch         000079      Updated imhotep__Assigned__c to use imhotep__Assigned_Project_Member__c.
-*   02/21/2023  Mitch Lynch         S-000166    Updated to use namespace "imhotep".
-*   10/29/2022  Mitch Lynch         S-000103    Added getTagAssignmentRecords() - moved from the devTagStoriesCtrl so it could be retired.
-*   10/26/2022  Mitch Lynch         000077      Added getTestCases() method to support devStoryTestCases component.
-*   10/24/2022  Mitch Lynch         S-000101    Added moveStory() method for drag-and-drop Kanban support; replaces need for updateStoryStatus().
-*	10/16/2022	Mitch Lynch			S-00010		Added getReleaseLists() method to support the devProjectReleases component.
-*	10/15/2022	Mitch Lynch			000053		Added getProjectMembers for devProjectMembers component. Added getProjectsByMembership to switch to a query for Projects through Project_Member__c records for the current user (no longer need getProjectLists).
-*	10/13/2022	Mitch Lynch			unknown		Initial creation - original devImhotepAppBuilderCtrl.
-*	09/26/2022	Mitch Lynch			000070		Added getAllReleases() method to query all releases together.
-*	09/25/2022	Mitch Lynch			000070		Initial creation - original devProjectsCtrl.
-*	09/25/2022	Mitch Lynch			000064		Completion of final logic for updateStoryStatus() and test coverage for all methods.
-*	09/24/2022	Mitch Lynch			000064		Added updateStoryStatus() to promote/demote Story Status to the next/previous value in the picklist.
-*	04/20/2022	Mitch Lynch			unknown		Added Assigned__c related fields.
-*	04/12/2022	Mitch Lynch			unknown		Initial creation - original devReleaseKanbanCtrl.
-*******************************************************************************************/
 
 public with sharing class ImhotepAppBuilderCtrl {
 
-
-    
     // *************************
     // CUSTOM METADATA TYPES
     // *************************
 
     // getImhotepActiveMetadata()
     // queries for the active iab__Imhotep_Config__mdt record
-    // used by: devKanbanRelease, devProjectMembers, devProjectReleases, devProjectTags, devProjectTiles, devStoryTags, devStoryTestScenarios, imhotepAppCard, imhotepResourceBar, and imhotepStoryList components
+    // used by: devProjectMembers, devProjectReleases, devProjectTags, devStoryTags, devStoryTestScenarios, imhotepAppCard, imhotepResourceBar, imhotepStoryKanban, imhotepStoryList, devKanbanRelease (DEPRECATED), and devProjectTiles (DEPRECATED) components
     @AuraEnabled(cacheable=true)
     public static iab__Imhotep_Config__mdt getImhotepActiveMetadata() {
         
-        // Check if the user has read access to the custom metadata type
+        // check if the user has read access to the custom metadata type
         if (Schema.sObjectType.iab__Imhotep_Config__mdt.isAccessible()) {
             // get the custom metadata record (just the active one)
             iab__Imhotep_Config__mdt activeImhotepMetadata = 
                 [ 
-                    SELECT Id, DeveloperName, iab__Active__c, iab__Current_Release_Version__c, iab__Current_Release_Date__c, iab__Documentation_URL__c, iab__General_New_Project__c, iab__Metadata_Change_Menu_Actions__c, iab__Project_Add_Metadata_Component__c, iab__Project_Create_Release_from_Template__c, iab__Project_Delete_Project_Member__c, iab__Project_Delete_Tag__c, iab__Project_New_Project_Member__c, iab__Project_Update_Project_Member__c, iab__Project_New_Release__c, iab__Project_New_Tag__c, iab__Release_Add_Template_to_Release__c, iab__Release_Create_Template_from_Release__c, iab__Release_Delete_Story__c, iab__Release_New_Story__c, iab__Resource_Link_Menu_Actions__c, iab__Resource_Link_New__c, iab__Story_Clone__c, iab__Story_Edit__c, iab__Story_Log_Change__c, iab__Story_New_Tag_Assignment__c, iab__Story_New_Test_Scenario__c, iab__Story_Transfer__c, iab__Story_Remove_Tag_Assignment__c, iab__Story_Test_Scenario_Menu_Actions__c, iab__Story_Test_Result_Menu_Actions__c, iab__Template_Clone__c
+                    SELECT Id, DeveloperName, iab__Active__c, iab__Current_Release_Version__c, iab__Current_Release_Date__c, iab__Default_Story_Kanban_Height__c, iab__Default_Story_Status__c, iab__Documentation_URL__c, iab__General_New_Project__c, iab__Metadata_Change_Menu_Actions__c, iab__Project_Add_Metadata_Component__c, iab__Project_Create_Release_from_Template__c, iab__Project_Delete_Project_Member__c, iab__Project_Delete_Tag__c, iab__Project_New_Project_Member__c, iab__Project_Update_Project_Member__c, iab__Project_New_Release__c, iab__Project_New_Tag__c, iab__Release_Add_Template_to_Release__c, iab__Release_Create_Template_from_Release__c, iab__Release_Delete_Story__c, iab__Release_New_Story__c, iab__Resource_Link_Menu_Actions__c, iab__Resource_Link_New__c, iab__Story_Clone__c, iab__Story_Edit__c, iab__Story_Log_Change__c, iab__Story_New_Tag_Assignment__c, iab__Story_New_Test_Scenario__c, iab__Story_Transfer__c, iab__Story_Remove_Tag_Assignment__c, iab__Story_Test_Scenario_Menu_Actions__c, iab__Story_Test_Result_Menu_Actions__c, iab__Template_Clone__c
                     FROM iab__Imhotep_Config__mdt
                     WHERE iab__Active__c = true
                     ORDER BY DeveloperName DESC
@@ -109,12 +47,12 @@ public with sharing class ImhotepAppBuilderCtrl {
             
             return activeImhotepMetadata;
         } else {
-            // Handle the case where the user does not have read access
+            // handle the case where the user does not have read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read Imhotep Config custom metadata.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
 
@@ -128,14 +66,15 @@ public with sharing class ImhotepAppBuilderCtrl {
 
     // getMetadataComponents()
     // retrieve all iab__Metadata_Component__c records for a specific iab__Project__c
-    // used by: imhotepFlowMetadataTypeActionList component
+    // used by: imhotepFlowMetadataTypeActionList and imhotepMetadataComponents LWCs
     @AuraEnabled(cacheable=true)
     public static List<iab__Metadata_Component__c> getMetadataComponents(Id paramProjectId){
-        // Check if the user has read access to iab__Metadata_Component__c
+        
+        // check if the user has read access to iab__Metadata_Component__c
         if (Schema.sObjectType.iab__Metadata_Component__c.isAccessible()) {
 
             return [
-                SELECT Id,Name,iab__API_Name__c,iab__Metadata_Type__c
+                SELECT Id,Name,iab__API_Name__c,iab__Category__c,iab__Metadata_Type__c
                 FROM iab__Metadata_Component__c
                 WHERE iab__Project__c = :paramProjectId
                 AND iab__Is_Deleted__c = FALSE
@@ -144,12 +83,12 @@ public with sharing class ImhotepAppBuilderCtrl {
             ];
 
         } else {
-            // Handle the case where the user does not have read access
+            // handle the case where the user does not have read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read Metadata Components.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
         
@@ -162,7 +101,8 @@ public with sharing class ImhotepAppBuilderCtrl {
     // used by: imhotepFlowMetadataTypeActionList component
     @AuraEnabled(cacheable=true)
     public static List<String> getMetadataTypes() {
-        // Check if the user has read access to iab__Metadata_Component__c
+        
+        // check if the user has read access to iab__Metadata_Component__c
         if (Schema.sObjectType.iab__Metadata_Component__c.isAccessible()) {
             Schema.DescribeFieldResult fieldResult = Schema.getGlobalDescribe().get('iab__Metadata_Component__c').getDescribe().fields.getMap().get('iab__Metadata_Type__c').getDescribe();
             List<Schema.PicklistEntry> picklistEntries = fieldResult.getPicklistValues();
@@ -172,14 +112,68 @@ public with sharing class ImhotepAppBuilderCtrl {
             }
             return picklistValues;
         } else {
-            // Handle the case where the user does not have read access
+            // handle the case where the user does not have read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read Metadata Components.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
+
+    }
+
+
+
+    // getProjectMetadataTypes()
+    // retrieves unique iab__Metadata_Type__c values used in iab__Metadata_Component__c
+    // for a given iab__Project__c
+    // maintains picklist order
+    // used by: imhotepMetadataComponents LWC
+    @AuraEnabled(cacheable=true)
+    public static List<String> getProjectMetadataTypes(Id paramProjectId) {
+        
+        // check if the user has read access to iab__Metadata_Component__c
+        if (!Schema.sObjectType.iab__Metadata_Component__c.isAccessible()) {
+            // log the custom message
+            System.debug('Insufficient permissions to read Metadata Components.');
+            // throw NoAccessException
+            throw new System.NoAccessException();
+        }
+
+        // query Metadata_Component__c to get distinct Metadata_Type__c values
+        Set<String> usedMetadataTypes = new Set<String>();
+        for (iab__Metadata_Component__c metadata : [
+            SELECT iab__Metadata_Type__c
+            FROM iab__Metadata_Component__c
+            WHERE iab__Project__c = :paramProjectId
+            AND iab__Is_Deleted__c = FALSE
+            WITH USER_MODE
+        ]) {
+            if (metadata.iab__Metadata_Type__c != null) {
+                usedMetadataTypes.add(metadata.iab__Metadata_Type__c);
+            }
+        }
+
+        // get all picklist values for Metadata_Type__c
+        Schema.DescribeFieldResult fieldResult = Schema.getGlobalDescribe()
+            .get('iab__Metadata_Component__c')
+            .getDescribe()
+            .fields.getMap()
+            .get('iab__Metadata_Type__c')
+            .getDescribe();
+        List<Schema.PicklistEntry> picklistEntries = fieldResult.getPicklistValues();
+
+        // filter picklist values to include only those present in usedMetadataTypes
+        List<String> orderedUsedMetadataTypes = new List<String>();
+        for (Schema.PicklistEntry entry : picklistEntries) {
+            if (usedMetadataTypes.contains(entry.getValue())) {
+                orderedUsedMetadataTypes.add(entry.getValue());
+            }
+        }
+
+        // return the filtered and ordered list
+        return orderedUsedMetadataTypes;
     }
     
 
@@ -193,7 +187,8 @@ public with sharing class ImhotepAppBuilderCtrl {
     // used by: imhotepStoryChanges component
     @AuraEnabled(cacheable=true)
     public static List<iab__Metadata_Component_Change__c> getStoryChanges(Id paramStoryId){
-        // Check if the user has read access to iab__Metadata_Component_Change__c and iab__Metadata_Component__c
+        
+        // check if the user has read access to iab__Metadata_Component_Change__c and iab__Metadata_Component__c
         if (Schema.sObjectType.iab__Metadata_Component_Change__c.isAccessible() && Schema.sObjectType.iab__Metadata_Component__c.isAccessible()) {
 
             return [
@@ -205,12 +200,12 @@ public with sharing class ImhotepAppBuilderCtrl {
             ];
 
         } else {
-            // Handle the case where the user does not have read access
+            // handle the case where the user does not have read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read Metadata Component Changes.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
         
@@ -223,7 +218,8 @@ public with sharing class ImhotepAppBuilderCtrl {
     // used by: imhotepReleaseChanges component
     @AuraEnabled(cacheable=true)
     public static List<iab__Metadata_Component_Change__c> getReleaseChanges(Id paramReleaseId){
-        // Check if the user has read access to iab__Metadata_Component_Change__c and iab__Metadata_Component__c
+        
+        // check if the user has read access to iab__Metadata_Component_Change__c and iab__Metadata_Component__c
         if (Schema.sObjectType.iab__Metadata_Component_Change__c.isAccessible() && Schema.sObjectType.iab__Metadata_Component__c.isAccessible()) {
 
             return [
@@ -235,12 +231,12 @@ public with sharing class ImhotepAppBuilderCtrl {
             ];
 
         } else {
-            // Handle the case where the user does not have read access
+            // handle the case where the user does not have read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read Metadata Component Changes.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
         
@@ -252,12 +248,57 @@ public with sharing class ImhotepAppBuilderCtrl {
     // PROJECTS
     // *************************
 
+    // getMyProjects()
+    // queries a user's Project Member records to returns a list of their Projects and their key Releases
+    // used by: imhotepMyProjects LWC
+    @AuraEnabled(cacheable=true)
+    public static List<iab__Project__c> getMyProjects() {
+
+        // check if the user has read access to the Project Member, Project, and Release objects
+        if (Schema.sObjectType.iab__Project_Member__c.isAccessible() && Schema.sObjectType.iab__Project__c.isAccessible() && Schema.sObjectType.iab__Release__c.isAccessible()) {
+            Set<Id> projectIds = new Set<Id>();
+
+            for (iab__Project_Member__c member : [
+                SELECT iab__Project__c
+                FROM iab__Project_Member__c
+                WHERE iab__User__c = :UserInfo.getUserId()
+                WITH USER_MODE
+            ]) {
+                projectIds.add(member.iab__Project__c);
+            }
+
+            return [
+                SELECT Id, Name, iab__Type__c, iab__Status__c,
+                    (SELECT Id, Name, iab__Status__c, iab__Is_Backlog__c
+                    FROM iab__Releases__r
+                    WHERE iab__Is_Backlog__c = TRUE
+                        OR iab__Status__c IN ('Planning', 'Active')
+                    ORDER BY Name ASC)
+                FROM iab__Project__c
+                WHERE Id IN :projectIds
+                WITH USER_MODE
+                ORDER BY Name ASC
+            ];
+        } else {
+            // handle the case where the user does not have read access
+            
+            // log the custom message
+            System.debug('Insufficient permissions to read Project Member, Project, and Release objects.');
+            
+            // throw NoAccessException
+            throw new System.NoAccessException();
+        }
+    }
+
+
+
     // getProjectId()
     // returns a Project recordId based on a record Id from a related Project, Release, or Story
     // used by: imhotepProjectResourcesBar and imhotepStoryChanges LWCs
     @AuraEnabled(cacheable=true)
     public static String getProjectId(Id paramRecordId) {
-        // Check if the user has read access to the Release and Story custom objects
+        
+        // check if the user has read access to the Release and Story custom objects
         if (Schema.sObjectType.iab__Release__c.isAccessible() && Schema.sObjectType.iab__Story__c.isAccessible()) {
             
             // create a variable to store the related Project__c record Id
@@ -304,12 +345,12 @@ public with sharing class ImhotepAppBuilderCtrl {
             return projectId;
 
         } else {
-            // Handle the case where the user does not have read access
+            // handle the case where the user does not have read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read Releases and Stories.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
 
@@ -321,69 +362,13 @@ public with sharing class ImhotepAppBuilderCtrl {
     // PROJECT MEMBERS
     // *************************
 
-    // getProjectsByMembership()
-    // queries for a user's project member records and returns the related project data
-    // used by: devProjectTiles component
-    @AuraEnabled
-    public static List<List<iab__Project_Member__c>> getProjectsByMembership(Id ParamUserId) {
-
-        // Check if the user has read access to iab__Project_Member__c
-        if (Schema.sObjectType.iab__Project_Member__c.isAccessible()) {
-            
-            // declare a list variable for the master list of all projects
-            List<List<iab__Project_Member__c>> allProjects = new List<List<iab__Project_Member__c>>();
-                    
-            // declare list variables for all sublists of signups
-            List<iab__Project_Member__c> planningProjects = new List<iab__Project_Member__c>();
-            List<iab__Project_Member__c> activeProjects = new List<iab__Project_Member__c>();
-            List<iab__Project_Member__c> completedProjects = new List<iab__Project_Member__c>();
-
-            // query project members
-            for(iab__Project_Member__c aProjectMember :
-                [
-                    SELECT Id,iab__Project__c,iab__Project__r.Name,iab__Project__r.iab__Description__c,iab__Project__r.OwnerId,iab__Project__r.iab__Release_Count__c,iab__Project__r.iab__Status__c,iab__Project__r.iab__Type__c
-                    FROM iab__Project_Member__c
-                    WHERE iab__User__c = :ParamUserId
-                    WITH USER_MODE
-                    ORDER BY iab__Project__r.Name ASC
-                ]) {
-                    // for each, use switch statement to sort into separate lists by status
-                    switch on aProjectMember.iab__Project__r.iab__Status__c {
-                        when 'Planning' { planningProjects.add(aProjectMember); }
-                        when 'Active' { activeProjects.add(aProjectMember); }
-                        when 'Completed' { completedProjects.add(aProjectMember); }
-                    }                      
-                }
-
-            // add each sublist to the list of lists
-            allProjects.add(planningProjects);
-            allProjects.add(activeProjects);
-            allProjects.add(completedProjects);
-
-            // return list of lists
-            return allProjects;
-
-        } else {
-            // Handle the case where the user does not have read access
-            
-            // Log the custom message
-            System.debug('Insufficient permissions to read Project Members.');
-            
-            // Throw NoAccessException
-            throw new System.NoAccessException();
-        }
-        
-    }
-    
-    
-    
     // getProjectMembers()
     // queries all project members records for a given project
-    // used by: devProjectMembers component
-    @AuraEnabled
+    // used by: imhotepProjectMembers LWC (previously used by the devProjectMembers Aura component, now deprecated)
+    @AuraEnabled(cacheable=true)
     public static List<iab__Project_Member__c> getProjectMembers(Id ParamProjectId) {
 
-        // Check if the user has read access to iab__Project_Member__c
+        // check if the user has read access to iab__Project_Member__c
         if (Schema.sObjectType.iab__Project_Member__c.isAccessible()) {
             
             // declare a list variable for the master list of all projects
@@ -400,15 +385,49 @@ public with sharing class ImhotepAppBuilderCtrl {
             return allProjectMembers;
 
         } else {
-            // Handle the case where the user does not have read access
+            // handle the case where the user does not have read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read Project Members.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
         
+    }
+
+
+
+    // getAssignedProjectMembersForRelease()
+    // creates a list of all unique project members assigned to stories in a given release
+    // used by: imhotepStoryKanban LWC
+    @AuraEnabled(cacheable=true)
+    public static List<Project_Member__c> getAssignedProjectMembersForRelease(Id ParamReleaseId) {
+
+        // check if the user has read access to iab__Project_Member__c and iab__Story__c
+        if (Schema.sObjectType.iab__Project_Member__c.isAccessible() && Schema.sObjectType.iab__Story__c.isAccessible()) {
+            return
+                [
+                    SELECT Id, Name
+                    FROM iab__Project_Member__c
+                    WHERE Id IN (
+                        SELECT iab__Assigned__c
+                        FROM iab__Story__c
+                        WHERE iab__Release__c = :ParamReleaseId AND iab__Assigned__c != NULL
+                    )
+                    WITH USER_MODE
+                    ORDER BY Name
+                ];
+        } else {
+            // handle the case where the user does not have read access
+            
+            // log the custom message
+            System.debug('Insufficient permissions to read Project Members.');
+            
+            // throw NoAccessException
+            throw new System.NoAccessException();
+        }
+
     }
     
     
@@ -417,89 +436,32 @@ public with sharing class ImhotepAppBuilderCtrl {
     // RELEASES
     // *************************
 
-    // getAllReleases()
-    // Returns all release records for a given project status value
-    // used by: devProjectTiles component
-    @AuraEnabled
-    public static List<iab__Release__c> getAllReleases(String ParamReleaseStatus,Boolean ParamIsBacklog){
-
-        // Check if the user has read access to iab__Release__c
-        if (Schema.sObjectType.iab__Release__c.isAccessible()) {
-
-            if(ParamIsBacklog) {
-                return
-                    [
-                        SELECT Id,iab__Is_Backlog__c,Name,iab__Notes__c,iab__Project__c,iab__Release_Date__c,iab__Status__c
-                        FROM iab__Release__c
-                        WHERE iab__Is_Backlog__c = true
-                        WITH USER_MODE
-                        ORDER BY Name ASC
-                    ];
-            }
-            else {
-                if(ParamReleaseStatus == 'Accepted') {
-                    return
-                        [
-                            SELECT Id,iab__Is_Backlog__c,Name,iab__Notes__c,iab__Project__c,iab__Release_Date__c,iab__Status__c
-                            FROM iab__Release__c
-                            WHERE iab__Status__c = :ParamReleaseStatus
-                            AND iab__Is_Backlog__c = false
-                            WITH USER_MODE
-                            ORDER BY iab__Release_Date__c DESC
-                        ];
-                }
-                else {
-                    return
-                        [
-                            SELECT Id,iab__Is_Backlog__c,Name,iab__Notes__c,iab__Project__c,iab__Release_Date__c,iab__Status__c
-                            FROM iab__Release__c
-                            WHERE iab__Status__c = :ParamReleaseStatus
-                            AND iab__Is_Backlog__c = false
-                            WITH USER_MODE
-                            ORDER BY Name ASC
-                        ];
-                }
-            }
-
-        } else {
-            // Handle the case where the user does not have read access
-            
-            // Log the custom message
-            System.debug('Insufficient permissions to read Releases.');
-            
-            // Throw NoAccessException
-            throw new System.NoAccessException();
-        }
-        
-    }
-    
-    
-    
     // getReleaseLists()
     // queries all release records for a given project and splits them into separate lists for the backlog and each release status value
-    // used by: devProjectReleases component
-    @AuraEnabled
+    // used by: imhotepReleaseList (LWC) and devProjectReleases (DEPRECATED) components
+    @AuraEnabled(cacheable=true)
     public static List<List<iab__Release__c>> getReleaseLists(Id ParamProjectId) {
 
-        // Check if the user has read access to iab__Release__c
+        // check if the user has read access to iab__Release__c
         if (Schema.sObjectType.iab__Release__c.isAccessible()) {
 
             // declare a list variable for the master list of all projects
-            List<List<iab__Release__c>> allReleases = new List<List<iab__Release__c>>();
+            List<List<iab__Release__c>> allReleaseLists = new List<List<iab__Release__c>>();
                     
             // declare list variables for all sublists of releases
             List<iab__Release__c> planningReleases = new List<iab__Release__c>();
             List<iab__Release__c> activeReleases = new List<iab__Release__c>();
             List<iab__Release__c> acceptedReleases = new List<iab__Release__c>();
             List<iab__Release__c> backlogReleases = new List<iab__Release__c>();
+            List<iab__Release__c> allReleases = new List<iab__Release__c>();
 
             // query and fill the master list
             for(iab__Release__c rel : [
-                SELECT Id,iab__Is_Backlog__c,Name,iab__Notes__c,iab__Project__c,iab__Release_Date__c,iab__Status__c
+                SELECT Id,iab__Is_Backlog__c,Name,iab__Description__c,iab__Project__c,iab__Release_Date__c,iab__Status__c
                 FROM iab__Release__c
                 WHERE iab__Project__c = :ParamProjectId
                 WITH USER_MODE
-                ORDER BY Name ASC
+                ORDER BY iab__Release_Date__c DESC
             ]) {
                 // for each
                 if(rel.iab__Is_Backlog__c == TRUE) {
@@ -513,24 +475,28 @@ public with sharing class ImhotepAppBuilderCtrl {
                         when 'Accepted' { acceptedReleases.add(rel); }
                     }
                 }
+
+                // always add to the allReleases list
+                allReleases.add(rel);
             }
 
             // add each sublist to the list of lists
-            allReleases.add(planningReleases);
-            allReleases.add(activeReleases);
-            allReleases.add(acceptedReleases);
-            allReleases.add(backlogReleases);
+            allReleaseLists.add(planningReleases);
+            allReleaseLists.add(activeReleases);
+            allReleaseLists.add(acceptedReleases);
+            allReleaseLists.add(backlogReleases);
+            allReleaseLists.add(allReleases);
 
             // return list of lists
-            return allReleases;
+            return allReleaseLists;
 
         } else {
-            // Handle the case where the user does not have read access
+            // handle the case where the user does not have read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read Releases.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
         
@@ -548,7 +514,7 @@ public with sharing class ImhotepAppBuilderCtrl {
     @AuraEnabled(cacheable=true)
     public static List<iab__Resource_Link__c> getResourceLinks(Id paramRecordId) {
 
-        // Check if the user has read access to iab__Resource_Link__c, iab__Release__c, and iab__Story__c
+        // check if the user has read access to iab__Resource_Link__c, iab__Release__c, and iab__Story__c
         if (Schema.sObjectType.iab__Resource_Link__c.isAccessible() && Schema.sObjectType.iab__Release__c.isAccessible() && Schema.sObjectType.iab__Story__c.isAccessible()) {
 
             // set the related Project__c record Id as a variable
@@ -605,12 +571,12 @@ public with sharing class ImhotepAppBuilderCtrl {
             return allProjectResources;
 
         } else {
-            // Handle the case where the user does not have read access
+            // handle the case where the user does not have read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read Releases, Resource Links, and Stories.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
 
@@ -627,7 +593,8 @@ public with sharing class ImhotepAppBuilderCtrl {
     // used by: imhotepStoryList LWC
     @AuraEnabled(cacheable=true)
     public static List<iab__Story__c> getStoriesByRelease(Id ParamReleaseId) {
-        // Check if the user has read access to iab__Story__c
+        
+        // check if the user has read access to iab__Story__c
         if (Schema.sObjectType.iab__Story__c.isAccessible()) {
 
             // declare a list variable for all stories
@@ -643,89 +610,58 @@ public with sharing class ImhotepAppBuilderCtrl {
             return releaseStories;
 
         } else {
-            // Handle the case where the user does not have read access
+            // handle the case where the user does not have read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read Stories.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
 
     }
 
-    
-    
-    // getStoriesByStatus()
-    // return a Release's iab__Story__c records as a list of lists by status
-    // used by: devKanbanRelease component
-    @AuraEnabled
-    public static List<List<iab__Story__c>> getStoriesByStatus(Id ParamReleaseId) {
-        // Check if the user has read access to iab__Story__c
-        if (Schema.sObjectType.iab__Story__c.isAccessible()) {
 
-            // declare a list variable for the master list of all stories
-            List<List<iab__Story__c>> allStories = new List<List<iab__Story__c>>();
-                    
-            // declare list variables for all sublists of stories
-            List<iab__Story__c> blockedStories = new List<iab__Story__c>();
-            List<iab__Story__c> definedStories = new List<iab__Story__c>();
-            List<iab__Story__c> buildingStories = new List<iab__Story__c>();
-            List<iab__Story__c> testingStories = new List<iab__Story__c>();
-            List<iab__Story__c> readyStories = new List<iab__Story__c>();
-            List<iab__Story__c> deployedStories = new List<iab__Story__c>();
 
-            // query stories
-            for(iab__Story__c aStory : [
-                SELECT Name,iab__Actual_Points__c,iab__Expedite__c,iab__Estimated_Points__c,Id,iab__Priority_Order__c,iab__Status__c,iab__Story_Number__c,iab__Story_Type__c,iab__Assigned__c,iab__Assigned__r.iab__User__r.FirstName,iab__Assigned__r.iab__User__r.LastName
-                FROM iab__Story__c
-                WHERE iab__Release__c = :ParamReleaseId
-                WITH USER_MODE
-                ORDER BY iab__Priority_Order__c ASC
-            ]) {
-                // for each, use switch statement to sort into separate lists by status
-                switch on aStory.iab__Status__c {
-                    when 'Blocked' { blockedStories.add(aStory); }
-                    when 'Defined' { definedStories.add(aStory); }
-                    when 'Building' { buildingStories.add(aStory); }
-                    when 'Testing' { testingStories.add(aStory); }
-                    when 'Ready' { readyStories.add(aStory); }
-                    when 'Deployed' { deployedStories.add(aStory); }
-                }
-            }
+    // getStoriesForRelease()
+    // return a list of iab__Story__c records for a given release
+    // used by: imhotepStoryKanban LWC
+    @AuraEnabled(cacheable=true)
+    public static List<iab__Story__c> getStoriesForRelease(Id ParamReleaseId) {
 
-            // add each sublist to the list of lists
-            allStories.add(blockedStories);
-            allStories.add(definedStories);
-            allStories.add(buildingStories);
-            allStories.add(testingStories);
-            allStories.add(readyStories);
-            allStories.add(deployedStories);
-
-            // return list of lists
-            return allStories;
+        // check if the user has read access to Story, Tag, Tag Assignment, and Project Member
+        if (Schema.sObjectType.iab__Project_Member__c.isAccessible() && Schema.sObjectType.iab__Story__c.isAccessible() && Schema.sObjectType.iab__Tag__c.isAccessible() && Schema.sObjectType.iab__Tag_Assignment__c.isAccessible()) {
+            return
+                [
+                    SELECT Id, Name, iab__Actual_Points__c, iab__Assigned__c, iab__Assigned__r.Name, iab__Estimated_Points__c, iab__Expedite__c, iab__Priority_Order__c, iab__Status__c, iab__Story_Description__c, iab__Story_Number__c, iab__Story_Type__c,
+                        (SELECT iab__Tag__c, iab__Tag__r.Name FROM iab__Tag_Assignments__r)
+                    FROM iab__Story__c
+                    WHERE iab__Release__c = :ParamReleaseId
+                    WITH USER_MODE
+                    ORDER BY iab__Priority_Order__c ASC NULLS LAST
+                ];
 
         } else {
-            // Handle the case where the user does not have read access
+            // handle the case where the user does not have read access
             
-            // Log the custom message
-            System.debug('Insufficient permissions to read Stories.');
+            // log the custom message
+            System.debug('Insufficient permissions to read Project Members, Stories, Tags, and Tag Assignments.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
-        
+
     }
 
     
     
     // moveStory()
     // Updates the status of a iab__Story__c based on what Kanban column it was dragged into
-    // used by: devKanbanRelease component
+    // used by: imhotepStoryKanban (LWC) and devKanbanRelease (DEPRECATED) components
     @AuraEnabled
-    public static iab__Story__c moveStory(String ParamStoryId, String ParamNewStatus) {
+    public static iab__Story__c moveStory(Id ParamStoryId, String ParamNewStatus) {
 
-        // Check if the user has read access to iab__Story__c and update access to the iab__Status__c field
+        // check if the user has read access to iab__Story__c and update access to the iab__Status__c field
         if (Schema.sObjectType.iab__Story__c.isAccessible() && Schema.sObjectType.iab__Story__c.fields.iab__Status__c.isUpdateable()) {
 
             // get the story record
@@ -746,12 +682,12 @@ public with sharing class ImhotepAppBuilderCtrl {
             return story;
 
         } else {
-            // Handle the case where the user does not have read and update access
+            // handle the case where the user does not have read and update access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read and update Stories.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
 
@@ -765,7 +701,7 @@ public with sharing class ImhotepAppBuilderCtrl {
     @AuraEnabled
     public static Integer saveReorderedStories (Map<Id, Decimal> orderedMap) {
         
-        // Check if the user has read access to iab__sobject__c
+        // check if the user has read access to iab__sobject__c
         if (Schema.sObjectType.iab__Story__c.isAccessible() && Schema.sObjectType.iab__Story__c.fields.iab__Priority_Order__c.isUpdateable()) {
 
             // check if the map is blank
@@ -816,12 +752,12 @@ public with sharing class ImhotepAppBuilderCtrl {
             return stories.size();
 
         } else {
-            // Handle the case where the user does not have read and update access
+            // handle the case where the user does not have read and update access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read and update Stories.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
         
@@ -838,7 +774,8 @@ public with sharing class ImhotepAppBuilderCtrl {
     // used by: devProjectTags component
     @AuraEnabled
     public static List<iab__Tag__c> getActiveProjectTagRecords(String ParamProjectId){
-        // Check if the user has read access to iab__Tag__c
+        
+        // check if the user has read access to iab__Tag__c
         if (Schema.sObjectType.iab__Tag__c.isAccessible()) {
 
             return [
@@ -851,12 +788,12 @@ public with sharing class ImhotepAppBuilderCtrl {
             ];
             
         } else {
-            // Handle the case where the user does not have read access
+            // handle the case where the user does not have read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read Tags.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
 
@@ -873,7 +810,8 @@ public with sharing class ImhotepAppBuilderCtrl {
     // used by: devStoryTags component
     @AuraEnabled
     public static List<iab__Tag_Assignment__c> getStoryTagAssignmentRecords(Id ParamStoryId){
-        // Check if the user has read access to iab__Tag_Assignment__c
+        
+        // check if the user has read access to iab__Tag_Assignment__c
         if (Schema.sObjectType.iab__Tag_Assignment__c.isAccessible()) {
             
             return [
@@ -885,12 +823,12 @@ public with sharing class ImhotepAppBuilderCtrl {
             ];
 
         } else {
-            // Handle the case where the user does not have read access
+            // handle the case where the user does not have read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read Tag Assignments.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
 
@@ -904,7 +842,8 @@ public with sharing class ImhotepAppBuilderCtrl {
     // used by: devTagStories
     @AuraEnabled
     public static List<iab__Tag_Assignment__c> getTagAssignmentRecords(Id ParamTagId, String ParamReleaseFilter){
-        // Check if the user has read access to iab__Tag_Assignment__c, iab__Release__c, and iab__Story__c
+        
+        // check if the user has read access to iab__Tag_Assignment__c, iab__Release__c, and iab__Story__c
         if (Schema.sObjectType.iab__Tag_Assignment__c.isAccessible() && Schema.sObjectType.iab__Release__c.isAccessible() && Schema.sObjectType.iab__Story__c.isAccessible()) {
 
             if(ParamReleaseFilter == 'All') {
@@ -930,12 +869,55 @@ public with sharing class ImhotepAppBuilderCtrl {
             }
             
         } else {
-            // Handle the case where the user does not have read access
+            // handle the case where the user does not have read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read Tag Assignments, Releases, and Stories.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
+            throw new System.NoAccessException();
+        }
+
+    }
+
+
+
+    // getTagsForRelease()
+    // creates a list of all unique tags assigned to stories in a given release
+    // used by: imhotepStoryKanban LWC
+    @AuraEnabled(cacheable=true)
+    public static List<iab__Tag__c> getTagsForRelease(Id ParamReleaseId) {
+
+        // check if the user has read access to iab__Tag_Assignment__c, iab__Release__c, and iab__Story__c
+        if (Schema.sObjectType.iab__Tag_Assignment__c.isAccessible() && Schema.sObjectType.iab__Release__c.isAccessible() && Schema.sObjectType.iab__Story__c.isAccessible()) {
+        
+            Set<Id> tagIds = new Set<Id>();
+            for (iab__Tag_Assignment__c ta :
+                [
+                    SELECT iab__Tag__c
+                    FROM iab__Tag_Assignment__c
+                    WHERE iab__Story__r.iab__Release__c = :ParamReleaseId
+                    WITH USER_MODE
+                ]) {
+                tagIds.add(ta.iab__Tag__c);
+            }
+            if (tagIds.isEmpty()) return new List<iab__Tag__c>();
+            return
+                [
+                    SELECT Id, Name
+                    FROM iab__Tag__c
+                    WHERE Id IN :tagIds
+                    WITH USER_MODE
+                    ORDER BY Name ASC
+                ];
+
+        } else {
+            // handle the case where the user does not have read access
+            
+            // log the custom message
+            System.debug('Insufficient permissions to read Tag Assignments, Releases, and Stories.');
+            
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
 
@@ -952,7 +934,8 @@ public with sharing class ImhotepAppBuilderCtrl {
     // used by: devTemplateSelectionTable
     @AuraEnabled
     public static List<List<iab__Template__c>> getTemplatesByType() {
-        // Check if the user has read access to iab__Template__c
+        
+        // check if the user has read access to iab__Template__c
         if (Schema.sObjectType.iab__Template__c.isAccessible()) {
             
             // declare a list variable for the master list of all templates
@@ -1000,12 +983,12 @@ public with sharing class ImhotepAppBuilderCtrl {
             return allTemplates;
 
         } else {
-            // Handle the case where the user does not have read access
+            // handle the case where the user does not have read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read Templates.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
 
@@ -1023,7 +1006,8 @@ public with sharing class ImhotepAppBuilderCtrl {
     // used by: devTemplateSelectionTable component
     @AuraEnabled
     public static List<iab__Template_Item__c> getTemplateItemsForType(String ParamTemplateType){
-        // Check if the user has read access to iab__Template__c and iab__Template_Item__c
+        
+        // check if the user has read access to iab__Template__c and iab__Template_Item__c
         if (Schema.sObjectType.iab__Template__c.isAccessible() &&
             Schema.sObjectType.iab__Template_Item__c.isAccessible()) {
 
@@ -1062,12 +1046,12 @@ public with sharing class ImhotepAppBuilderCtrl {
             }
 
         } else {
-            // Handle the case where the user does not have read access
+            // hndle the case where the user does not have read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read Templates and Template Items.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
 
@@ -1084,7 +1068,8 @@ public with sharing class ImhotepAppBuilderCtrl {
     // used by: devStoryTestScenarios component
     @AuraEnabled
     public static List<iab__Test_Scenario__c> getTestScenariosWithTestResults(Id ParamStoryId){
-        // Check if the user has read access to iab__Test_Scenario__c, iab__Test_Result__c, and iab__Story__c
+        
+        // check if the user has read access to iab__Test_Scenario__c, iab__Test_Result__c, and iab__Story__c
         if (Schema.sObjectType.iab__Test_Scenario__c.isAccessible() && Schema.sObjectType.iab__Test_Result__c.isAccessible() && Schema.sObjectType.iab__Story__c.isAccessible()) {
 
             return [
@@ -1099,12 +1084,12 @@ public with sharing class ImhotepAppBuilderCtrl {
             ];
 
         } else {
-            // Handle the case where the user does not have read access
+            // handle the case where the user does not have read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions to read Test Scenarios and Test Results.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
         
@@ -1118,12 +1103,12 @@ public with sharing class ImhotepAppBuilderCtrl {
 
     // checkUserEditAccess()
     // Checks to see if current user has read/write on a Release record
-    // used by: devKanbanRelease (Aura) and imhotepStoryList (LWC) components
+    // used by: imhotepStoryKanban LWC, imhotepStoryList LWC, and devKanbanRelease (DEPRECATED) components
     @AuraEnabled(cacheable=true)
     public static Boolean checkUserEditAccess(Id ParamReleaseId, Id ParamUserId) {
         Boolean hasEditAccess = false;
         
-        // Check if the user has read access to UserRecordAccess
+        // check if the user has read access to UserRecordAccess
         if (Schema.sObjectType.UserRecordAccess.isAccessible()) {
             
             UserRecordAccess a =
@@ -1141,17 +1126,216 @@ public with sharing class ImhotepAppBuilderCtrl {
             return hasEditAccess;
 
         } else {
-            // Handle the case where the user does not read access
+            // handle the case where the user does not read access
             
-            // Log the custom message
+            // log the custom message
             System.debug('Insufficient permissions for determining edit access to the Release.');
             
-            // Throw NoAccessException
+            // throw NoAccessException
+            throw new System.NoAccessException();
+        }
+        
+    }
+
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    //                             ****************************************************************************************************************************************************************************
+    // FULLY DEPRECATED APEX       ****************************************************************************************************************************************************************************
+    //                             ****************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    // ********************************************************************************************************************************************************************************************************
+    
+    // getStoriesByStatus()
+    // DEPRECATED
+    // return a Release's iab__Story__c records as a list of lists by status
+    // used by: devKanbanRelease (DEPRECATED) component
+    @AuraEnabled
+    public static List<List<iab__Story__c>> getStoriesByStatus(Id ParamReleaseId) {
+        
+        // check if the user has read access to iab__Story__c
+        if (Schema.sObjectType.iab__Story__c.isAccessible()) {
+
+            // declare a list variable for the master list of all stories
+            List<List<iab__Story__c>> allStories = new List<List<iab__Story__c>>();
+                    
+            // declare list variables for all sublists of stories
+            List<iab__Story__c> blockedStories = new List<iab__Story__c>();
+            List<iab__Story__c> definedStories = new List<iab__Story__c>();
+            List<iab__Story__c> buildingStories = new List<iab__Story__c>();
+            List<iab__Story__c> testingStories = new List<iab__Story__c>();
+            List<iab__Story__c> readyStories = new List<iab__Story__c>();
+            List<iab__Story__c> deployedStories = new List<iab__Story__c>();
+
+            // query stories
+            for(iab__Story__c aStory : [
+                SELECT Name,iab__Actual_Points__c,iab__Expedite__c,iab__Estimated_Points__c,Id,iab__Priority_Order__c,iab__Status__c,iab__Story_Number__c,iab__Story_Type__c,iab__Assigned__c,iab__Assigned__r.iab__User__r.FirstName,iab__Assigned__r.iab__User__r.LastName
+                FROM iab__Story__c
+                WHERE iab__Release__c = :ParamReleaseId
+                WITH USER_MODE
+                ORDER BY iab__Priority_Order__c ASC
+            ]) {
+                // for each, use switch statement to sort into separate lists by status
+                switch on aStory.iab__Status__c {
+                    when 'Blocked' { blockedStories.add(aStory); }
+                    when 'Defined' { definedStories.add(aStory); }
+                    when 'Building' { buildingStories.add(aStory); }
+                    when 'Testing' { testingStories.add(aStory); }
+                    when 'Ready' { readyStories.add(aStory); }
+                    when 'Deployed' { deployedStories.add(aStory); }
+                }
+            }
+
+            // add each sublist to the list of lists
+            allStories.add(blockedStories);
+            allStories.add(definedStories);
+            allStories.add(buildingStories);
+            allStories.add(testingStories);
+            allStories.add(readyStories);
+            allStories.add(deployedStories);
+
+            // return list of lists
+            return allStories;
+
+        } else {
+            // handle the case where the user does not have read access
+            
+            // log the custom message
+            System.debug('Insufficient permissions to read Stories.');
+            
+            // throw NoAccessException
+            throw new System.NoAccessException();
+        }
+        
+    }
+
+
+
+    // getProjectsByMembership()
+    // queries for a user's project member records and returns the related project data
+    // used by: devProjectTiles (DEPRECATED) component
+    @AuraEnabled
+    public static List<List<iab__Project_Member__c>> getProjectsByMembership(Id ParamUserId) {
+
+        // check if the user has read access to iab__Project_Member__c
+        if (Schema.sObjectType.iab__Project_Member__c.isAccessible()) {
+            
+            // declare a list variable for the master list of all projects
+            List<List<iab__Project_Member__c>> allProjects = new List<List<iab__Project_Member__c>>();
+                    
+            // declare list variables for all sublists of signups
+            List<iab__Project_Member__c> planningProjects = new List<iab__Project_Member__c>();
+            List<iab__Project_Member__c> activeProjects = new List<iab__Project_Member__c>();
+            List<iab__Project_Member__c> completedProjects = new List<iab__Project_Member__c>();
+
+            // query project members
+            for(iab__Project_Member__c aProjectMember :
+                [
+                    SELECT Id,iab__Project__c,iab__Project__r.Name,iab__Project__r.iab__Description__c,iab__Project__r.OwnerId,iab__Project__r.iab__Release_Count__c,iab__Project__r.iab__Status__c,iab__Project__r.iab__Type__c
+                    FROM iab__Project_Member__c
+                    WHERE iab__User__c = :ParamUserId
+                    WITH USER_MODE
+                    ORDER BY iab__Project__r.Name ASC
+                ]) {
+                    // for each, use switch statement to sort into separate lists by status
+                    switch on aProjectMember.iab__Project__r.iab__Status__c {
+                        when 'Planning' { planningProjects.add(aProjectMember); }
+                        when 'Active' { activeProjects.add(aProjectMember); }
+                        when 'Completed' { completedProjects.add(aProjectMember); }
+                    }                      
+                }
+
+            // add each sublist to the list of lists
+            allProjects.add(planningProjects);
+            allProjects.add(activeProjects);
+            allProjects.add(completedProjects);
+
+            // return list of lists
+            return allProjects;
+
+        } else {
+            // handle the case where the user does not have read access
+            
+            // log the custom message
+            System.debug('Insufficient permissions to read Project Members.');
+            
+            // throw NoAccessException
+            throw new System.NoAccessException();
+        }
+        
+    }
+
+
+
+    // getAllReleases()
+    // Returns all release records for a given project status value
+    // used by: devProjectTiles (DEPRECATED) component
+    @AuraEnabled
+    public static List<iab__Release__c> getAllReleases(String ParamReleaseStatus,Boolean ParamIsBacklog){
+
+        // check if the user has read access to iab__Release__c
+        if (Schema.sObjectType.iab__Release__c.isAccessible()) {
+
+            if(ParamIsBacklog) {
+                return
+                    [
+                        SELECT Id,iab__Is_Backlog__c,Name,iab__Project__c,iab__Release_Date__c,iab__Status__c
+                        FROM iab__Release__c
+                        WHERE iab__Is_Backlog__c = true
+                        WITH USER_MODE
+                        ORDER BY Name ASC
+                    ];
+            }
+            else {
+                if(ParamReleaseStatus == 'Accepted') {
+                    return
+                        [
+                            SELECT Id,iab__Is_Backlog__c,Name,iab__Project__c,iab__Release_Date__c,iab__Status__c
+                            FROM iab__Release__c
+                            WHERE iab__Status__c = :ParamReleaseStatus
+                            AND iab__Is_Backlog__c = false
+                            WITH USER_MODE
+                            ORDER BY iab__Release_Date__c DESC
+                        ];
+                }
+                else {
+                    return
+                        [
+                            SELECT Id,iab__Is_Backlog__c,Name,iab__Project__c,iab__Release_Date__c,iab__Status__c
+                            FROM iab__Release__c
+                            WHERE iab__Status__c = :ParamReleaseStatus
+                            AND iab__Is_Backlog__c = false
+                            WITH USER_MODE
+                            ORDER BY Name ASC
+                        ];
+                }
+            }
+
+        } else {
+            // handle the case where the user does not have read access
+            
+            // log the custom message
+            System.debug('Insufficient permissions to read Releases.');
+            
+            // throw NoAccessException
             throw new System.NoAccessException();
         }
         
     }
     
-
-
 }

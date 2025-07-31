@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>61.0</apiVersion>
+    <apiVersion>64.0</apiVersion>
     <isExposed>true</isExposed>
-    <description>Displays Metadata Types as a column list of action buttons on a Flow screen.</description>
+    <masterLabel>Imhotep Metadata Type Action List</masterLabel>
+    <description>Provides a low-click method for logging changes to Metadata Components for a given story.</description>
     <targets>
         <target>lightning__FlowScreen</target>
     </targets>

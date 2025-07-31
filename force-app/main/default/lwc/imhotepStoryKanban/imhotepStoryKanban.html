@@ -1,0 +1,232 @@
+<template>
+
+    <article class="slds-card">
+        
+        <!-- Header -->
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon-standard-kanban" title={label.HeadingKanbanRelease}>
+                        <lightning-icon icon-name="standard:kanban" title={label.HeadingKanbanRelease} size="small"></lightning-icon>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        {label.HeadingKanbanRelease}
+                    </h2>
+                </div>
+                <div class="slds-no-flex">
+                    <lightning-button-group>
+                    <lightning-button-icon  aria-label={label.ActionToggleFiltersKanbanLabel}
+                                            alternative-text={label.ActionToggleFiltersKanbanAlt}
+                                            variant={toggleFilterButtonVariant}
+                                            icon-name="utility:filterList"
+                                            onclick={toggleFilters}></lightning-button-icon>
+                    <!-- <lightning-button-icon  aria-label="Expand Kanban"
+                                            alternative-text="Expand Kanban"
+                                            variant="brand-outline"
+                                            icon-name={expandKanbanButtonIcon}
+                                            onclick={handleExpandKanban}></lightning-button-icon> -->
+                    <lightning-button-icon  aria-label={label.ActionRefreshKanbanLabel}
+                                            alternative-text={label.ActionRefreshKanbanAlt}
+                                            variant="brand-outline"
+                                            icon-name="utility:refresh"
+                                            onclick={refreshKanban}></lightning-button-icon>
+                    <lightning-button       label={label.ActionNewStoryLabel}
+                                            variant="brand-outline"
+                                            icon-name="utility:add"
+                                            icon-position="left"
+                                            onclick={openNewStoryFlow}></lightning-button>
+                    <lightning-button       label={label.ActionAddTemplateStoriesLabel}
+                                            variant="brand-outline"
+                                            icon-name="utility:insert_template"
+                                            icon-position="left"
+                                            onclick={openAddTemplateStoriesFlow}></lightning-button>
+                    <lightning-button       label={label.ActionCreateTemplateLabel}
+                                            variant="brand-outline"
+                                            icon-name="utility:text_template"
+                                            icon-position="left"
+                                            onclick={openCreateTemplateFlow}></lightning-button>
+                </lightning-button-group>
+                </div>
+            </header>
+        </div>
+        <!-- END: Header -->
+
+        <!-- Collapsible Filter Section -->
+        <template if:true={showFilters}>
+            <div class="slds-card slds-var-p-around_small iab-filter-card">
+                <lightning-layout pull-to-boundary="small" multiple-rows class="slds-var-p-horizontal_small">
+
+                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="9" flexibility="auto" padding="horizontal-small">
+                        <label class="slds-form-element__label slds-no-flex">
+                            {label.InputTagFilterKanbanLabel}
+                            <lightning-helptext content={label.InputTagFilterKanbanHelp} class="slds-var-m-left_small"></lightning-helptext>
+                        </label>
+                        <div class="iab-badge-container">
+                            <template for:each={tags} for:item="tag">
+                                <span key={tag.Id}
+                                    data-tag={tag.Id}
+                                    onclick={handleTagSelect}
+                                    class={tag.class}>
+                                    {tag.Name}
+                                </span>
+                            </template>
+                        </div>
+
+                        <label class="slds-form-element__label slds-no-flex">
+                            {label.InputAssigneeFilterKanbanLabel}
+                        </label>
+                        <div class="iab-badge-container">
+                            <template for:each={assignedUsers} for:item="user">
+                                <span
+                                    key={user.Id}
+                                    data-userid={user.Id}
+                                    class={user.class}
+                                    onclick={handleAssigneeSelect}>
+                                    {user.Name}
+                                </span>
+                            </template>
+                        </div>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="3" flexibility="auto" padding="horizontal-small">
+                        
+                        <div class="slds-grid slds-grid_align-spread">
+                            <div>
+                                <label class="slds-form-element__label slds-no-flex">
+                                    {label.InputStoryTypeFilterKanbanLabel}
+                                </label>
+                                <div class="iab-badge-container">
+                                    <template for:each={storyTypes} for:item="type">
+                                        <span
+                                            key={type.value}
+                                            data-type={type.value}
+                                            class={type.class}
+                                            onclick={handleStoryTypeSelect}>
+                                            {type.label}
+                                        </span>
+                                    </template>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="slds-form-element__label slds-no-flex">
+                                    {label.InputOtherAttributesFilterKanbanLabel}
+                                </label>
+                                <lightning-input 
+                                    type="checkbox"
+                                    label={expeditedLabel}
+                                    checked={showOnlyExpedited}
+                                    onchange={handleExpeditedToggle}>
+                                </lightning-input>
+                            </div>
+                        </div>
+
+                        <lightning-input    type="search"
+                                            label={label.InputSearchKanbanLabel}
+                                            field-level-help={label.InputSearchKanbanHelp}
+                                            value={searchKey}
+                                            onchange={handleStorySearch}></lightning-input>
+                        
+                        <div class="slds-var-m-vertical_medium">
+                            <lightning-button   label={label.ActionSearchFilterResetKanbanLabel}
+                                                onclick={handleSearchFilterReset}></lightning-button>
+                        </div>
+                    </lightning-layout-item>
+                    
+                </lightning-layout>
+            </div>
+        </template>
+        <!-- END: Collapsible Filter Section -->
+
+
+        <!-- Kanban Board -->
+        <lightning-layout class="slds-var-m-top_large iab-kanban-board" vertical-align="stretch">
+            <template for:each={columns} for:item="column">
+
+                <!-- Kanban Status Column -->
+                <lightning-layout-item key={column.value} size="6" small-device-size="6" medium-device-size="3" large-device-size="2" flexibility="auto" class="slds-var-p-horizontal_x-small">
+                    <div class="slds-var-m-bottom_small iab-column-header">
+                        <strong>{column.label}</strong>
+                    </div>
+                    <div
+                        class="iab-story-list"
+                        style={columnStyle}
+                        data-label={column.label}
+                        data-status={column.value}
+                        ondrop={handleDrop}
+                        ondragover={handleDragOver}>
+                            <template if:true={column.stories.length}>
+                                <template for:each={column.stories} for:item="story">
+                                    
+                                    <!-- Story Card -->
+                                    <div key={story.Id} class="slds-var-m-bottom_small" style="background-color: none;">
+                                        <article
+                                            class="slds-card slds-card_boundary iab-story-card"
+                                            style={column.cardBackgroundStyle}
+                                            data-id={story.Id}
+                                            draggable={isDraggable}
+                                            ondragstart={handleDragStart}>
+                                            <div class="slds-var-p-around_small">
+                                                <p class="iab-story-card-text">
+                                                    # {story.iab__Story_Number__c}
+                                                    <template lwc:if={story.Is_Defect}>
+                                                        &nbsp;<lightning-icon icon-name="utility:bug" title={label.StoryFieldStoryTypeDefectIconTitle} size="xx-small"></lightning-icon>
+                                                    </template>
+                                                    <template lwc:if={story.iab__Expedite__c}>
+                                                        &nbsp;<lightning-icon icon-name="utility:clock" title={label.StoryFieldExpediteIconTitle} size="xx-small"></lightning-icon>
+                                                    </template>
+                                                </p>
+                                                <p class="iab-story-card-text iab-story-card-text-bold">
+                                                    <lightning-formatted-url
+                                                        value={story.Story_Url}
+                                                        label={story.Name}>
+                                                    </lightning-formatted-url>
+                                                </p>
+                                                <p class="iab-story-card-text">
+                                                    <template if:true={story.iab__Assigned__r}>
+                                                        {story.iab__Assigned__r.Name}
+                                                    </template>
+                                                    <template if:false={story.iab__Assigned__r}>
+                                                        {label.StoryFieldAssignedUnassigned}
+                                                    </template>
+                                                </p>
+                                                <div class="slds-grid slds-grid_align-spread">
+                                                    <div class="iab-story-card-text">{label.StoryFieldPriorityLabel}: {story.iab__Priority_Order__c}</div>
+                                                    <div class="slds-text-align_right iab-story-card-text">
+                                                        <template lwc:if={story.iab__Actual_Points__c}>
+                                                            {label.StoryFieldPointsLabel}: {story.iab__Actual_Points__c}&nbsp;{label.StoryFieldPointsAct}
+                                                        </template>
+                                                        <template lwc:else>
+                                                            <template lwc:if={story.iab__Estimated_Points__c}>
+                                                                {label.StoryFieldPointsLabel}: {story.iab__Estimated_Points__c}&nbsp;{label.StoryFieldPointsEst}
+                                                            </template>
+                                                            <template lwc:else>
+                                                                {label.StoryFieldPointsLabel}: ?&nbsp;{label.StoryFieldPointsEst}
+                                                            </template>
+                                                        </template>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <!-- END: Story Card -->
+
+                                </template>
+                            </template>
+
+                            <template if:false={column.stories.length}>
+                                <div class="iab-empty-state">{label.StoryEmptyByStatusText}</div>
+                            </template>
+
+                    </div>
+                </lightning-layout-item>
+                <!-- END: Kanban Status Column -->
+
+            </template>
+        </lightning-layout>
+        <!-- END: Kanban Board -->
+
+    </article>
+    
+</template>

@@ -1,49 +1,10 @@
-.card-container-outer {
-    width:100%;
+:host {
+    --slds-c-button-inverse-color-border: rgb(201, 201, 201);   /* same as --lwc-buttonColorBorderPrimary, used for lightning-button-icon buttons */
+    --slds-c-card-radius-border: var(--slds-g-radius-border-4);
 }
 
-.card-container-inner {
-    padding:0.5em;
-    text-align:left;
-}
-
-.card-container-header {
-    background:#0b5cab;
-    color:#ffffff;
-    border-radius:4px 4px 0 0;
-    text-align:left;
-}
-
-.main-content-area {
-    padding:0px;
-}
-
-.button-icon-position {
-    top:-1px;
-}
-
-.icon-resource {
-    margin-top:0;
-    margin-right:5px;
-}
-
-.helptext-mod .slds-form-element__icon {
-    margin-left:5px;
-    padding-top:0;
-}
-
-.slds-badge {
-    margin-left:0;
-    margin-right:0.2em;
-}
-
-.menu-subheader-weak {
-    font-weight:normal;
-    font-size:0.75rem;
-}
-
-.custom-header-link, a.custom-header-link:link, a.custom-header-link:visited, a.custom-header-link:hover, a.custom-header-link:active {
-    color:#FFFFFF;
+.slds-card {
+    color: var(--slds-g-color-on-surface-2);
 }
 
 .dragging {

@@ -1,0 +1,59 @@
+.iab-component-container {
+    width:          100%;
+    border:         1px solid #c9c9c9;
+}
+
+.iab-metadata-type-list-container {
+    float:          left;
+    width:          25%;
+    height:         500px;
+    overflow:       scroll;
+}
+
+.iab-selected {
+    width:          100%;
+    padding:        10px;
+    border-bottom:  1px solid #c9c9c9;
+    background:     #ffffff;
+    font-weight:    bold;
+    cursor:         default;
+}
+
+.iab-unselected {
+    width:          100%;
+    padding:        10px;
+    border-bottom:  1px solid #c9c9c9;
+    border-right:   1px solid #c9c9c9;
+    background:     #f3f3f3;
+    font-weight:    normal;
+    cursor:         pointer;
+}
+
+.iab-metadata-component-list-container {
+    width:          75%;
+    height:         500px;
+    padding-left:   10px;
+    overflow:       scroll;
+}
+
+.iab-type-header-text {
+    float:          left;
+    width:          80%;
+}
+
+.iab-type-header-buttons {
+    float:          right;
+}
+
+.iab-component-row-container {
+    display:        flex;
+    align-items:    center;
+}
+
+.iab-text-name {
+    font-weight:    bold;
+}
+
+.iab-text-api-name {
+    color:          #969492;
+}

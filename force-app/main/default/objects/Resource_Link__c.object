@@ -255,6 +255,16 @@
                     <label>Image</label>
                 </value>
                 <value>
+                    <fullName>Knowledge Article</fullName>
+                    <default>false</default>
+                    <label>Knowledge Article</label>
+                </value>
+                <value>
+                    <fullName>LLM</fullName>
+                    <default>false</default>
+                    <label>LLM</label>
+                </value>
+                <value>
                     <fullName>LucidChart</fullName>
                     <default>false</default>
                     <label>LucidChart</label>
@@ -290,9 +300,19 @@
                     <label>Salesforce Experience Cloud Site</label>
                 </value>
                 <value>
+                    <fullName>Slack Canvas</fullName>
+                    <default>false</default>
+                    <label>Slack Canvas</label>
+                </value>
+                <value>
                     <fullName>Slack Channel</fullName>
                     <default>false</default>
                     <label>Slack Channel</label>
+                </value>
+                <value>
+                    <fullName>Slack List</fullName>
+                    <default>false</default>
+                    <label>Slack List</label>
                 </value>
                 <value>
                     <fullName>Slack Post</fullName>
@@ -311,7 +331,7 @@
                 </value>
                 <value>
                     <fullName>URL</fullName>
-                    <default>false</default>
+                    <default>true</default>
                     <label>URL</label>
                 </value>
                 <value>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Imhotep My Projects</masterLabel>
+    <description>Displays a tabbed list of all the user's Projects and their key Releases.</description>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+</LightningComponentBundle>

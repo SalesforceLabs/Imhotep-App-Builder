@@ -16,9 +16,9 @@
         </inputParameters>
         <nameSegment>iab:imhotepFlowNavigate</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>setDraftRelease</name>
         <label>Set Draft Release</label>
@@ -53,10 +53,10 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>varRecDraftRelease.Notes__c</assignToReference>
+            <assignToReference>varRecDraftRelease.Description__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>input02_Notes</elementReference>
+                <elementReference>input02_Description</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -255,21 +255,53 @@
             <name>text01a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px; color: rgb(0, 0, 0);&quot;&gt;Select a Template&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>text01b</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);&quot;&gt;You can create a new release for your project using a template.  Templates include a list of pre-built stories for carrying out common tasks.  These stories can also include pre-documented information on how to complete the story.&lt;/span&gt;&lt;span style=&quot;font-size: 14px; background-color: var(--slds-g-color-neutral-base-100, var(--lwc-colorBackgroundInput,rgb(255, 255, 255))); color: rgb(0, 0, 0); font-family: var(--lwc-fontFamily,-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Roboto, Helvetica, Arial, sans-serif, &apos;Apple Color Emoji&apos;, &apos;Segoe UI Emoji&apos;, &apos;Segoe UI Symbol&apos;);&quot;&gt;﻿&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>text01c</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: var(--lwc-fontFamily,-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Roboto, Helvetica, Arial, sans-serif, &apos;Apple Color Emoji&apos;, &apos;Segoe UI Emoji&apos;, &apos;Segoe UI Symbol&apos;); background-color: var(--slds-g-color-neutral-base-100, var(--lwc-colorBackgroundInput,rgb(255, 255, 255))); font-size: 14px;&quot;&gt;﻿&lt;/span&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Template stories also include &quot;Estimated Points&quot; - rough estimates of the level of effort required to complete each story.  There are different estimates to choose from (Beginner, Intermediate, and Expert), depending on your experience/comfort level with the related work.  These estimates roll up to help you better understand the overall level of effort to complete a release.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>text01d</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font-size: 14px;&quot;&gt;Please select a template and which estimates to use:&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input01_EstimatedPointsToUse</name>
@@ -281,6 +313,14 @@
             <fieldType>RadioButtons</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input01_TemplateSelectionTable</name>
@@ -292,6 +332,14 @@
                 <assignToReference>varSelectedTemplateId</assignToReference>
                 <name>SelectedTemplateId</name>
             </outputParameters>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Next &gt;</nextOrFinishButtonLabel>
         <showFooter>false</showFooter>
@@ -313,6 +361,14 @@
             <name>text02a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px;&quot;&gt;Create a New Release&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px;&quot;&gt;Project:  {!getProject.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px;&quot;&gt;Selected Template:  {!getTemplate.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Provide the details for your new release:&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input02_Name</name>
@@ -324,6 +380,14 @@
             <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s02_Section1</name>
@@ -341,6 +405,14 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <fields>
                     <name>input02_Status</name>
@@ -350,6 +422,14 @@
                     <fieldType>RadioButtons</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -372,6 +452,14 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <fields>
                     <name>input02_ReleaseDate</name>
@@ -383,6 +471,14 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -394,16 +490,37 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
-            <name>input02_Notes</name>
+            <name>input02_Description</name>
             <defaultValue>
                 <stringValue>{!getTemplate.Description__c}</stringValue>
             </defaultValue>
-            <fieldText>Notes</fieldText>
+            <fieldText>Description</fieldText>
             <fieldType>LargeTextArea</fieldType>
+            <helpText>&lt;p&gt;{!$Label.iab__ReleaseFieldDescriptionHelp}&lt;/p&gt;</helpText>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(255, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;{!$Label.iab__ReleaseFieldDescriptionValidationError}&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>LEN({!input02_Description})&lt;=1000</formulaExpression>
+            </validationRule>
         </fields>
         <nextOrFinishButtonLabel>Create Release from Template</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>

@@ -167,6 +167,11 @@
             <field>Release_Mode__c</field>
             <table>Project__c.Releases__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Description__c</field>
+            <table>Project__c.Releases__r</table>
+        </columns>
         <masterLabel>Releases</masterLabel>
     </sections>
     <sections>

@@ -33,7 +33,6 @@
             </value>
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>actionSendEmail_NewProjectMember</name>
@@ -68,7 +67,6 @@
             </value>
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>actionSendEmail_StoryAssigned</name>
@@ -103,7 +101,6 @@
             </value>
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>actionSendEmail_TestResultAssigned</name>
@@ -138,7 +135,6 @@
             </value>
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>actionSendEmail_TestResultReported</name>
@@ -173,7 +169,6 @@
             </value>
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>actionSendEmail_TestResultRetest</name>
@@ -208,9 +203,9 @@
             </value>
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <decisions>
         <description>Originating flow must provide an accepted value for inputEmailType in order for the flow to know which email to send.  See inputEmailType variable description for accepted values.</description>
         <name>decWhichEmailToSend</name>

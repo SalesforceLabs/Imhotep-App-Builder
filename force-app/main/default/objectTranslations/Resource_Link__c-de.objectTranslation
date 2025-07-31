@@ -101,6 +101,14 @@
             <translation><!-- Image --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Knowledge Article</masterLabel>
+            <translation><!-- Knowledge Article --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LLM</masterLabel>
+            <translation><!-- LLM --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>LucidChart</masterLabel>
             <translation><!-- LucidChart --></translation>
         </picklistValues>
@@ -133,8 +141,16 @@
             <translation><!-- Salesforce Org --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Slack Canvas</masterLabel>
+            <translation><!-- Slack Canvas --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Slack Channel</masterLabel>
             <translation><!-- Slack Channel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Slack List</masterLabel>
+            <translation><!-- Slack List --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Slack Post</masterLabel>

@@ -15,10 +15,11 @@
             </value>
         </inputParameters>
         <nameSegment>iab:imhotepFlowNavigate</nameSegment>
+        <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
     </actionCalls>
-    <apiVersion>60.0</apiVersion>
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>setDraftTemplate</name>
         <label>Set Draft Template</label>
@@ -35,14 +36,14 @@
             <assignToReference>varRecDraftTemplate.Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>input01_Name</elementReference>
+                <elementReference>input02_Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>varRecDraftTemplate.Description__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>input01_Description</elementReference>
+                <elementReference>input02_Description</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -204,7 +205,7 @@
         <label>Loop on Selected Stories</label>
         <locationX>50</locationX>
         <locationY>890</locationY>
-        <collectionReference>input01_StoryTable.selectedRows</collectionReference>
+        <collectionReference>input02_StoryTable.selectedRows</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
             <targetReference>setDraftTemplateItem</targetReference>
@@ -291,7 +292,7 @@
         <locationY>458</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>s01</targetReference>
+            <targetReference>s02</targetReference>
         </connector>
         <faultConnector>
             <isGoTo>true</isGoTo>
@@ -313,8 +314,8 @@
     </recordLookups>
     <runInMode>DefaultMode</runInMode>
     <screens>
-        <name>s01</name>
-        <label>New Template Details</label>
+        <name>s02</name>
+        <label>New Template Details (New)</label>
         <locationX>50</locationX>
         <locationY>566</locationY>
         <allowBack>false</allowBack>
@@ -324,12 +325,59 @@
             <targetReference>setDraftTemplate</targetReference>
         </connector>
         <fields>
-            <name>text01a</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px; color: rgb(0, 0, 0);&quot;&gt;Create a New Template&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Selected Project:  &lt;/span&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;{!getRelease.Project__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Selected Release:  {!getRelease.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;You can create a template from the selected release.  This will copy all desired stories into a template that you can use in other releases or even other projects.  Templates can also be shared with other users!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Please provide the new template&apos;s details:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <name>text02a</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px; color: rgb(0, 0, 0);&quot;&gt;Create a New Template&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
-            <name>input01_Name</name>
+            <name>text02b</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Selected Release:  {!getRelease.Name}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>text02c</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;You can create a template from the selected release.  This will copy all desired stories into a template that you can use in other releases or even other projects.  Templates can also be shared with other users!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>text02d</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Please provide the new template&apos;s details:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>input02_Name</name>
             <dataType>String</dataType>
             <defaultValue>
                 <elementReference>getRelease.Name</elementReference>
@@ -338,27 +386,51 @@
             <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
-            <name>input01_Description</name>
+            <name>input02_Description</name>
             <fieldText>Description</fieldText>
             <fieldType>LargeTextArea</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
-            <name>s01_Section1</name>
+            <name>s02_Section1</name>
             <fieldType>RegionContainer</fieldType>
             <fields>
-                <name>s01_Section1_Column1</name>
+                <name>s02_Section1_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>text01b</name>
+                    <name>text02e</name>
                     <fieldText>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);&quot;&gt;Select the stories you wish to include in your new template&lt;/strong&gt;&lt;span style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);&quot;&gt; (at least one must be selected)&lt;/span&gt;&lt;strong style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);&quot;&gt;:&lt;/strong&gt;&lt;/p&gt;</fieldText>
                     <fieldType>DisplayText</fieldType>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <fields>
-                    <name>input01_StoryTable</name>
+                    <name>input02_StoryTable</name>
                     <dataTypeMappings>
                         <typeName>T</typeName>
                         <typeValue>Story__c</typeValue>
@@ -398,12 +470,20 @@
                     <inputParameters>
                         <name>columns</name>
                         <value>
-                            <stringValue>[{&quot;apiName&quot;:&quot;Name&quot;,&quot;guid&quot;:&quot;column-4dcb&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:0,&quot;label&quot;:&quot;Title&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;iab__Story_Description__c&quot;,&quot;guid&quot;:&quot;column-ada2&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:1,&quot;label&quot;:&quot;Story/Description&quot;,&quot;type&quot;:&quot;customRichText&quot;}]</stringValue>
+                            <stringValue>[{&quot;apiName&quot;:&quot;Name&quot;,&quot;guid&quot;:&quot;column-4dcb&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:true,&quot;customHeaderLabel&quot;:&quot;{!$Label.iab__StoryFieldTitleLabel}&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:0,&quot;label&quot;:&quot;Title&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;iab__Story_Description__c&quot;,&quot;guid&quot;:&quot;column-ada2&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:true,&quot;customHeaderLabel&quot;:&quot;{!$Label.iab__StoryFieldStoryDescriptionLabel}&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:1,&quot;label&quot;:&quot;Story/Description&quot;,&quot;type&quot;:&quot;customRichText&quot;}]</stringValue>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -415,6 +495,14 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Create Template</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>

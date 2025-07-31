@@ -1,0 +1,85 @@
+<template>
+
+    <article class="slds-card" style="margin-bottom:10px;">
+        
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon-custom-custom15" title={tableHeader}>
+                        <lightning-icon icon-name="custom:custom15" title={releaseRelatedListHeader} size="small"></lightning-icon>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <lightning-formatted-url value={tableHeaderUrl} label={tableHeader} class="slds-card__header-link slds-truncate"></lightning-formatted-url>
+                    </h2>
+                </div>
+                <div class="slds-no-flex">
+                    <lightning-button-group>
+                        <lightning-button       label={label.ActionNewProjectMemberLabel}
+                                                icon-name="utility:add"
+                                                icon-position="left"
+                                                variant="brand-outline"
+                                                onclick={openNewProjectMemberFlow}></lightning-button>
+                    </lightning-button-group>
+                </div>
+            </header>
+        </div>
+
+        <!-- show an empty state illustration card with a call to action to create a project member -->
+        <template lwc:if={showEmptyState}>
+
+            <div class="slds-illustration slds-illustration_small">
+                <img src={imageEmptyState02} class="slds-illustration__svg" />
+                
+                <div class="slds-text-longform">
+                    <h3 class="slds-text-heading_medium">{label.ProjectMemberEmptyHeading}</h3>
+                    <p class="slds-text-body_regular"><strong>{label.ProjectMemberEmptyText}</strong></p>
+                </div>
+
+                <footer class="slds-card__footer">
+                    <lightning-button   label={label.ActionNewProjectMemberLabel}
+                                        variant="brand"
+                                        icon-name="utility:add"
+                                        icon-position="left"
+                                        onclick={openNewProjectMemberFlow}></lightning-button>
+                </footer>
+            </div>
+
+        </template>
+
+        <!-- show the table -->
+        <template lwc:else>
+
+            <template lwc:if={isLoading}>
+                <div style="height:200px;" class="iab-spinner-container">
+                    <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+                </div>
+            </template>
+
+            <template lwc:else>
+
+                <div class="slds-card__body slds-card__body_inner">
+
+                    <div class="slds-var-p-top_x-small" style="display:block;">
+                        <lightning-datatable    key-field="Id"
+                                                data={mockMembers}
+                                                columns={columns}
+                                                hide-checkbox-column
+                                                column-widths-mode="auto"
+                                                onrowaction={handleMenuAction}
+                                                default-sort-direction={sortDirectionDefault}
+                                                sorted-direction={sortDirection}
+                                                sorted-by={sortedBy}
+                                                onsort={handleSort}></lightning-datatable>
+                    </div>
+
+                </div>
+
+            </template>
+
+        </template>
+
+    </article>
+
+</template>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>60.0</apiVersion>
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <choices>
         <name>choiceRoleBuilder</name>
         <choiceText>&lt;strong style=&quot;font-size: 14px;&quot;&gt;Builder&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt; (Read/Write)&lt;/span&gt;</choiceText>
@@ -20,8 +21,8 @@
     <decisions>
         <name>decIsCurrentUserAuthorized</name>
         <label>Is Current User Authorized?</label>
-        <locationX>182</locationX>
-        <locationY>350</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <defaultConnectorLabel>Not Authorized</defaultConnectorLabel>
         <rules>
             <name>outCurrentUserAuthorizedYES</name>
@@ -34,9 +35,34 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>s01</targetReference>
+                <targetReference>decTryingToDeleteTheOwnerLead</targetReference>
             </connector>
             <label>Authorized</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>decTryingToDeleteTheOwnerLead</name>
+        <label>Trying to Delete the Owner/Lead?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>s01</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>outTryingToDeleteTheOwnerLead_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>getProjectMember.Role__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Owner/Lead</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>s99</targetReference>
+            </connector>
+            <label>Yes</label>
         </rules>
     </decisions>
     <description>Delete the selected Project Member record.</description>
@@ -67,8 +93,8 @@
     <recordLookups>
         <name>getProjectMember</name>
         <label>Get Project Member</label>
-        <locationX>182</locationX>
-        <locationY>134</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>subflowCheckRole</targetReference>
@@ -92,8 +118,8 @@
     <screens>
         <name>s01</name>
         <label>Pre-Confirm</label>
-        <locationX>50</locationX>
-        <locationY>458</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -102,15 +128,48 @@
         </connector>
         <fields>
             <name>text01a</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Remove Project Member Access&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Project:  {!getProjectMember.Project__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Project Member:  {!getProjectMember.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Do you wish to remove this user from the project?&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;This action will immediately revoke the user&apos;s access from all project-related records.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Remove Project Member Access&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Project Member:  {!getProjectMember.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Do you wish to remove this user from the project?&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;This action will immediately revoke the user&apos;s access from all project-related records.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Remove Project Member</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
+    <screens>
+        <name>s99</name>
+        <label>Can&apos;t Delete the Owner/Lead</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>text99a</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Remove Project Member Access&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Project Member:  {!getProjectMember.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;You are not allowed to remove the Owner/Lead from the project.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;To remove this person from the project, you must first make another project member the Owner/Lead.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <nextOrFinishButtonLabel>Close</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
     <start>
-        <locationX>56</locationX>
+        <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>getProjectMember</targetReference>
@@ -120,8 +179,8 @@
     <subflows>
         <name>subflowCheckRole</name>
         <label>Check Role</label>
-        <locationX>182</locationX>
-        <locationY>242</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>decIsCurrentUserAuthorized</targetReference>
         </connector>
@@ -149,8 +208,8 @@
     <subflows>
         <name>subflowDeletePM</name>
         <label>Delete PM</label>
-        <locationX>50</locationX>
-        <locationY>566</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <flowName>Imhotep_ProjectMember_CRUDActions</flowName>
         <inputAssignments>
             <name>inputProjectId</name>
@@ -174,8 +233,8 @@
     <subflows>
         <name>subflowHandleScreenError</name>
         <label>Handle Screen Error</label>
-        <locationX>578</locationX>
-        <locationY>242</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <flowName>Imhotep_General_ScreenFlowError</flowName>
         <inputAssignments>
             <name>inputFaultMessage</name>

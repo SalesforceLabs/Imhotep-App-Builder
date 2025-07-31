@@ -1,29 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <actionCalls>
-        <name>actionNavigateToRecord</name>
-        <label>Navigate to Record</label>
-        <locationX>182</locationX>
-        <locationY>2522</locationY>
-        <actionName>iab:imhotepFlowNavigate</actionName>
+        <name>actionNavigateToNewStory</name>
+        <label>Navigate to New Story</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>iab:imhotepFlowNavigateToURL</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>targetObject</name>
+            <value>
+                <stringValue>Story</stringValue>
+            </value>
+        </inputParameters>
         <inputParameters>
             <name>recordId</name>
             <value>
                 <elementReference>varDraftStoryRec.Id</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>iab:imhotepFlowNavigate</nameSegment>
+        <inputParameters>
+            <name>projectId</name>
+            <value>
+                <elementReference>varDraftStoryRec.Project__c</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>iab:imhotepFlowNavigateToURL</nameSegment>
+        <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
     </actionCalls>
-    <apiVersion>60.0</apiVersion>
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>setAddToColl</name>
         <label>Add to Coll</label>
-        <locationX>138</locationX>
-        <locationY>1838</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>varCollDraftTestScenarios</assignToReference>
             <operator>Add</operator>
@@ -45,8 +58,8 @@
     <assignments>
         <name>setCountTestScenarios</name>
         <label>Count Test Scenarios</label>
-        <locationX>182</locationX>
-        <locationY>1406</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>varCountTestScenarios</assignToReference>
             <operator>AssignCount</operator>
@@ -61,8 +74,8 @@
     <assignments>
         <name>setDraftStory</name>
         <label>Set Draft Story</label>
-        <locationX>182</locationX>
-        <locationY>458</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>varDraftStoryRec</assignToReference>
             <operator>Assign</operator>
@@ -71,14 +84,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>s01</targetReference>
+            <targetReference>getProjectStories</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>setModifyTestScenario</name>
         <label>Modify Test Scenario</label>
-        <locationX>138</locationX>
-        <locationY>1730</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>varRecDraftTestScenario.Description__c</assignToReference>
             <operator>Assign</operator>
@@ -121,8 +134,8 @@
     <assignments>
         <name>setNewPriorityTo1</name>
         <label>Set New Priority to 1</label>
-        <locationX>314</locationX>
-        <locationY>890</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>varPriorityDefault</assignToReference>
             <operator>Assign</operator>
@@ -137,8 +150,8 @@
     <assignments>
         <name>setNewPriorityToNPlus1</name>
         <label>Set New Priority to N+1</label>
-        <locationX>50</locationX>
-        <locationY>890</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>varPriorityDefault</assignToReference>
             <operator>Assign</operator>
@@ -153,8 +166,8 @@
     <assignments>
         <name>setUpdateDraftStory</name>
         <label>Update Draft Story</label>
-        <locationX>182</locationX>
-        <locationY>1082</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>varDraftStoryRec.Story_Type__c</assignToReference>
             <operator>Assign</operator>
@@ -248,8 +261,8 @@
     <decisions>
         <name>decAnyTestScenarios</name>
         <label>Any Test Scenarios?</label>
-        <locationX>182</locationX>
-        <locationY>1514</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <defaultConnector>
             <targetReference>decSendEmail</targetReference>
         </defaultConnector>
@@ -274,8 +287,8 @@
         <description>Only a Builder or Owner/Lead can create Stories.</description>
         <name>decIsCurrentUserAuthorized</name>
         <label>Is Current User Authorized?</label>
-        <locationX>380</locationX>
-        <locationY>350</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <defaultConnectorLabel>Not Authorized</defaultConnectorLabel>
         <rules>
             <name>outCurrentUserAuthorizedYES</name>
@@ -296,10 +309,10 @@
     <decisions>
         <name>decSendEmail</name>
         <label>Send Email?</label>
-        <locationX>182</locationX>
-        <locationY>2222</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>actionNavigateToRecord</targetReference>
+            <targetReference>actionNavigateToNewStory</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>No Email</defaultConnectorLabel>
         <rules>
@@ -339,8 +352,8 @@
     <decisions>
         <name>decStoryFound</name>
         <label>Story Found?</label>
-        <locationX>182</locationX>
-        <locationY>782</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <defaultConnector>
             <targetReference>setNewPriorityTo1</targetReference>
         </defaultConnector>
@@ -362,6 +375,15 @@
         </rules>
     </decisions>
     <description>Clone an existing Story.  Input variable(s):  recordId (expecting Story recordId).</description>
+    <dynamicChoiceSets>
+        <description>All Stories related to the current Story&apos;s Project.</description>
+        <name>choicesCollProjectStories</name>
+        <collectionReference>getProjectStories</collectionReference>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <object>Story__c</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
     <dynamicChoiceSets>
         <name>choicesProjectMembers</name>
         <dataType>String</dataType>
@@ -398,24 +420,6 @@
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
-        <description>All Stories related to the current Release&apos;s Project.</description>
-        <name>choicesProjectStories</name>
-        <dataType>String</dataType>
-        <displayField>Name</displayField>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Project__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>getStory.Release__r.Project__c</elementReference>
-            </value>
-        </filters>
-        <object>Story__c</object>
-        <sortField>Name</sortField>
-        <sortOrder>Asc</sortOrder>
-        <valueField>Id</valueField>
-    </dynamicChoiceSets>
-    <dynamicChoiceSets>
         <name>listStatus</name>
         <dataType>Picklist</dataType>
         <displayField xsi:nil="true"/>
@@ -445,8 +449,8 @@
     <loops>
         <name>loopTestScenarios</name>
         <label>Loop on Test Scenarios</label>
-        <locationX>50</locationX>
-        <locationY>1622</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <collectionReference>getTestScenarios</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -478,32 +482,71 @@
     <recordCreates>
         <name>createStory</name>
         <label>Create Story</label>
-        <locationX>182</locationX>
-        <locationY>1190</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>getTestScenarios</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>subflowHandleScreenError</targetReference>
+        </faultConnector>
         <inputReference>varDraftStoryRec</inputReference>
     </recordCreates>
     <recordCreates>
         <name>createTestScenarios</name>
         <label>Create Test Scenarios</label>
-        <locationX>50</locationX>
-        <locationY>2030</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>decSendEmail</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>subflowHandleScreenError</targetReference>
+        </faultConnector>
         <inputReference>varCollDraftTestScenarios</inputReference>
     </recordCreates>
     <recordLookups>
+        <description>Retrieve the active custom metadata type settings for Imhotep App Builder.  Only one metadata type record is retrieved (where Active = true).  If there are multiple active records, you may experience errors until you update old records (uncheck the Active checkbox).</description>
+        <name>getActiveCustomMetadataSettings</name>
+        <label>Get Active Custom Metadata Settings</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>getStory</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>subflowHandleScreenError</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Active__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Imhotep_Config__mdt</object>
+        <sortField>DeveloperName</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>getLowestPriorityStory</name>
         <label>Get Lowest Priority Story</label>
-        <locationX>182</locationX>
-        <locationY>674</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>decStoryFound</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>subflowHandleScreenError</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Release__c</field>
@@ -519,14 +562,41 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>getProjectStories</name>
+        <label>Get Project Stories</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>s01</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Project__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>getStory.Project__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Story__c</object>
+        <sortField>Name</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>getStory</name>
         <label>Get Story</label>
-        <locationX>380</locationX>
-        <locationY>134</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>subflowCheckRole</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>subflowHandleScreenError</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -542,12 +612,16 @@
     <recordLookups>
         <name>getTestScenarios</name>
         <label>Get Test Scenarios</label>
-        <locationX>182</locationX>
-        <locationY>1298</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>setCountTestScenarios</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>subflowHandleScreenError</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Story__c</field>
@@ -566,8 +640,8 @@
     <screens>
         <name>s01</name>
         <label>New Story Details</label>
-        <locationX>182</locationX>
-        <locationY>566</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -578,6 +652,14 @@
             <name>text01a</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Original Story:  {!varDraftStoryRec.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;All field values will be cloned, but here are a few you can edit right away:&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s01_Section1</name>
@@ -596,6 +678,14 @@
                     <fieldType>RadioButtons</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -613,18 +703,34 @@
                     <choiceReferences>listStatus</choiceReferences>
                     <dataType>String</dataType>
                     <defaultValue>
-                        <stringValue>Defined</stringValue>
+                        <elementReference>getActiveCustomMetadataSettings.Default_Story_Status__c</elementReference>
                     </defaultValue>
                     <fieldText>Status</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <objectFieldReference>varDraftStoryRec.Expedite__c</objectFieldReference>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -636,12 +742,28 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <objectFieldReference>varDraftStoryRec.Name</objectFieldReference>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input01_StoryDescription</name>
@@ -668,6 +790,14 @@
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input01_SolutionBuildNotes</name>
@@ -694,6 +824,14 @@
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s01_Section2</name>
@@ -706,6 +844,14 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <objectFieldReference>varDraftStoryRec.Estimated_Points__c</objectFieldReference>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -720,7 +866,7 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>input01_ParentStory</name>
-                    <choiceReferences>choicesProjectStories</choiceReferences>
+                    <choiceReferences>choicesCollProjectStories</choiceReferences>
                     <defaultValue>
                         <elementReference>varDraftStoryRec.Parent_Story__c</elementReference>
                     </defaultValue>
@@ -736,6 +882,14 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -766,6 +920,14 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -787,6 +949,14 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s01_Section3</name>
@@ -813,6 +983,14 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -835,6 +1013,14 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -856,25 +1042,33 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Clone Story</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
     <start>
-        <locationX>254</locationX>
+        <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>getStory</targetReference>
+            <targetReference>getActiveCustomMetadataSettings</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <subflows>
         <description>Check to see if the current user is a Builder of the project.</description>
         <name>subflowCheckRole</name>
         <label>Check Role</label>
-        <locationX>380</locationX>
-        <locationY>242</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>decIsCurrentUserAuthorized</targetReference>
         </connector>
@@ -900,12 +1094,31 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </subflows>
     <subflows>
+        <name>subflowHandleScreenError</name>
+        <label>Handle Screen Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <flowName>Imhotep_General_ScreenFlowError</flowName>
+        <inputAssignments>
+            <name>inputFaultMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>inputShowErrorScreen</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
         <name>subflowSendEmailToAssigned</name>
         <label>Send Email to Assigned</label>
-        <locationX>50</locationX>
-        <locationY>2330</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <connector>
-            <targetReference>actionNavigateToRecord</targetReference>
+            <targetReference>actionNavigateToNewStory</targetReference>
         </connector>
         <flowName>Imhotep_General_SendEmail</flowName>
         <inputAssignments>

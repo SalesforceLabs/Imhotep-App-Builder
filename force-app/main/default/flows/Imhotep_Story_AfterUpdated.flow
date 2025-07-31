@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>57.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <decisions>
         <description>Did the Assigned field get updated?  If so, we&apos;ll want to note the newly assigned user&apos;s email address and send them an email - IF it isn&apos;t updated to blank/empty value.</description>
         <name>decAssignedUpdatedAndNotBlank</name>

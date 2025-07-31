@@ -104,8 +104,8 @@
             <sortOrder>4</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>Delete</actionName>
-            <actionType>StandardButton</actionType>
+            <actionName>Project__c.Project_Delete</actionName>
+            <actionType>QuickAction</actionType>
             <sortOrder>5</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
@@ -194,7 +194,7 @@
         <fields>Start_Date__c</fields>
         <fields>Release_Date__c</fields>
         <fields>Release_Mode__c</fields>
-        <fields>Notes__c</fields>
+        <fields>Description__c</fields>
         <relatedList>Release__c.Project__c</relatedList>
         <sortField>Release_Date__c</sortField>
         <sortOrder>Desc</sortOrder>

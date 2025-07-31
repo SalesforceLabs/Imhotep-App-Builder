@@ -20,27 +20,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 // *******************************************************************************************
-// MODIFICATION LOG
-// Date			Developer		Story		Description
-// 05/26/2024   Mitch Lynch     S000517     Reworked the component to work in the new org.
-//
-// LEGACY ORG PACKAGE CHANGES:
-// 02/24/2024   Mitch Lynch     S000430     Modified to use custom labels, such as {!$Label.c.GeneralModalCloseLabel}.
-// 02/21/2024   Mitch Lynch     S000436     Commented out all console.log() methods used for debugging.
-// 02/21/2024   Mitch Lynch     S000437     Standardized button and icon attributes for accessibility.
-// 03/02/2023   Mitch Lynch     S-000193    Fixed error in var reference for BacklogReleaseRecords.
-// 02/24/2023   Mitch Lynch     S-000180    Renamed controller from devImhotepAppBuilderCtrl to ImhotepAppBuilderCtrl.
-// 02/24/2023   Mitch Lynch     000079      Updated imhotep__Assigned__c to use imhotep__Assigned_Project_Member__c.
-// 02/21/2023   Mitch Lynch     S-000166    Updated to use namespace "imhotep".
-// 10/29/2022   Mitch Lynch     S-000103    Updated controller to devImhotepAppBuilderCtrl (retiring devTagStoriesCtrl).
-// 10/21/2022	Mitch Lynch		S-000096	Implemented lightning:formattedUrl for URLs so that records open in the console without refreshing the browser (faster).
-// 10/13/2022	Mitch Lynch		000080		Updated to work with renamed objects Dev_Theme__c (now Tag__c) and Dev_Theme_Assignment__c (Tag_Assignment__c).
-// 04/19/2022	Mitch Lynch		unknown		Continued work on initial component version.
-// 04/15/2022	Mitch Lynch		unknown		Created base component.
-// *******************************************************************************************
-// NOTES
-// This component, including any referenced resources including but not limited to components, Apex controllers, objects, fields, and static resources, was developed by Mitch Lynch for Salesforce.com.  Use only with permission.
-// *******************************************************************************************
 
 ({
 	doInit : function(component) {

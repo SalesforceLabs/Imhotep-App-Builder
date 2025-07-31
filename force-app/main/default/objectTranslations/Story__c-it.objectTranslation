@@ -217,6 +217,11 @@
     </quickActions>
     <quickActions>
         <aspect>Master</aspect>
+        <label>Nuova storia figlia</label>
+        <name>Story_New_Child_Story</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
         <label>Trasferisci a un altro rilascio</label>
         <name>Story_Transfer_Action</name>
     </quickActions>

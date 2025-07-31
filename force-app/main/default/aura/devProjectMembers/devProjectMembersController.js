@@ -2,7 +2,8 @@
 // @Name			devProjectMembers.cmp
 // @Author		    Mitch Lynch (mitch.lynch@salesforce.com)
 // @Date			10/15/2022
-// @Description	    Displays list of Project Members for a Project.
+// @Description	    DEPRECATED, use imhotepProjectMembers LWC instead. Displays list of Project Members for a Project.
+// @Use             DEPRECATED / NOT IN USE
 // *******************************************************************************************
 // COPYRIGHT AND LICENSE
 // Copyright (c) 2023, Salesforce, Inc.
@@ -19,30 +20,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// *******************************************************************************************
-// MODIFICATION LOG
-// Date			Developer		Story		Description
-// 06/16/2024   Mitch Lynch     S000354     Updated Modify button for Owner/Lead so it isn't disabled (user allowed to update the notes in the subsequent flow).
-// 05/26/2024   Mitch Lynch     S000527     Reworked the component to work in the new org. Deleted the design file (deprecated in the legacy org).
-//
-// LEGACY ORG PACKAGE CHANGES:
-// 02/24/2024   Mitch Lynch     S000430     Modified to use custom labels, such as {!$Label.c.GeneralModalCloseLabel}.
-// 02/21/2024   Mitch Lynch     S000436     Commented out all console.log() methods used for debugging.
-// 02/19/2024   Mitch Lynch     S000437     Standardized button and icon attributes for accessibility.
-// 05/23/2023   Mitch Lynch     S-000306    Reintroduced the AddFlowAPIName, ModifyFlowAPIName, and RemoveFlowAPIName attributes due to failing package upgrades (have to be present for orgs where previously installed).
-// 03/07/2023   Mitch Lynch     S-000298    Adjusted to retrieve Flow API Names from the custom metadata type instead of being set as design attributes.  To update the Release record type, see the active imhotep__Imhotep_App_Builder_Setting__mdt custom metadata type record.
-// 03/07/2023   Mitch Lynch     S-000188    Renamed button "New Project Member" (was "Add Project Member") for consistency across components.
-// 02/25/2023   Mitch Lynch     S-000183    Replace controller ImhotepProjectsCtrl with ImhotepAppBuilderCtrl.
-// 02/24/2023   Mitch Lynch     S-000180    Renamed controller from devProjectsCtrl to ImhotepProjectsCtrl.
-// 02/21/2023   Mitch Lynch     S-000166    Updated to use namespace "imhotep".
-// 10/22/2022   Mitch Lynch		000055		Disabled modify and remove buttons if a project member has the Owner/Lead role. Reformatted to look like a related list card, using the SLDS Page Header (Inside a Card) Blueprint.
-// 10/21/2022	Mitch Lynch		S-000096	Implemented lightning:formattedUrl for URLs so that records open in the console without refreshing the browser (faster).
-// 10/15/2022	Mitch Lynch		000055		Created base component.
-// *******************************************************************************************
-// NOTES
-// This component, including any referenced resources including but not limited to components, Apex controllers, objects, fields, and static resources, was developed by Mitch Lynch for Salesforce.com.  Use only with permission.
-//
-// SLDS Page Header (Inside a Card) Blueprint:  https://www.lightningdesignsystem.com/components/page-headers/?variant=base#Inside-a-card
 // *******************************************************************************************
 
 ({

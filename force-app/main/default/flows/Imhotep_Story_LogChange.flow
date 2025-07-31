@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>setComponent</name>
         <label>Set Component</label>
@@ -137,7 +138,7 @@
         <name>setDraftComponentChange02</name>
         <label>Set Draft Component Change</label>
         <locationX>842</locationX>
-        <locationY>998</locationY>
+        <locationY>1406</locationY>
         <assignmentItems>
             <assignToReference>varDraftComponentChange.Name</assignToReference>
             <operator>Assign</operator>
@@ -185,10 +186,40 @@
         </connector>
     </assignments>
     <assignments>
+        <name>setRenameComponent</name>
+        <label>Rename Component</label>
+        <locationX>710</locationX>
+        <locationY>1106</locationY>
+        <assignmentItems>
+            <assignToReference>varDraftComponent</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>getSelectedComponent</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varDraftComponent.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>input03_Name</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varDraftComponent.API_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>input03_APIName</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>updateComponent01</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>setUpdateComponent</name>
         <label>Update Component</label>
         <locationX>578</locationX>
-        <locationY>1214</locationY>
+        <locationY>1622</locationY>
         <assignmentItems>
             <assignToReference>varDraftComponent.Is_Deleted__c</assignToReference>
             <operator>Assign</operator>
@@ -197,7 +228,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>updateComponent</targetReference>
+            <targetReference>updateComponent02</targetReference>
         </connector>
     </assignments>
     <decisions>
@@ -229,7 +260,7 @@
         <name>decDeletingAComponent</name>
         <label>Deleting a Component?</label>
         <locationX>842</locationX>
-        <locationY>1106</locationY>
+        <locationY>1514</locationY>
         <defaultConnector>
             <targetReference>createComponentChange</targetReference>
         </defaultConnector>
@@ -271,6 +302,31 @@
                 <targetReference>s01</targetReference>
             </connector>
             <label>Authorized</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>decRenamed</name>
+        <label>Renamed?</label>
+        <locationX>842</locationX>
+        <locationY>998</locationY>
+        <defaultConnector>
+            <targetReference>setDraftComponentChange02</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Renamed</defaultConnectorLabel>
+        <rules>
+            <name>outRenamed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>input03_Renamed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>setRenameComponent</targetReference>
+            </connector>
+            <label>Renamed</label>
         </rules>
     </decisions>
     <description>From a story, log a change to a Metadata Component (creates a Metadata Component Change and, if necessary, a new Metadata Component).</description>
@@ -334,7 +390,7 @@
         <name>createComponentChange</name>
         <label>Create Component Change</label>
         <locationX>446</locationX>
-        <locationY>1646</locationY>
+        <locationY>2054</locationY>
         <faultConnector>
             <targetReference>subflowHandleScreenError</targetReference>
         </faultConnector>
@@ -391,10 +447,20 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
-        <name>updateComponent</name>
+        <name>updateComponent01</name>
+        <label>Update Component</label>
+        <locationX>710</locationX>
+        <locationY>1214</locationY>
+        <connector>
+            <targetReference>setDraftComponentChange02</targetReference>
+        </connector>
+        <inputReference>varDraftComponent</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>updateComponent02</name>
         <label>Update Component</label>
         <locationX>578</locationX>
-        <locationY>1322</locationY>
+        <locationY>1730</locationY>
         <connector>
             <targetReference>createComponentChange</targetReference>
         </connector>
@@ -420,16 +486,40 @@
             <name>text01a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 16px;&quot;&gt;Log a Metadata Change﻿&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>text01b</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;As you make changes in your Salesforce environment, you can log them here to keep better track of them (examples: creating a new LWC, updating an existing flow, or deleting a custom field).&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>text01c</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;To get started, scroll the list and select a metadata type.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input01_MetadataTypeActionList</name>
@@ -444,6 +534,14 @@
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Next &gt;</nextOrFinishButtonLabel>
         <showFooter>false</showFooter>
@@ -465,16 +563,40 @@
             <name>text02a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 16px;&quot;&gt;Log a Metadata Change&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>text02b</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(150, 148, 146);&quot;&gt;Change Type&lt;/span&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;:  {!input01_MetadataTypeActionList.outputSelectedChangeType}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(150, 148, 146);&quot;&gt;Metadata Type&lt;/span&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;:  {!input01_MetadataTypeActionList.outputSelectedMetadataType}&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>text02c</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Enter the details of the metadata component you are creating in this story:&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>s02_Section1</name>
@@ -489,14 +611,33 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <fields>
                     <name>input02_APIName</name>
                     <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>input02_Name</elementReference>
+                    </defaultValue>
                     <fieldText>API Name (if any)</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -540,6 +681,14 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <fields>
                     <name>input02_Category</name>
@@ -552,6 +701,14 @@
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -563,6 +720,14 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input02_ComponentNotes</name>
@@ -570,6 +735,14 @@
             <fieldType>LargeTextArea</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input02_ChangeNotes</name>
@@ -577,6 +750,14 @@
             <fieldType>LargeTextArea</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <nextOrFinishButtonLabel>Log Change</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
@@ -592,22 +773,46 @@
         <allowPause>false</allowPause>
         <backButtonLabel>&lt; Back</backButtonLabel>
         <connector>
-            <targetReference>setDraftComponentChange02</targetReference>
+            <targetReference>decRenamed</targetReference>
         </connector>
         <fields>
             <name>text03a</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 16px;&quot;&gt;Log a Metadata Change&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>text03b</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(150, 148, 146); font-size: 14px;&quot;&gt;Change Type&lt;/span&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;:  {!input01_MetadataTypeActionList.outputSelectedChangeType}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;﻿&lt;/span&gt;&lt;span style=&quot;font-size: 14px; color: rgb(150, 148, 146);&quot;&gt;Metadata Type&lt;/span&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;:  {!input01_MetadataTypeActionList.outputSelectedMetadataType}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(150, 148, 146); font-size: 14px;&quot;&gt;Metadata Component&lt;/span&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;:  {!getSelectedComponent.Name}&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>text03c</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Provide notes about the change being made:&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>input03_Notes</name>
@@ -615,6 +820,123 @@
             <fieldType>LargeTextArea</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <fields>
+            <name>input03_Renamed</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <booleanValue>false</booleanValue>
+            </defaultValue>
+            <fieldText>The Metadata Component has been renamed</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>input01_MetadataTypeActionList.outputSelectedChangeType</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Modified</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>s03_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>s03_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>input03_Name</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>getSelectedComponent.Name</elementReference>
+                    </defaultValue>
+                    <fieldText>Name / Label</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <fields>
+                    <name>input03_APIName</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>getSelectedComponent.API_Name__c</elementReference>
+                    </defaultValue>
+                    <fieldText>API Name (if any)</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>input03_Renamed</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>input01_MetadataTypeActionList.outputSelectedChangeType</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Modified</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <nextOrFinishButtonLabel>Log Change</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
@@ -662,7 +984,7 @@
         <name>subflowHandleScreenError</name>
         <label>Handle Screen Error</label>
         <locationX>1546</locationX>
-        <locationY>1754</locationY>
+        <locationY>2162</locationY>
         <flowName>Imhotep_General_ScreenFlowError</flowName>
         <inputAssignments>
             <name>inputFaultMessage</name>
